@@ -4,15 +4,16 @@ filter:    erb
 layout:    nil   # no layout
 
 color:
-  border:      "#ddd"
-  header:      "#111"
-  link:        "#125AA7"
-  link-hover:  "#000"
-  blockquote:  "#666"
-  box-bg:      "#eee"
-  highlight:   "#B2CCFF"
-  quiet:       "#666"
-  alt:         "#666"
+  border:             "#ddd"
+  header:             "#111"
+  link:               "#125AA7"
+  link-hover:         "#000"
+  blockquote:         "#666"
+  box-bg:             "#eee"
+  highlight:          "#D82925" #light yellow
+  quiet:              "#666"
+  alt:                "#666"
+  box-bg-important:   "#FFF3CF"
 ---
 
 body {
@@ -63,5 +64,9 @@ p.title {
 }
 
 #header p.title { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+
+.box {
+  background: <%= @page.color['box-bg-important'] %>;
+}
 
 /* EOF */

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Home Page</title>
+   <title>Mais um tutorial?</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -25,24 +25,40 @@
 <div class="container">
 
    <div class="column span-20 prepend-2 append-2 first last" id="header">
-     <p class="title">A New Website</p>
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
      <hr>
    </div>
 
    <div class="column span-15 prepend-2 first">
-      <p class="title">Home Page</p>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.</p>
-<h2>Litora Sociis</h2>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan vestibulum ante. Vestibulum sed tortor. Praesent tempus fringilla elit. Ut elit diam, sagittis in, nonummy in, gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla odio, quis commodo est orci vitae justo. Aliquam placerat odio tincidunt nulla. Cras in libero. Aenean rutrum, magna non tristique posuere, erat odio eleifend nisl, non convallis est tortor blandit ligula. Nulla id augue.</p>
-<blockquote>
-<p>Nullam mattis, odio ut tempus facilisis, metus nisl facilisis metus, auctor consectetuer felis ligula nec mauris. Vestibulum odio erat, fermentum at, commodo vitae, ultrices et, urna. Mauris vulputate, mi pulvinar sagittis condimentum, sem nulla aliquam velit, sed imperdiet mi purus eu magna. Nulla varius metus ut eros. Aenean aliquet magna eget orci. Class aptent taciti sociosqu ad litora.</p>
-</blockquote>
-<p>Vivamus euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel nibh ut turpis dictum sagittis. Aliquam vel velit a elit auctor sollicitudin. Nam vel dui vel neque lacinia pretium. Quisque nunc erat, venenatis id, volutpat ut, scelerisque sed, diam. Mauris ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec mattis. Morbi dignissim sollicitudin libero. Nulla lorem.</p>
+      <p class="title">Mais um tutorial?</p>
+<p>Este é mais um tutorial de Ruby, idealizado pelos membros do <a href="http://www.guru-sp.org">GURU-SP</a> (Grupo de Usuários Ruby de SP). Apesar de existir uma <a href="http://guru-sp.com/index.php/Links">grande quantidade de materiais de Ruby em português</a> espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender as particularidades desta linguagem de programção.</p>
+<p>Nosso tutorial será baseado no material de Satish Talim do <a href="http://www.rubylearning.com">Ruby Learning</a>. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. Buscaremos melhorar o conteúdo e adicionar tópicos intermediários e avançados de Ruby.</p>
+<p class="title">Índice</p>
+<ol>
+<li>
+<a href="#h1">Olá mundo!</a>
+</li>
+</ol>
+<h2 id="h1"><span class="heading-num">1</span>Olá mundo!</h2>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># Olá mundo em Ruby</span>
+<span class="no"> 2</span> <span class="r">def</span> <span class="fu">render_page</span>
+<span class="no"> 3</span>   ary = []
+<span class="no"> 4</span>   str = ::<span class="co">Webby</span>::<span class="co">File</span>.read(<span class="iv">@page</span>.path)
+<span class="no"> 5</span> 
+<span class="no"> 6</span>   <span class="iv">@page</span>.filter.to_a.each <span class="r">do</span> |filter|
+<span class="no"> 7</span>     str = <span class="pc">self</span>.send(filter + <span class="s"><span class="dl">'</span><span class="k">_filter</span><span class="dl">'</span></span>, str)
+<span class="no"> 8</span>   <span class="r">end</span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span>   str
+<span class="no">11</span> <span class="r">end</span>
+</pre>
+</div>
    </div>
 
    <div class="column span-5 append-2 last">
-      <h4>Sidebar</h4>
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue. </p>
+
+      <p><img src="../images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></p>
 
       <div class="box">
          <p class="last">Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum egestas lorem. Duis ac sem sagittis elit tincidunt gravida.</p>
@@ -56,7 +72,7 @@
 
    <div class="column span-20 prepend-2 append-2 first last" id="footer">
      <hr />
-     <p>This website was created with <a href="http://webby.rubyforge.org">Webby</a></p>
+     <p>Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
    </div>
 
 </div>

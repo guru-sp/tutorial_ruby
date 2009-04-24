@@ -19,8 +19,8 @@ pre {
 }
 
 hr {
-  background: #B2CCFF;
-  color:      #B2CCFF;
+  background: #D82925;
+  color:      #D82925;
 }
 
 /* Tables
@@ -47,5 +47,9 @@ p.title {
 }
 
 #header p.title { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+
+.box {
+  background: #FFF3CF;
+}
 
 /* EOF */
