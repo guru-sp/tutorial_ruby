@@ -2,3 +2,51 @@ Esse tutorial será uma uma tradução parcial do tutorial do Satish Talim, que 
 
 O tutorial original pode ser encontrado aqui:
 http://rubylearning.com/satishtalim/tutorial.html
+
+O tutorial gerado por esse projeto está hospedado no github pages na seguinte URL:
+http://guru-sp.github.com/tutorial_ruby/
+
+O tutorial conta com dois branches:
+
+ - master - Onde está este readme e onde ficaram os exemplos de código Ruby (na pasta exemplos)
+ - gh-pages - onde fica o tutorial propriamente dito (código HTML, figuras e CSS)
+ 
+Antes de clonar o repositório entre nessa thread do Guru-SP:
+http://groups.google.com.br/group/ruby-sp/browse_thread/thread/e7dcb8393cc9ba45
+
+E peça permissão para ser commiter do projeto.
+
+Então faça:
+    git clone git@github.com:guru-sp/tutorial_ruby.git
+
+Além disso você precisa criar um branch gh-pages para trabalhar nas páginas web.
+Isso irá adicionar o branch gh-pages (Cuidado, se você tiver feito qualquer alteração
+no branch master ela será perdida!)
+
+    git symbolic-ref HEAD refs/heads/gh-pages
+    rm .git/index
+    git clean -fdx
+
+Agora você está no branch gh-pages e precisa pegar os arquivos do github. Execute:
+
+    git origin gh-pages
+
+Pronto. Agora você já pode começar a trabalhar.
+No diretório gh-pages você encontra a seguinte estrutura de pastas:
+
+    .cairn
+    _webby/
+    css/
+    images/
+    index.html
+
+Você deve editar somente a pasta webby e dentro dela executar o comando "webby". E este gerará
+as páginas html, css e imagens com as mudanças feitas.
+
+Para mais informações de como usar o webby acesse http://webby.rubyforge.org/tutorial/.
+
+Se quiser criar algum exemplo em ruby (arquivo .rb) ou alterar esse readme, vá para o branch master:
+
+    git checkout master
+
+Qualquer dúvida, entra na lista do Guru-SP e pergunte!

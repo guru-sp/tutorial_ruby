@@ -1,8 +1,0 @@
-SITE.output_dir = '..'
-
-task :default => :clean_build
-
-#desc 'deploy the site to the webserver'
-#task :deploy => [:build, 'deploy:rsync']
-
-# EOF
