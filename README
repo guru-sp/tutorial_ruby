@@ -29,7 +29,7 @@ no branch master ela será perdida!)
 
 Agora você está no branch gh-pages e precisa pegar os arquivos do github. Execute:
 
-    git origin gh-pages
+    git pull origin gh-pages
 
 Pronto. Agora você já pode começar a trabalhar.
 No diretório gh-pages você encontra a seguinte estrutura de pastas:
