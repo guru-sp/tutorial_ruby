@@ -13,7 +13,7 @@ Crie um diretório chamado, _programasruby_ em seu C:/ Nós armazenaremos todos 
 
 Por convenção, arquivos fonte Ruby tem a extensão *.rb*. No Microsoft Windows, arquivos fonte Ruby algumas vezes terminam com .rbw, como em meuscript.rbw. A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb
 
-<div class='box'>O layout do código é por sua conta; o jeito como você escolher indentar não é relevante (mas usando dois caracteres na indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código.</div>
+<div class='box'>O layout do código é por sua conta; o jeito como você escolher indentar não é relevante (mas usando dois caracteres na indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código).</div>
 
 Na janela esquerda do SciTE digite: puts 'Olá' e então clique em File/Save As... De o nome p001ola.rb e armazene ele no seu diretório programasruby. Pressione F5 para executar o programa. Você deveria ver Olá na janela de saída à direita. O programa é como exibido abaixo:
 
