@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>primeiro_programa_ruby</title>
+   <title>Meu Primeiro Programa Ruby</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -30,13 +30,33 @@
    </div>
 
    <div class="column span-15 prepend-2 first">
-      <p class="title">primeiro_programa_ruby</p>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.</p>
-<h2>Primeiro Programa Ruby</h2>
-<p>Vamos iniciar nosso editor Ruby SciTE. Para isso, em sua área de trabalho clique em Iniciar/Programas/Ruby-186-25/SciTE. A janela no editor abre. Pressione a tecla F8 para abrir uma janela de saída.</p>
-<p>Let&#8217;s start our Ruby editor SciTE. To do so, on your windows desktop click on start/Programs/Ruby-186-25/SciTE. The editor window opens. Press the F8 key to open an output window. Now, click on Options/Open Global Options File and search for &#8216;tabsize&#8217;. Edit and make tabsize=2 and indent.size=2. I like my SciTE window to be maximized at start and for that set the position.width=-1 and position.height=-1 Press Ctrl+S and the Ctrl+W. Next, press Ctrl+Shift+I &#8211; this opens the Indentation Settings window. Here, ensure that the Tab Size and Indent Size is set to 2 and that the Use tabs box is not checked. Click OK. We are now ready to write our first Ruby program.</p>
-<p>Create a folder named, say. rubyprograms on your C:/ We shall store all our programs in this folder. Our first program will display the string &#8216;Hello&#8217; on the command window and the name of the program will be p001hello.rb</p>
-<p>By convention, Ruby source files have the .rb file extension. In Microsoft Windows, Ruby source files sometimes end with .rbw, as in myscript.rbw. The Ruby coding convention states that file/directory name is lower case of class/module name with .rb extension. For example, Foo class has name foo.rb</p>
+      <p class="title">Meu Primeiro Programa Ruby</p>
+<p>Vamos iniciar o <strong>SciTE</strong>, nosso editor Ruby. Para isso, em sua área de trabalho clique em Iniciar/Programas/Ruby-186-25/SciTE. A janela do editor se abre. Pressione a tecla F8 para abrir uma janela de saída. Agora, clique em Options/Open Global Options File e procure por &#8216;tabsize&#8217;. Altere e crie tabsize=2 e indent.size=2. Eu gosto que a janela do meu SciTE esteja maximizada no início e, para isso, configure position.width=-1 e position.height=-1 Pressione Ctrl+S e Ctrl+W. Após isso, pressione Ctrl+Shift+I &#8211; isso abrirá a janela de configuração de indentação. Aqui, assegure que Tab Size e Indent Size está configurado como 2 e que a opção Use tabs box não está checada. Clique em OK. Agora nós estamos prontos para escrever nosso primeiro programa Ruby.</p>
+<p>Crie um diretório chamado, <em>programasruby</em> em seu C:/ Nós armazenaremos todos os nossos programas neste diretório. Nosso primeiro programa irá exibir a string &#8216;Olá&#8217; na janela de comando e o nome do programa será <strong>p001ola.rb</strong></p>
+<p>Por convenção, arquivos fonte Ruby tem a extensão <strong>.rb</strong>. No Microsoft Windows, arquivos fonte Ruby algumas vezes terminam com .rbw, como em meuscript.rbw. A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb</p>
+<div class='box'>O layout do código é por sua conta; o jeito como você escolher indentar não é relevante (mas usando dois caracteres na indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código.</div>
+<p>Na janela esquerda do SciTE digite: puts &#8216;Olá&#8217; e então clique em File/Save As&#8230; De o nome p001ola.rb e armazene ele no seu diretório programasruby. Pressione F5 para executar o programa. Você deveria ver Olá na janela de saída à direita. O programa é como exibido abaixo:</p>
+<p><div class="CodeRay"><br />
+<pre><span class="no">1</span> <span class="c"># p001ola.rb</span><br />
+<span class="no">2</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">Olá</span><span class="dl">&#8217;</span></span><br />
+</pre><br />
+</div><br />
+<strong>Nota:</strong> Ruby é uma linguagem de script. Não existe nenhum método principal especial por onde a execução do programa inicia. É dado ao interpretador do Ruby um script de instruções para executar, e ele começa da primeira linha e continua até a última linha. puts (a letra s em <strong>puts</strong> quer dizer string; <strong>puts</strong> significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.</p>
+<div class='box'>
+<p>a. Parênteses são geralmente opcionais nas chamadas de métodos. Estas chamadas são todas válidas:<br />
+foobar<br />
+foobar()<br />
+foobar(a, b, c)<br />
+foobar a, b, c</p>
+b. Em Ruby, tudo desde um inteiro até uma string é considerado um objeto (mais sobre isso depois). E cada objeto foi criado com &#8216;métodos&#8217; (termo Ruby para funções) os quais podem ser usados para várias coisas úteis. Para usar um método, você precisa por um ponto depois do objeto, e então acrescentar o nome do método. Alguns métodos como o puts e o gets estão disponíveis em todos os lugares e não precisam ser associados a um objeto específico.
+<p>Tecnicamente falando, esses métodos são fornecidos pelo módulo Kernel do Ruby (mais sobre isso depois) e eles são incluídos em todos os objetos Ruby (o módulo Kernel é incluído pela classe (mais sobre isso depois) Object, então esses métodos estão disponíveis em todo objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado main da classe Object é automaticamente criado. Esse objeto proporciona acesso aos métodos do Kernel.</p>
+</div>
+<h2>Observe</h2>
+<p>1. Programadores Java e C &#8211; não é necessário escrever um método/função main<br />
+2. Literais string são sequências de caracteres entre aspas simples ou dupla. Eu estou usando aspas simples em volta de Olá. &#8217; é mais eficiente que &quot; (mais sobre isso depois)<br />
+3. Ruby é uma linguagem interpretada, então você não precisa recompilar para executar um programa escrito em Ruby<br />
+4. Lançamentos do Ruby mesmo com números de sub-versões &#8211; 1.6, 1.8, e outros &#8211; são estáveis, versões públicas. Entretanto, em 2007 Matz quebrou a convenção e criou a versão 1.9 como uma pública e estável versão do Ruby<br />
+5. A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb</p>
    </div>
 
    <div class="column span-5 append-2 last">

@@ -1,5 +1,5 @@
 ---
-title:      primeiro_programa_ruby
+title:      Meu Primeiro Programa Ruby
 created_at: 2009-05-09 16:21:10.285545 -03:00
 filter:
   - erb
@@ -7,14 +7,38 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.
+Vamos iniciar o *SciTE*, nosso editor Ruby. Para isso, em sua área de trabalho clique em Iniciar/Programas/Ruby-186-25/SciTE. A janela do editor se abre. Pressione a tecla F8 para abrir uma janela de saída. Agora, clique em Options/Open Global Options File e procure por 'tabsize'. Altere e crie tabsize=2 e indent.size=2. Eu gosto que a janela do meu SciTE esteja maximizada no início e, para isso, configure position.width=-1 e position.height=-1 Pressione Ctrl+S e Ctrl+W. Após isso, pressione Ctrl+Shift+I - isso abrirá a janela de configuração de indentação. Aqui, assegure que Tab Size e Indent Size está configurado como 2 e que a opção Use tabs box não está checada. Clique em OK. Agora nós estamos prontos para escrever nosso primeiro programa Ruby.
 
-h2. Primeiro Programa Ruby
+Crie um diretório chamado, _programasruby_ em seu C:/ Nós armazenaremos todos os nossos programas neste diretório. Nosso primeiro programa irá exibir a string 'Olá' na janela de comando e o nome do programa será *p001ola.rb*
 
-Vamos iniciar nosso editor Ruby SciTE. Para isso, em sua área de trabalho clique em Iniciar/Programas/Ruby-186-25/SciTE. A janela no editor abre. Pressione a tecla F8 para abrir uma janela de saída.
+Por convenção, arquivos fonte Ruby tem a extensão *.rb*. No Microsoft Windows, arquivos fonte Ruby algumas vezes terminam com .rbw, como em meuscript.rbw. A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb
 
-Let's start our Ruby editor SciTE. To do so, on your windows desktop click on start/Programs/Ruby-186-25/SciTE. The editor window opens. Press the F8 key to open an output window. Now, click on Options/Open Global Options File and search for 'tabsize'. Edit and make tabsize=2 and indent.size=2. I like my SciTE window to be maximized at start and for that set the position.width=-1 and position.height=-1 Press Ctrl+S and the Ctrl+W. Next, press Ctrl+Shift+I - this opens the Indentation Settings window. Here, ensure that the Tab Size and Indent Size is set to 2 and that the Use tabs box is not checked. Click OK. We are now ready to write our first Ruby program.
+<div class='box'>O layout do código é por sua conta; o jeito como você escolher indentar não é relevante (mas usando dois caracteres na indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código.</div>
 
-Create a folder named, say. rubyprograms on your C:/ We shall store all our programs in this folder. Our first program will display the string 'Hello' on the command window and the name of the program will be p001hello.rb
+Na janela esquerda do SciTE digite: puts 'Olá' e então clique em File/Save As... De o nome p001ola.rb e armazene ele no seu diretório programasruby. Pressione F5 para executar o programa. Você deveria ver Olá na janela de saída à direita. O programa é como exibido abaixo:
 
-By convention, Ruby source files have the .rb file extension. In Microsoft Windows, Ruby source files sometimes end with .rbw, as in myscript.rbw. The Ruby coding convention states that file/directory name is lower case of class/module name with .rb extension. For example, Foo class has name foo.rb 
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p001ola.rb
+puts 'Olá'
+<% end -%>
+
+*Nota:* Ruby é uma linguagem de script. Não existe nenhum método principal especial por onde a execução do programa inicia. É dado ao interpretador do Ruby um script de instruções para executar, e ele começa da primeira linha e continua até a última linha. puts (a letra s em *puts* quer dizer string; *puts* significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.
+
+<div class='box'>
+a. Parênteses são geralmente opcionais nas chamadas de métodos. Estas chamadas são todas válidas:
+foobar
+foobar()
+foobar(a, b, c)
+foobar a, b, c
+
+ b. Em Ruby, tudo desde um inteiro até uma string é considerado um objeto (mais sobre isso depois). E cada objeto foi criado com 'métodos' (termo Ruby para funções) os quais podem ser usados para várias coisas úteis. Para usar um método, você precisa por um ponto depois do objeto, e então acrescentar o nome do método. Alguns métodos como o puts e o gets estão disponíveis em todos os lugares e não precisam ser associados a um objeto específico.
+Tecnicamente falando, esses métodos são fornecidos pelo módulo Kernel do Ruby (mais sobre isso depois) e eles são incluídos em todos os objetos Ruby (o módulo Kernel é incluído pela classe (mais sobre isso depois) Object, então esses métodos estão disponíveis em todo objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado main da classe Object é automaticamente criado. Esse objeto proporciona acesso aos métodos do Kernel.
+</div>
+
+h2. Observe
+
+1. Programadores Java e C - não é necessário escrever um método/função main
+2. Literais string são sequências de caracteres entre aspas simples ou dupla. Eu estou usando aspas simples em volta de Olá. ' é mais eficiente que " (mais sobre isso depois)
+3. Ruby é uma linguagem interpretada, então você não precisa recompilar para executar um programa escrito em Ruby
+4. Lançamentos do Ruby mesmo com números de sub-versões - 1.6, 1.8, e outros - são estáveis, versões públicas. Entretanto, em 2007 Matz quebrou a convenção e criou a versão 1.9 como uma pública e estável versão do Ruby
+5. A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb
