@@ -31,8 +31,8 @@ foobar()
 foobar(a, b, c)
 foobar a, b, c
 
- b. Em Ruby, tudo desde um inteiro até uma string é considerado um objeto (mais sobre isso depois). E cada objeto foi criado com 'métodos' (termo Ruby para funções) os quais podem ser usados para várias coisas úteis. Para usar um método, você precisa por um ponto depois do objeto, e então acrescentar o nome do método. Alguns métodos como o puts e o gets estão disponíveis em todos os lugares e não precisam ser associados a um objeto específico.
-Tecnicamente falando, esses métodos são fornecidos pelo módulo Kernel do Ruby (mais sobre isso depois) e eles são incluídos em todos os objetos Ruby (o módulo Kernel é incluído pela classe (mais sobre isso depois) Object, então esses métodos estão disponíveis em todo objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado main da classe Object é automaticamente criado. Esse objeto proporciona acesso aos métodos do Kernel.
+ b. Em Ruby, tudo desde um inteiro até uma string é considerado um objeto (mais sobre isso depois). E cada objeto foi criado com 'métodos' (termo Ruby para funções) os quais podem ser usados para várias coisas úteis. Para usar um método, você precisa por um ponto depois do objeto, e então acrescentar o nome do método. Alguns métodos como o *puts* e o *gets* estão disponíveis em todos os lugares e não precisam ser associados a um objeto específico.
+Tecnicamente falando, esses métodos são fornecidos pelo módulo *Kernel* do Ruby (mais sobre isso depois) e eles são incluídos em todos os objetos Ruby (o módulo *Kernel* é incluído pela classe (mais sobre isso depois) *Object*, então esses métodos estão disponíveis em todo objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado *main* da classe *Object* é automaticamente criado. Esse objeto proporciona acesso aos métodos de *Kernel*.
 </div>
 
 h2. Observe
