@@ -16,6 +16,11 @@ p(title). Índice
 
 <toc />
 
+h2. Páginas já traduzidas
+
+* "Primeiro programa ruby":primeiro-programa-ruby.html
+* "Características":caracteristicas.html
+
 h2. Olá mundo!
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
@@ -31,4 +36,3 @@ def render_page
   str
 end
 <% end -%>
-
