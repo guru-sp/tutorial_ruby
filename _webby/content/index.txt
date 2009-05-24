@@ -20,6 +20,7 @@ h2. Páginas já traduzidas
 
 * "Primeiro programa ruby":primeiro-programa-ruby.html
 * "Características":caracteristicas.html
+* "Números em Ruby":numeros-em-ruby.html
 
 h2. Olá mundo!
 
