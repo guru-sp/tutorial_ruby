@@ -1,0 +1,15 @@
+---
+title:      Variáveis e atribuição
+created_at: 2009-05-24 19:29:50.945539 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Para armazenar um número ou string na memória de seu computador para usar posteriormente em seu programa, você precisa dar um nome para esse número ou string. Programadores frequentemente referem-se a esse processo como atribuição e chamam os nomes de variáveis. Uma variável começa a existir assim que o interpretador vê uma atribuição para essa variável.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+s = 'Olá Mundo!'
+x = 10
+<% end -%>

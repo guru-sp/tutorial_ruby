@@ -24,6 +24,7 @@ h2. Páginas já traduzidas
 ** Operadores e precedência
 ** Diferença entre os operadores or e ||
 * "Diversão com strings":diversao-com-strings.html
+* "Variáveis e atribuição":variaveis-e-atribuicao.html
 
 h2. Olá mundo!
 
