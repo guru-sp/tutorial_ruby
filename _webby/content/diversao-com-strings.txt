@@ -24,7 +24,7 @@ puts 'Eu gosto de' + ' Ruby'
 # Sequência com escape
 puts 'It\'s my Ruby'  
 # Exibe a string 3 vezes  
-puts 'Hello' * 3  
+puts 'Olá' * 3  
 # Definindo uma constante
 # Mais sobre constantes depois, aqui  
 # http://rubylearning.com/satishtalim/ruby_names.html  
@@ -57,7 +57,7 @@ puts `ls`
 
 &nbsp;
 
-Outro modo de executar um processo separado é utilizando o método *system* de *Kernel*. O método executa um comando dado a ele em um sub-processo; ele retorna *true* se o comando for encontrado e executado própriamente. Ele retorna *false* se o comando encerrar com um status de saída diferente de zero, e *nil* se o comando falhar ao executar. Lembre-se, a saída do comando simplesmente irá para o mesmo destino da saída do seu programa. 
+Outro modo de executar um processo separado é utilizando o método *system* de *Kernel*. O método executa um comando dado a ele em um sub-processo; ele retorna *true* se o comando for encontrado e executado propriamente. Ele retorna *false* se o comando encerrar com um status de saída diferente de zero, e *nil* se o comando falhar ao executar. Lembre-se, a saída do comando simplesmente irá para o mesmo destino da saída do seu programa. 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 system("tar xzf teste.tgz") # => true
