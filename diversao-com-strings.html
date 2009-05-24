@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Diversão com strings</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-20 prepend-2 append-2 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-15 prepend-2 first">
+      <p class="title">Diversão com strings</p>
+<p>Literais string são sequências de caracteres entre aspas simples ou dupla. &#8217;&#8217; (duas aspas simples) que não contêm nada dentro delas; nós chamamos de string vazia. Aqui está um programa <strong>p003stringsruby.rb</strong> que explora strings a um certo nível.</p>
+<p><div class="CodeRay"><br />
+<pre><span class="no"> 1</span> <span class="c"># p003stringsruby.rb  </span><br />
+<span class="no"> 2</span> <span class="c">=begin  <br />
+<span class="no"> 3</span>   Strings Ruby<br />
+<span class="no"> 4</span>   Em Ruby, strings são mutáveis  <br />
+<span class="no"> 5</span> =end  </span><br />
+<span class="no"> 6</span> <br />
+<span class="no"> 7</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá Mundo</span><span class="dl">&quot;</span></span><br />
+<span class="no"> 8</span> <span class="c"># Pode-se usar &quot; ou &#8217; para strings, mas &#8217; é mais eficiente  </span><br />
+<span class="no"> 9</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">Olá Mundo</span><span class="dl">&#8217;</span></span>  <br />
+<span class="no"><strong>10</strong></span> <span class="c"># Concatenação de strings  </span><br />
+<span class="no">11</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">Eu gosto de</span><span class="dl">&#8217;</span></span> + <span class="s"><span class="dl">&#8216;</span><span class="k"> Ruby</span><span class="dl">&#8217;</span></span>  <br />
+<span class="no">12</span> <span class="c"># Sequência com escape</span><br />
+<span class="no">13</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">It</span><span class="ch">\&#8217;</span><span class="k">s my Ruby</span><span class="dl">&#8216;</span></span>  <br />
+<span class="no">14</span> <span class="c"># Exibe a string 3 vezes  </span><br />
+<span class="no">15</span> puts <span class="s"><span class="dl">&#8217;</span><span class="k">Hello</span><span class="dl">&#8217;</span></span> * <span class="i">3</span>  <br />
+<span class="no">16</span> <span class="c"># Definindo uma constante</span><br />
+<span class="no">17</span> <span class="c"># Mais sobre constantes depois, aqui  </span><br />
+<span class="no">18</span> <span class="c"># http://rubylearning.com/satishtalim/ruby_names.html  </span><br />
+<span class="no">19</span> <span class="co">PI</span> = <span class="fl">3.1416</span><br />
+<span class="no"><strong>20</strong></span> puts <span class="co">PI</span><br />
+</pre><br />
+</div><br />
+&nbsp;</p>
+<div class='box'>
+<ol>
+	<li>Se é passado ao <strong>puts</strong> um objeto que não é uma string, o <strong>puts</strong> chama o método <strong>to_s</strong> deste objeto e imprime a string retornada pelo método.</li>
+	<li>Em Ruby, strings são <strong>mutáveis</strong>. Elas podem expandir quando necessário, sem utilizar muito tempo ou memória. O Ruby armazena uma string como uma sequência de caracteres.<br />
+</div></li>
+</ol>
+<p>Vale a pena saber que existe um tipo especial de string que usa acento grave (`) como delimitador de início e fim. Por exemplo:</p>
+<p><div class="CodeRay"><br />
+<pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">dir</span><span class="dl">`</span></span><br />
+</pre><br />
+</div><br />
+&nbsp;</p>
+<p>&#8230;</p>
+   </div>
+
+   <div class="column span-5 append-2 last">
+
+      <p><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></p>
+
+      <div class="box">
+         <p class="last">Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum egestas lorem. Duis ac sem sagittis elit tincidunt gravida.</p>
+      </div>
+
+      <p class="quiet">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue.</p>
+
+      <h5>Incremental leading</h5>
+      <p class="incr">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue. sed aliquet vehicula, lectus tellus.</p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

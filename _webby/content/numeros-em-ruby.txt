@@ -38,7 +38,7 @@ A hierarquia das classes (cortesia: "Donald Craig":http://www.cs.mun.ca/%7Edonal
 
 !images/class.gif!
 
-h2. Operadores e Precedência
+h2. Operadores e precedência
 
 Vamos dar uma olhada nos operadores do Ruby (cortesia: Dave Thomas' - "Programming Ruby":http://www.pragprog.com/titles/ruby3/programming-ruby-3). Eles estão organizados aqui em ordem de precedência, da mais alta para a mais baixa.
 

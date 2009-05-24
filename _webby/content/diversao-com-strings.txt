@@ -1,0 +1,50 @@
+---
+title:      Diversão com strings
+created_at: 2009-05-24 13:56:49.734412 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Literais string são sequências de caracteres entre aspas simples ou dupla. '' (duas aspas simples) que não contêm nada dentro delas; nós chamamos de string vazia. Aqui está um programa *p003stringsruby.rb* que explora strings a um certo nível.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p003stringsruby.rb  
+=begin  
+  Strings Ruby
+  Em Ruby, strings são mutáveis  
+=end  
+
+puts "Olá Mundo"
+# Pode-se usar " ou ' para strings, mas ' é mais eficiente  
+puts 'Olá Mundo'  
+# Concatenação de strings  
+puts 'Eu gosto de' + ' Ruby'  
+# Sequência com escape
+puts 'It\'s my Ruby'  
+# Exibe a string 3 vezes  
+puts 'Hello' * 3  
+# Definindo uma constante
+# Mais sobre constantes depois, aqui  
+# http://rubylearning.com/satishtalim/ruby_names.html  
+PI = 3.1416
+puts PI
+<% end -%>
+
+&nbsp;
+
+<div class='box'>
+# Se é passado ao *puts* um objeto que não é uma string, o *puts* chama o método *to_s* deste objeto e imprime a string retornada pelo método.
+# Em Ruby, strings são *mutáveis*. Elas podem expandir quando necessário, sem utilizar muito tempo ou memória. O Ruby armazena uma string como uma sequência de caracteres.
+</div>
+
+Vale a pena saber que existe um tipo especial de string que usa acento grave (`) como delimitador de início e fim. Por exemplo:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+puts `dir`
+<% end -%>
+
+&nbsp;
+
+...

@@ -21,6 +21,9 @@ h2. Páginas já traduzidas
 * "Primeiro programa ruby":primeiro-programa-ruby.html
 * "Características":caracteristicas.html
 * "Números em Ruby":numeros-em-ruby.html
+** Operadores e precedência
+** Diferença entre os operadores or e ||
+* "Diversão com strings":diversao-com-strings.html
 
 h2. Olá mundo!
 
