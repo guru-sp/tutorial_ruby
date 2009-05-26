@@ -13,3 +13,11 @@ Para armazenar um número ou string na memória de seu computador para usar post
 s = 'Olá Mundo!'
 x = 10
 <% end -%>
+
+Teste só para mostrar para um pessoal
+
+Teste: *negrito*
+
+# asdasd
+# asdsad
+# asdsadsadsad
