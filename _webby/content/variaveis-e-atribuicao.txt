@@ -17,7 +17,7 @@ x = 10
 &nbsp;
 
 <div class='box'>
-Uma bareword é qualquer combinação de letras, números e underscores, e não é qualificado por nenhum símbolo (Referência: "http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html":http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html). Variáveis locais e barewords parecem similares; elas devem iniciar com underscore (_) ou uma letra minúscula, e elas devem consistir inteiramente de letras, números e underscores. Lembre-se, referências a variáveis locais parecem com invocações de métodos e palavras chaves não podem ser usadas como nomes de variáveis (locais).
+Uma bareword é qualquer combinação de letras, números e underscores, e não é qualificada por nenhum símbolo (Referência: "http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html":http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html). Variáveis locais e barewords parecem similares; elas devem iniciar com underscore (_) ou uma letra minúscula, e elas devem consistir inteiramente de letras, números e underscores. Lembre-se, referências a variáveis locais parecem com invocações de métodos e palavras chaves não podem ser usadas como nomes de variáveis (locais).
 
 Chamadas a métodos também podem ser barewords, como em meu_metodo. *gets* é uma chamada a um método; assim como *system*. Seja lá onde o Ruby vê uma bareword, ele interpreta-a como uma entre três coisas: (a) Se existe um sinal de igual do lado direito da bareword, ela é uma variável local sofrendo uma atribuição. (b) Ruby tem uma lista interna de palavras chaves e uma bareword pode ser uma delas. (c) Se uma bareword não é (a) ou (b), ela é assumida como sendo uma chamada a método. Se não existe nenhum método com esse nome, Ruby lança um *NameError*.
 </div>
@@ -68,7 +68,5 @@ o ponto significa que a mensagem "to_f" está sendo enviada para a string "200.0
 </div>
 
 h2. Sumário
-
-I have listed down all the important points you need to remember after you have completed the following topics: Introduction, Installation, First Ruby program, Features of Ruby, Numbers in Ruby, String fundamentals and Variables and Assignment.
 
 Eu listei todos os "pontos importantes":sumario_ruby1.html que você precisa lembrar depois de ter completado os seguintes tópicos: "Introdução":introducao.html, "Instalação":instalacao.html, "Primeiro programa Ruby":primeiro-programa-ruby.html, "Características":caracteristicas.html, "Números em Ruby":numeros-em-ruby.html, "Diversão com strings":diversao-com-strings.html e "Variáveis e atribuição":variaveis-e-atribuicao.html.
