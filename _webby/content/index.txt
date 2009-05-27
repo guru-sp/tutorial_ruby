@@ -25,6 +25,7 @@ h2. Páginas já traduzidas
 ** Diferença entre os operadores or e ||
 * "Diversão com strings":diversao-com-strings.html
 * "Variáveis e atribuição":variaveis-e-atribuicao.html
+* "Sumário 1":sumario-ruby1.html
 
 h2. Olá mundo!
 
