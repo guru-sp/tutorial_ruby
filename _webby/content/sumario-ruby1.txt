@@ -16,5 +16,5 @@ p(title). <%= h(@page.title) %>
 # Em Ruby, a execução de um programa geralmente procede do topo para o fim do script.
 # Características: Formato livre, Case sensitive, Dois tipos de comentários, Delimitações de instruções não são requeridas, Por volta de 41 palavras chaves, e toda palavra chave Ruby é escrita usando caracteres ASCII, e todos os operadores e outras pontuações são desenhadas a partir da coleção de caracteres ASCII.
 # Você pode estar acostumado a pensar que um valor falso pode ser representado como um zero, uma string nula, um caractere nulo, ou várias outras coisas. Mas em Ruby, todos esses são verdadeiros, tudo é verdadeiro exceto as palavras reservadas false e nil.
-# Nós estaremos nos referindo a "documentação":http://www.ruby-doc.org/core.
+# Nós estaremos nos referindo à "documentação":http://www.ruby-doc.org/core.
 # *puts* (a letra s em *puts* quer dizer string; *puts* significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.
