@@ -69,4 +69,4 @@ o ponto significa que a mensagem "to_f" está sendo enviada para a string "200.0
 
 h2. Sumário
 
-Eu listei todos os "pontos importantes":sumario_ruby1.html que você precisa lembrar depois de ter completado os seguintes tópicos: "Introdução":introducao.html, "Instalação":instalacao.html, "Primeiro programa Ruby":primeiro-programa-ruby.html, "Características":caracteristicas.html, "Números em Ruby":numeros-em-ruby.html, "Diversão com strings":diversao-com-strings.html e "Variáveis e atribuição":variaveis-e-atribuicao.html.
+Eu listei todos os "pontos importantes":sumario-ruby1.html que você precisa lembrar depois de ter completado os seguintes tópicos: "Introdução":introducao.html, "Instalação":instalacao.html, "Primeiro programa Ruby":primeiro-programa-ruby.html, "Características":caracteristicas.html, "Números em Ruby":numeros-em-ruby.html, "Diversão com strings":diversao-com-strings.html e "Variáveis e atribuição":variaveis-e-atribuicao.html.
