@@ -26,6 +26,7 @@ h2. Páginas já traduzidas
 * "Diversão com strings":diversao-com-strings.html
 * "Variáveis e atribuição":variaveis-e-atribuicao.html
 * "Sumário 1":sumario-ruby1.html
+* "Escopo":escopo.html
 
 h2. Olá mundo!
 
