@@ -31,13 +31,19 @@
 
    <div class="column span-15 prepend-2 first">
       <p class="title">Escopo</p>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.</p>
-<h2>Litora Sociis</h2>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan vestibulum ante. Vestibulum sed tortor. Praesent tempus fringilla elit. Ut elit diam, sagittis in, nonummy in, gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla odio, quis commodo est orci vitae justo. Aliquam placerat odio tincidunt nulla. Cras in libero. Aenean rutrum, magna non tristique posuere, erat odio eleifend nisl, non convallis est tortor blandit ligula. Nulla id augue.</p>
-<blockquote>
-<p>Nullam mattis, odio ut tempus facilisis, metus nisl facilisis metus, auctor consectetuer felis ligula nec mauris. Vestibulum odio erat, fermentum at, commodo vitae, ultrices et, urna. Mauris vulputate, mi pulvinar sagittis condimentum, sem nulla aliquam velit, sed imperdiet mi purus eu magna. Nulla varius metus ut eros. Aenean aliquet magna eget orci. Class aptent taciti sociosqu ad litora.</p>
-</blockquote>
-<p>Vivamus euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel nibh ut turpis dictum sagittis. Aliquam vel velit a elit auctor sollicitudin. Nam vel dui vel neque lacinia pretium. Quisque nunc erat, venenatis id, volutpat ut, scelerisque sed, diam. Mauris ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec mattis. Morbi dignissim sollicitudin libero. Nulla lorem.</p>
+<p>Escopo refere-se ao alcance de visibilidade das variáveis. Diferentes tipos de variáveis tem diferentes regras de escopo. Nós estaremos falando principalmente sobre dois tipos: variáveis globais e locais.</p>
+<h2>Escopo global e variáveis globais</h2>
+<p>Nós estamos começando com o escopo que é utilizado com menos frequência, mas que você precisa ficar ciente que: escopo global significa que cobre todo o programa. O escopo global é desfrutado por variáveis globais. Variáveis globais são distinguidas por começarem com um sinal de dólar ($). Elas são disponíveis em qualquer lugar do programa. Variáveis globais nunca saem do escopo. Entretando, variáveis globais são utilizadas muito poucas vezes por programadores experientes (exceto, talvez, aquelas que já vem embutidas).</p>
+<h2>Variáveis globais embutidas</h2>
+<p>O interpretador do Ruby trás um relativamente grande número de variáveis globais inicializadas. Essas variáveis armazenam informações que possuem potencial usabilidade em todo e qualquer lugar em seu programa. Por exemplo, a variável global <strong>$0</strong> contém o nome do arquivo Ruby sendo executado. A global <strong>$:</strong> (dólar seguido de dois pontos) contém os diretórios que compõem o path onde o Ruby busca quando você carrega um arquivo externo. <strong>$$</strong> contém o id do processo no processamento do Ruby. E existem outras.</p>
+<h2>Escopo local</h2>
+<p><strong>Nota:</strong> Não se preocupe se você não entender essa parte agora.<br />
+Você pode dizer, olhando um programa Ruby, onde o escopo local começa e termina, baseado nas seguintes regras:</p>
+<ul>
+	<li>O nível mais alto (por fora de todas as definições de bloco) tem seu próprio escopo local.</li>
+	<li>Cada definição de bloco de classe ou módulo (class, module) tem seu próprio escopo local, mesmo definições de blocos de classes/módulos aninhadas.</li>
+	<li>Cada definição de bloco de método (def) tem seu próprio escopo local.</li>
+</ul>
    </div>
 
    <div class="column span-5 append-2 last">
