@@ -27,6 +27,9 @@ h2. Páginas já traduzidas
 * "Variáveis e atribuição":variaveis-e-atribuicao.html
 * "Sumário 1":sumario-ruby1.html
 * "Escopo":escopo.html
+** Escopo global e variáveis globais
+** Variáveis globais embutidas
+** Escopo local
 
 h2. Olá mundo!
 
