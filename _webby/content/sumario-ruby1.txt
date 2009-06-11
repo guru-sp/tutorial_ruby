@@ -47,9 +47,7 @@ nivel = 0
 tamanho = 0<br />
 é preferível do que:<br />
 nivel = tamanho = 0
-# x, y = y, x...
-
-# x, y = y, x will interchange the values of x and y. Parallel assignment is any assignment expression that has more than one lvalue, more than one rvalue, or both. Multiple lvalues and multiple rvalues are separated from each other with commas.
-# Local variables must start with either a lowercase letter or the underscore character (_), and they must consist entirely of letters, numbers, and underscores. Examples: india, _usa, some_var
-# .to_i, .to_f, .to_s are used to convert to an integer, float, string respectively.
-# The operator << is used to append to a string
+# x, y = y, x trocarãom os valores de x e y. Atribuição paralela é qualquer expressão de atribuição que tem mais de um valores a esquerda, mais de um valores a direita, ou ambos. Múltiplos valores a esquerda e múltiplos valores a direita são separados por vírgula.
+# Variáveis locais devem começar com letra minúscula ou underscores ( _ ), e devem consistir inteiramente de letras, números e underscores. Exemplos: india, ___usa, alguma_variavel
+# .to_i, .to_f, .to_s são usados para converter para um inteiro, float, string respectivamente.
+# O operador << é usado para adicionar a uma string.
