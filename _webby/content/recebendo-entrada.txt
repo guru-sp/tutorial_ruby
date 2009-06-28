@@ -1,0 +1,31 @@
+---
+title:      Recebendo Entrada
+created_at: 2009-06-28 14:05:42.935486 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Páginas atrás nós vimos o método *puts* que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso *gets* (get a string) and *chomp* são úteis. O exemplo *p005metodos.rb* abaixo ilustra o mesmo.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p005metodos.rb
+# gets e chomp
+puts "Em qual cidade você está?"
+STDOUT.flush
+cidade = gets.chomp
+puts "A cidade é " + cidade
+<% end -%>
+
+&nbsp;
+
+Quando você executar o exemplo acima no SciTE, clique no caixa de saída (no lado direito do SciTE) e então digite o nome de sua cidade.
+
+*STDOUT* é uma constante global que é a saída padrão atual do programa. *flush* limpa qualquer dado armazenado no buffer de entrada e saída do Ruby. O uso não é mandatório, mas recomendado.
+
+*gets* recebe uma linha única de dados da entrada padrão - o teclado nessse caso - e atribui a string digitada pelo usuário à variável *cidade*.
+
+*chomp* é um método de string e retorna apenas strings do que veio do teclado. Você deve ter percebido que *gets* retorna uma string e o caracter '\n' (quebra de linha), enquanto *chomp* remove o '\n'.
+
+<div class='box'>*NO RAILS*: Os dados vêm de muitas fontes. Em uma aplicação típica do Rails, eles vêm do banco de dados. Como um desenvolvedor Rails, você pode se encontrar utilizando relativamente poucas dessas facilidades, porque o Rails faz o tratamento dos dados para você; e seus usuários, quando eles enviam entradas pelo teclado, estarão geralmente digitando em um formulário web.</div>
