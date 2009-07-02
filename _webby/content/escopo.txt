@@ -11,7 +11,7 @@ Escopo refere-se ao alcance de visibilidade das variáveis. Diferentes tipos de 
 
 h2. Escopo global e variáveis globais
 
-Nós estamos começando com o escopo que é utilizado com menos frequência, mas que você precisa ficar ciente que: escopo global significa que cobre todo o programa. O escopo global é desfrutado por variáveis globais. Variáveis globais são distinguidas por começarem com um sinal de dólar ($). Elas são disponíveis em qualquer lugar do programa. Variáveis globais nunca saem do escopo. Entretando, variáveis globais são utilizadas muito poucas vezes por programadores experientes (exceto, talvez, aquelas que já vem embutidas).
+Nós estamos começando com o escopo que é utilizado com menos frequência, mas que você precisa ficar ciente que: escopo global significa que cobre todo o programa. O escopo global é desfrutado por variáveis globais. Variáveis globais são distinguidas por começarem com um sinal de dólar ($). Elas são disponíveis em qualquer lugar do programa. Variáveis globais nunca saem do escopo. Entretanto, variáveis globais são utilizadas muito poucas vezes por programadores experientes (exceto, talvez, aquelas que já vem embutidas).
 
 h2. Variáveis globais embutidas
 

@@ -9,6 +9,7 @@ p(title). <%= h(@page.title) %>
 
 Vamos brincar com números. Em Ruby, números sem pontos decimais são chamados inteiros (integers), e números com pontos decimais são geralmente chamados de números ponto flutuante (floating-point numbers) ou, mais simples, floats (você deve inserir pelo menos um dígito depois do ponto decimal). Um literal inteiro é uma simples sequência de dígitos ex. 0, 123, 123456789. Underscores podem ser inseridos em literais inteiros (embora não no começo ou no final), e essa características é utilizada algumas vezes como separador de casa de milhar ex. 1_000_000_000. Caracteres Underscore são ignorados no dígito de string. Aqui está o programa *p002numerosruby.rb*
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p002numerosruby.rb
 =begin
@@ -29,10 +30,11 @@ puts 3 / 2
 puts 10 - 11
 puts 1.5 / 2.6
 <% end -%>
+</notextile>
 
-&nbsp;
-
-<div class='box'>Inteiros Ruby são objetos da classe *Fixnum* ou *Bignum*. As classes *Fixnum* e *Bignum* representam inteiros de diferentes tamanhos. Ambas as classes descendem de *Integer* (e, sendo assim, de *Numeric*). Os números ponto flutuantes são objetos da classe *Float*, correspondendo a nativa arquitetura do tipo de data double. As classes *Complex*, *BigDecimal* e *Rational* não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.</div>
+<div class='box'>
+Inteiros Ruby são objetos da classe *Fixnum* ou *Bignum*. As classes *Fixnum* e *Bignum* representam inteiros de diferentes tamanhos. Ambas as classes descendem de *Integer* (e, sendo assim, de *Numeric*). Os números ponto flutuantes são objetos da classe *Float*, correspondendo a nativa arquitetura do tipo de data double. As classes *Complex*, *BigDecimal* e *Rational* não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.
+</div>
 
 A hierarquia das classes (cortesia: "Donald Craig":http://www.cs.mun.ca/%7Edonald) é como mostrado na figura abaixo:
 
@@ -52,14 +54,14 @@ Vamos dar uma olhada nos operadores do Ruby (cortesia: Dave Thomas' - "Programmi
 
 O operador módulo (%) do Ruby comportasse da forma a seguir:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts (5 % 3)     # imprime  2  
 puts (-5 % 3)    # imprime  1  
 puts (5 % -3)    # imprime -1  
 puts (-5 % -3)   # imprime -2 
 <% end -%>
-
-&nbsp;
+</notextile>
 
 A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.
 
@@ -67,14 +69,17 @@ h2. Diferença entre os operadores or e ||
 
 Ambos, *or* e *||*, retornam o primeiro argumento ao menos que este retorne *false*, neste caso avaliam e retoram o segundo argumento. Isto é demonstrado no exemplo seguinte:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts nil || 2008  
 puts false || 2008  
 puts "ruby" || 2008
 <% end -%>
+</notextile>
 
 A saída é:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 >ruby test.rb  
 2008  
@@ -82,31 +87,32 @@ A saída é:
 ruby  
 >Exit code: 0
 <% end -%>
-
-&nbsp;
+</notextile>
 
 A única diferença entre *or* e *||* é sua precedência. *||* tem uma precedência mais alta do que *or*.
 
 Uma prática comum é usar || para atribuir valor a uma variável somente se nenhum valor foi atribuído a ela. Isso pode ser escrito assim:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 @variavel = @variavel || "valor padrão"
 <% end -%>
+</notextile>
 
 ou, mais idiomático, como:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 @variavel ||= "valor padrão"
 <% end -%>
-
-&nbsp;
+</notextile>
 
 Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles tem precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 if a = f(x) and b = f(y) and c = f(z) then d = g(a,b,c) end
 <% end -%>
+</notextile>
 
-&nbsp;
-
-Esta expressão simplesmente não funcionaria se escrita com *&&* ao invéz de *and*.
+Esta expressão simplesmente não funcionaria se escrita com *&&* ao invés de *and*.

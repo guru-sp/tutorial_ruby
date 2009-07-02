@@ -9,12 +9,12 @@ p(title). <%= h(@page.title) %>
 
 Para armazenar um número ou string na memória de seu computador para usar posteriormente em seu programa, você precisa dar um nome para esse número ou string. Programadores frequentemente referem-se a esse processo como atribuição e chamam os nomes de variáveis. Uma variável começa a existir assim que o interpretador vê uma atribuição para essa variável.
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 s = 'Olá Mundo!'
 x = 10
 <% end -%>
-
-&nbsp;
+</notextile>
 
 <div class='box'>
 Uma bareword é qualquer combinação de letras, números e underscores, e não é qualificada por nenhum símbolo (Referência: "http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html":http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html). Variáveis locais e barewords parecem similares; elas devem iniciar com underscore (_) ou uma letra minúscula, e elas devem consistir inteiramente de letras, números e underscores. Lembre-se, referências a variáveis locais parecem com invocações de métodos e palavras chaves não podem ser usadas como nomes de variáveis (locais).
@@ -24,6 +24,7 @@ Chamadas a métodos também podem ser barewords, como em meu_metodo. *gets* é u
 
 O programa *p004usodestring.rb* mostra-nos mais algumas formas de uso de strings.
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p004usodestring.rb
 # Definindo uma constante  
@@ -58,13 +59,12 @@ E uma segunda linha
 FIM_STR  
 puts a
 <% end -%>
-
-&nbsp;
+</notextile>
 
 <div class='box'>
 No exemplo:
 x = "200.0".to_f
-o ponto significa que a mensagem "to_f" está sendo enviada para a string "200.0", ou que o método to_f está sendo chamado na string "200.0". A string "200.0" é chamada de receptor da mensagem. Assim, quando você vê um ponto nesse contexto, você deveria interpretar-lo como uma mensagem (à direita) sendo enviada para um objeto (à esquerda).
+o ponto significa que a mensagem "to_f" está sendo enviada para a string "200.0", ou que o método to_f está sendo chamado na string "200.0". A string "200.0" é chamada de receptor da mensagem. Assim, quando você vê um ponto nesse contexto, você deveria interpretá-lo como uma mensagem (à direita) sendo enviada para um objeto (à esquerda).
 </div>
 
 h2. Sumário

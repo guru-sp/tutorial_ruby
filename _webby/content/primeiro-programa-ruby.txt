@@ -7,20 +7,22 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Vamos iniciar o *SciTE*, nosso editor Ruby. Para isso, em sua área de trabalho clique em Iniciar/Programas/Ruby-186-25/SciTE. A janela do editor se abre. Pressione a tecla F8 para abrir uma janela de saída. Agora, clique em Options/Open Global Options File e procure por 'tabsize'. Altere e crie tabsize=2 e indent.size=2. Eu gosto que a janela do meu SciTE esteja maximizada no início e, para isso, configure position.width=-1 e position.height=-1 Pressione Ctrl+S e Ctrl+W. Após isso, pressione Ctrl+Shift+I - isso abrirá a janela de configuração de indentação. Aqui, assegure que Tab Size e Indent Size está configurado como 2 e que a opção Use tabs box não está checada. Clique em OK. Agora nós estamos prontos para escrever nosso primeiro programa Ruby.
+Vamos iniciar o *SciTE*, o editor Ruby que vem com _One Click Ruby Instaler_ para Windows. Para isso, em sua área de trabalho clique em _Iniciar/Programas/Ruby-186-25/SciTE_. A janela do editor se abre. Pressione a tecla F8 para abrir uma janela de saída. Agora, clique em _Options/Open Global Options File_ e procure por 'tabsize'. Altere e crie _tabsize=2_ e _indent.size=2_. Eu gosto que a janela do meu *SciTE* esteja maximizada no início e, para isso, configure _position.width=-1_ e _position.height=-1_ Pressione _Ctrl+S_ e _Ctrl+W_. Após isso, pressione _Ctrl+Shift+I_ - isso abrirá a janela de configuração de indentação. Aqui, assegure que _Tab Size_ e _Indent Size_ está configurado como 2 e que a opção _Use tabs box_ não está selecionada. Clique em OK. Agora nós estamos prontos para escrever nosso primeiro programa Ruby.
 
-Crie um diretório chamado, _programasruby_ em seu C:/ Nós armazenaremos todos os nossos programas neste diretório. Nosso primeiro programa irá exibir a string 'Olá' na janela de comando e o nome do programa será *p001ola.rb*
+Crie um diretório, como por exemplo, _programasruby_ em seu C:/ Nós armazenaremos todos os nossos programas neste diretório. Nosso primeiro programa irá exibir a string 'Olá' na janela de comando e o nome do programa será *p001ola.rb*
 
 Por convenção, arquivos fonte Ruby tem a extensão *.rb*. No Microsoft Windows, arquivos fonte Ruby algumas vezes terminam com .rbw, como em meuscript.rbw. A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb
 
 <div class='box'>O layout do código é por sua conta; o jeito como você escolher indentar não é relevante (mas usando dois caracteres na indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código).</div>
 
-Na janela esquerda do SciTE digite: puts 'Olá' e então clique em File/Save As... De o nome p001ola.rb e armazene ele no seu diretório programasruby. Pressione F5 para executar o programa. Você deveria ver Olá na janela de saída à direita. O programa é como exibido abaixo:
+Na janela esquerda do SciTE digite: puts 'Olá' e então clique em _File/Save As..._ Dê o nome p001ola.rb e armazene ele no seu diretório programasruby. Pressione F5 para executar o programa. Você deveria ver Olá na janela de saída à direita. O programa é como exibido abaixo:
 
+<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p001ola.rb
 puts 'Olá'
 <% end -%>
+</notextile>
 
 *Nota:* Ruby é uma linguagem de script. Não existe nenhum método principal especial por onde a execução do programa inicia. É dado ao interpretador do Ruby um script de instruções para executar, e ele começa da primeira linha e continua até a última linha. puts (a letra s em *puts* quer dizer string; *puts* significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.
 

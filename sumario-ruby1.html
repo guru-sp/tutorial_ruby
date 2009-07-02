@@ -35,21 +35,21 @@
 	<li>Nós estamos discutindo o Ruby 1.8.6 em plataforma Windows. Este curso também é apropriado para usuários Linux/Mac.</li>
 	<li>Ruby é uma linguagem interpretada.</li>
 	<li>Em Ruby, sempre há mais de um modo de resolver um dado problema.</li>
-	<li>Os exemplos de códigos seriam executados no editor SciTE assegurando que você tenha feito as configurações relevantes mensionadas na página &#8220;Primeiro programa Ruby&#8221;.</li>
-	<li>O layout do código é por sua conta; o jeito como você escolher indentar não é relevante (mas usando dois caracteres na indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código).</li>
+	<li>Os exemplos de códigos foram executados no editor SciTE assegurando que você tenha feito as configurações relevantes mencionadas na página &#8220;Primeiro programa Ruby&#8221;.</li>
+	<li>O layout do código é por sua conta; o jeito como você escolhe indentar não é relevante (mas usando dois espaços para a indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código).</li>
 	<li>Por convenção, arquivos fonte Ruby tem a extensão <strong>.rb</strong>. No Microsoft Windows, arquivos fonte Ruby algumas vezes terminam com .rbw, como em meuscript.rbw.</li>
 	<li>Em Ruby, a execução de um programa geralmente procede do topo para o fim do script.</li>
-	<li>Características: Formato livre, Case sensitive, Dois tipos de comentários, Delimitações de instruções não são requeridas, Por volta de 41 palavras chaves, e toda palavra chave Ruby é escrita usando caracteres ASCII, e todos os operadores e outras pontuações são desenhadas a partir da coleção de caracteres ASCII.</li>
+	<li>Características: Formato livre, Case sensitive (sensível a maiúsculas), Dois tipos de comentários, Delimitações de instruções não são requeridas, Por volta de 41 palavras chaves, e toda palavra chave Ruby é escrita usando caracteres ASCII, e todos os operadores e outras pontuações são desenhadas a partir da coleção de caracteres ASCII.</li>
 	<li>Você pode estar acostumado a pensar que um valor falso pode ser representado como um zero, uma string nula, um caractere nulo, ou várias outras coisas. Mas em Ruby, todos esses são verdadeiros, tudo é verdadeiro exceto as palavras reservadas false e nil.</li>
 	<li>Nós estaremos nos referindo à <a href="http://www.ruby-doc.org/core">documentação</a>.</li>
 	<li><strong>puts</strong> (a letra s em <strong>puts</strong> quer dizer string; <strong>puts</strong> significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.</li>
-	<li>Parênteses são geralmente opicionais em um chamada a um método. Todas essas chamadas são válidas:<br />
+	<li>Parênteses são geralmente opcionais em um chamada a um método. Todas essas chamadas são válidas:<br />
 foobar<br />
 foobar()<br />
 foobar(a, b, c)<br />
 foobar a, b, c</li>
 	<li>Em Ruby, números sem ponto de casas decimais são chamados integers (inteiros), e números com ponto de casas decimais são geralmente chamados de floating-point numbers (números de ponto flutuante) ou, mais simples, floats (você deve colocar pelo menos um dígito antes do ponto decimal).</li>
-	<li><strong>Nota:</strong> As classes <strong>Fixnum</strong> e <strong>Bignum</strong> representam inteiros de diferentes tamanhos. Ambas as classes descendem de <strong>Integer</strong> (e assim de <strong>Numeric</strong>). O Ruby consegue lidar com números extremamente grandes, e diferente de outras linguagens de programação, não há limites incovenientes. Ruby faz isso com diferentes classes, uma chamada <strong>Fixnum</strong> (padrão) que representa números pequenos facilmente gerenciaveis, e outra, chamada <strong>Bignum</strong>, que representa números grandes gerenciados internamente. O Ruby irá manipular Bignums e Fixnums para você, e você pode efetuar operações aritméticas ou outras operações sem problemas. Os resultados podem variar dependendo da arquitetura de seu sistema, mas como essas mudanças são manipuladas inteiramente pelo Ruby, não há porque se preocupar.</li>
+	<li><strong>Nota:</strong> As classes <strong>Fixnum</strong> e <strong>Bignum</strong> representam inteiros de diferentes tamanhos. Ambas as classes descendem de <strong>Integer</strong> (e assim de <strong>Numeric</strong>). O Ruby consegue lidar com números extremamente grandes, e diferente de outras linguagens de programação, não há limites inconvenientes. Ruby faz isso com diferentes classes, uma chamada <strong>Fixnum</strong> (padrão) que representa números pequenos facilmente gerenciáveis, e outra, chamada <strong>Bignum</strong>, que representa números grandes gerenciados internamente. O Ruby irá manipular Bignums e Fixnums para você, e você pode efetuar operações aritméticas ou outras operações sem problemas. Os resultados podem variar dependendo da arquitetura de seu sistema, mas como essas mudanças são manipuladas inteiramente pelo Ruby, não há porque se preocupar.</li>
 	<li>Alguns operadores comuns do Ruby: + adição; &#8211; subtração; * multiplicação; / divisão.</li>
 	<li>Os operadores de incremento e decremento (++ e &#8212;) não são disponíveis em Ruby, nem de forma &#8220;pré&#8221; nem &#8220;pós&#8221;.</li>
 	<li>Qualquer coisa dentro de parênteses é calculada primeiro (ou, mais tecnicamente falando, é dada uma precedência maior).</li>
@@ -60,7 +60,7 @@ foobar a, b, c</li>
 	<li>Concatenação de string é feita juntando duas ou mais strings utilizando o operador +</li>
 	<li>Sequência de escape é o caractere \ Exemplos: \&quot;, \\, \n</li>
 	<li>&#8217;&#8217; é uma string vazia.</li>
-	<li>Se você tiver um erro de compilação como &#8211; #&lt;TypeError: cannot convert Fixnum into String&gt; isto significa que você não pode adicionar um número a uma string, ou multiplicar uma string por outra string.</li>
+	<li>Se você tiver um erro de interpretação como &#8211; #&lt;TypeError: cannot convert Fixnum into String&gt; isto significa que você não pode adicionar um número a uma string, ou multiplicar uma string por outra string.</li>
 	<li>Constantes começam com letras maiúsculas. Exemplo PI, Comprimento.</li>
 	<li>Uma variável começa a existir assim que o interpretador vê uma atribuição para essa variável. É uma boa prática atribuir nil a uma variável inicialmente.</li>
 	<li>Use espaços em branco em torno do operador de atribuição¨<br />
@@ -72,7 +72,7 @@ nivel = 0<br />
 tamanho = 0<br /><br />
 é preferível do que:<br /><br />
 nivel = tamanho = 0</li>
-	<li>x, y = y, x trocarãom os valores de x e y. Atribuição paralela é qualquer expressão de atribuição que tem mais de um valores a esquerda, mais de um valores a direita, ou ambos. Múltiplos valores a esquerda e múltiplos valores a direita são separados por vírgula.</li>
+	<li>x, y = y, x troca os valores de x e y. Atribuição paralela é qualquer expressão de atribuição que tem mais de um valores a esquerda, mais de um valores a direita, ou ambos. Múltiplos valores a esquerda e múltiplos valores a direita são separados por vírgula.</li>
 	<li>Variáveis locais devem começar com letra minúscula ou underscores ( _ ), e devem consistir inteiramente de letras, números e underscores. Exemplos: india, ___usa, alguma_variavel</li>
 	<li>.to_i, .to_f, .to_s são usados para converter para um inteiro, float, string respectivamente.</li>
 	<li>O operador &lt;&lt; é usado para adicionar a uma string.</li>
