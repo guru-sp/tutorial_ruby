@@ -4,46 +4,88 @@ created_at:  2009-04-23 21:39:00.000000 -03:00
 filter:
   - erb
   - textile
-  - outline
 ---
 p(title). <%= @page.title %>
 
-Este é mais um tutorial de Ruby, idealizado pelos membros do "GURU-SP":http://www.guru-sp.org (Grupo de Usuários Ruby de SP). Apesar de existir uma "grande quantidade de materiais de Ruby em português":http://guru-sp.com/index.php/Links espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender as particularidades desta linguagem de programção.
+Este é mais um tutorial de Ruby, idealizado pelos membros do "GURU-SP":http://www.guru-sp.org (Grupo de Usuários Ruby de SP). Apesar de existir uma "grande quantidade de materiais de Ruby em português":http://guru-sp.com/index.php/Links espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender as particularidades desta linguagem de programação.
 
 Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. Buscaremos melhorar o conteúdo e adicionar tópicos intermediários e avançados de Ruby.
 
-p(title). Índice
 
-<toc />
+h2. Índice
 
-h2. Páginas já traduzidas
-
-* "Primeiro programa ruby":primeiro-programa-ruby.html
-* "Características":caracteristicas.html
-* "Números em Ruby":numeros-em-ruby.html
-** Operadores e precedência
-** Diferença entre os operadores or e ||
-* "Diversão com strings":diversao-com-strings.html
-* "Variáveis e atribuição":variaveis-e-atribuicao.html
-* "Sumário 1":sumario-ruby1.html
-* "Escopo":escopo.html
-** Escopo global e variáveis globais
-** Variáveis globais embutidas
-** Escopo local
-* "Recebendo entrada":recebendo-entrada.html
-
-h2. Olá mundo!
-
-<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# Olá mundo em Ruby
-def render_page
-  ary = []
-  str = ::Webby::File.read(@page.path)
-
-  @page.filter.to_a.each do |filter|
-    str = self.send(filter + '_filter', str)
-  end
-
-  str
-end
-<% end -%>
+# "Primeiro programa Ruby":primeiro-programa-ruby.html
+# "Características":caracteristicas.html
+# "Números em Ruby":numeros-em-ruby.html
+## Operadores e precedência
+## Diferença entre os operadores or e ||
+# "Diversão com Strings":diversao-com-strings.html
+# "Variáveis e atribuição":variaveis-e-atribuicao.html
+# "Resumo 1":sumario-ruby1.html
+# "Escopo":escopo.html
+## Escopo global e variáveis globais
+## Variáveis globais embutidas
+## Escopo local
+# "Recebendo entrada":recebendo-entrada.html
+# Nomes em Ruby
+# Mais sobre métodos Ruby
+# Escrevendo seus métodos Ruby
+## Métodos 'bang' (!)
+## Métodos terminados por ?
+# Resumo 2
+# A ferramente ri do Ruby
+# Mais sobre Strings
+## Listando todos os métodos de uma classe ou objeto
+## Comparando duas strings para a igualdade
+## Usando %w
+# Construtores simples
+## Condicional ?:
+## Modificadores de atribuição
+## Expressões case
+## nil é um Object
+## Algumas informações extras
+# Blocos em Ruby
+# Resumo 3
+# Arrays em Ruby
+## Atribuição paralela
+## Variáveis de ambiente
+## Argumentos de linha de comando
+## Biblioteca GetoptLong
+# Ranges (intervalos)
+# Símbolos em Ruby
+# Hashes
+## Usando símbolos como chaves hash
+# Números aleatórios
+# Ler/escrever arquivos
+## Varrendo árvores de diretórios
+## Acesso aleatório
+# Resumo 4
+# Expressões Regulares
+## Caracteres literais
+## O caractere coringa .(ponto)
+## Classes de caracteres
+## Sequências de escape especial para caracteres de classe comuns
+# Escrevendo sua própria classe
+## Construtores literais
+## Coletor de Lixo (Garbage Collection)
+## Métodos de Classe
+# Método faltando (Method Missing)
+# Procs em Ruby
+# Incluindo Outros Arquivos
+# Classes Abertas do Ruby
+# Herança
+## Herança e variáveis de classe
+# Sobreposição (Overriding) de Métodos
+## Uso do super
+## Redefinindo métodos
+## Classe abstrata
+# Métodos de Sobrecarga em Ruby
+# Resumo 5
+# Controle de Acesso
+## Sobrepondo métodos privados
+## Métodos de nível mais alto
+## Variáveis de instância são herdadas por uma sub-classe?
+# Exceções
+## Levantando uma exceção
+## Lidando com uma exceção
+# Logging com Ruby

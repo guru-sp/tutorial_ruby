@@ -14,9 +14,10 @@
   border: none;
 }
 
-div.CodeRay { }
 
-span.CodeRay { white-space: pre; border: 0px; padding: 2px }
+div.CodeRay { } 
+
+span.CodeRay { white-space: pre; border: 0px; padding: 2px;}
 
 table.CodeRay { border-collapse: collapse; width: 100%; padding: 2px }
 table.CodeRay td { padding: 2px 4px; vertical-align: top }
