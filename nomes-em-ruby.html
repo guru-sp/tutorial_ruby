@@ -36,7 +36,9 @@
 <p>Variáveis no Ruby podem conter dados de qualquer tipo. Você pode usar variáveis em seus programas Ruby sem qualquer declaração. O nome de uma variável por si só denota seu escopo (local, global, instância, etc).</p>
 <ul>
 	<li>O nome de uma variável <strong>local</strong> (declarada dentro de um objeto) conciste de uma letra minúscula (ou um underscore) seguido por caracteres de nome (azul, <em>z, bater</em>e_correr).</li>
-	<li>O nome de uma variável de <strong>instância</strong>&#8230;</li>
+	<li>O nome de uma variável de <strong>instância</strong> (declarada dentro de um objeto sempre pertence a qualquer que seja o objeto que <strong>self</strong> se refira) começa com uma arroba (&#8220;@&#8221;) seguida por um nome (@assinatura, @_, @Contador).</li>
+	<li>O nome de uma variável de <strong>classe</strong> (declarada dentro de uma classe) começa com duas arrobas (&#8220;@@&#8221;) seguidas de um nome (<code>@assinatura, @</code>_, @@Contador). Uma variável de classe é compartilhada por todos os objetos de uma classe. Somente uma cópia de uma variável de classe particular existe para uma dada classe. Variáveis de classe usadas no nível mais alto são definidas em <strong>Object</strong> e se comportam como variáveis globais. Essas são raramente utilizadas em programas Ruby.</li>
+	<li>Variáveis <strong>globais</strong> começam com um símbolo de dólar (&#8220;$&#8221;) seguido por caracteres de nome&#8230;</li>
 </ul>
 <p>Continua&#8230;</p>
    </div>
