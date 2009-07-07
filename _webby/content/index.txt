@@ -28,7 +28,7 @@ h2. Índice
 ## Escopo local
 # "Recebendo entrada":recebendo-entrada.html
 # "Nomes em Ruby":nomes-em-ruby.html
-# Mais sobre métodos Ruby
+# "Mais sobre métodos Ruby":mais-sobre-metodos.html
 # Escrevendo seus métodos Ruby
 ## Métodos 'bang' (!)
 ## Métodos terminados por ?
