@@ -29,7 +29,7 @@ h2. Índice
 # "Recebendo entrada":recebendo-entrada.html
 # "Nomes em Ruby":nomes-em-ruby.html
 # "Mais sobre métodos Ruby":mais-sobre-metodos.html
-# Escrevendo seus métodos Ruby
+# "Escrevendo seus métodos Ruby":escrevendo-seus-metodos.html
 ## Métodos 'bang' (!)
 ## Métodos terminados por ?
 # Resumo 2
