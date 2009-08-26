@@ -1,0 +1,61 @@
+---
+title:       Escrevendo seus Métodos em Ruby
+created_at:  2009-08-26 11:38:00.000000 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <% h(@page.title) %>
+
+Vamos ver como escrever nossos próprios métodos em Ruby com o auxilio do simples programa *p008meusmetodos.rb*. Note que nós utilizamos *def* e *end*para declarar um método.
+
+Parâmetros são simplesmente uma lista de nomes de variaveis locais contidas entre parênteses.
+
+<div class='box'>
+Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que voce deixe uma única linha em branco entre cada definição de método. Como uma convensão entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como *puts*, *p* (falaremos mais sobre esse comando depois), e *gets* são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.
+</div>
+
+<notextile>
+# p008meusmetodos.rb
+# Um método retorna o valor do último comando executado
+# Métodos que funcionam como perguntas são normalmente nomeados com um ponto de interrogação (?) no final
+# Métodos que são "perigosos", ou modificam o objeto, podem ser nomeados com um ponto de exclamação (!) no final (Bang methods)
+# Um método simples
+def ola
+  puts "Olá"
+end
+#uso do método
+ola
+
+# Método com argumentos - 1
+def ola1(nome)
+  puts 'Olá ' + nome
+  return 'sucesso'
+end
+puts(ola1('satish'))
+
+# Método com argumentos - 2
+def ola2 nome2
+  puts 'Olá ' + nome2
+  return 'sucesso'
+end
+puts(ola2 'talim')
+</notextile>
+
+A saída quando executado no meu PC foi:
+
+<notextile>
+>ruby p008meusmetodos.rb
+Olá
+Olá satish
+sucesso
+Olá talim
+sucesso
+p008meusmetodos.rb:23: warning: parenthesize arguments(s) for future versions
+>Exit code: 0
+</notextile>
+
+<div class='box'>
+Quando você executar o programa acima na versão 1.9, o aviso *warning: parenthesize arguments(s) for future version* não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSL no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.
+</div>
+
