@@ -32,7 +32,7 @@ h2. Índice
 # "Escrevendo seus métodos Ruby":escrevendo-seus-metodos.html
 ## Métodos 'bang' (!)
 ## Métodos terminados por ?
-# Resumo 2
+# "Resumo 2":sumario-ruby2.html
 # A ferramente ri do Ruby
 # Mais sobre Strings
 ## Listando todos os métodos de uma classe ou objeto
