@@ -16,6 +16,7 @@ Nós não declaramos o tipo de retorno; um método retorna o valor do último co
 </div>
 
 <notextile>
+<pre>
 # p008meusmetodos.rb
 # Um método retorna o valor do último comando executado
 # Métodos que funcionam como perguntas são normalmente nomeados com um ponto de interrogação (?) no final
@@ -40,11 +41,13 @@ def ola2 nome2
   return 'sucesso'
 end
 puts(ola2 'talim')
+</pre>
 </notextile>
 
 A saída quando executado no meu PC foi:
 
 <notextile>
+<pre>
 >ruby p008meusmetodos.rb
 Olá
 Olá satish
@@ -53,9 +56,104 @@ Olá talim
 sucesso
 p008meusmetodos.rb:23: warning: parenthesize arguments(s) for future versions
 >Exit code: 0
+</pre>
 </notextile>
 
 <div class='box'>
 Quando você executar o programa acima na versão 1.9, o aviso *warning: parenthesize arguments(s) for future version* não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSL no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.
 </div>
+
+O Ruby permite que você especifique valores padrão para os argumentos de um método, ou seja, os valores que serão passados caso o método seja chamado sem um argumento explicito. Você faz isso utilizando o operador de atribuição. Veja o exemplo *p009meusmetodos1.rb*
+
+<notextile>
+<pre>
+# p009meusmetodos1.rb
+# interpolação é o processo de inserir o resultado de uma expressão
+# em uma string literal.
+# o operador de interpolação #{...} é avaliado separadamente
+def mtd(arg1="Dibya", arg2="Shashank", arg3="Shashank")
+  "#{arg1}, #{arg2}, #{arg3}."
+end
+puts mtd
+puts mtd("ruby")
+</pre>
+</notextile>
+
+A saída quando eu executei no meu PC foi:
+
+<notextile>
+<pre>
+ >ruby p009meusmetodos1.rb
+ Dibya, Shashank, Shashank
+ ruby, Shashank, Shashank
+ >Exit code: 0
+</pre>
+</notextile>
+
+Note que não é possivel especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.
+
+No programa acima, o operador de interpolação #{...} teve sua expressão avaliada separadamente e seu resultado foi "colado" automaticamente na string. Quando executar essas linhas, você não verá o operador em sua tela, verá apenas o resultado da avaliação da expressão que estava contida no operador.
+
+*Nota*: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os síbolos #{ e }. O exemplo a seguir demonstra isso:
+
+<notextile>
+<pre>
+puts "100 * 5 = #{100 * 5}"
+</pre>
+</notextile>
+Isso resulta em:
+<notextile>
+<pre>
+100 * 5 = 500
+</pre>
+</notextile>
+O trecho #{100 * 5} interpola o resultado de 100 * 5 (500) na string naquela posição em que o operador foi definido, resultando na saída que foi exibida.
+
+O exemplo p010aliasmtd.rb mostra-nos algo sobre o método de Aliasing (apelido).
+
+<notextile>
+<pre>
+alias metodo_novo metodo_antigo
+</pre>
+</notextile>
+
+O trecho acima cria um novo nome para referenciar um método existente. Quando um método é apelidado (aliased), o novo nome aponta para uma cópia do método antigo. Se o método é redefinido em seguida, o apelido continua invocando a implementação original do método.
+
+<notextile>
+<pre>
+# p010aliasmtd.rb
+# alias metodo_novo metodo_antigo
+# Quando um método é apelidado, o novo nome aponta
+# para uma cópia da implementação do método original
+
+def metodo_antigo
+  "método antigo"
+end
+
+alias metodo_novo metodo_antigo
+
+def metodo_antigo
+  "método antigo melhorado"
+end
+
+puts metodo_antigo
+puts metodo_novo
+</pre>
+</notextile>
+
+A saída é:
+
+<notextile>
+<pre>
+>ruby p010aliasmtd.rb
+método antigo melhorado
+método antigo
+>Exit code: 0
+</pre>
+</notextile>
+
+
+
+
+
 
