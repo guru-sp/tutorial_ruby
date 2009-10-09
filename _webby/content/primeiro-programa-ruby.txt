@@ -17,12 +17,10 @@ Por convenção, arquivos fonte Ruby tem a extensão *.rb*. No Microsoft Windows
 
 Na janela esquerda do SciTE digite: puts 'Olá' e então clique em _File/Save As..._ Dê o nome p001ola.rb e armazene ele no seu diretório programasruby. Pressione F5 para executar o programa. Você deveria ver Olá na janela de saída à direita. O programa é como exibido abaixo:
 
-<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p001ola.rb
 puts 'Olá'
 <% end -%>
-</notextile>
 
 *Nota:* Ruby é uma linguagem de script. Não existe nenhum método principal especial por onde a execução do programa inicia. É dado ao interpretador do Ruby um script de instruções para executar, e ele começa da primeira linha e continua até a última linha. puts (a letra s em *puts* quer dizer string; *puts* significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.
 

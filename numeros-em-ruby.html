@@ -32,8 +32,6 @@
    <div class="column span-15 prepend-2 first">
       <p class="title">Números em Ruby</p>
 <p>Vamos brincar com números. Em Ruby, números sem pontos decimais são chamados inteiros (integers), e números com pontos decimais são geralmente chamados de números ponto flutuante (floating-point numbers) ou, mais simples, floats (você deve inserir pelo menos um dígito depois do ponto decimal). Um literal inteiro é uma simples sequência de dígitos ex. 0, 123, 123456789. Underscores podem ser inseridos em literais inteiros (embora não no começo ou no final), e essa características é utilizada algumas vezes como separador de casa de milhar ex. 1_000_000_000. Caracteres Underscore são ignorados no dígito de string. Aqui está o programa <strong>p002numerosruby.rb</strong></p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p002numerosruby.rb</span>
 <span class="no"> 2</span> <span class="c">=begin
@@ -53,50 +51,8 @@
 <span class="no">16</span> puts <span class="i">3</span> / <span class="i">2</span>
 <span class="no">17</span> puts <span class="i">10</span> - <span class="i">11</span>
 <span class="no">18</span> puts <span class="fl">1.5</span> / <span class="fl">2.6</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># p002numerosruby.rb</span>
-<span class="no"> 2</span> <span class="c">=begin
-<span class="no"> 3</span>  Números Ruby
-<span class="no"> 4</span>  Operadores comuns:
-<span class="no"> 5</span>  + adição
-<span class="no"> 6</span>  - subtração
-<span class="no"> 7</span>  * multiplicação
-<span class="no"> 8</span>  / divisão
-<span class="no"> 9</span> =end</span>
-<span class="no"><strong>10</strong></span> 
-<span class="no">11</span> puts <span class="i">1</span> + <span class="i">2</span>
-<span class="no">12</span> puts <span class="i">2</span> * <span class="i">3</span>
-<span class="no">13</span> <span class="c"># Divisão de inteiros</span>
-<span class="no">14</span> <span class="c"># Quando você faz um cálculo aritmético com inteiros,</span>
-<span class="no">15</span> <span class="c"># você recebeberá uma resposta em inteiros</span>
-<span class="no">16</span> puts <span class="i">3</span> / <span class="i">2</span>
-<span class="no">17</span> puts <span class="i">10</span> - <span class="i">11</span>
-<span class="no">18</span> puts <span class="fl">1.5</span> / <span class="fl">2.6</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no"> 1</span> <span class="c"># p002numerosruby.rb</span><br />
-<span class="no"> 2</span> <span class="c">=begin<br />
-<span class="no"> 3</span>  Números Ruby<br />
-<span class="no"> 4</span>  Operadores comuns:<br />
-<span class="no"> 5</span>  + adição<br />
-<span class="no"> 6</span>  &#8211; subtração<br />
-<span class="no"> 7</span>  * multiplicação<br />
-<span class="no"> 8</span>  / divisão<br />
-<span class="no"> 9</span> =end</span><br />
-<span class="no"><strong>10</strong></span> <br />
-<span class="no">11</span> puts <span class="i">1</span> + <span class="i">2</span><br />
-<span class="no">12</span> puts <span class="i">2</span> * <span class="i">3</span><br />
-<span class="no">13</span> <span class="c"># Divisão de inteiros</span><br />
-<span class="no">14</span> <span class="c"># Quando você faz um cálculo aritmético com inteiros,</span><br />
-<span class="no">15</span> <span class="c"># você recebeberá uma resposta em inteiros</span><br />
-<span class="no">16</span> puts <span class="i">3</span> / <span class="i">2</span><br />
-<span class="no">17</span> puts <span class="i">10</span> &#8211; <span class="i">11</span><br />
-<span class="no">18</span> puts <span class="fl">1.5</span> / <span class="fl">2.6</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <div class='box'>
 <p>Inteiros Ruby são objetos da classe <strong>Fixnum</strong> ou <strong>Bignum</strong>. As classes <strong>Fixnum</strong> e <strong>Bignum</strong> representam inteiros de diferentes tamanhos. Ambas as classes descendem de <strong>Integer</strong> (e, sendo assim, de <strong>Numeric</strong>). Os números ponto flutuantes são objetos da classe <strong>Float</strong>, correspondendo a nativa arquitetura do tipo de data double. As classes <strong>Complex</strong>, <strong>BigDecimal</strong> e <strong>Rational</strong> não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.</p>
 </div>
@@ -113,125 +69,47 @@
 </div></li>
 </ol>
 <p>O operador módulo (%) do Ruby comportasse da forma a seguir:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts (<span class="i">5</span> % <span class="i">3</span>)     <span class="c"># imprime  2  </span>
 <span class="no">2</span> puts (<span class="i">-5</span> % <span class="i">3</span>)    <span class="c"># imprime  1  </span>
 <span class="no">3</span> puts (<span class="i">5</span> % <span class="i">-3</span>)    <span class="c"># imprime -1  </span>
 <span class="no">4</span> puts (<span class="i">-5</span> % <span class="i">-3</span>)   <span class="c"># imprime -2 </span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> puts (<span class="i">5</span> % <span class="i">3</span>)     <span class="c"># imprime  2  </span>
-<span class="no">2</span> puts (<span class="i">-5</span> % <span class="i">3</span>)    <span class="c"># imprime  1  </span>
-<span class="no">3</span> puts (<span class="i">5</span> % <span class="i">-3</span>)    <span class="c"># imprime -1  </span>
-<span class="no">4</span> puts (<span class="i">-5</span> % <span class="i">-3</span>)   <span class="c"># imprime -2 </span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> puts (<span class="i">5</span> % <span class="i">3</span>)     <span class="c"># imprime  2  </span><br />
-<span class="no">2</span> puts (<span class="i">-5</span> % <span class="i">3</span>)    <span class="c"># imprime  1  </span><br />
-<span class="no">3</span> puts (<span class="i">5</span> % <span class="i">-3</span>)    <span class="c"># imprime -1  </span><br />
-<span class="no">4</span> puts (<span class="i">-5</span> % <span class="i">-3</span>)   <span class="c"># imprime -2 </span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.</p>
 <h2>Diferença entre os operadores or e ||</h2>
 <p>Ambos, <strong>or</strong> e <strong>||</strong>, retornam o primeiro argumento ao menos que este retorne <strong>false</strong>, neste caso avaliam e retoram o segundo argumento. Isto é demonstrado no exemplo seguinte:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="pc">nil</span> || <span class="i">2008</span>  
 <span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>  
 <span class="no">3</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span> || <span class="i">2008</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> puts <span class="pc">nil</span> || <span class="i">2008</span>  
-<span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>  
-<span class="no">3</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span> || <span class="i">2008</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> puts <span class="pc">nil</span> || <span class="i">2008</span>  <br />
-<span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>  <br />
-<span class="no">3</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span> || <span class="i">2008</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>A saída é:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby test.rb  
 <span class="no">2</span> <span class="i">2008</span>  
 <span class="no">3</span> <span class="i">2008</span>  
 <span class="no">4</span> ruby  
 <span class="no">5</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> &gt;ruby test.rb  
-<span class="no">2</span> <span class="i">2008</span>  
-<span class="no">3</span> <span class="i">2008</span>  
-<span class="no">4</span> ruby  
-<span class="no">5</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> &gt;ruby test.rb  <br />
-<span class="no">2</span> <span class="i">2008</span>  <br />
-<span class="no">3</span> <span class="i">2008</span>  <br />
-<span class="no">4</span> ruby  <br />
-<span class="no">5</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>A única diferença entre <strong>or</strong> e <strong>||</strong> é sua precedência. <strong>||</strong> tem uma precedência mais alta do que <strong>or</strong>.</p>
 <p>Uma prática comum é usar || para atribuir valor a uma variável somente se nenhum valor foi atribuído a ela. Isso pode ser escrito assim:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="iv">@variavel</span> = <span class="iv">@variavel</span> || <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> <span class="iv">@variavel</span> = <span class="iv">@variavel</span> || <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> <span class="iv"><code>variavel&lt;/span&gt; = &lt;span class="iv"&gt;</code>variavel</span> || <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>ou, mais idiomático, como:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="iv">@variavel</span> ||= <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> <span class="iv">@variavel</span> ||= <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> <span class="iv">@variavel</span> ||= <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles tem precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="r">if</span> a = f(x) <span class="r">and</span> b = f(y) <span class="r">and</span> c = f(z) <span class="r">then</span> d = g(a,b,c) <span class="r">end</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> <span class="r">if</span> a = f(x) <span class="r">and</span> b = f(y) <span class="r">and</span> c = f(z) <span class="r">then</span> d = g(a,b,c) <span class="r">end</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> <span class="r">if</span> a = f(x) <span class="r">and</span> b = f(y) <span class="r">and</span> c = f(z) <span class="r">then</span> d = g(a,b,c) <span class="r">end</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>Esta expressão simplesmente não funcionaria se escrita com <strong>&amp;&amp;</strong> ao invés de <strong>and</strong>.</p>
    </div>
 

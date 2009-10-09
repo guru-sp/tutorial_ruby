@@ -22,6 +22,7 @@ h2. Índice
 # "Diversão com Strings":diversao-com-strings.html
 # "Variáveis e atribuição":variaveis-e-atribuicao.html
 # "Resumo 1":sumario-ruby1.html
+
 # "Escopo":escopo.html
 ## Escopo global e variáveis globais
 ## Variáveis globais embutidas
@@ -33,6 +34,7 @@ h2. Índice
 ## Métodos 'bang' (!)
 ## Métodos terminados por ?
 # "Resumo 2":sumario-ruby2.html
+
 # A ferramente ri do Ruby
 # Mais sobre Strings
 ## Listando todos os métodos de uma classe ou objeto
@@ -46,6 +48,7 @@ h2. Índice
 ## Algumas informações extras
 # Blocos em Ruby
 # Resumo 3
+
 # Arrays em Ruby
 ## Atribuição paralela
 ## Variáveis de ambiente
@@ -60,6 +63,7 @@ h2. Índice
 ## Varrendo árvores de diretórios
 ## Acesso aleatório
 # Resumo 4
+
 # Expressões Regulares
 ## Caracteres literais
 ## O caractere coringa .(ponto)
@@ -81,6 +85,7 @@ h2. Índice
 ## Classe abstrata
 # Métodos de Sobrecarga em Ruby
 # Resumo 5
+
 # Controle de Acesso
 ## Sobrepondo métodos privados
 ## Métodos de nível mais alto

@@ -9,7 +9,6 @@ p(title). <%= h(@page.title) %>
 
 Literais string são sequências de caracteres entre aspas simples ou dupla. '' (duas aspas simples) que não contêm nada dentro delas; nós chamamos de string vazia. Aqui está um programa *p003stringsruby.rb* que explora strings a um certo nível.
 
-<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p003stringsruby.rb  
 =begin  
@@ -32,7 +31,6 @@ puts 'Olá' * 3
 PI = 3.1416
 puts PI
 <% end -%>
-</notextile>
 
 
 <div class='box'>
@@ -42,27 +40,22 @@ puts PI
 
 Vale a pena saber que existe um tipo especial de string que usa acento grave (`) como delimitador de início e fim. Por exemplo:
 
-<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts `dir`
 <% end -%>
-</notextile>
 
 
 A string é enviada para o sistema operacional como um comando a ser executado (no exemplo nós estamos enviando o comando dir para o sistema operacional Windows), a saída do comando (dir numa janela de comando exibiria todos os arquivos e sub-diretórios de um diretório) é então exibida pelo *puts*.
 
-No Linux e Mac, você pode usar, ao invés:
+No Linux e no Mac, você pode usar, ao invés:
 
-<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts `ls`
 <% end -%>
-</notextile>
 
 Outro modo de executar um processo separado é utilizando o método *system* de *Kernel*. O método executa um comando dado a ele em um sub-processo; ele retorna *true* se o comando for encontrado e executado propriamente. Ele retorna *false* se o comando encerrar com um status de saída diferente de zero, e *nil* se o comando falhar ao executar. Lembre-se, a saída do comando simplesmente irá para o mesmo destino da saída do seu programa. 
 
-<notextile>
+
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 system("tar xzf teste.tgz") # => true
 <% end -%>
-</notextile>

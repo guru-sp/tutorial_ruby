@@ -32,8 +32,6 @@
    <div class="column span-15 prepend-2 first">
       <p class="title">Diversão com strings</p>
 <p>Literais string são sequências de caracteres entre aspas simples ou dupla. &#8217;&#8217; (duas aspas simples) que não contêm nada dentro delas; nós chamamos de string vazia. Aqui está um programa <strong>p003stringsruby.rb</strong> que explora strings a um certo nível.</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p003stringsruby.rb  </span>
 <span class="no"> 2</span> <span class="c">=begin  
@@ -55,54 +53,8 @@
 <span class="no">18</span> <span class="c"># http://rubylearning.com/satishtalim/ruby_names.html  </span>
 <span class="no">19</span> <span class="co">PI</span> = <span class="fl">3.1416</span>
 <span class="no"><strong>20</strong></span> puts <span class="co">PI</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># p003stringsruby.rb  </span>
-<span class="no"> 2</span> <span class="c">=begin  
-<span class="no"> 3</span>   Strings Ruby
-<span class="no"> 4</span>   Em Ruby, strings são mutáveis  
-<span class="no"> 5</span> =end  </span>
-<span class="no"> 6</span> 
-<span class="no"> 7</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá Mundo</span><span class="dl">&quot;</span></span>
-<span class="no"> 8</span> <span class="c"># Pode-se usar &quot; ou ' para strings, mas ' é mais eficiente  </span>
-<span class="no"> 9</span> puts <span class="s"><span class="dl">'</span><span class="k">Olá Mundo</span><span class="dl">'</span></span>  
-<span class="no"><strong>10</strong></span> <span class="c"># Concatenação de strings  </span>
-<span class="no">11</span> puts <span class="s"><span class="dl">'</span><span class="k">Eu gosto de</span><span class="dl">'</span></span> + <span class="s"><span class="dl">'</span><span class="k"> Ruby</span><span class="dl">'</span></span>  
-<span class="no">12</span> <span class="c"># Sequência com escape</span>
-<span class="no">13</span> puts <span class="s"><span class="dl">'</span><span class="k">It</span><span class="ch">\'</span><span class="k">s my Ruby</span><span class="dl">'</span></span>  
-<span class="no">14</span> <span class="c"># Exibe a string 3 vezes  </span>
-<span class="no">15</span> puts <span class="s"><span class="dl">'</span><span class="k">Olá</span><span class="dl">'</span></span> * <span class="i">3</span>  
-<span class="no">16</span> <span class="c"># Definindo uma constante</span>
-<span class="no">17</span> <span class="c"># Mais sobre constantes depois, aqui  </span>
-<span class="no">18</span> <span class="c"># http://rubylearning.com/satishtalim/ruby_names.html  </span>
-<span class="no">19</span> <span class="co">PI</span> = <span class="fl">3.1416</span>
-<span class="no"><strong>20</strong></span> puts <span class="co">PI</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no"> 1</span> <span class="c"># p003stringsruby.rb  </span><br />
-<span class="no"> 2</span> <span class="c">=begin  <br />
-<span class="no"> 3</span>   Strings Ruby<br />
-<span class="no"> 4</span>   Em Ruby, strings são mutáveis  <br />
-<span class="no"> 5</span> =end  </span><br />
-<span class="no"> 6</span> <br />
-<span class="no"> 7</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá Mundo</span><span class="dl">&quot;</span></span><br />
-<span class="no"> 8</span> <span class="c"># Pode-se usar &quot; ou &#8217; para strings, mas &#8217; é mais eficiente  </span><br />
-<span class="no"> 9</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">Olá Mundo</span><span class="dl">&#8217;</span></span>  <br />
-<span class="no"><strong>10</strong></span> <span class="c"># Concatenação de strings  </span><br />
-<span class="no">11</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">Eu gosto de</span><span class="dl">&#8217;</span></span> + <span class="s"><span class="dl">&#8216;</span><span class="k"> Ruby</span><span class="dl">&#8217;</span></span>  <br />
-<span class="no">12</span> <span class="c"># Sequência com escape</span><br />
-<span class="no">13</span> puts <span class="s"><span class="dl">&#8216;</span><span class="k">It</span><span class="ch">\&#8217;</span><span class="k">s my Ruby</span><span class="dl">&#8216;</span></span>  <br />
-<span class="no">14</span> <span class="c"># Exibe a string 3 vezes  </span><br />
-<span class="no">15</span> puts <span class="s"><span class="dl">&#8217;</span><span class="k">Olá</span><span class="dl">&#8217;</span></span> * <span class="i">3</span>  <br />
-<span class="no">16</span> <span class="c"># Definindo uma constante</span><br />
-<span class="no">17</span> <span class="c"># Mais sobre constantes depois, aqui  </span><br />
-<span class="no">18</span> <span class="c"># http://rubylearning.com/satishtalim/ruby_names.html  </span><br />
-<span class="no">19</span> <span class="co">PI</span> = <span class="fl">3.1416</span><br />
-<span class="no"><strong>20</strong></span> puts <span class="co">PI</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <div class='box'>
 <ol>
 	<li>Se é passado ao <strong>puts</strong> um objeto que não é uma string, o <strong>puts</strong> chama o método <strong>to_s</strong> deste objeto e imprime a string retornada pelo método.</li>
@@ -110,51 +62,21 @@
 </div></li>
 </ol>
 <p>Vale a pena saber que existe um tipo especial de string que usa acento grave (`) como delimitador de início e fim. Por exemplo:</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">dir</span><span class="dl">`</span></span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">dir</span><span class="dl">`</span></span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">dir</span><span class="dl">`</span></span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>A string é enviada para o sistema operacional como um comando a ser executado (no exemplo nós estamos enviando o comando dir para o sistema operacional Windows), a saída do comando (dir numa janela de comando exibiria todos os arquivos e sub-diretórios de um diretório) é então exibida pelo <strong>puts</strong>.</p>
-<p>No Linux e Mac, você pode usar, ao invés:</p>
-<p>
-<notextile>
+<p>No Linux e no Mac, você pode usar, ao invés:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">ls</span><span class="dl">`</span></span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">ls</span><span class="dl">`</span></span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> puts <span class="sh"><span class="dl">`</span><span class="k">ls</span><span class="dl">`</span></span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <p>Outro modo de executar um processo separado é utilizando o método <strong>system</strong> de <strong>Kernel</strong>. O método executa um comando dado a ele em um sub-processo; ele retorna <strong>true</strong> se o comando for encontrado e executado propriamente. Ele retorna <strong>false</strong> se o comando encerrar com um status de saída diferente de zero, e <strong>nil</strong> se o comando falhar ao executar. Lembre-se, a saída do comando simplesmente irá para o mesmo destino da saída do seu programa.</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> system(<span class="s"><span class="dl">&quot;</span><span class="k">tar xzf teste.tgz</span><span class="dl">&quot;</span></span>) <span class="c"># =&gt; true</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> system(<span class="s"><span class="dl">&quot;</span><span class="k">tar xzf teste.tgz</span><span class="dl">&quot;</span></span>) <span class="c"># =&gt; true</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> system(<span class="s"><span class="dl">&quot;</span><span class="k">tar xzf teste.tgz</span><span class="dl">&quot;</span></span>) <span class="c"># =&gt; true</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
    </div>
 
    <div class="column span-5 append-2 last">

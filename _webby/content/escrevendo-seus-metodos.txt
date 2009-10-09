@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <% h(@page.title) %>
 
-Vamos ver como escrever nossos próprios métodos em Ruby com o auxilio do simples programa *p008meusmetodos.rb*. Note que nós utilizamos *def* e *end*para declarar um método.
+Vamos ver como escrever nossos próprios métodos em Ruby com o auxilio do simples programa *p008meusmetodos.rb*. Note que nós utilizamos *def* e *end* para declarar um método.
 
 Parâmetros são simplesmente uma lista de nomes de variaveis locais contidas entre parênteses.
 
@@ -15,16 +15,22 @@ Parâmetros são simplesmente uma lista de nomes de variaveis locais contidas en
 Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que voce deixe uma única linha em branco entre cada definição de método. Como uma convensão entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como *puts*, *p* (falaremos mais sobre esse comando depois), e *gets* são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.
 </div>
 
-<notextile>
-<pre>
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p008meusmetodos.rb
 # Um método retorna o valor do último comando executado
-# Métodos que funcionam como perguntas são normalmente nomeados com um ponto de interrogação (?) no final
-# Métodos que são "perigosos", ou modificam o objeto, podem ser nomeados com um ponto de exclamação (!) no final (Bang methods)
+#
+# Métodos que funcionam como perguntas são normalmente nomeados 
+# com um ponto de interrogação (?) no final
+#
+# Métodos que são "perigosos", ou modificam o objeto, 
+# podem ser nomeados com um ponto de exclamação (!) no final (Bang methods)
+
+
 # Um método simples
 def ola
   puts "Olá"
 end
+
 #uso do método
 ola
 
@@ -33,6 +39,7 @@ def ola1(nome)
   puts 'Olá ' + nome
   return 'sucesso'
 end
+
 puts(ola1('satish'))
 
 # Método com argumentos - 2
@@ -40,14 +47,13 @@ def ola2 nome2
   puts 'Olá ' + nome2
   return 'sucesso'
 end
+
 puts(ola2 'talim')
-</pre>
-</notextile>
+<% end -%>
 
 A saída quando executado no meu PC foi:
 
-<notextile>
-<pre>
+<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
 >ruby p008meusmetodos.rb
 Olá
 Olá satish
@@ -56,8 +62,7 @@ Olá talim
 sucesso
 p008meusmetodos.rb:23: warning: parenthesize arguments(s) for future versions
 >Exit code: 0
-</pre>
-</notextile>
+<% end -%>
 
 <div class='box'>
 Quando você executar o programa acima na versão 1.9, o aviso *warning: parenthesize arguments(s) for future version* não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSL no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.
@@ -65,8 +70,8 @@ Quando você executar o programa acima na versão 1.9, o aviso *warning: parenth
 
 O Ruby permite que você especifique valores padrão para os argumentos de um método, ou seja, os valores que serão passados caso o método seja chamado sem um argumento explicito. Você faz isso utilizando o operador de atribuição. Veja o exemplo *p009meusmetodos1.rb*
 
-<notextile>
-<pre>
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p009meusmetodos1.rb
 # interpolação é o processo de inserir o resultado de uma expressão
 # em uma string literal.
@@ -76,19 +81,18 @@ def mtd(arg1="Dibya", arg2="Shashank", arg3="Shashank")
 end
 puts mtd
 puts mtd("ruby")
-</pre>
-</notextile>
+<% end -%>
 
 A saída quando eu executei no meu PC foi:
 
-<notextile>
-<pre>
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
  >ruby p009meusmetodos1.rb
  Dibya, Shashank, Shashank
  ruby, Shashank, Shashank
  >Exit code: 0
-</pre>
-</notextile>
+<% end -%>
+
 
 Note que não é possivel especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.
 
@@ -96,31 +100,32 @@ No programa acima, o operador de interpolação #{...} teve sua expressão avali
 
 *Nota*: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os síbolos #{ e }. O exemplo a seguir demonstra isso:
 
-<notextile>
-<pre>
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts "100 * 5 = #{100 * 5}"
-</pre>
-</notextile>
+<% end -%>
+
 Isso resulta em:
-<notextile>
-<pre>
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 100 * 5 = 500
-</pre>
-</notextile>
+<% end -%>
+
+
 O trecho #{100 * 5} interpola o resultado de 100 * 5 (500) na string naquela posição em que o operador foi definido, resultando na saída que foi exibida.
 
 O exemplo p010aliasmtd.rb mostra-nos algo sobre o método de Aliasing (apelido).
 
-<notextile>
-<pre>
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 alias metodo_novo metodo_antigo
-</pre>
-</notextile>
+<% end -%>
+
 
 O trecho acima cria um novo nome para referenciar um método existente. Quando um método é apelidado (aliased), o novo nome aponta para uma cópia do método antigo. Se o método é redefinido em seguida, o apelido continua invocando a implementação original do método.
 
-<notextile>
-<pre>
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p010aliasmtd.rb
 # alias metodo_novo metodo_antigo
 # Quando um método é apelidado, o novo nome aponta
@@ -138,19 +143,18 @@ end
 
 puts metodo_antigo
 puts metodo_novo
-</pre>
-</notextile>
+<% end -%>
+
 
 A saída é:
 
-<notextile>
-<pre>
+<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
 >ruby p010aliasmtd.rb
 método antigo melhorado
 método antigo
 >Exit code: 0
-</pre>
-</notextile>
+<% end -%>
+
 
 
 

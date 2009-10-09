@@ -32,30 +32,16 @@
    <div class="column span-15 prepend-2 first">
       <p class="title">Variáveis e atribuição</p>
 <p>Para armazenar um número ou string na memória de seu computador para usar posteriormente em seu programa, você precisa dar um nome para esse número ou string. Programadores frequentemente referem-se a esse processo como atribuição e chamam os nomes de variáveis. Uma variável começa a existir assim que o interpretador vê uma atribuição para essa variável.</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no">1</span> s = <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
 <span class="no">2</span> x = <span class="i">10</span>
-<br />
-
-<div class="CodeRay">
-<pre><span class="no">1</span> s = <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
-<span class="no">2</span> x = <span class="i">10</span>
-<br />
-<div class="CodeRay"><br />
-<pre><span class="no">1</span> s = <span class="s"><span class="dl">&#8216;</span><span class="k">Olá Mundo!</span><span class="dl">&#8217;</span></span><br />
-<span class="no">2</span> x = <span class="i">10</span><br />
-</pre></p>
+</pre>
 </div>
-<p></notextile></notextile></p>
 <div class='box'>
 <p>Uma bareword é qualquer combinação de letras, números e underscores, e não é qualificada por nenhum símbolo (Referência: <a href="http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html">http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html</a>). Variáveis locais e barewords parecem similares; elas devem iniciar com underscore (_) ou uma letra minúscula, e elas devem consistir inteiramente de letras, números e underscores. Lembre-se, referências a variáveis locais parecem com invocações de métodos e palavras chaves não podem ser usadas como nomes de variáveis (locais).</p>
 <p>Chamadas a métodos também podem ser barewords, como em meu_metodo. <strong>gets</strong> é uma chamada a um método; assim como <strong>system</strong>. Seja lá onde o Ruby vê uma bareword, ele interpreta-a como uma entre três coisas: (a) Se existe um sinal de igual do lado direito da bareword, ela é uma variável local sofrendo uma atribuição. (b) Ruby tem uma lista interna de palavras chaves e uma bareword pode ser uma delas. &#169; Se uma bareword não é (a) ou (b), ela é assumida como sendo uma chamada a método. Se não existe nenhum método com esse nome, Ruby lança um <strong>NameError</strong>.</p>
 </div>
 <p>O programa <strong>p004usodestring.rb</strong> mostra-nos mais algumas formas de uso de strings.</p>
-<p>
-<notextile>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p004usodestring.rb</span>
 <span class="no"> 2</span> <span class="c"># Definindo uma constante  </span>
@@ -89,78 +75,8 @@
 <span class="no"><strong>30</strong></span> E uma segunda linha  
 <span class="no">31</span> FIM_STR  
 <span class="no">32</span> puts a
-<span class="no">33</span> </span></span><br />
-
-<div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># p004usodestring.rb</span>
-<span class="no"> 2</span> <span class="c"># Definindo uma constante  </span>
-<span class="no"> 3</span> <span class="co">PI</span> = <span class="fl">3.1416</span>  
-<span class="no"> 4</span> puts <span class="co">PI</span>  
-<span class="no"> 5</span> <span class="c"># Definindo uma variável local  </span>
-<span class="no"> 6</span> minhaString = <span class="s"><span class="dl">'</span><span class="k">Eu amo minha cidade</span><span class="dl">'</span></span>  
-<span class="no"> 7</span> puts minhaString  
-<span class="no"> 8</span> <span class="c">=begin  
-<span class="no"> 9</span>   Conversões
-<span class="no"><strong>10</strong></span>   .to_i, .to_f, .to_s  
-<span class="no">11</span> =end  </span>
-<span class="no">12</span> var1 = <span class="i">5</span>;  
-<span class="no">13</span> var2 = <span class="s"><span class="dl">'</span><span class="k">2</span><span class="dl">'</span></span>  
-<span class="no">14</span> puts var1 + var2.to_i  
-<span class="no">15</span> <span class="c"># &lt;&lt; juntando a uma string</span>
-<span class="no">16</span> a = <span class="s"><span class="dl">'</span><span class="k">Olá </span><span class="dl">'</span></span>  
-<span class="no">17</span> a&lt;&lt;<span class="s"><span class="dl">'</span><span class="k">mundo. 
-<span class="no">18</span> Eu amo esse mundo...</span><span class="dl">'</span></span>  
-<span class="no">19</span> puts a  
-<span class="no"><strong>20</strong></span> <span class="c">=begin 
-<span class="no">21</span>   &lt;&lt; marca o início de seu literal string e
-<span class="no">22</span>   é seguido por um delimitador de sua escolha.
-<span class="no">23</span>   O literal string inicia então na próxima linha
-<span class="no">24</span>   e termina quando o delimitador é repetido em
-<span class="no">25</span>   uma linha onde ele aparece sozinho.
-<span class="no">26</span>   Isso é conhecido como &quot;Here document syntax&quot;.
-<span class="no">27</span> =end  </span>
-<span class="no">28</span> a = <span class="s"><span class="dl">&lt;&lt;FIM_STR</span></span>  <span class="s"><span class="k">
-<span class="no">29</span> Essa é a string  
-<span class="no"><strong>30</strong></span> E uma segunda linha  
-<span class="no">31</span> FIM_STR  
-<span class="no">32</span> puts a
-<span class="no">33</span> </span></span><br />
-<div class="CodeRay"><br />
-<pre><span class="no"> 1</span> <span class="c"># p004usodestring.rb</span><br />
-<span class="no"> 2</span> <span class="c"># Definindo uma constante  </span><br />
-<span class="no"> 3</span> <span class="co">PI</span> = <span class="fl">3.1416</span>  <br />
-<span class="no"> 4</span> puts <span class="co">PI</span>  <br />
-<span class="no"> 5</span> <span class="c"># Definindo uma variável local  </span><br />
-<span class="no"> 6</span> minhaString = <span class="s"><span class="dl">&#8216;</span><span class="k">Eu amo minha cidade</span><span class="dl">&#8217;</span></span>  <br />
-<span class="no"> 7</span> puts minhaString  <br />
-<span class="no"> 8</span> <span class="c">=begin  <br />
-<span class="no"> 9</span>   Conversões<br />
-<span class="no"><strong>10</strong></span>   .to_i, .to_f, .to_s  <br />
-<span class="no">11</span> =end  </span><br />
-<span class="no">12</span> var1 = <span class="i">5</span>;  <br />
-<span class="no">13</span> var2 = <span class="s"><span class="dl">&#8216;</span><span class="k">2</span><span class="dl">&#8217;</span></span>  <br />
-<span class="no">14</span> puts var1 + var2.to_i  <br />
-<span class="no">15</span> <span class="c"># &lt;&lt; juntando a uma string</span><br />
-<span class="no">16</span> a = <span class="s"><span class="dl">&#8216;</span><span class="k">Olá </span><span class="dl">&#8217;</span></span>  <br />
-<span class="no">17</span> a&lt;&lt;<span class="s"><span class="dl">&#8216;</span><span class="k">mundo. <br />
-<span class="no">18</span> Eu amo esse mundo&#8230;</span><span class="dl">&#8217;</span></span>  <br />
-<span class="no">19</span> puts a  <br />
-<span class="no"><strong>20</strong></span> <span class="c">=begin <br />
-<span class="no">21</span>   &lt;&lt; marca o início de seu literal string e<br />
-<span class="no">22</span>   é seguido por um delimitador de sua escolha.<br />
-<span class="no">23</span>   O literal string inicia então na próxima linha<br />
-<span class="no">24</span>   e termina quando o delimitador é repetido em<br />
-<span class="no">25</span>   uma linha onde ele aparece sozinho.<br />
-<span class="no">26</span>   Isso é conhecido como &quot;Here document syntax&quot;.<br />
-<span class="no">27</span> =end  </span><br />
-<span class="no">28</span> a = <span class="s"><span class="dl">&lt;&lt;FIM_STR</span></span>  <span class="s"><span class="k"><br />
-<span class="no">29</span> Essa é a string  <br />
-<span class="no"><strong>30</strong></span> E uma segunda linha  <br />
-<span class="no">31</span> FIM_STR  <br />
-<span class="no">32</span> puts a<br />
-<span class="no">33</span> </span></span></pre></p>
+<span class="no">33</span> </span></span></pre>
 </div>
-<p></notextile></notextile></p>
 <div class='box'>
 <p>No exemplo:<br />
 x = &#8220;200.0&#8221;.to_f<br />

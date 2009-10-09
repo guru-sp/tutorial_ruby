@@ -9,7 +9,6 @@ p(title). <%= h(@page.title) %>
 
 Páginas atrás nós vimos o método *puts* que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso *gets* (get a string) e *chomp* são úteis. O exemplo *p005metodos.rb* abaixo ilustra o mesmo.
 
-<notextile>
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p005metodos.rb
 # gets e chomp
@@ -18,7 +17,6 @@ STDOUT.flush
 cidade = gets.chomp
 puts "A cidade é " + cidade
 <% end -%>
-</notextile>
 
 Quando você executar o exemplo acima no SciTE, clique no caixa de saída (no lado direito do SciTE) e então digite o nome de sua cidade.
 
