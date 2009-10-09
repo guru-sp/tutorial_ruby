@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Escrevendo seus Métodos em Ruby</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-20 prepend-2 append-2 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-15 prepend-2 first">
+      <p class="title"></p>
+<p>Vamos ver como escrever nossos próprios métodos em Ruby com o auxilio do simples programa <strong>p008meusmetodos.rb</strong>. Note que nós utilizamos <strong>def</strong> e <strong>end</strong> para declarar um método.</p>
+<p>Parâmetros são simplesmente uma lista de nomes de variaveis locais contidas entre parênteses.</p>
+<div class='box'>
+<p>Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que voce deixe uma única linha em branco entre cada definição de método. Como uma convensão entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como <strong>puts</strong>, <strong>p</strong> (falaremos mais sobre esse comando depois), e <strong>gets</strong> são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.</p>
+</div>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p008meusmetodos.rb</span>
+<span class="no"> 2</span> <span class="c"># Um método retorna o valor do último comando executado</span>
+<span class="no"> 3</span> <span class="c">#</span>
+<span class="no"> 4</span> <span class="c"># Métodos que funcionam como perguntas são normalmente nomeados </span>
+<span class="no"> 5</span> <span class="c"># com um ponto de interrogação (?) no final</span>
+<span class="no"> 6</span> <span class="c">#</span>
+<span class="no"> 7</span> <span class="c"># Métodos que são &quot;perigosos&quot;, ou modificam o objeto, </span>
+<span class="no"> 8</span> <span class="c"># podem ser nomeados com um ponto de exclamação (!) no final (Bang methods)</span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span> <span class="c"># Um método simples</span>
+<span class="no">12</span> <span class="r">def</span> <span class="fu">ola</span>
+<span class="no">13</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá</span><span class="dl">&quot;</span></span>
+<span class="no">14</span> <span class="r">end</span>
+<span class="no">15</span> 
+<span class="no">16</span> <span class="c">#uso do método</span>
+<span class="no">17</span> ola
+<span class="no">18</span> 
+<span class="no">19</span> <span class="c"># Método com argumentos - 1</span>
+<span class="no"><strong>20</strong></span> <span class="r">def</span> <span class="fu">ola1</span>(nome)
+<span class="no">21</span>   puts <span class="s"><span class="dl">'</span><span class="k">Olá </span><span class="dl">'</span></span> + nome
+<span class="no">22</span>   <span class="r">return</span> <span class="s"><span class="dl">'</span><span class="k">sucesso</span><span class="dl">'</span></span>
+<span class="no">23</span> <span class="r">end</span>
+<span class="no">24</span> 
+<span class="no">25</span> puts(ola1(<span class="s"><span class="dl">'</span><span class="k">satish</span><span class="dl">'</span></span>))
+<span class="no">26</span> 
+<span class="no">27</span> <span class="c"># Método com argumentos - 2</span>
+<span class="no">28</span> <span class="r">def</span> <span class="fu">ola2</span> nome2
+<span class="no">29</span>   puts <span class="s"><span class="dl">'</span><span class="k">Olá </span><span class="dl">'</span></span> + nome2
+<span class="no"><strong>30</strong></span>   <span class="r">return</span> <span class="s"><span class="dl">'</span><span class="k">sucesso</span><span class="dl">'</span></span>
+<span class="no">31</span> <span class="r">end</span>
+<span class="no">32</span> 
+<span class="no">33</span> puts(ola2 <span class="s"><span class="dl">'</span><span class="k">talim</span><span class="dl">'</span></span>)
+</pre>
+</div>
+<p>A saída quando executado no meu PC foi:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p008meusmetodos.rb
+<span class="no">2</span> Olá
+<span class="no">3</span> Olá satish
+<span class="no">4</span> sucesso
+<span class="no">5</span> Olá talim
+<span class="no">6</span> sucesso
+<span class="no">7</span> p008meusmetodos.rb:23: warning: parenthesize arguments(s) for future versions
+<span class="no">8</span> &gt;Exit code: 0
+</pre>
+</div>
+<div class='box'>
+<p>Quando você executar o programa acima na versão 1.9, o aviso <strong>warning: parenthesize arguments(s) for future version</strong> não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSL no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.</p>
+</div>
+<p>O Ruby permite que você especifique valores padrão para os argumentos de um método, ou seja, os valores que serão passados caso o método seja chamado sem um argumento explicito. Você faz isso utilizando o operador de atribuição. Veja o exemplo <strong>p009meusmetodos1.rb</strong></p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p009meusmetodos1.rb</span>
+<span class="no"> 2</span> <span class="c"># interpolação é o processo de inserir o resultado de uma expressão</span>
+<span class="no"> 3</span> <span class="c"># em uma string literal.</span>
+<span class="no"> 4</span> <span class="c"># o operador de interpolação #{...} é avaliado separadamente</span>
+<span class="no"> 5</span> <span class="r">def</span> <span class="fu">mtd</span>(arg1=<span class="s"><span class="dl">&quot;</span><span class="k">Dibya</span><span class="dl">&quot;</span></span>, arg2=<span class="s"><span class="dl">&quot;</span><span class="k">Shashank</span><span class="dl">&quot;</span></span>, arg3=<span class="s"><span class="dl">&quot;</span><span class="k">Shashank</span><span class="dl">&quot;</span></span>)
+<span class="no"> 6</span>   <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>arg1<span class="idl">}</span></span><span class="k">, </span><span class="il"><span class="idl">#{</span>arg2<span class="idl">}</span></span><span class="k">, </span><span class="il"><span class="idl">#{</span>arg3<span class="idl">}</span></span><span class="k">.</span><span class="dl">&quot;</span></span>
+<span class="no"> 7</span> <span class="r">end</span>
+<span class="no"> 8</span> puts mtd
+<span class="no"> 9</span> puts mtd(<span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span>)
+</pre>
+</div>
+<p>A saída quando eu executei no meu PC foi:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>  &gt;ruby p009meusmetodos1.rb
+<span class="no">2</span>  <span class="co">Dibya</span>, <span class="co">Shashank</span>, <span class="co">Shashank</span>
+<span class="no">3</span>  ruby, <span class="co">Shashank</span>, <span class="co">Shashank</span>
+<span class="no">4</span>  &gt;<span class="co">Exit</span> code: <span class="i">0</span>
+</pre>
+</div>
+<p>Note que não é possivel especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.</p>
+<p>No programa acima, o operador de interpolação #{&#8230;} teve sua expressão avaliada separadamente e seu resultado foi &#8220;colado&#8221; automaticamente na string. Quando executar essas linhas, você não verá o operador em sua tela, verá apenas o resultado da avaliação da expressão que estava contida no operador.</p>
+<p><strong>Nota</strong>: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os síbolos #{ e }. O exemplo a seguir demonstra isso:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">100 * 5 = </span><span class="il"><span class="idl">#{</span><span class="i">100</span> * <span class="i">5</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
+</pre>
+</div>
+<p>Isso resulta em:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="i">100</span> * <span class="i">5</span> = <span class="i">500</span>
+</pre>
+</div>
+<p>O trecho #{100 * 5} interpola o resultado de 100 * 5 (500) na string naquela posição em que o operador foi definido, resultando na saída que foi exibida.</p>
+<p>O exemplo p010aliasmtd.rb mostra-nos algo sobre o método de Aliasing (apelido).</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="r">alias</span> <span class="fu">metodo_novo</span> <span class="fu">metodo_antigo</span>
+</pre>
+</div>
+<p>O trecho acima cria um novo nome para referenciar um método existente. Quando um método é apelidado (aliased), o novo nome aponta para uma cópia do método antigo. Se o método é redefinido em seguida, o apelido continua invocando a implementação original do método.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p010aliasmtd.rb</span>
+<span class="no"> 2</span> <span class="c"># alias metodo_novo metodo_antigo</span>
+<span class="no"> 3</span> <span class="c"># Quando um método é apelidado, o novo nome aponta</span>
+<span class="no"> 4</span> <span class="c"># para uma cópia da implementação do método original</span>
+<span class="no"> 5</span> 
+<span class="no"> 6</span> <span class="r">def</span> <span class="fu">metodo_antigo</span>
+<span class="no"> 7</span>   <span class="s"><span class="dl">&quot;</span><span class="k">método antigo</span><span class="dl">&quot;</span></span>
+<span class="no"> 8</span> <span class="r">end</span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span> <span class="r">alias</span> <span class="fu">metodo_novo</span> <span class="fu">metodo_antigo</span>
+<span class="no">11</span> 
+<span class="no">12</span> <span class="r">def</span> <span class="fu">metodo_antigo</span>
+<span class="no">13</span>   <span class="s"><span class="dl">&quot;</span><span class="k">método antigo melhorado</span><span class="dl">&quot;</span></span>
+<span class="no">14</span> <span class="r">end</span>
+<span class="no">15</span> 
+<span class="no">16</span> puts metodo_antigo
+<span class="no">17</span> puts metodo_novo
+</pre>
+</div>
+<p>A saída é:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p010aliasmtd.rb
+<span class="no">2</span> método antigo melhorado
+<span class="no">3</span> método antigo
+<span class="no">4</span> &gt;Exit code: 0
+</pre>
+</div>
+   </div>
+
+   <div class="column span-5 append-2 last">
+
+      <p><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></p>
+
+      <div class="box">
+         <p class="last">Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum egestas lorem. Duis ac sem sagittis elit tincidunt gravida.</p>
+      </div>
+
+      <p class="quiet">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue.</p>
+
+      <h5>Incremental leading</h5>
+      <p class="incr">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue. sed aliquet vehicula, lectus tellus.</p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

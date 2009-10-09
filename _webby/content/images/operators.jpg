@@ -1,0 +1,554 @@
+
+  
+
+  
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>images/operators.jpg at gh-pages from bbcoimbra's tutorial_ruby - GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub" />
+    <link rel="fluid-icon" href="http://github.com/fluidicon.png" title="GitHub" />
+
+    
+      <link href="http://assets2.github.com/stylesheets/bundle.css?dadd88a1cbce0066dc480582e464e7e63dfc72f2" media="screen" rel="stylesheet" type="text/css" />
+    
+
+    
+      
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        <script src="http://assets0.github.com/javascripts/bundle.js?dadd88a1cbce0066dc480582e464e7e63dfc72f2" type="text/javascript"></script>
+      
+    
+    
+  
+    
+  
+
+  <link href="http://github.com/feeds/bbcoimbra/commits/tutorial_ruby/gh-pages" rel="alternate" title="Recent Commits to tutorial_ruby:gh-pages" type="application/atom+xml" />
+
+    <META NAME="ROBOTS" CONTENT="NOINDEX, FOLLOW">    <meta name="description" content="Um tutorial de Ruby baseado no Ruby Learning e em português" />
+    <script type="text/javascript">
+      GitHub.nameWithOwner = GitHub.nameWithOwner || "bbcoimbra/tutorial_ruby";
+      GitHub.currentRef = "gh-pages";    
+    </script>
+  
+
+    
+
+    <script type="text/javascript">
+      github_user = 'guru-sp'
+    </script>
+  </head>
+
+  
+
+  <body>
+    
+
+    <div id="main">
+      <div id="header" class="">
+        <div class="site">
+          <div class="logo">
+            <a href="https://github.com"><img src="/images/modules/header/logov3.png" alt="github" /></a>
+          </div>
+          
+            
+  <div class="userbox">
+    <div class="inner">
+      <div class="avatarname">
+        <a href="http://github.com/guru-sp"><img alt="" height="20" src="https://secure.gravatar.com/avatar/961be4d688f5cd09ef4055a029c2f208?s=20&amp;d=http%3A%2F%2Fgithub.com%2Fimages%2Fgravatars%2Fgravatar-20.png" width="20" /></a>
+        <a href="http://github.com/guru-sp" class="name">guru-sp</a>
+      </div>
+      <ul class="usernav">
+        <li><a href="https://github.com">Dashboard</a></li>
+        <li>
+          
+          <a href="/inbox">Inbox</a>
+          <a href="/inbox" class="unread_count new_messages">1</a>
+        </li>
+        <li><a href="https://github.com/account">Account Settings</a></li>
+                <li><a href="/logout">Log Out</a></li>
+      </ul>
+    </div>
+  </div><!-- /.userbox -->
+
+          
+          
+            <div class="topsearch">
+  <form action="/search" id="top_search_form" method="get">
+    <input type="search" class="search repo_autocompleter" name="q" results="5" placeholder="Search GitHub&hellip;" /> <input type="submit" value="Search", class="button" />
+    <input type="hidden" name="type" value="Everything" />
+    <input type="hidden" name="repo" value="" />
+    <input type="hidden" name="langOverride" value="" />
+    <input type="hidden" name="start_value" value="1" />
+    <a href="/search" class="advanced-search" title="Advanced Search">Advanced Search</a>
+  </form>
+  <ul class="nav">
+    <li><a href="/repositories">Explore GitHub</a></li>
+    <li><a href="http://gist.github.com">Gist</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="http://help.github.com" target="_blank">Help</a></li>
+  </ul>
+</div>
+          
+        </div>
+      </div>
+
+      
+        
+      <div id="repo_menu">
+        <div class="site">
+          <ul>
+            
+              <li class="active"><a href="http://github.com/bbcoimbra/tutorial_ruby/tree/gh-pages">Source</a></li>
+
+              <li class=""><a href="http://github.com/bbcoimbra/tutorial_ruby/commits/gh-pages">Commits</a></li>
+
+              
+              <li class=""><a href="/bbcoimbra/tutorial_ruby/network">Network (3)</a></li>
+
+              
+
+              
+
+              
+                
+                <li class=""><a href="/bbcoimbra/tutorial_ruby/downloads">Downloads (0)</a></li>
+              
+
+              
+                
+                <li class=""><a href="http://wiki.github.com/bbcoimbra/tutorial_ruby">Wiki (1)</a></li>
+              
+
+              <li class=""><a href="/bbcoimbra/tutorial_ruby/graphs">Graphs</a></li>
+
+              
+
+            
+          </ul>
+        </div>
+      </div>
+
+    <div id="repo_sub_menu">
+      <div class="site">
+        <div class="joiner"></div>
+        
+
+        
+
+        
+
+        
+      </div>
+    </div>
+
+    <div class="site">
+      
+
+
+
+
+
+<div id="repos">
+  
+
+
+<script type="text/javascript">
+  GitHub.currentCommitRef = "gh-pages"
+  GitHub.currentRepoOwner = "bbcoimbra"
+  GitHub.currentRepo = "tutorial_ruby"
+  
+    GitHub.hasWriteAccess = false
+    GitHub.watchingRepo = false
+    GitHub.ignoredRepo = false
+    GitHub.hasForkOfRepo = "guru-sp/tutorial_ruby"
+  
+</script>
+
+
+
+  <div class="repo public" id="repo_details">
+    <div class="title">
+      <div class="path">
+        <a href="/bbcoimbra">bbcoimbra</a> / <b><a href="http://github.com/bbcoimbra/tutorial_ruby">tutorial_ruby</a></b>
+
+        
+
+          <span id="edit_button" style="display:none;">
+            <a href="/bbcoimbra/tutorial_ruby/edit"><img alt="edit" class="button" src="http://assets1.github.com/images/modules/repos/edit_button.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></a>
+          </span>
+
+          
+            <span id="pull_request_button" style="display:none;">
+              <a href="/bbcoimbra/tutorial_ruby/pull_request/" class="pull_request_button"><img alt="pull request" class="button" src="http://assets0.github.com/images/modules/repos/pull_request_button.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></a>
+            </span>
+
+            <span id="fork_button">
+              <a href="/bbcoimbra/tutorial_ruby/fork"><img alt="fork" class="button" src="http://assets1.github.com/images/modules/repos/fork_button.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></a>
+            </span>
+          
+
+          <span id="watch_button">
+            <a href="/bbcoimbra/tutorial_ruby/toggle_watch" class="toggle_watch"><img alt="watch" class="button" src="http://assets0.github.com/images/modules/repos/watch_button.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></a>
+          </span>
+
+          <span id="unwatch_button" style="display:none;">
+            <a href="/bbcoimbra/tutorial_ruby/toggle_watch" class="toggle_watch"><img alt="watch" class="button" src="http://assets0.github.com/images/modules/repos/unwatch_button.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></a>
+          </span>
+
+          
+            <a href="/bbcoimbra/tutorial_ruby/archives/master" id="download_button">
+              <img alt="download tarball" class="button" src="http://assets3.github.com/images/modules/repos/download_button.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" />
+            </a>
+          
+        
+      </div>
+
+      <div class="security private_security" style="display:none">
+        <a href="#private_repo" rel="facebox"><img src="/images/icons/private.png" alt="private" /></a>
+      </div>
+
+      <div id="private_repo" class="hidden">
+        This repository is private.
+        All pages are served over SSL and all pushing and pulling is done over SSH.
+        No one may fork, clone, or view it unless they are added as a <a href="/bbcoimbra/tutorial_ruby/edit">member</a>.
+
+        <br/>
+        <br/>
+        Every repository with this icon (<img src="/images/icons/private.png" alt="private" />) is private.
+      </div>
+
+      <div class="security public_security" style="">
+        <a href="#public_repo" rel="facebox"><img src="/images/icons/public.png" alt="public" /></a>
+      </div>
+
+      <div id="public_repo" class="hidden">
+        This repository is public.
+        Anyone may fork, clone, or view it.
+
+        <br/>
+        <br/>
+        Every repository with this icon (<img src="/images/icons/public.png" alt="public" />) is public.
+      </div>
+
+      
+
+        <div class="flexipill">
+          <a href="/bbcoimbra/tutorial_ruby/network">
+          <table cellpadding="0" cellspacing="0">
+            <tr><td><img alt="Forks" src="http://assets1.github.com/images/modules/repos/pills/forks.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></td><td class="middle"><span>3</span></td><td><img alt="Right" src="http://assets2.github.com/images/modules/repos/pills/right.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></td></tr>
+          </table>
+          </a>
+        </div>
+
+        <div class="flexipill">
+          <a href="/bbcoimbra/tutorial_ruby/watchers">
+          <table cellpadding="0" cellspacing="0">
+            <tr><td><img alt="Watchers" src="http://assets1.github.com/images/modules/repos/pills/watchers.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></td><td class="middle"><span>1</span></td><td><img alt="Right" src="http://assets2.github.com/images/modules/repos/pills/right.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" /></td></tr>
+          </table>
+          </a>
+        </div>
+      </div>
+
+    <div class="meta">
+      <table>
+        
+          <tr>
+            <td class="label" colspan="2">
+              <em>Fork of <a href="/guru-sp/tutorial_ruby">guru-sp/tutorial_ruby</a></em>
+            </td>
+          </tr>
+        
+        <tr>
+          <td class="label">Description:</td>
+          <td>
+            <span id="repository_description" rel="/bbcoimbra/tutorial_ruby/edit/update">Um tutorial de Ruby baseado no Ruby Learning e em português</span>
+            <a href="#description" class="edit_link action" style="display:none;">edit</a>
+          </td>
+        </tr>
+
+        
+            <tr>
+              <td class="label">Homepage:</td>
+              <td>
+                
+                <span id="repository_homepage" rel="/bbcoimbra/tutorial_ruby/edit/update">
+                  <a href="http://www.guru-sp.org">www.guru-sp.org</a>
+                </span>
+                <a href="#homepage" class="edit_link action" style="display:none;">edit</a>
+              </td>
+            </tr>
+
+          
+            <tr>
+              <td class="label"><span id="public_clone_text" style="display:none;">Public&nbsp;</span>Clone&nbsp;URL:</td>
+              
+              <td>
+                <a href="git://github.com/bbcoimbra/tutorial_ruby.git" class="git_url_facebox" rel="#git-clone">git://github.com/bbcoimbra/tutorial_ruby.git</a>
+                      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+              width="110"
+              height="14"
+              class="clippy"
+              id="clippy" >
+      <param name="movie" value="/flash/clippy.swf"/>
+      <param name="allowScriptAccess" value="always" />
+      <param name="quality" value="high" />
+      <param name="scale" value="noscale" />
+      <param NAME="FlashVars" value="text=git://github.com/bbcoimbra/tutorial_ruby.git">
+      <param name="bgcolor" value="#F0F0F0">
+      <param name="wmode" value="opaque">
+      <embed src="/flash/clippy.swf"
+             width="110"
+             height="14"
+             name="clippy"
+             quality="high"
+             allowScriptAccess="always"
+             type="application/x-shockwave-flash"
+             pluginspage="http://www.macromedia.com/go/getflashplayer"
+             FlashVars="text=git://github.com/bbcoimbra/tutorial_ruby.git"
+             bgcolor="#F0F0F0"
+             wmode="opaque"
+      />
+      </object>
+
+                <div id="git-clone" style="display:none;">
+                  Give this clone URL to anyone.
+                  <br/>
+                  <code>git clone git://github.com/bbcoimbra/tutorial_ruby.git </code>
+                </div>
+              </td>
+            </tr>
+          
+
+          <tr id="private_clone_url" style="display:none;">
+            <td class="label">Your Clone URL:</td>
+            
+            <td>
+
+              <div id="private-clone-url">
+                <a href="git@github.com:bbcoimbra/tutorial_ruby.git" class="git_url_facebox" rel="#your-git-clone">git@github.com:bbcoimbra/tutorial_ruby.git</a>
+                <input type="text" value="git@github.com:bbcoimbra/tutorial_ruby.git" style="display: none;" />
+                      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+              width="110"
+              height="14"
+              class="clippy"
+              id="clippy" >
+      <param name="movie" value="/flash/clippy.swf"/>
+      <param name="allowScriptAccess" value="always" />
+      <param name="quality" value="high" />
+      <param name="scale" value="noscale" />
+      <param NAME="FlashVars" value="text=git@github.com:bbcoimbra/tutorial_ruby.git">
+      <param name="bgcolor" value="#F0F0F0">
+      <param name="wmode" value="opaque">
+      <embed src="/flash/clippy.swf"
+             width="110"
+             height="14"
+             name="clippy"
+             quality="high"
+             allowScriptAccess="always"
+             type="application/x-shockwave-flash"
+             pluginspage="http://www.macromedia.com/go/getflashplayer"
+             FlashVars="text=git@github.com:bbcoimbra/tutorial_ruby.git"
+             bgcolor="#F0F0F0"
+             wmode="opaque"
+      />
+      </object>
+
+              </div>
+
+              <div id="your-git-clone" style="display:none;">
+                Use this clone URL yourself.
+                <br/>
+                <code>git clone git@github.com:bbcoimbra/tutorial_ruby.git </code>
+              </div>
+            </td>
+          </tr>
+
+          
+
+          
+
+          
+      </table>
+
+          </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+
+  <div id="commit">
+    <div class="group">
+        
+  <div class="envelope commit">
+    <div class="human">
+      
+        <div class="message"><pre><a href="/bbcoimbra/tutorial_ruby/commit/5fedde6666ecd5656ec5260ec2936932184734f9">mais um trecho do escrevendo-seus-metodos.txt</a> </pre></div>
+      
+
+      <div class="actor">
+        <div class="gravatar">
+          
+          <img alt="" height="30" src="http://www.gravatar.com/avatar/7fc6e36792be02433d6266b4eae45635?s=30&amp;d=http%3A%2F%2Fgithub.com%2Fimages%2Fgravatars%2Fgravatar-30.png" width="30" />
+        </div>
+        <div class="name"><a href="/bbcoimbra">bbcoimbra</a> <span>(author)</span></div>
+          <div class="date">
+            <abbr class="relatize" title="2009-08-31 07:12:50">Mon Aug 31 07:12:50 -0700 2009</abbr> 
+          </div>
+      </div>
+  
+      
+  
+    </div>
+    <div class="machine">
+      <span>c</span>ommit&nbsp;&nbsp;<a href="/bbcoimbra/tutorial_ruby/commit/5fedde6666ecd5656ec5260ec2936932184734f9" hotkey="c">5fedde6666ecd5656ec5260ec2936932184734f9</a><br />
+      <span>t</span>ree&nbsp;&nbsp;&nbsp;&nbsp;<a href="/bbcoimbra/tutorial_ruby/tree/5fedde6666ecd5656ec5260ec2936932184734f9" hotkey="t">7d3bb92266669338ea4d4ce83a2d5294776ba5ce</a><br />
+  
+      
+        <span>p</span>arent&nbsp;
+        
+        <a href="/bbcoimbra/tutorial_ruby/tree/8185d59efc7eb407c3d35641d7be1d9a1f51a250" hotkey="p">8185d59efc7eb407c3d35641d7be1d9a1f51a250</a>
+      
+  
+    </div>
+  </div>
+
+    </div>
+  </div>
+
+
+
+  
+    <div id="path">
+      <b><a href="/bbcoimbra/tutorial_ruby/tree/gh-pages">tutorial_ruby</a></b> / <a href="/bbcoimbra/tutorial_ruby/tree/gh-pages/images">images</a> / operators.jpg       <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+              width="110"
+              height="14"
+              class="clippy"
+              id="clippy" >
+      <param name="movie" value="/flash/clippy.swf"/>
+      <param name="allowScriptAccess" value="always" />
+      <param name="quality" value="high" />
+      <param name="scale" value="noscale" />
+      <param NAME="FlashVars" value="text=images/operators.jpg">
+      <param name="bgcolor" value="#FFFFFF">
+      <param name="wmode" value="opaque">
+      <embed src="/flash/clippy.swf"
+             width="110"
+             height="14"
+             name="clippy"
+             quality="high"
+             allowScriptAccess="always"
+             type="application/x-shockwave-flash"
+             pluginspage="http://www.macromedia.com/go/getflashplayer"
+             FlashVars="text=images/operators.jpg"
+             bgcolor="#FFFFFF"
+             wmode="opaque"
+      />
+      </object>
+
+    </div>
+
+    <div id="files">
+      <div class="file">
+        <div class="meta">
+          <div class="info">
+            <span>100644</span>
+            <span></span>
+            <span>46.064 kb</span>
+          </div>
+          <div class="actions">
+            
+            <a href="/bbcoimbra/tutorial_ruby/raw/gh-pages/images/operators.jpg" id="raw-url">raw</a>
+            
+            <a href="/bbcoimbra/tutorial_ruby/commits/gh-pages/images/operators.jpg">history</a>
+          </div>
+        </div>
+        
+  <div class="data syntax">
+    
+      <div class="image">
+        
+        
+          <img src="/bbcoimbra/tutorial_ruby/raw/gh-pages/images/operators.jpg" />
+        
+      </div>
+    
+  </div>
+
+
+      </div>
+    </div>
+    
+  
+
+
+    </div>
+  
+      
+
+      <div class="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="site">
+        <div class="info">
+          <div class="links">
+            <a href="http://github.com/blog"><b>Blog</b></a> |
+            <a href="http://support.github.com/">Support</a> |
+            <a href="http://github.com/training">Training</a> |
+            <a href="http://github.com/contact">Contact</a> |
+            <a href="http://develop.github.com">API</a> |
+            <a href="http://twitter.com/github">Status</a> |
+            <a href="http://twitter.com/github">GitHub on Twitter</a> |
+            <a href="http://github.com/guides/home">Help</a>
+
+         </div>
+          <div class="company">
+            <span id="_rrt" title="0.09471s from fe3.rs.github.com">GitHub</span>&trade;
+            is <a href="http://logicalawesome.com/">Logical Awesome</a> &copy;2009 | <a href="/site/terms">Terms of Service</a> | <a href="/site/privacy">Privacy Policy</a>
+          </div>
+        </div>
+        <div class="sponsor">
+          <div>
+            Powered by the <a href="http://www.rackspace.com ">Dedicated
+            Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
+            Computing</a> of Rackspace Hosting<span>&reg;</span>
+          </div>
+          <a href="http://www.rackspace.com">
+            <img alt="Dedicated Server" src="http://assets0.github.com/images/modules/footer/rackspace_logo.png?dadd88a1cbce0066dc480582e464e7e63dfc72f2" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="coming_soon" style="display:none;">
+      This feature is coming soon.  Sit tight!
+    </div>
+
+    
+        <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    var pageTracker = _gat._getTracker("UA-3769691-2");
+    pageTracker._initData();
+    pageTracker._trackPageview();
+    </script>
+
+    
+  </body>
+</html>
+
