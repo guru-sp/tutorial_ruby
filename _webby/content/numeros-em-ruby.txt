@@ -37,7 +37,7 @@ Inteiros Ruby são objetos da classe *Fixnum* ou *Bignum*. As classes *Fixnum* e
 
 A hierarquia das classes (cortesia: "Donald Craig":http://www.cs.mun.ca/%7Edonald) é como mostrado na figura abaixo:
 
-!images/class.gif!
+!images/hierarquia_classes.gif!
 
 h2. Operadores e precedência
 
