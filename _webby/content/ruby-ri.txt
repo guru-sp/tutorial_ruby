@@ -1,0 +1,37 @@
+---
+title:      A ferramenta Ruby ri
+created_at: 2009-10-20 23:19:30.459402 -02:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+h2. ri e RDoc
+
+Se você tem uma boa conexão com a internet, então você provavelmente deveria consultar a documentação do Ruby online. Entretanto,
+para aqueles que possuem uma conexão mais lenta ou não tem acesso a uma conexão com a internet, as ferramentas Ruby ri e RDoc são
+bastante úteis.
+
+ri (o Índice Ruby) e RDoc (Documentação Ruby) são um par de ferramentas bastante relacionadas para prover documentação a respeito de programas em Ruby. O ri é uma ferramenta de linha de comando; o RDoc inclui uma ferramenta de linha de comando chamada rdoc. ri e rdoc são programas independentes; você executa ambos pela linha de comando.
+
+O RDoc é um sistema de documentação criado por "Dave Thomas":http://en.wikipedia.org/wiki/Dave_Thomas_(programmer). Se você colocar comentários nos arquivos de seu programa (Ruby ou C) no formato especificado pelo RDoc, o rdoc escaneia seus arquivos, extrai os comentários, organiza-os de forma inteligente (ndexados de acordo com aquilo que eles comentam) e cria uma documentação formatada a partir deles. Você pode a marcação do RDoc em muitos dos arquivos na árvore de código fonte do Ruby e em muitos arquivos Ruby na pasta de instalação do Ruby. Com o RDoc também é possível gerar uma versão em HTML da documentação como a da "documentação oficial":http://www.ruby-doc.org/ruby-1.9/. Existem diversos templates em HTML para o RDoc. Exemplos são o "Alisson":http://blog.evanweaver.com/files/doc/fauna/allison/files/README.html e o "Hanna:http://wiki.github.com/mislav/hanna".
+
+A ferramenta Ruby ri é usada para ver a documentação do ruby off-line. Abra uma janela de comando e execute o ri seguido pelo nome de uma classe, método ou módulo Ruby. O ri mostrará a documentação para você. Você pode especificar o nome de um método sem especificar uma classe ou módulo, mas isso lhe mostrará uma lista com todos os métodos como esse nome (ao menos que o método seja único). Normalmente, você pode separar uma classe ou módulo de um nome de método com um ponto (.). Se a classe define um método de classe e um método de instância com o mesmo nome você precisa usar :: para se referir ao método de classe ou # para se referir ao método de instância. Aqui estão alguns exemplos de chamada do ri:
+
+
+<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
+ri Array   
+ri Array.sort   
+ri Hash#each   
+ri Math::sqrt 
+<% end -%>
+
+O ri se encaixa ao RDoc: Ele lhe oferece um jeito de visualizar a informação que o RDoc extraiu e organizou. Especificamente (embora não exclusivamente, se você customizá-lo), o ri é configurado para mostrar a informação do Rdoc dos arquivos fontes do Ruby. Então em qualquer sistema que você tenha o Ruby instalado por completo, você pode obter informação detalhada sobre o Ruby apenas com uma chamade de linha de comando do ri. Você encontra informações adicionais nos seguintes sites (em inglês):
+
+"http://www.caliban.org/ruby/rubyguide.shtml#ri":http://www.caliban.org/ruby/rubyguide.shtml#ri
+"http://en.wikipedia.org/wiki/RDoc":http://en.wikipedia.org/wiki/RDoc
+"http://www.ruby-doc.org/core/classes/RDoc.html":http://www.ruby-doc.org/core/classes/RDoc.html
+"http://www.rubyinside.com.br/rdoc-algumas-maneiras-alternativas-de-consultar-documentacao-1469"http://www.rubyinside.com.br/rdoc-algumas-maneiras-alternativas-de-consultar-documentacao-1469
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>A ferramenta Ruby ri</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-20 prepend-2 append-2 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-15 prepend-2 first">
+      <p class="title">A ferramenta Ruby ri</p>
+<h2>ri e RDoc</h2>
+<p>Se você tem uma boa conexão com a internet, então você provavelmente deveria consultar a documentação do Ruby online. Entretanto,<br />
+para aqueles que possuem uma conexão mais lenta ou não tem acesso a uma conexão com a internet, as ferramentas Ruby ri e RDoc são<br />
+bastante úteis.</p>
+<p>ri (o Índice Ruby) e RDoc (Documentação Ruby) são um par de ferramentas bastante relacionadas para prover documentação a respeito de programas em Ruby. O ri é uma ferramenta de linha de comando; o RDoc inclui uma ferramenta de linha de comando chamada rdoc. ri e rdoc são programas independentes; você executa ambos pela linha de comando.</p>
+<p>O RDoc é um sistema de documentação criado por <a href="http://en.wikipedia.org/wiki/Dave_Thomas_(programmer)">Dave Thomas</a>. Se você colocar comentários nos arquivos de seu programa (Ruby ou C) no formato especificado pelo RDoc, o rdoc escaneia seus arquivos, extrai os comentários, organiza-os de forma inteligente (ndexados de acordo com aquilo que eles comentam) e cria uma documentação formatada a partir deles. Você pode a marcação do RDoc em muitos dos arquivos na árvore de código fonte do Ruby e em muitos arquivos Ruby na pasta de instalação do Ruby. Com o RDoc também é possível gerar uma versão em HTML da documentação como a da <a href="http://www.ruby-doc.org/ruby-1.9/">documentação oficial</a>. Existem diversos templates em HTML para o RDoc. Exemplos são o <a href="http://blog.evanweaver.com/files/doc/fauna/allison/files/README.html">Alisson</a> e o &#8220;Hanna:http://wiki.github.com/mislav/hanna&#8221;.</p>
+<p>A ferramenta Ruby ri é usada para ver a documentação do ruby off-line. Abra uma janela de comando e execute o ri seguido pelo nome de uma classe, método ou módulo Ruby. O ri mostrará a documentação para você. Você pode especificar o nome de um método sem especificar uma classe ou módulo, mas isso lhe mostrará uma lista com todos os métodos como esse nome (ao menos que o método seja único). Normalmente, você pode separar uma classe ou módulo de um nome de método com um ponto (.). Se a classe define um método de classe e um método de instância com o mesmo nome você precisa usar :: para se referir ao método de classe ou # para se referir ao método de instância. Aqui estão alguns exemplos de chamada do ri:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> ri Array   
+<span class="no">2</span> ri Array.sort   
+<span class="no">3</span> ri Hash#each   
+<span class="no">4</span> ri Math::sqrt 
+</pre>
+</div>
+<p>O ri se encaixa ao RDoc: Ele lhe oferece um jeito de visualizar a informação que o RDoc extraiu e organizou. Especificamente (embora não exclusivamente, se você customizá-lo), o ri é configurado para mostrar a informação do Rdoc dos arquivos fontes do Ruby. Então em qualquer sistema que você tenha o Ruby instalado por completo, você pode obter informação detalhada sobre o Ruby apenas com uma chamade de linha de comando do ri. Você encontra informações adicionais nos seguintes sites (em inglês):</p>
+<p><a href="http://www.caliban.org/ruby/rubyguide.shtml#ri">http://www.caliban.org/ruby/rubyguide.shtml#ri</a><br />
+<a href="http://en.wikipedia.org/wiki/RDoc">http://en.wikipedia.org/wiki/RDoc</a><br />
+<a href="http://www.ruby-doc.org/core/classes/RDoc.html">http://www.ruby-doc.org/core/classes/RDoc.html</a><br />
+&#8220;http://www.rubyinside.com.br/rdoc-algumas-maneiras-alternativas-de-consultar-documentacao-1469&#8221;http://www.rubyinside.com.br/rdoc-algumas-maneiras-alternativas-de-consultar-documentacao-1469</p>
+   </div>
+
+   <div class="column span-5 append-2 last">
+
+      <p><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></p>
+
+      <div class="box">
+         <p class="last">Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial de Satish Talim</a> e traduzido por membros do GURU-SP com a permissão do autor.</p>
+      </div>
+
+      <p class="quiet">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue.</p>
+
+      <h5>Incremental leading</h5>
+      <p class="incr">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar neque, non cursus sem nisi vel augue. sed aliquet vehicula, lectus tellus.</p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>
