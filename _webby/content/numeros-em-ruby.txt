@@ -32,26 +32,48 @@ puts 1.5 / 2.6
 
 
 <div class='box'>
-Inteiros Ruby são objetos da classe *Fixnum* ou *Bignum*. As classes *Fixnum* e *Bignum* representam inteiros de diferentes tamanhos. Ambas as classes descendem de *Integer* (e, sendo assim, de *Numeric*). Os números ponto flutuantes são objetos da classe *Float*, correspondendo a nativa arquitetura do tipo de data double. As classes *Complex*, *BigDecimal* e *Rational* não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.
+Inteiros Ruby são objetos da classe *Fixnum* ou *Bignum*. As classes *Fixnum* e *Bignum* representam inteiros de diferentes tamanhos. Ambas as classes descendem de *Integer* (e, sendo assim, de *Numeric*). Os números em ponto flutuantes são objetos da classe *Float*, correspondendo a arquitetura nativa do tipo de dados double. As classes *Complex*, *BigDecimal* e *Rational* não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.
 </div>
 
-A hierarquia das classes (cortesia: "Donald Craig":http://www.cs.mun.ca/%7Edonald) é como mostrado na figura abaixo:
+A hierarquia das classes (cortesia: "Donald Craig":http://www.cs.mun.ca/%7Edonald) é como  a mostrada na figura abaixo:
 
 !images/hierarquia_classes.gif!
 
 h2. Operadores e precedência
 
-Vamos dar uma olhada nos operadores do Ruby (cortesia: Dave Thomas' - "Programming Ruby":http://www.pragprog.com/titles/ruby3/programming-ruby-3). Eles estão organizados aqui em ordem de precedência, da mais alta para a mais baixa.
+Vamos dar uma olhada nos operadores do Ruby (cortesia: Dave Thomas - "Programming Ruby":http://www.pragprog.com/titles/ruby3/programming-ruby-3). Eles estão organizados aqui em ordem de precedência, da mais alta para a mais baixa.
 
-!images/operators.jpg!
+table{border:1px solid black}.
+|_. Método |_. Operador |_. Descrição |
+| Sim | [] []= | Referência a um elemento, conjunto de elementos |
+| Sim | ** | Exponenciação |
+| Sim | ! ~ + - | Não (negação), complemento, mais e menos unários (os nomes de métodos para os dois últimos são +@ e -@)|
+| Sim | * / % | Multiplicação, divisão e módulo |
+| Sim | >> << | Deslocamento para direita e esquerda |
+| Sim | & | "E" (bitwise par inteiros) |
+| Sim | ^  | "Ou" exclusivo e "ou" comum (bitwise par inteiros) |
+| Sim | <= < > >= | Operadores de comparação |
+| Sim | <= < > >= | Igualdade e operadores para casamento de padrões (!= e !~ não podem ser definidos como métodos) |
+|     | && | "E" lógico |
+|     |    | "Ou" lógico |
+|     | .. ... | Intervalos inclusivo e exclusivo |
+|     | ?: | Operador ternário (If-then-else) |
+|     | = %= /= -= += = &= >>= <<= *= &&= = **= | Operadores de atribuição |
+|     | defined? | Checa se um símbolo foi definido |
+|     | not | Negação lógica |
+|     | or and | Composição lógica|
+|     | if unless while until | Modificadores de expressão|
+|     | begin/end | Expressão de blocos|
+
+
 
 <div class='box'>
-# Os operadores de incremento e decremento (++ e --) não estão	 disponíveis em Ruby, nem da forma "pré" nem "pós". Entretanto, note que os operadores += e -= estão disponíveis.
+# Os operadores de incremento e decremento (++ e --) não estão disponíveis em Ruby, nem da forma "pré" nem "pós". Entretanto, note que os operadores += e -= estão disponíveis.
 # Parênteses funcionam da mesma forma como em expressões aritméticas. Qualquer coisa dentro de parênteses é calculado primeiro (ou, de uma forma mais técnica, é dado uma precedência maior).
-# Os operadores checados na figura são um tipo de syntactic sugar (mais sobre isso depois) - onde algo parece com um operador mas na verdade é uma chamada a um método.
+# Os operadores checados na figura são um tipo de _syntactic sugar_ (mais sobre isso depois) - onde algo parece com um operador mas na verdade é uma chamada a um método.
 </div>
 
-O operador módulo (%) do Ruby comportasse da forma a seguir:
+O operador módulo (%) do Ruby comportasse da seguinte forma:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
@@ -101,7 +123,7 @@ ou, mais idiomático, como:
 <% end -%>
 
 
-Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles tem precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:
+Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles têm precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>

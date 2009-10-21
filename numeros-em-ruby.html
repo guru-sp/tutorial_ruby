@@ -54,21 +54,122 @@
 </pre>
 </div>
 <div class='box'>
-<p>Inteiros Ruby são objetos da classe <strong>Fixnum</strong> ou <strong>Bignum</strong>. As classes <strong>Fixnum</strong> e <strong>Bignum</strong> representam inteiros de diferentes tamanhos. Ambas as classes descendem de <strong>Integer</strong> (e, sendo assim, de <strong>Numeric</strong>). Os números ponto flutuantes são objetos da classe <strong>Float</strong>, correspondendo a nativa arquitetura do tipo de data double. As classes <strong>Complex</strong>, <strong>BigDecimal</strong> e <strong>Rational</strong> não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.</p>
+<p>Inteiros Ruby são objetos da classe <strong>Fixnum</strong> ou <strong>Bignum</strong>. As classes <strong>Fixnum</strong> e <strong>Bignum</strong> representam inteiros de diferentes tamanhos. Ambas as classes descendem de <strong>Integer</strong> (e, sendo assim, de <strong>Numeric</strong>). Os números em ponto flutuantes são objetos da classe <strong>Float</strong>, correspondendo a arquitetura nativa do tipo de dados double. As classes <strong>Complex</strong>, <strong>BigDecimal</strong> e <strong>Rational</strong> não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.</p>
 </div>
-<p>A hierarquia das classes (cortesia: <a href="http://www.cs.mun.ca/%7Edonald">Donald Craig</a>) é como mostrado na figura abaixo:</p>
+<p>A hierarquia das classes (cortesia: <a href="http://www.cs.mun.ca/%7Edonald">Donald Craig</a>) é como  a mostrada na figura abaixo:</p>
 <p><img src="images/hierarquia_classes.gif" alt="" /></p>
 <h2>Operadores e precedência</h2>
-<p>Vamos dar uma olhada nos operadores do Ruby (cortesia: Dave Thomas&#8217; &#8211; <a href="http://www.pragprog.com/titles/ruby3/programming-ruby-3">Programming Ruby</a>). Eles estão organizados aqui em ordem de precedência, da mais alta para a mais baixa.</p>
-<p><img src="images/operators.jpg" alt="" /></p>
+<p>Vamos dar uma olhada nos operadores do Ruby (cortesia: Dave Thomas &#8211; <a href="http://www.pragprog.com/titles/ruby3/programming-ruby-3">Programming Ruby</a>). Eles estão organizados aqui em ordem de precedência, da mais alta para a mais baixa.</p>
+<table style="border:1px solid black;">
+	<tr>
+		<th>Método </th>
+		<th>Operador </th>
+		<th>Descrição </th>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> [] []= </td>
+		<td> Referência a um elemento, conjunto de elementos </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> ** </td>
+		<td> Exponenciação </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> ! ~ + &#8211; </td>
+		<td> Não (negação), complemento, mais e menos unários (os nomes de métodos para os dois últimos são +@ e -@)</td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> * / % </td>
+		<td> Multiplicação, divisão e módulo </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> &gt;&gt; &lt;&lt; </td>
+		<td> Deslocamento para direita e esquerda </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> &amp; </td>
+		<td> &#8220;E&#8221; (bitwise par inteiros) </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> ^  |</td>
+		<td> &#8220;Ou&#8221; exclusivo e &#8220;ou&#8221; comum (bitwise par inteiros) </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> &lt;= &lt; &gt; &gt;= </td>
+		<td> Operadores de comparação </td>
+	</tr>
+	<tr>
+		<td> Sim </td>
+		<td> &lt;= &lt; &gt; &gt;= </td>
+		<td> Igualdade e operadores para casamento de padrões (!= e !~ não podem ser definidos como métodos) </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> &amp;&amp; </td>
+		<td> &#8220;E&#8221; lógico </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td>  ||  </td>
+		<td> &#8220;Ou&#8221; lógico </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> .. &#8230; </td>
+		<td> Intervalos inclusivo e exclusivo </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> ?: </td>
+		<td> Operador ternário (If-then-else) </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> = %= /= -= += |= &amp;= &gt;&gt;= &lt;&lt;= <strong>= &amp;&amp;= ||= *</strong>= </td>
+		<td> Operadores de atribuição </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> defined? </td>
+		<td> Checa se um símbolo foi definido </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> not </td>
+		<td> Negação lógica </td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> or and </td>
+		<td> Composição lógica</td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> if unless while until </td>
+		<td> Modificadores de expressão</td>
+	</tr>
+	<tr>
+		<td>     </td>
+		<td> begin/end </td>
+		<td> Expressão de blocos</td>
+	</tr>
+</table>
 <div class='box'>
 <ol>
-	<li>Os operadores de incremento e decremento (++ e &#8212;) não estão	 disponíveis em Ruby, nem da forma &#8220;pré&#8221; nem &#8220;pós&#8221;. Entretanto, note que os operadores += e -= estão disponíveis.</li>
+	<li>Os operadores de incremento e decremento (++ e &#8212;) não estão disponíveis em Ruby, nem da forma &#8220;pré&#8221; nem &#8220;pós&#8221;. Entretanto, note que os operadores += e -= estão disponíveis.</li>
 	<li>Parênteses funcionam da mesma forma como em expressões aritméticas. Qualquer coisa dentro de parênteses é calculado primeiro (ou, de uma forma mais técnica, é dado uma precedência maior).</li>
-	<li>Os operadores checados na figura são um tipo de syntactic sugar (mais sobre isso depois) &#8211; onde algo parece com um operador mas na verdade é uma chamada a um método.<br />
+	<li>Os operadores checados na figura são um tipo de <em>syntactic sugar</em> (mais sobre isso depois) &#8211; onde algo parece com um operador mas na verdade é uma chamada a um método.<br />
 </div></li>
 </ol>
-<p>O operador módulo (%) do Ruby comportasse da forma a seguir:</p>
+<p>O operador módulo (%) do Ruby comportasse da seguinte forma:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts (<span class="i">5</span> % <span class="i">3</span>)     <span class="c"># imprime  2  </span>
 <span class="no">2</span> puts (<span class="i">-5</span> % <span class="i">3</span>)    <span class="c"># imprime  1  </span>
@@ -105,7 +206,7 @@
 <pre><span class="no">1</span> <span class="iv">@variavel</span> ||= <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
 </pre>
 </div>
-<p>Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles tem precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:</p>
+<p>Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles têm precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="r">if</span> a = f(x) <span class="r">and</span> b = f(y) <span class="r">and</span> c = f(z) <span class="r">then</span> d = g(a,b,c) <span class="r">end</span>
 </pre>
