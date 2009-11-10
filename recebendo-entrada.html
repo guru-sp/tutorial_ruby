@@ -31,7 +31,7 @@
 
    <div class="column span-15 prepend-2 first">
       <p class="title">Recebendo Entrada</p>
-<p>Páginas atrás nós vimos o método <strong>puts</strong> que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso <strong>gets</strong> (get a string) e <strong>chomp</strong> são úteis. O exemplo <strong>p005metodos.rb</strong> abaixo ilustra o mesmo.</p>
+<p>Páginas atrás vimos o método <strong>puts</strong> que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso <strong>gets</strong> (pegar a string) e <strong>chomp</strong> (mastigar) são úteis. O exemplo <strong>p005metodos.rb</strong> abaixo ilustra o mesmo.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p005metodos.rb</span>
 <span class="no">2</span> <span class="c"># gets e chomp</span>
@@ -41,8 +41,8 @@
 <span class="no">6</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">A cidade é </span><span class="dl">&quot;</span></span> + cidade
 </pre>
 </div>
-<p>Quando você executar o exemplo acima no SciTE, clique no caixa de saída (no lado direito do SciTE) e então digite o nome de sua cidade.</p>
-<p><strong>STDOUT</strong> é uma constante global que é a saída padrão atual do programa. <strong>flush</strong> limpa qualquer dado armazenado no buffer de entrada e saída do Ruby. O uso não é mandatório, mas recomendado.</p>
+<p>Quando você executar o exemplo acima no <em>SciTE</em>, clique no caixa de saída (no lado direito do <em>SciTE</em>) e então digite o nome de sua cidade.</p>
+<p><strong>STDOUT</strong> é uma constante global que é a saída padrão atual do programa. <strong>flush</strong> (fluir) limpa qualquer dado armazenado no buffer (área de armazenamento temporário de dados) de entrada e saída do Ruby. O uso não é mandatório, mas recomendado.</p>
 <p><strong>gets</strong> recebe uma linha única de dados da entrada padrão &#8211; o teclado nesse caso &#8211; e atribui a string digitada pelo usuário à variável <strong>cidade</strong>.</p>
 <p><strong>chomp</strong> é um método de string e retorna apenas as strings do que veio do teclado. Você deve ter percebido que <strong>gets</strong> retorna uma string e o caractere &#8216;\n&#8217; (quebra de linha), enquanto <strong>chomp</strong> remove o &#8216;\n&#8217;.</p>
 <div class='box'><strong>NO RAILS</strong>: Os dados vêm de muitas fontes. Em uma aplicação típica do Rails, eles vêm do banco de dados. Como um desenvolvedor Rails, você pode se encontrar utilizando relativamente poucas dessas facilidades, porque o Rails faz o tratamento dos dados para você; e seus usuários, quando eles enviam entradas pelo teclado, estarão geralmente digitando em um formulário web.</div>

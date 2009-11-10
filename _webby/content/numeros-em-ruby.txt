@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Vamos brincar com números. Em Ruby, números sem pontos decimais são chamados inteiros (integers), e números com pontos decimais são geralmente chamados de números ponto flutuante (floating-point numbers) ou, mais simples, floats (você deve inserir pelo menos um dígito depois do ponto decimal). Um literal inteiro é uma simples sequência de dígitos ex. 0, 123, 123456789. Underscores podem ser inseridos em literais inteiros (embora não no começo ou no final), e essa características é utilizada algumas vezes como separador de casa de milhar ex. 1_000_000_000. Caracteres Underscore são ignorados no dígito de string. Aqui está o programa *p002numerosruby.rb*
+Vamos brincar com números. Em Ruby, números sem pontos decimais são chamados inteiros (integers), e números com pontos decimais são geralmente chamados de números em ponto flutuante (floating-point numbers) ou, mais simples, floats (você deve inserir pelo menos um dígito depois do ponto decimal). Um literal inteiro é uma sequência simples de dígitos ex.: 0, 123, 123456789. Underscores podem ser inseridos em literais inteiros (embora não no começo ou no final), e essa característica é utilizada algumas vezes como separador de casa de milhar ex. 1_000_000_000. Caracteres do tip ounderscore são ignorados no dígito de string. Aqui está o programa *p002numerosruby.rb*
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p002numerosruby.rb
@@ -24,7 +24,7 @@ puts 1 + 2
 puts 2 * 3
 # Divisão de inteiros
 # Quando você faz um cálculo aritmético com inteiros,
-# você recebeberá uma resposta em inteiros
+# você receberá uma resposta em inteiros
 puts 3 / 2
 puts 10 - 11
 puts 1.5 / 2.6
@@ -70,7 +70,7 @@ table{border:1px solid black}.
 <div class='box'>
 # Os operadores de incremento e decremento (++ e --) não estão disponíveis em Ruby, nem da forma "pré" nem "pós". Entretanto, note que os operadores += e -= estão disponíveis.
 # Parênteses funcionam da mesma forma como em expressões aritméticas. Qualquer coisa dentro de parênteses é calculado primeiro (ou, de uma forma mais técnica, é dado uma precedência maior).
-# Os operadores checados na figura são um tipo de _syntactic sugar_ (mais sobre isso depois) - onde algo parece com um operador mas na verdade é uma chamada a um método.
+# Os operadores checados na figura são um tipo de _syntactic sugar_ ("açúcar sintático", mais sobre isso depois) - onde algo parece com um operador mas na verdade é uma chamada a um método.
 </div>
 
 O operador módulo (%) do Ruby comportasse da seguinte forma:
@@ -88,7 +88,7 @@ A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2
 
 h2. Diferença entre os operadores or e ||
 
-Ambos, *or* e *||*, retornam o primeiro argumento ao menos que este retorne *false*, neste caso avaliam e retoram o segundo argumento. Isto é demonstrado no exemplo seguinte:
+Ambos, *or* e *||*, retornam o primeiro argumento ao menos que este retorne *false*, neste caso avaliam e retornam o segundo argumento. Isto é demonstrado no exemplo seguinte:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>

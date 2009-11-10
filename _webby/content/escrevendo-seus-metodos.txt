@@ -9,10 +9,10 @@ p(title). <% h(@page.title) %>
 
 Vamos ver como escrever nossos próprios métodos em Ruby com o auxilio do simples programa *p008meusmetodos.rb*. Note que nós utilizamos *def* e *end* para declarar um método.
 
-Parâmetros são simplesmente uma lista de nomes de variaveis locais contidas entre parênteses.
+Parâmetros são simplesmente uma lista de nomes de variáveis locais contidas entre parênteses.
 
 <div class='box'>
-Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que voce deixe uma única linha em branco entre cada definição de método. Como uma convensão entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como *puts*, *p* (falaremos mais sobre esse comando depois), e *gets* são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.
+Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que você deixe uma única linha em branco entre cada definição de método. Como uma convenção entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como *puts*, *p* (falaremos mais sobre esse comando depois), e *gets* são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.
 </div>
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
@@ -65,7 +65,7 @@ p008meusmetodos.rb:23: warning: parenthesize arguments(s) for future versions
 <% end -%>
 
 <div class='box'>
-Quando você executar o programa acima na versão 1.9, o aviso *warning: parenthesize arguments(s) for future version* não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSL no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.
+Quando você executar o programa acima na versão 1.9, o aviso *warning: parenthesize arguments(s) for future version* não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSLs (linguagens de domínio específico) no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.
 </div>
 
 O Ruby permite que você especifique valores padrão para os argumentos de um método, ou seja, os valores que serão passados caso o método seja chamado sem um argumento explicito. Você faz isso utilizando o operador de atribuição. Veja o exemplo *p009meusmetodos1.rb*
@@ -94,11 +94,11 @@ A saída quando eu executei no meu PC foi:
 <% end -%>
 
 
-Note que não é possivel especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.
+Note que não é possível especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.
 
 No programa acima, o operador de interpolação #{...} teve sua expressão avaliada separadamente e seu resultado foi "colado" automaticamente na string. Quando executar essas linhas, você não verá o operador em sua tela, verá apenas o resultado da avaliação da expressão que estava contida no operador.
 
-*Nota*: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os síbolos #{ e }. O exemplo a seguir demonstra isso:
+*Nota*: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os símbolos #{ e }. O exemplo a seguir demonstra isso:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>

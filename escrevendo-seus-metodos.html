@@ -32,9 +32,9 @@
    <div class="column span-15 prepend-2 first">
       <p class="title"></p>
 <p>Vamos ver como escrever nossos próprios métodos em Ruby com o auxilio do simples programa <strong>p008meusmetodos.rb</strong>. Note que nós utilizamos <strong>def</strong> e <strong>end</strong> para declarar um método.</p>
-<p>Parâmetros são simplesmente uma lista de nomes de variaveis locais contidas entre parênteses.</p>
+<p>Parâmetros são simplesmente uma lista de nomes de variáveis locais contidas entre parênteses.</p>
 <div class='box'>
-<p>Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que voce deixe uma única linha em branco entre cada definição de método. Como uma convensão entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como <strong>puts</strong>, <strong>p</strong> (falaremos mais sobre esse comando depois), e <strong>gets</strong> são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.</p>
+<p>Nós não declaramos o tipo de retorno; um método retorna o valor do último comando executado no método. É recomendado que você deixe uma única linha em branco entre cada definição de método. Como uma convenção entre os programadores de Ruby, os métodos necessitam que seus parâmetros estejam entre parênteses. Entretanto, comandos como <strong>puts</strong>, <strong>p</strong> (falaremos mais sobre esse comando depois), e <strong>gets</strong> são muito utilizados, a regra dos parênteses não é aplicada. Em Rais, você verá métodos sendo chamados sem parênteses.</p>
 </div>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p008meusmetodos.rb</span>
@@ -85,7 +85,7 @@
 </pre>
 </div>
 <div class='box'>
-<p>Quando você executar o programa acima na versão 1.9, o aviso <strong>warning: parenthesize arguments(s) for future version</strong> não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSL no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.</p>
+<p>Quando você executar o programa acima na versão 1.9, o aviso <strong>warning: parenthesize arguments(s) for future version</strong> não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSLs (linguagens de domínio específico) no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.</p>
 </div>
 <p>O Ruby permite que você especifique valores padrão para os argumentos de um método, ou seja, os valores que serão passados caso o método seja chamado sem um argumento explicito. Você faz isso utilizando o operador de atribuição. Veja o exemplo <strong>p009meusmetodos1.rb</strong></p>
 <div class="CodeRay">
@@ -108,9 +108,9 @@
 <span class="no">4</span>  &gt;<span class="co">Exit</span> code: <span class="i">0</span>
 </pre>
 </div>
-<p>Note que não é possivel especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.</p>
+<p>Note que não é possível especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.</p>
 <p>No programa acima, o operador de interpolação #{&#8230;} teve sua expressão avaliada separadamente e seu resultado foi &#8220;colado&#8221; automaticamente na string. Quando executar essas linhas, você não verá o operador em sua tela, verá apenas o resultado da avaliação da expressão que estava contida no operador.</p>
-<p><strong>Nota</strong>: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os síbolos #{ e }. O exemplo a seguir demonstra isso:</p>
+<p><strong>Nota</strong>: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os símbolos #{ e }. O exemplo a seguir demonstra isso:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">100 * 5 = </span><span class="il"><span class="idl">#{</span><span class="i">100</span> * <span class="i">5</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
 </pre>

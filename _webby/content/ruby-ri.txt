@@ -27,7 +27,7 @@ ri Hash#each
 ri Math::sqrt 
 <% end -%>
 
-O ri se encaixa ao RDoc: Ele lhe oferece um jeito de visualizar a informação que o RDoc extraiu e organizou. Especificamente (embora não exclusivamente, se você customizá-lo), o ri é configurado para mostrar a informação do Rdoc dos arquivos fontes do Ruby. Então em qualquer sistema que você tenha o Ruby instalado por completo, você pode obter informação detalhada sobre o Ruby apenas com uma chamade de linha de comando do ri. Você encontra informações adicionais nos seguintes sites (em inglês):
+O ri se encaixa ao RDoc: Ele lhe oferece um jeito de visualizar a informação que o RDoc extraiu e organizou. Especificamente (embora não exclusivamente, se você customizá-lo), o ri é configurado para mostrar a informação do Rdoc dos arquivos fontes do Ruby. Então em qualquer sistema que você tenha o Ruby instalado por completo, você pode obter informação detalhada sobre o Ruby apenas com uma chamada de linha de comando do ri. Você encontra informações adicionais nos seguintes sites (em inglês):
 
 "http://www.caliban.org/ruby/rubyguide.shtml#ri":http://www.caliban.org/ruby/rubyguide.shtml#ri
 "http://en.wikipedia.org/wiki/RDoc":http://en.wikipedia.org/wiki/RDoc

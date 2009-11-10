@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Páginas atrás nós vimos o método *puts* que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso *gets* (get a string) e *chomp* são úteis. O exemplo *p005metodos.rb* abaixo ilustra o mesmo.
+Páginas atrás vimos o método *puts* que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso *gets* (pegar a string) e *chomp* (mastigar) são úteis. O exemplo *p005metodos.rb* abaixo ilustra o mesmo.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p005metodos.rb
@@ -18,9 +18,9 @@ cidade = gets.chomp
 puts "A cidade é " + cidade
 <% end -%>
 
-Quando você executar o exemplo acima no SciTE, clique no caixa de saída (no lado direito do SciTE) e então digite o nome de sua cidade.
+Quando você executar o exemplo acima no _SciTE_, clique no caixa de saída (no lado direito do _SciTE_) e então digite o nome de sua cidade.
 
-*STDOUT* é uma constante global que é a saída padrão atual do programa. *flush* limpa qualquer dado armazenado no buffer de entrada e saída do Ruby. O uso não é mandatório, mas recomendado.
+*STDOUT* é uma constante global que é a saída padrão atual do programa. *flush* (fluir) limpa qualquer dado armazenado no buffer (área de armazenamento temporário de dados) de entrada e saída do Ruby. O uso não é mandatório, mas recomendado.
 
 *gets* recebe uma linha única de dados da entrada padrão - o teclado nesse caso - e atribui a string digitada pelo usuário à variável *cidade*.
 

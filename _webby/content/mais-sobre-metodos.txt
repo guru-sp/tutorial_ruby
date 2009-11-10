@@ -13,4 +13,4 @@ qualquer objeto em que você está no momento. Mas nós nem sabemos ainda como e
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do %> puts self <% end %>
 
-Para mais detalhes sobre *self*, veja aqui.
+"Para mais detalhes sobre *self*, veja aqui":self.html.

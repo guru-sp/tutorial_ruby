@@ -7,33 +7,33 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-# Evite utilizar o Escopo Global e Variáveis Globais. Escopo global significa o escopo que cobre todo o programa. Variaveis Globais são diferenciadas das demais por um caractere de cifrão ($) como primeiro caractere em seu nome. O interpretador do Ruby inicializa um grande número de variáveis globais em sua propria inicialização. Variáveis globais não combinam com os ideais da programação orientada à objeto, quando você começar a utilizar variáveis globais em suas aplicações, seu código se tornará dependente delas. Como a divisão da aplicação em blocos lógicos distintos é um aspecto muito útil da programação orientada à objetos, o uso de variáveis globais é desencorajado.
+# Evite utilizar o Escopo Global e Variáveis Globais. Escopo global significa o escopo que cobre todo o programa. Variáveis Globais são diferenciadas das demais por um caractere de cifrão ($) como primeiro caractere em seu nome. O interpretador do Ruby inicializa um grande número de variáveis globais em sua própria inicialização. Variáveis globais não combinam com os ideais da programação orientada à objeto, quando você começar a utilizar variáveis globais em suas aplicações, seu código se tornará dependente delas. Como a divisão da aplicação em blocos lógicos distintos é um aspecto muito útil da programação orientada à objetos, o uso de variáveis globais é desencorajado.
 # Os métodos *gets* ('get a string', pegue a string) e *chomp* (um método da classe String) são utilizados para receber dados do usuário.
 # O método *gets* retorna uma string e um caractere de quebra de linha ('\n') e o *chomp* remove a quebra de linha.
 # A constante global STDOUT aponta para a saída padrão. O método *flush* força o esvaziamento do respectivo buffer de dados (atente-se para o fato de que apenas os buffers internos do Ruby são esvaziados; o Sistema Operacional ainda pode manter os dados em buffer). O uso do método não é obrigatório, mas recomendado.
-# Para formatar a saída com duas casas decimais, podemos utilizar o médoto *format* do módulo *Kernel*.
+# Para formatar a saída com duas casas decimais, podemos utilizar o método *format* do módulo *Kernel*.
 # Os nomes em Ruby são utilizados para referenciar constantes, variáveis, métodos, classes e módulos. O primeiro caractere do nome auxilia o Ruby à distinguir o significado daquele nome.
-# Caracteres de caixa-baixa (minúsculas) são aqueles compreendidos entre 'a' e 'z', incluíndo o caractere '_' ("underscore", sublinhado). Caracteres de caixa-alta (maiúsculas) são aqueles compreendidos entre 'A' e 'Z', e os dígitos são aqueles entre '0' e '9'.
-# Um nome é uma letra de caixa-alta, caixa-baixa ou um catactere de sublinhado ('_', underscore), seguido por caracteres de ne nomeação, isto é, qualquer combinação de caracteres Maiusculos, Minúsculos, Dígitos ou o caractere de sublinhado (underscore).
+# Caracteres de caixa-baixa (minúsculas) são aqueles compreendidos entre 'a' e 'z', incluindo o caractere '_' ("underscore", sublinhado). Caracteres de caixa-alta (maiúsculas) são aqueles compreendidos entre 'A' e 'Z', e os dígitos são aqueles entre '0' e '9'.
+# Um nome é uma letra de caixa-alta, caixa-baixa ou um caractere de sublinhado ('_', underscore), seguido por caracteres de ne nomeação, isto é, qualquer combinação de caracteres Maiúsculas, Minúsculas, Dígitos ou o caractere de sublinhado (underscore).
 # Você pode utilizar variáveis em Ruby antes de qualquer declaração prévia. O nome das variáveis denotam seu escopo (local, global, de instância etc.).
-# *Lembre-se* a forma com que os nomes das variáveis locais, de instância, de classe, globais, além dos métodos e constantes sáo declarados.
-# "?", "!" e "=" são os únicos caracteres "estranhos" permitidos como sulfixo dos nomes de métodos.
+# *Lembre-se* a forma com que os nomes das variáveis locais, de instância, de classe, globais, além dos métodos e constantes são declarados.
+# "?", "!" e "=" são os únicos caracteres "estranhos" permitidos como sufixo dos nomes de métodos.
 # Pela convenção do Ruby as palavras são separadas por '_' em nomes de métodos e variáveis quem possuam mais de uma palavra. Para nome de Classes, Métodos e Constantes é utilizado letras Maiúsculas para distinguir o nome das palavra. Exemplo: minha_variavel, MeuModulo, MinhaClasse, MinhaConstante.
 # Qualquer variável pode, em diferentes momentos, manter referencia para vários tipos de objeto.
 # As variáveis em Ruby são referências para objetos que são automaticamente desalocados pelo coletor de lixo (Garbage Collector)
 # Para começar, lembre-se que o Ruby usa tipagem dinâmica, e tudo que você manipula é um objeto e os resultados das manipulações também são objeto.
 # Os tipos básicos em Ruby são Numeric (incluindo os subtipos Fixnum, Integer e Float), String, Array, Hash, Object, Symbol, Range e RegExp.
 # Por enquanto, lembre-se que você sempre pode verificar qual é o objeto atual utilizando a variável especial _self_.
-# Utilizamos _def_ e _end_ para declarar um método.  O parametros são apenas uma lista de nomes variáveis locais entre parenteses.
-# Não decaramos o tipo de retorno; um método retorna o valor da última expressão avaliada.
+# Utilizamos _def_ e _end_ para declarar um método.  Os parâmetros são apenas uma lista de nomes variáveis locais entre parênteses.
+# Não declaramos o tipo de retorno; um método retorna o valor da última expressão avaliada.
 # É recomendado deixar uma linha em branco entre cada definição de método.
-# O Ruby permite que os parenteses sejam omitidos na maioria das declarações e invocações dos métodos. Nos casos símples, isso resulta em códigos mais limpos e claros. Nos casos complexos, entretanto, resultam em ambiguidades sintáticas e confusão.
+# O Ruby permite que os parenteses sejam omitidos na maioria das declarações e invocações dos métodos. Nos casos simples, isso resulta em códigos mais limpos e claros. Nos casos complexos, entretanto, resultam em ambiguidades sintáticas e confusão.
 # Métodos se comportam como perguntas, geralmente terminam com um caractere de interrogação (?).
-# Nomes de Métodos considerados "perigosos", ou que modificam o receptor devem ser nomeados com um ponto de exlamação (!) no final. (Métodos Bang)
+# Nomes de Métodos considerados "perigosos", ou que modificam o receptor devem ser nomeados com um ponto de exclamação (!) no final. (Métodos Bang)
 # O Ruby permite que você especifique valores-padrão para os argumentos de métodos que não forem explicitamente definidos por quem chamou o método.
-# Lembre-se que existe um operador de intepolação de variáveis "#{...}"
+# Lembre-se que existe um operador de interpolação de variáveis "#{...}"
 # O método *alias* cria um novo nome para um método existente. Quando um método recebe um *alias*, o novo nome aponta para um cópia do método original. Se o método antigo é redefinido, o *alias* continua apontando para a implementação original do método.
-# Em Ruby, podemos escrever métodos que recebam número de parametros variável.
-# Não há limites para o numeros de parametros que podem ser passados por um método.
-# A sequencia em que os parâmetros são colocados na pilha é da esquerda para direita.
-# A forma que o Ruby passa os parametros, por valor ou por referencia, é discutível, isso não importa.
+# Em Ruby, podemos escrever métodos que recebam número de parâmetros variável.
+# Não há limites para o números de parâmetros que podem ser passados por um método.
+# A sequência em que os parâmetros são colocados na pilha é da esquerda para direita.
+# A forma que o Ruby passa os parâmetros, por valor ou por referencia, é discutível, isso não importa.

@@ -14,6 +14,7 @@ Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http
 
 h2. Índice
 
+h3. Parte 1
 # "Primeiro programa Ruby":primeiro-programa-ruby.html
 # "Características":caracteristicas.html
 # "Números em Ruby":numeros-em-ruby.html
@@ -23,6 +24,7 @@ h2. Índice
 # "Variáveis e atribuição":variaveis-e-atribuicao.html
 # "Resumo 1":sumario-ruby1.html
 
+h3. Parte 2
 # "Escopo":escopo.html
 ## Escopo global e variáveis globais
 ## Variáveis globais embutidas
@@ -35,6 +37,7 @@ h2. Índice
 ## Métodos terminados por ?
 # "Resumo 2":sumario-ruby2.html
 
+h3. Parte 3
 # "A ferramente ri do Ruby":ruby-ri.html
 # "Mais sobre Strings":mais-sobre-strings.html
 ## Listando todos os métodos de uma classe ou objeto
@@ -49,6 +52,7 @@ h2. Índice
 # Blocos em Ruby
 # Resumo 3
 
+h3. Parte 4
 # Arrays em Ruby
 ## Atribuição paralela
 ## Variáveis de ambiente
@@ -64,6 +68,7 @@ h2. Índice
 ## Acesso aleatório
 # Resumo 4
 
+h3. Parte 5
 # Expressões Regulares
 ## Caracteres literais
 ## O caractere coringa .(ponto)
@@ -86,6 +91,7 @@ h2. Índice
 # Métodos de Sobrecarga em Ruby
 # Resumo 5
 
+h3. Parte 6
 # Controle de Acesso
 ## Sobrepondo métodos privados
 ## Métodos de nível mais alto

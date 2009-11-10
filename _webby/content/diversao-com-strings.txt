@@ -45,7 +45,7 @@ puts `dir`
 <% end -%>
 
 
-A string é enviada para o sistema operacional como um comando a ser executado (no exemplo nós estamos enviando o comando dir para o sistema operacional Windows), a saída do comando (dir numa janela de comando exibiria todos os arquivos e sub-diretórios de um diretório) é então exibida pelo *puts*.
+A string é enviada para o sistema operacional como um comando a ser executado (no exemplo nós estamos enviando o comando dir para o sistema operacional Windows), a saída do comando (dir numa janela de comando exibiria todos os arquivos e subdiretórios de um diretório) é então exibida pelo *puts*.
 
 No Linux e no Mac, você pode usar, ao invés:
 

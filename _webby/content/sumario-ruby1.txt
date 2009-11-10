@@ -7,16 +7,16 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-# Nós estamos discutindo o Ruby 1.8.6 em plataforma Windows. Este curso também é apropriado para usuários Linux/Mac.
+# Nós estamos discutindo o Ruby 1.8.6 na plataforma Windows. Este curso também é apropriado para usuários Linux/Mac.
 # Ruby é uma linguagem interpretada.
 # Em Ruby, sempre há mais de um modo de resolver um dado problema.
 # Os exemplos de códigos foram executados no editor SciTE assegurando que você tenha feito as configurações relevantes mencionadas na página "Primeiro programa Ruby".
-# O layout do código é por sua conta; o jeito como você escolhe indentar não é relevante (mas usando dois espaços para a indentação tornará você mais amigável na comunidade, se você planeja distribuir seu código).
+# O layout do código é por sua conta; o jeito como você escolhe indentar não é relevante (mas usando dois espaços para a identação (indentação, ou endentação) tornará você mais amigável na comunidade, se você planeja distribuir seu código).
 # Por convenção, arquivos fonte Ruby tem a extensão *.rb*. No Microsoft Windows, arquivos fonte Ruby algumas vezes terminam com .rbw, como em meuscript.rbw.
 # Em Ruby, a execução de um programa geralmente procede do topo para o fim do script.
 # Características: Formato livre, Case sensitive (sensível a maiúsculas), Dois tipos de comentários, Delimitações de instruções não são requeridas, Por volta de 41 palavras chaves, e toda palavra chave Ruby é escrita usando caracteres ASCII, e todos os operadores e outras pontuações são desenhadas a partir da coleção de caracteres ASCII.
 # Você pode estar acostumado a pensar que um valor falso pode ser representado como um zero, uma string nula, um caractere nulo, ou várias outras coisas. Mas em Ruby, todos esses são verdadeiros, tudo é verdadeiro exceto as palavras reservadas false e nil.
-# Nós estaremos nos referindo à "documentação":http://www.ruby-doc.org/core.
+# Nós estaremos nos referindo à "documentação (em inglês)":http://www.ruby-doc.org/core.
 # *puts* (a letra s em *puts* quer dizer string; *puts* significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.
 # Parênteses são geralmente opcionais em um chamada a um método. Todas essas chamadas são válidas:
 foobar

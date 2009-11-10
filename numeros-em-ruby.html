@@ -31,7 +31,7 @@
 
    <div class="column span-15 prepend-2 first">
       <p class="title">Números em Ruby</p>
-<p>Vamos brincar com números. Em Ruby, números sem pontos decimais são chamados inteiros (integers), e números com pontos decimais são geralmente chamados de números ponto flutuante (floating-point numbers) ou, mais simples, floats (você deve inserir pelo menos um dígito depois do ponto decimal). Um literal inteiro é uma simples sequência de dígitos ex. 0, 123, 123456789. Underscores podem ser inseridos em literais inteiros (embora não no começo ou no final), e essa características é utilizada algumas vezes como separador de casa de milhar ex. 1_000_000_000. Caracteres Underscore são ignorados no dígito de string. Aqui está o programa <strong>p002numerosruby.rb</strong></p>
+<p>Vamos brincar com números. Em Ruby, números sem pontos decimais são chamados inteiros (integers), e números com pontos decimais são geralmente chamados de números em ponto flutuante (floating-point numbers) ou, mais simples, floats (você deve inserir pelo menos um dígito depois do ponto decimal). Um literal inteiro é uma sequência simples de dígitos ex.: 0, 123, 123456789. Underscores podem ser inseridos em literais inteiros (embora não no começo ou no final), e essa característica é utilizada algumas vezes como separador de casa de milhar ex. 1_000_000_000. Caracteres do tip ounderscore são ignorados no dígito de string. Aqui está o programa <strong>p002numerosruby.rb</strong></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p002numerosruby.rb</span>
 <span class="no"> 2</span> <span class="c">=begin
@@ -47,7 +47,7 @@
 <span class="no">12</span> puts <span class="i">2</span> * <span class="i">3</span>
 <span class="no">13</span> <span class="c"># Divisão de inteiros</span>
 <span class="no">14</span> <span class="c"># Quando você faz um cálculo aritmético com inteiros,</span>
-<span class="no">15</span> <span class="c"># você recebeberá uma resposta em inteiros</span>
+<span class="no">15</span> <span class="c"># você receberá uma resposta em inteiros</span>
 <span class="no">16</span> puts <span class="i">3</span> / <span class="i">2</span>
 <span class="no">17</span> puts <span class="i">10</span> - <span class="i">11</span>
 <span class="no">18</span> puts <span class="fl">1.5</span> / <span class="fl">2.6</span>
@@ -166,7 +166,7 @@
 <ol>
 	<li>Os operadores de incremento e decremento (++ e &#8212;) não estão disponíveis em Ruby, nem da forma &#8220;pré&#8221; nem &#8220;pós&#8221;. Entretanto, note que os operadores += e -= estão disponíveis.</li>
 	<li>Parênteses funcionam da mesma forma como em expressões aritméticas. Qualquer coisa dentro de parênteses é calculado primeiro (ou, de uma forma mais técnica, é dado uma precedência maior).</li>
-	<li>Os operadores checados na figura são um tipo de <em>syntactic sugar</em> (mais sobre isso depois) &#8211; onde algo parece com um operador mas na verdade é uma chamada a um método.<br />
+	<li>Os operadores checados na figura são um tipo de <em>syntactic sugar</em> (&#8220;açúcar sintático&#8221;, mais sobre isso depois) &#8211; onde algo parece com um operador mas na verdade é uma chamada a um método.<br />
 </div></li>
 </ol>
 <p>O operador módulo (%) do Ruby comportasse da seguinte forma:</p>
@@ -179,7 +179,7 @@
 </div>
 <p>A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.</p>
 <h2>Diferença entre os operadores or e ||</h2>
-<p>Ambos, <strong>or</strong> e <strong>||</strong>, retornam o primeiro argumento ao menos que este retorne <strong>false</strong>, neste caso avaliam e retoram o segundo argumento. Isto é demonstrado no exemplo seguinte:</p>
+<p>Ambos, <strong>or</strong> e <strong>||</strong>, retornam o primeiro argumento ao menos que este retorne <strong>false</strong>, neste caso avaliam e retornam o segundo argumento. Isto é demonstrado no exemplo seguinte:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="pc">nil</span> || <span class="i">2008</span>  
 <span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>  
