@@ -43,7 +43,7 @@ h3. Parte 3
 ## Listando todos os métodos de uma classe ou objeto
 ## Comparando duas strings para a igualdade
 ## Usando %w
-# Construtores simples
+# "Construções simples":construcoes-simples.html
 ## Condicional ?:
 ## Modificadores de atribuição
 ## Expressões case
