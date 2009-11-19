@@ -22,7 +22,7 @@ Dummy.new.qualquer_coisa
 
 A saída é:
 
-<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
 >ruby p012zmm.rb  
 Não há nenhum método chamado qualquer_coisa aqui.  
 >Exit code: 0  
