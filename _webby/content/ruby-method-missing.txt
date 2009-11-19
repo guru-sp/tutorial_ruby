@@ -1,0 +1,31 @@
+---
+title:      Ruby Method Missing
+created_at: 2009-11-17 14:16:47.913867 -02:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Quando você envia uma mensagem a um objeto, este executa o primeiro método que ele encontra no "caminho de busca do método":http://phrogz.net/RubyLibs/RubyMethodLookupFlow.pdf (arquivo PDF) com o mesmo nome da mensagem. Se ele falha em encontrar tal método, ele lança uma exceção do tipo *NoMethodError* - a menos que você tenha fornecido ao objeto um método chamado *method_missing* (método ausente). Ao método *method_missing* é passado o símbolo do método não existente, uma lista de argumentos que foram passados na chamada original e qualquer bloco passado ao método original.
+
+*method_missing* faz parte de uma rede de segurança: Ele lhe fornece um jeito de interceptar mensagens não respondidas e trata-as de maneira elegante. Veja o exemplo p012zmm.rb abaixo.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+class Dummy
+  def method_missing(m, *args, &block)  
+    puts "Não há nenhum método chamado #{m} aqui."  
+  end  
+end  
+Dummy.new.qualquer_coisa
+<% end %>
+
+A saída é:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+>ruby p012zmm.rb  
+Não há nenhum método chamado qualquer_coisa aqui.  
+>Exit code: 0  
+<% end %>
+
+Você também é responsável por manter a assinatura do *method_missing*. É possível escrever um gancho que captura apenas o nome de um método ausente enquanto ignora seus argumentos e o bloco associado.

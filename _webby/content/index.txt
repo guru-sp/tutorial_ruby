@@ -49,8 +49,8 @@ h3. Parte 3
 ## Expressões case
 ## nil é um Object
 ## Algumas informações extras
-# Blocos em Ruby
-# Resumo 3
+# "Blocos em Ruby":blocos-ruby.html
+# "Resumo 3":sumario-ruby3.html
 
 h3. Parte 4
 # Arrays em Ruby
@@ -78,7 +78,7 @@ h3. Parte 5
 ## Construtores literais
 ## Coletor de Lixo (Garbage Collection)
 ## Métodos de Classe
-# Método faltando (Method Missing)
+# "Ruby method missing (método faltando)":ruby-method-missing.html
 # Procs em Ruby
 # Incluindo Outros Arquivos
 # Classes Abertas do Ruby
@@ -97,6 +97,28 @@ h3. Parte 6
 ## Métodos de nível mais alto
 ## Variáveis de instância são herdadas por uma sub-classe?
 # Exceções
-## Levantando uma exceção
-## Lidando com uma exceção
+## Lançando uma exceção
+## Tratando uma exceção
+## Exemplo de validação
 # Logging com Ruby
+# A classe Time do Ruby
+# Resumo 6
+
+h3. Parte 7
+# Duck Typing
+# Açúcares sintáticos do Ruby
+# Objetos mutáveis e imutáveis
+## Congelando objetos
+## Frozen? (congelado)
+# Resumo 7
+
+h3. Parte 8
+# Serialização de objetos
+# Módulos / Mixins
+# Self
+## Contexto do nível mais alto
+## Self dentro de definições de classes e módulos
+## Self na definição de métodos de instância
+## Self na definição de métodos singleton e métodos de classe
+# Constantes
+# Resumo 8

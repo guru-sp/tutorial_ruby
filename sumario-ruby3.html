@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Resumo 3</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-20 prepend-2 append-2 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-15 prepend-2 first">
+      <p class="title">Resumo 3</p>
+<ol>
+	<li>Refira-se a <a href="http://ruby-doc.org/core/classes/String.html">documentação da classe String</a> para usar os vários métodos disponíveis.</li>
+	<li>Para strings literais com aspas duplas, o Ruby procura por substituições &#8211; sequências que começam com uma barra invertida &#8211; e as substitui com algum valor binário ou faz a interpolação da expressa, por exemplo, dentro da string, a sequência <strong>#{expressao}</strong> é substituída pelo valor da expressão.</li>
+	<li>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como parâmetro, um novo objete String é criado.<br />
+$ Observe como se pode listar todos os métodos de uma classe ou objeto.</li>
+	<li>Comparar duas strings para igualdade pode ser feito com <strong>==</strong> ou <strong>.eql?</strong> (para conteúdo idêntico) e <strong>.equal?</strong> (para objetos iguais).</li>
+	<li><strong>%w</strong> é comumente usada com strings.</li>
+	<li>Observe o uso dos construtores: <strong>if else end</strong>, <strong>while</strong>, <strong>if elsif end</strong>.</li>
+	<li>O Ruby também tem uma versão negado do construtor if, o <strong>unless end</strong>.</li>
+	<li>Expressões <strong>case</strong>: Esta forma é bastante próxima a uma série de instruções <strong>if</strong>: ela permite que você liste uma série de condições e<br />
+e executa uma instrução correspondente a primeira condição que foi verdadeira. <strong>case</strong> retorna o valor da última expressão executada. Uso: <strong>case when else end</strong>.</li>
+	<li><strong>IMPORTANTE</strong>: Os blocos de código Ruby são pedaços de código entre chaves ou entre <strong>do end</strong> que você pode associar com chamadas a métodos.</li>
+	<li>Blocos de código podem aparecer apenas no código adjacente a uma chamada de método; o bloco é escrito começando-se na mesma linha do último parâmetro da chamada de método (ou o parênteses de fechamento da lista de parâmetros). O código no bloco não é executado quando é encontrado. Ao invés disso, o Ruby se lembra do contexto em que o bloco aparece (as variáveis locais, o objeto atual e assim por diante) e então entra no método.</li>
+	<li>O padrão do Ruby é usar chaves para blocos de uma única linha e <strong>do end</strong> para blocos de múltipla linha. Lembre-se que a sintaxe com chaves tem precedência maior que a sintaxe <strong>do end</strong>.</li>
+	<li>Dentro de u mmétodo, você pode chamar um bloco de código Ruby usando a palavra <strong>yield</strong> com um valor.</li>
+	<li>Você pode fornecer parâmetros para a chamada ao <strong>yield</strong>: estes serão passados ao bloco. Dentro do bloco, você lista os argumentos para receber os parâmetros entre barras verticais (|).</li>
+</ol>
+   </div>
+
+   <div class="column span-5 append-2 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

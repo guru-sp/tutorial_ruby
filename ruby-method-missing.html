@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Recebendo Entrada</title>
+   <title>Ruby Method Missing</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -30,22 +30,26 @@
    </div>
 
    <div class="column span-15 prepend-2 first">
-      <p class="title">Recebendo Entrada</p>
-<p>Páginas atrás vimos o método <strong>puts</strong> que imprime texto na tela. Agora, como aceitar uma entrada do usuário? Para isso <strong>gets</strong> (pegar a string) e <strong>chomp</strong> (mastigar) são úteis. O exemplo <strong>p005metodos.rb</strong> abaixo ilustra o mesmo.</p>
+      <p class="title">Ruby Method Missing</p>
+<p>Quando você envia uma mensagem a um objeto, este executa o primeiro método que ele encontra no <a href="http://phrogz.net/RubyLibs/RubyMethodLookupFlow.pdf">caminho de busca do método</a> (arquivo PDF) com o mesmo nome da mensagem. Se ele falha em encontrar tal método, ele lança uma exceção do tipo <strong>NoMethodError</strong> &#8211; a menos que você tenha fornecido ao objeto um método chamado <strong>method_missing</strong> (método ausente). Ao método <strong>method_missing</strong> é passado o símbolo do método não existente, uma lista de argumentos que foram passados na chamada original e qualquer bloco passado ao método original.</p>
+<p><strong>method_missing</strong> faz parte de uma rede de segurança: Ele lhe fornece um jeito de interceptar mensagens não respondidas e trata-as de maneira elegante. Veja o exemplo p012zmm.rb abaixo.</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> <span class="c"># p005metodos.rb</span>
-<span class="no">2</span> <span class="c"># gets e chomp</span>
-<span class="no">3</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Em qual cidade você está?</span><span class="dl">&quot;</span></span>
-<span class="no">4</span> <span class="co">STDOUT</span>.flush
-<span class="no">5</span> cidade = gets.chomp
-<span class="no">6</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">A cidade é </span><span class="dl">&quot;</span></span> + cidade
+<pre><span class="no">1</span> <span class="r">class</span> <span class="cl">Dummy</span>
+<span class="no">2</span>   <span class="r">def</span> <span class="fu">method_missing</span>(m, *args, &amp;block)  
+<span class="no">3</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Não há nenhum método chamado </span><span class="il"><span class="idl">#{</span>m<span class="idl">}</span></span><span class="k"> aqui.</span><span class="dl">&quot;</span></span>  
+<span class="no">4</span>   <span class="r">end</span>  
+<span class="no">5</span> <span class="r">end</span>  
+<span class="no">6</span> <span class="co">Dummy</span>.new.qualquer_coisa
 </pre>
 </div>
-<p>Quando você executar o exemplo acima no <em>SciTE</em>, clique no caixa de saída (no lado direito do <em>SciTE</em>) e então digite o nome de sua cidade.</p>
-<p><strong>STDOUT</strong> é uma constante global que é a saída padrão atual do programa. <strong>flush</strong> (fluir) limpa qualquer dado armazenado no buffer (área de armazenamento temporário de dados) de entrada e saída do Ruby. O uso não é mandatório, mas recomendado.</p>
-<p><strong>gets</strong> recebe uma linha única de dados da entrada padrão &#8211; o teclado nesse caso &#8211; e atribui a string digitada pelo usuário à variável <strong>cidade</strong>.</p>
-<p><strong>chomp</strong> é um método de string e retorna apenas as strings do que veio do teclado. Você deve ter percebido que <strong>gets</strong> retorna uma string e o caractere &#8216;\n&#8217; (quebra de linha), enquanto <strong>chomp</strong> remove o &#8216;\n&#8217;.</p>
-<div class='box'><strong>NO RAILS</strong>: Os dados vêm de muitas fontes. Em uma aplicação típica do Rails, eles vêm do banco de dados. Como um desenvolvedor Rails, você pode se encontrar utilizando relativamente poucas dessas facilidades, porque o Rails faz o tratamento dos dados para você; e seus usuários, quando eles enviam entradas pelo teclado, estarão geralmente digitando em um formulário web.</div>
+<p>A saída é:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p012zmm.rb  
+<span class="no">2</span> <span class="co">N</span><span class="er">�</span><span class="er">�</span>o h<span class="er">�</span><span class="er">�</span> nenhum m<span class="er">�</span><span class="er">�</span>todo chamado qualquer_coisa aqui.  
+<span class="no">3</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>  
+</pre>
+</div>
+<p>Você também é responsável por manter a assinatura do <strong>method_missing</strong>. É possível escrever um gancho que captura apenas o nome de um método ausente enquanto ignora seus argumentos e o bloco associado.</p>
    </div>
 
    <div class="column span-5 append-2 last">

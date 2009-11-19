@@ -1,0 +1,24 @@
+---
+title:      Resumo 3
+created_at: 2009-11-19 15:07:29.489200 -02:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+# Refira-se a "documentação da classe String":http://ruby-doc.org/core/classes/String.html para usar os vários métodos disponíveis.
+# Para strings literais com aspas duplas, o Ruby procura por substituições - sequências que começam com uma barra invertida - e as substitui com algum valor binário ou faz a interpolação da expressa, por exemplo, dentro da string, a sequência *#{expressao}* é substituída pelo valor da expressão.
+# É importante notar que cada vez que uma literal string é usada em uma atribuição ou como parâmetro, um novo objete String é criado.
+$ Observe como se pode listar todos os métodos de uma classe ou objeto.
+# Comparar duas strings para igualdade pode ser feito com *==* ou *.eql?* (para conteúdo idêntico) e *.equal?* (para objetos iguais).
+# *%w* é comumente usada com strings.
+# Observe o uso dos construtores: *if else end*, *while*, *if elsif end*.
+# O Ruby também tem uma versão negado do construtor if, o *unless end*.
+# Expressões *case*: Esta forma é bastante próxima a uma série de instruções *if*: ela permite que você liste uma série de condições e
+e executa uma instrução correspondente a primeira condição que foi verdadeira. *case* retorna o valor da última expressão executada. Uso: *case when else end*.
+# *IMPORTANTE*: Os blocos de código Ruby são pedaços de código entre chaves ou entre *do end* que você pode associar com chamadas a métodos.
+# Blocos de código podem aparecer apenas no código adjacente a uma chamada de método; o bloco é escrito começando-se na mesma linha do último parâmetro da chamada de método (ou o parênteses de fechamento da lista de parâmetros). O código no bloco não é executado quando é encontrado. Ao invés disso, o Ruby se lembra do contexto em que o bloco aparece (as variáveis locais, o objeto atual e assim por diante) e então entra no método.
+# O padrão do Ruby é usar chaves para blocos de uma única linha e *do end* para blocos de múltipla linha. Lembre-se que a sintaxe com chaves tem precedência maior que a sintaxe *do end*.
+# Dentro de u mmétodo, você pode chamar um bloco de código Ruby usando a palavra *yield* com um valor.
+# Você pode fornecer parâmetros para a chamada ao *yield*: estes serão passados ao bloco. Dentro do bloco, você lista os argumentos para receber os parâmetros entre barras verticais (|).
