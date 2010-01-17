@@ -32,25 +32,21 @@ Os possíveis componentes de uma expressão regular incluem os seguintes:
 
 
 
+= Caracteres literais =
 
+Qualquer caractere literal que for adicionado em uma expressão regular casa consigo mesmo na expressão regular.
 
-= Literal characters =
+   1. /a/
 
-Any literal character you put in a regular expression matches itself in the string.
+Esta expressão regular casa com a cadeia de caracteres "a", assim como qualquer cadeia de caracteres que contenha a letra "a".
 
-   1. /a/  
+Alguns caracteres têm significado especial para o parser de expressães regulares. Quando você quer casar algum desses caracteres especiais, você tem que escapá-lo com o caractere de barra-invertida (\). Por exemplo, para casar o caractere ? (interrogacão), você deve escrever isto:
 
-This regular expression matches the string "a", as well as any string containing the letter "a".
+   1. /\?/
 
-Some characters have special meanings to the regexp parser. When you want to match one of these special characters as itself, you have to escape it with a backslash (\). For example, to match the character ? (question mark), you have to write this:
+A barra-invertida significa "não considere o próximo caractere como especial, trate-o como ele mesmo."
 
-   1. /\?/  
-
-The backslash means "don't treat the next character as special; treat it as itself."
-
-The special characters include ^, $, ? , ., /, \, [, ], {, }, (, ), +, and *.
-
-
+Os caracteres especiais incluem ^, $, ? , ., /, \, [, ], {, }, (, ), +, e *.
 
 = The wildcard character . (dot) =
 
