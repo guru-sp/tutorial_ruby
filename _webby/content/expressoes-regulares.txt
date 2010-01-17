@@ -57,32 +57,31 @@ Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu p
 casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere curinga ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condicões no casamento de padrões enquanto permite o casamento de multiplas cadeias de caracteres, usando classes de caracteres.
 
 
-= Character classes =
+= Classes de Caracteres =
 
-A character class is an explicit list of characters, placed inside the regular expression in square brackets:
+Uma classe de caractere é uma lista explicita de caracteres, colocada entre colchetes em uma expressão regular:
 
-   1. /[dr]ejected/  
+   1. /[dr]ejected/
 
-This means "match either d or r, followed by ejected. This new pattern matches either "dejected" or "rejected" but not "&ejected". A character class is a kind of quasi-wildcard: It allows for multiple possible characters, but only a limited number of them.
+Isto significa "case d ou r, seguido de ejected". Este novo padrão casa tanto com "dejected" ou "rejected", mas não com "&ejected". Uma classe de caracteres é um tipo de quase caratere curinga: elas possibilitam multiplos caracteres em uma posicão na expressão regular, mas apenas um número limitado de caracteres.
 
-Inside a character class, you can also insert a range of characters. A common case is this, for lowercase letters:
+Em uma classe de caracteres, você pode, inclusive, incluir um intervalo de caracteres. Um uso comum desses intervalos, é a classe para letras minúsculas:
 
-   1. /[a-z]/  
+   1. /[a-z]/
 
-To match a hexadecimal digit, you might use several ranges inside a character class:
+Para casar um dígito hexadecimal, você pode usar mais de um intervalo em uma classe de caracteres:
 
-   1. /[A-Fa-f0-9]/  
+   1. /[A-Fa-f0-9]/
 
-This matches any character a through f (upper- or lowercase) or any digit.
+Esta classe casa com qualquer caractere de a à f (maiúsculo ou minúsculo) ou qualquer dígito.
 
-Sometimes you need to match any character except those on a special list. You may, for example, be looking for the first character in a string that is not a valid hexadecimal digit.
+Algumas vezes você precisa casar qualquer caratere exceto aqueles que estão em uma lista expecial. Você pode, por exemplo, verificar o primeiro caractere em uma string não é um dígito hexadecimal válido.
 
-You perform this kind of negative search by negating a character class. To do so, you put a caret (^) at the beginning of the class. Here's the character class that matches any character except a valid hexadecimal digit:
+Você cria esse tipo de "busca negativa" negando uma classe de caracteres. Para fazer isso, você coloca um caractere de acento circunflexo (^) no comeco da classe. Aqui está a classe que casa com qualquer caractere exceto aqueles que são digitos hexadecimais válidos:
 
-   1. /[^A-Fa-f0-9]/  
+   1. /[^A-Fa-f0-9]/
 
-Some character classes are so common that they have special abbreviations.
-
+Algumas classes de caracteres são tão comuns que possuem abreviacões especiais.
 
 
 = Special escape sequences for common character classes =
