@@ -36,7 +36,7 @@ puts m2          # it returns 14
 
 Os possíveis componentes de uma expressão regular incluem os seguintes:
 
-= Caracteres literais =
+h2. Caracteres literais
 
 Qualquer caractere literal que for adicionado em uma expressão regular casa consigo mesmo na expressão regular.
 
@@ -56,7 +56,7 @@ A barra-invertida significa "não considere o próximo caractere como especial, 
 
 Os caracteres especiais incluem ^, $, ? , ., /, \, [, ], {, }, (, ), +, e *.
 
-= O caractere coringa . (ponto) =
+h2. O caractere coringa . (ponto)
 
 Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu padrão. Isto é feito utilizando o caractere curinga . (ponto). Um ponto casa com qualquer caractere exceto o caractere de nova linha (\n). Esta expressão regular:
 
@@ -67,7 +67,7 @@ Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu p
 casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere curinga ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condicões no casamento de padrões enquanto permite o casamento de multiplas cadeias de caracteres, usando classes de caracteres.
 
 
-= Classes de Caracteres =
+h2. Classes de Caracteres
 
 Uma classe de caractere é uma lista explicita de caracteres, colocada entre colchetes em uma expressão regular:
 
@@ -102,7 +102,7 @@ Você cria esse tipo de "busca negativa" negando uma classe de caracteres. Para 
 Algumas classes de caracteres são tão comuns que possuem abreviacões especiais.
 
 
-= Sequencias especiais de escape para classes de caracteres comuns =
+h2. Sequencias especiais de escape para classes de caracteres comuns
 
 Para casar qualquer digito você pode fazer assim:
 
