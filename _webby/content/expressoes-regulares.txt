@@ -48,14 +48,13 @@ A barra-invertida significa "não considere o próximo caractere como especial, 
 
 Os caracteres especiais incluem ^, $, ? , ., /, \, [, ], {, }, (, ), +, e *.
 
-= The wildcard character . (dot) =
+= O caractere coringa . (ponto) =
 
-Sometimes you'll want to match any character at some point in your pattern. You do this with the special wildcard character . (dot). A dot matches any character with the exception of a newline. This regular expression:
+Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu padrão. Isto é feito utilizando o caractere curinga . (ponto). Um ponto casa com qualquer caractere exceto o caractere de nova linha (\n). Esta expressão regular:
 
-   1. /.ejected/  
+   1. /.ejected/
 
-matches both "dejected" and "rejected". It also matches "%ejected" and "8ejected". The wildcard dot is handy, but sometimes it gives you more matches than you want. However, you can impose constraints on matches while still allowing for multiple possible strings, using character classes.
-
+casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere curinga ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condicões no casamento de padrões enquanto permite o casamento de multiplas cadeias de caracteres, usando classes de caracteres.
 
 
 = Character classes =
