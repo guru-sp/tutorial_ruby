@@ -69,7 +69,7 @@ h3. Parte 4
 # Resumo 4
 
 h3. Parte 5
-# Expressões Regulares
+# "Expressões Regulares":expressoes-regulares.html
 ## Caracteres literais
 ## O caractere coringa .(ponto)
 ## Classes de caracteres

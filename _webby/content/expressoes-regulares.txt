@@ -1,0 +1,162 @@
+---
+title:      Expressões Regulares
+created_at: 2010-01-16 22:45:12.243193 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Regular expressions, though cryptic, is a powerful tool for working with text. Ruby has this feature built-in. It's used for pattern-matching and text processing.
+
+Many people find regular expressions difficult to use, difficult to read, un-maintainable, and ultimately counterproductive. You may end up using only a modest number of regular expressions in your Ruby and Rails applications. Becoming a regular expression wizard isn't a prerequisite for Rails programming. However, it's advisable to learn at least the basics of how regular expressions work.
+
+A regular expression is simply a way of specifying a pattern of characters to be matched in a string. In Ruby, you typically create a regular expression by writing a pattern between slash characters (/pattern/). In Ruby, regular expressions are objects (of type Regexp) and can be manipulated as such. // is a regular expression and an instance of the Regexp class, as shown below:
+
+   1. //.class    # Regexp  
+
+
+You could write a pattern that matches a string containing the text Pune or the text Ruby using the following regular expression:
+
+   1. /Pune|Ruby/  
+
+
+The forward slashes delimit the pattern, which consists of the two things we are matching, separated by a pipe character (|). The pipe character means "either the thing on the right or the thing on the left," in this case Pune or Ruby.
+
+The simplest way to find out whether there's a match between a pattern and a string is with the match method. You can do this in either direction: Regular expression objects and string objects both respond to match. If there's no match, you get back nil. If there's a match, it returns an instance of the class MatchData. We can also use the match operator =~ to match a string against a regular expression. If the pattern is found in the string, =~ returns its starting position, otherwise it returns nil.
+
+   1. m1 = /Ruby/.match("The future is Ruby")  
+   2. puts m1.class  # it returns MatchData  
+   3. m2 = "The future is Ruby" =~ /Ruby/  
+   4. puts m2          # it returns 14  
+
+The possible components of a regular expression include the following:
+
+
+
+= Literal characters =
+
+Any literal character you put in a regular expression matches itself in the string.
+
+   1. /a/  
+
+This regular expression matches the string "a", as well as any string containing the letter "a".
+
+Some characters have special meanings to the regexp parser. When you want to match one of these special characters as itself, you have to escape it with a backslash (\). For example, to match the character ? (question mark), you have to write this:
+
+   1. /\?/  
+
+The backslash means "don't treat the next character as special; treat it as itself."
+
+The special characters include ^, $, ? , ., /, \, [, ], {, }, (, ), +, and *.
+
+
+
+= The wildcard character . (dot) =
+
+Sometimes you'll want to match any character at some point in your pattern. You do this with the special wildcard character . (dot). A dot matches any character with the exception of a newline. This regular expression:
+
+   1. /.ejected/  
+
+matches both "dejected" and "rejected". It also matches "%ejected" and "8ejected". The wildcard dot is handy, but sometimes it gives you more matches than you want. However, you can impose constraints on matches while still allowing for multiple possible strings, using character classes.
+
+
+
+= Character classes =
+
+A character class is an explicit list of characters, placed inside the regular expression in square brackets:
+
+   1. /[dr]ejected/  
+
+This means "match either d or r, followed by ejected. This new pattern matches either "dejected" or "rejected" but not "&ejected". A character class is a kind of quasi-wildcard: It allows for multiple possible characters, but only a limited number of them.
+
+Inside a character class, you can also insert a range of characters. A common case is this, for lowercase letters:
+
+   1. /[a-z]/  
+
+To match a hexadecimal digit, you might use several ranges inside a character class:
+
+   1. /[A-Fa-f0-9]/  
+
+This matches any character a through f (upper- or lowercase) or any digit.
+
+Sometimes you need to match any character except those on a special list. You may, for example, be looking for the first character in a string that is not a valid hexadecimal digit.
+
+You perform this kind of negative search by negating a character class. To do so, you put a caret (^) at the beginning of the class. Here's the character class that matches any character except a valid hexadecimal digit:
+
+   1. /[^A-Fa-f0-9]/  
+
+Some character classes are so common that they have special abbreviations.
+
+
+
+= Special escape sequences for common character classes =
+
+To match any digit, you can do this:
+
+   1. /[0-9]/  
+
+But you can also accomplish the same thing more concisely with the special escape sequence \d:
+
+   1. /\d/  
+
+Two other useful escape sequences for predefined character classes are these:
+\w matches any digit, alphabetical character, or underscore (_).
+\s matches any whitespace character (space, tab, newline).
+
+Each of these predefined character classes also has a negated form. You can match any character that is not a digit by doing this:
+
+   1. /\D/  
+
+Similarly, \W matches any character other than an alphanumeric character or underscore, and \S matches any non-whitespace character.
+
+A successful match returns a MatchData object.
+
+Every match operation either succeeds or fails. Let's start with the simpler case: failure. When you try to match a string to a pattern, and the string doesn't match, the result is always nil:
+
+   1. /a/.match("b") # nil  
+
+This nil stands in for the false or no answer when you treat the match as a true/false test.
+
+Unlike nil, the MatchData object returned by a successful match has a Boolean value of true, which makes it handy for simple match/no-match tests. Beyond this, however, it also stores information about the match, which you can pry out of them with the appropriate methods: where the match began (at what character in the string), how much of the string it covered, what was captured in the parenthetical groups, and so forth.
+
+To use the MatchData object, you must first save it. Consider an example where we want to pluck a phone number from a string and save the various parts of it (area code, exchange, number) in groupings. Example p064regexp.rb
+
+   1. # p064regexp.rb  
+   2. string = "My phone number is (123) 555-1234."  
+   3. phone_re = /\((\d{3})\)\s+(\d{3})-(\d{4})/  
+   4. m = phone_re.match(string)  
+   5. unless m  
+   6.   puts "There was no match..."  
+   7.   exit  
+   8. end  
+   9. print "The whole string we started with: "  
+  10. puts m.string  
+  11. print "The entire part of the string that matched: "  
+  12. puts m[0]  
+  13. puts "The three captures: "  
+  14. 3.times do |index|  
+  15.   puts "Capture ##{index + 1}: #{m.captures[index]}"  
+  16. end  
+  17. puts "Here's another way to get at the first capture:"  
+  18. print "Capture #1: "  
+  19. puts m[1]  
+
+In this code, we use the string method of MatchData (puts m.string) to get the entire string on which the match operation was performed. To get the part of the string that matched our pattern, we address the MatchData object with square brackets, with an index of 0 (puts m[0]). We also use the times method (3.times do |index|) to iterate exactly three times through a code block and print out the submatches (the parenthetical captures) in succession. Inside that code block, a method called captures fishes out the substrings that matched the parenthesized parts of the pattern. Finally, we take another look at the first capture, this time through a different technique: indexing the MatchData object directly with square brackets and positive integers, each integer corresponding to a capture.
+
+Here's the output:
+
+   1. >ruby p064regexp.rb  
+   2. The whole string we started with: My phone number is (123) 555-1234.  
+   3. The entire part of the string that matched: (123) 555-1234  
+   4. The three captures:  
+   5. Capture #1: 123  
+   6. Capture #2: 555  
+   7. Capture #3: 1234  
+   8. Here's another way to get at the first capture:  
+   9. Capture #1: 123  
+  10. >Exit code: 0  
+
+Read the Ruby-centric regular expression tutorial here, for a more detailed coverage on regular expressions.
+
+The above topic has been adapted from the Ruby for Rails book.
