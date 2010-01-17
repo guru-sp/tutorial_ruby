@@ -7,30 +7,30 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Regular expressions, though cryptic, is a powerful tool for working with text. Ruby has this feature built-in. It's used for pattern-matching and text processing.
+Expressões regulares, como criptografia, é uma poderosa ferramenta para trabalhar com texto. Ruby possui esta funcionalidade incluida em seu núcleo. Ela é usada para o casamento de padrões e processamento de texto.
 
-Many people find regular expressions difficult to use, difficult to read, un-maintainable, and ultimately counterproductive. You may end up using only a modest number of regular expressions in your Ruby and Rails applications. Becoming a regular expression wizard isn't a prerequisite for Rails programming. However, it's advisable to learn at least the basics of how regular expressions work.
+Muitas pessoas acham que expressões regulares são difíceis de usar, difíceis de ler, de manter e, consequentemente, contraprodutiva. Você pode apenas um pequeno número de expressões regulares em suas aplicacões em Ruby e Rails. Não é pré-requisito, para programar em Rails, tornar-se um especialista em Expressões Regulares. Entretanto, é recomendado o aprendizado, ao menos basicamente, de como as expressões regulares básicas funcionam.
 
-A regular expression is simply a way of specifying a pattern of characters to be matched in a string. In Ruby, you typically create a regular expression by writing a pattern between slash characters (/pattern/). In Ruby, regular expressions are objects (of type Regexp) and can be manipulated as such. // is a regular expression and an instance of the Regexp class, as shown below:
+Uma expressão regular é uma forma simples de especificar um padrão de caracteres que será casado com uma cadeia de caracteres. Em Ruby, você normalmente cria uma expressão regular escrevendo um padrão entre caracteres de barra '/' (/padrão/). Em Ruby, expressões regulares são objetos (do tipo Regexp) e podem ser manipulados como tais. // é uma expressão regular e uma instância da classe Regexp, como demonstrado abaixo:
 
-   1. //.class    # Regexp  
+   1. //.class    # Regexp
+
+Você pode escrever um padrão que casa com uma cadeia de caracteres contendo o texto Prune ou o texto Ruby usando a seguinte expressão regular:
+
+   1. /Pune|Ruby/
+
+Caracteres de barra ('/') delimitam o padrão, que consistem em dois padrões que serão casados, separados por um caractere de pipe (|). O caractere pipe (|) significa "ou o padrão que está na direita ou no padrão que está na esquerda", neste caso Prune ou Ruby.
+
+A forma mais simples de verificar se há um padrão que casa entre uma expressão regular e uma cadeia de caracteres é o método /match/. Você pode fazer isso em qualquer direcão: objetos Regexp e objetos String, ambos respondem ao método match. Se não houver casamento entre os padrões, o método retorna nil. Se houver um casamento de padrão, é retornado uma instância da classe MatchData. Podemos utilizar o operador =~ para casar uma cadeia de caracteres contra uma expressão regular. Caso o padrão seja encontrado, =~ retorna a posicão em que o padrão foi encontrado, caso contrário retorna nil.
+
+   1. m1 = /Ruby/.match("The future is Ruby")
+   2. puts m1.class  # it returns MatchData
+   3. m2 = "The future is Ruby" =~ /Ruby/
+   4. puts m2          # it returns 14
+
+Os possíveis componentes de uma expressão regular incluem os seguintes:
 
 
-You could write a pattern that matches a string containing the text Pune or the text Ruby using the following regular expression:
-
-   1. /Pune|Ruby/  
-
-
-The forward slashes delimit the pattern, which consists of the two things we are matching, separated by a pipe character (|). The pipe character means "either the thing on the right or the thing on the left," in this case Pune or Ruby.
-
-The simplest way to find out whether there's a match between a pattern and a string is with the match method. You can do this in either direction: Regular expression objects and string objects both respond to match. If there's no match, you get back nil. If there's a match, it returns an instance of the class MatchData. We can also use the match operator =~ to match a string against a regular expression. If the pattern is found in the string, =~ returns its starting position, otherwise it returns nil.
-
-   1. m1 = /Ruby/.match("The future is Ruby")  
-   2. puts m1.class  # it returns MatchData  
-   3. m2 = "The future is Ruby" =~ /Ruby/  
-   4. puts m2          # it returns 14  
-
-The possible components of a regular expression include the following:
 
 
 
