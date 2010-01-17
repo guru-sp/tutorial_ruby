@@ -74,7 +74,7 @@ h3. Parte 5
 ## O caractere coringa .(ponto)
 ## Classes de caracteres
 ## Sequências de escape especial para caracteres de classe comuns
-# Escrevendo sua própria classe
+# "Escrevendo sua própria classe":escrevendo-sua-propria-classe.html
 ## Construtores literais
 ## Coletor de Lixo (Garbage Collection)
 ## Métodos de Classe
