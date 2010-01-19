@@ -7,167 +7,188 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
+O paradigma procedural foi utilizado até agora para escrevermos nossos programas (note que este paradigma continua sendo utilizado em linguagens como C). Programar proceduralmente quer dizer que focamos nos passos requeridos para completar uma tarefa (de programação) sem dar muita atenção em como os dados são manipulados.
 
-So far, the procedural style of programming (this continues to be used in languages such as C) was used to write our programs. Programming procedurally means you focus on the steps required to complete a task without paying particular attention to how the data is managed.
+No paradigma de Orientação a Objetos, objetos são nossos agentes, "procuradores", no escopo do nosso programa. Pedimos informações para os objetos. Atribuimos para eles tarefas. Dizemos para eles executarem cálculos e, em seguida, retornar o valor calculado. Juntamos uns aos outros para que trabalhem conjuntamente.
 
-In the Object-Orientation style, objects are your agents, your proxies, in the universe of your program. You ask them for information. You assign them tasks to accomplish. You tell them to perform calculations and report back to you. You hand them to each other and get them to work together.
+Quando projetamos uma classe, pensamos sobre os objetos que serão criados com base naquele tipo de classe. Pensamos sobre as coisas que o objeto sabe e faz.
 
-When you design a class, think about the objects that will be created from that class type. Think about the things the object knows and the things the object does.
+Coisas que o objeto sabe sobre ele mesmo são chamadas variáveis de instancia. Elas representam o estado do objeto (os dados: por exemplo, a quantidade e o código do produto), e podem ter valores únicos para cada objeto daquele tipo.
 
-Things an object knows about itself are called instance variables. They represent an object's state (the data - for example, the quantity and the product id), and can have unique values for each object of that type.
+Coisas que um objeto podem fazer são chamados métodos.
 
-Things an object can do are called methods.
+<div class='box'>
+Um objeto é uma entidade que serve como um conteiner de dados e que controla o acesso a eles. Associando a um objeto um conjunto de atribudos, que, essencialmente, não são mais do que variáveis que pertencem ao objeto. Também podem ser associados a um objeto um conjuto de funções que disponibilizam um meio (interface) de operarmos sobre os dados do objeto, chamados métodos. - Hal Fulton (N.T.: Tradução Livre do original)
+</div>
 
-    An object is an entity that serves as a container for data and also controls access to the data. Associated with an object is a set of attributes, which are essentially no more than variables belonging to that object. Also associated with an object is a set of functions that provide an interface to the functionality of the object, called methods. - Hal Fulton
+Um objeto é uma combinação de estados (dados) e métodos que modificam estes estados (funções).
 
-An object is a combination of state and methods that use the state.
+Dessa forma uma classe é usada para contruir um objeto. Uma classe é um molde para um objeto. Por exemplo, podemos usar uma classe Botão para fazer dezenas de botões diferentes, cada botão tendo sua própria cor, tamanho, forma, entre outras. Um objeto é uma instância de uma classe.
 
-Hence a class is used to construct an object. A class is a blueprint for an object. For example, you might use a Button class to make dozens of different buttons, and each button might have its own color, size, shape, label, and so on. An object is an instance of a class.
+<div class='box'>
+b. Leia cuidadosamente
 
-Read this very carefully, it's a brain bender!
-Classes in Ruby are first-class objects - each is an instance of class Class. When a new class is defined (typically using class Name ... end), an object of type Class is created and assigned to a constant (Name. in this case). When Name.new is called to create a new object, the new class method in Class is run by default, which in turn invokes allocate to allocate memory for the object, before finally calling the new object's initialize method. The constructing and initializing phases of an object are separate and both can be over-ridden. The initialization is done via the initialize instance method while the construction is done via the new class method. initialize is not a constructor!
+Classes em Ruby são objetos de primeira classes - todas são intâncias da classe Class. Quando uma nova classe é definida (normalmente usando class Nome ... end), um objeto do tipo Class é criado e é associado a uma contante (Nome, neste caso). Quando Nome.new é chamado para criar um novo objeto, o método de classe new da classe Class é executado primeiro para alocar memória para o objeto (atravéz do método allocate) e, em seguida, o método initialize do novo objeto é executado. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescritas. A inicialização é feita pelo método de instância initialize, enquanto a contrução é feita pelo método de classe new. O método initialize não é um contrutor.
+</div>
 
-The following Class Hierarchy is informative.
+Vamos escrever nossa primera classe - p029dog.rb
 
-Let's write our first, simple class - p029dog.rb
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+# p029dog.rb
+# define class Dog
+class Dog
+  def initialize(breed, name)
+    # Instance variables
+    @breed = breed
+    @name = name
+  end
 
-   1. # p029dog.rb  
-   2. # define class Dog  
-   3. class Dog  
-   4.   def initialize(breed, name)  
-   5.     # Instance variables  
-   6.     @breed = breed  
-   7.     @name = name  
-   8.   end  
-   9.   
-  10.   def bark  
-  11.     puts 'Ruff! Ruff!'  
-  12.   end  
-  13.   
-  14.   def display  
-  15.     puts "I am of #{@breed} breed and my name is #{@name}"  
-  16.   end  
-  17. end  
-  18.   
-  19. # make an object  
-  20. # Objects are created on the heap  
-  21. d = Dog.new('Labrador', 'Benzy')  
-  22.   
-  23. =begin  
-  24.   Every object is "born" with certain innate abilities.  
-  25.   To see a list of innate methods, you can call the methods  
-  26.   method (and throw in a sort operation, to make it  
-  27.   easier to browse visually). Remove the comment and execute.  
-  28. =end  
-  29. # puts d.methods.sort  
-  30.   
-  31. # Amongst these many methods, the methods object_id and respond_to? are important.  
-  32. # Every object in Ruby has a unique id number associated with it  
-  33. puts "The id of obj is #{d.object_id}."  
-  34.   
-  35. # To know whether the object knows how to handle the message you want  
-  36. # to send it, by using the respond_to? method.  
-  37. if d.respond_to?("talk")  
-  38.   d.talk  
-  39. else  
-  40.   puts "Sorry, the object doesn't understand the 'talk' message."  
-  41. end  
-  42.   
-  43. d.bark  
-  44. d.display  
-  45.   
-  46. # making d and d1 point to the same object  
-  47. d1 = d  
-  48. d1.display  
-  49.   
-  50. # making d a nil reference, meaning it does not refer to anything  
-  51. d = nil  
-  52. d.display  
-  53.   
-  54. # If I now say  
-  55. d1 = nil  
-  56. # then the Dog object is abandoned and eligible for Garbage Collection (GC)  
+  def bark
+    puts 'Ruff! Ruff!'
+  end
 
-# p029dog.rb # define class Dog class Dog def initialize(breed, name) # Instance variables @breed = breed @name = name end def bark puts 'Ruff! Ruff!' end def display puts "I am of #{@breed} breed and my name is #{@name}" end end # make an object # Objects are created on the heap d = Dog.new('Labrador', 'Benzy') =begin Every object is "born" with certain innate abilities. To see a list of innate methods, you can call the methods method (and throw in a sort operation, to make it easier to browse visually). Remove the comment and execute. =end # puts d.methods.sort # Amongst these many methods, the methods object_id and respond_to? are important. # Every object in Ruby has a unique id number associated with it puts "The id of obj is #{d.object_id}." # To know whether the object knows how to handle the message you want # to send it, by using the respond_to? method. if d.respond_to?("talk") d.talk else puts "Sorry, the object doesn't understand the 'talk' message." end d.bark d.display # making d and d1 point to the same object d1 = d d1.display # making d a nil reference, meaning it does not refer to anything d = nil d.display # If I now say d1 = nil # then the Dog object is abandoned and eligible for Garbage Collection (GC)
+  def display
+    puts "I am of #{@breed} breed and my name is #{@name}"
+  end
+end
 
-The output is:
+# make an object
+# Objects are created on the heap
+d = Dog.new('Labrador', 'Benzy')
 
-   1. >ruby p029dog.rb  
-   2. The id of obj is 22982920.  
-   3. Sorry, the object doesn't understand the 'talk' message.  
-   4. Ruff! Ruff!  
-   5. I am of Labrador breed and my name is Benzy  
-   6. I am of Labrador breed and my name is Benzy  
-   7. >Exit code: 0  
+=begin
+  Every object is "born" with certain innate abilities.
+  To see a list of innate methods, you can call the methods
+  method (and throw in a sort operation, to make it
+  easier to browse visually). Remove the comment and execute.
+=end
+# puts d.methods.sort
 
->ruby p029dog.rb The id of obj is 22982920. Sorry, the object doesn't understand the 'talk' message. Ruff! Ruff! I am of Labrador breed and my name is Benzy I am of Labrador breed and my name is Benzy >Exit code: 0
-
-The method new is used to create an object of class Dog. Objects are created on the heap. The variable d is known as a reference variable. It does not hold the object itself, but it holds something like a pointer or an address of the object. You use the dot operator (.) on a reference variable to say, "use the thing before the dot to get me the thing after the dot." For example:
-d.bark
-
-IN RAILS: If you're writing a Rails application in which one of your entity models is, say, Customer, then when you write the code that causes things to happen - a customer logging into a site, updating a customer's phone number, adding an item to a customer's shopping cart - in all likelihood you'll be sending messages to customer objects.
-
-Even a newly created object isn't a blank slate. As soon as an object comes into existence, it already responds to a number of messages. Every object is "born" with certain innate abilities. To see a list of innate methods, you can call the methods method (and throw in a sort operation, to make it easier to browse visually):
-puts d.methods.sort
-The result is a list of all the messages (methods) this newly minted object comes bundled with. Amongst these many methods, the methods object_id and respond_to? are important.
-
-Every object in Ruby has a unique id number associated with it. You can see an object's id by asking the object to show you its object_id:
+# Amongst these many methods, the methods object_id and respond_to? are important.
+# Every object in Ruby has a unique id number associated with it
 puts "The id of obj is #{d.object_id}."
 
-You can determine in advance (before you ask the object to do something) whether the object knows how to handle the message you want to send it, by using the respond_to? method. This method exists for all objects; you can ask any object whether it responds to any message. respond_to? usually appears in connection with conditional (if) logic.
+# To know whether the object knows how to handle the message you want
+# to send it, by using the respond_to? method.
+if d.respond_to?("talk")
+  d.talk
+else
+  puts "Sorry, the object doesn't understand the 'talk' message."
+end
 
-   1. if d.respond_to?("talk")  
-   2.   d.talk  
-   3. else  
-   4.   puts "Sorry, the object doesn't understand the 'talk' message."  
-   5. end  
+d.bark
+d.display
 
-if d.respond_to?("talk") d.talk else puts "Sorry, the object doesn't understand the 'talk' message." end
-
-Now, the statements:
+# making d and d1 point to the same object
 d1 = d
 d1.display
-makes d and d1 point to the same object.
 
-You can ask any object of which class it's a member by using its Object.class method. In the above program, if we write the statement:
+# making d a nil reference, meaning it does not refer to anything
+d = nil
+d.display
 
-   1. d = Dog.new('Alsatian', 'Lassie')  
-   2. puts d.class.to_s  
+# If I now say
+d1 = nil
+# then the Dog object is abandoned and eligible for Garbage Collection (GC)
+<% end -%>
 
-d = Dog.new('Alsatian', 'Lassie') puts d.class.to_s
+A saída é esta:
 
-The output is:
+<% coderay(:language => 'bash', :line_number => 'inline') do -%>
+>ruby p029dog.rb
+The id of obj is 22982920.
+Sorry, the object doesn't understand the 'talk' message.
+Ruff! Ruff!
+I am of Labrador breed and my name is Benzy
+I am of Labrador breed and my name is Benzy
+>Exit code: 0
+<% end -%>
 
-   1. >ruby p029dog.rb  
-   2. Dog  
-   3. >Exit code: 0  
+O método new é usado para criar um objeto da classe Dog. Objetos são criados no heap. A variável d é conhechida como uma variável de referência. Isso quer dizer que ela não contém o objeto, mas somente contém alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para "dizer" ao objeto: "use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método)." Por exemplo:
 
->ruby p029dog.rb Dog >Exit code: 0
+b. d.bark
 
-instance_of? returns true if object is an instance of the given class, as in this example:
+<div class='box'>
+Em Rails: Se estivermos escrevendo uma aplicação em Rais em que uma das entidades do modelo seja Cliente, então quando escrevermos o código que fazem as coisas acontecerem - um cliente acessa a área restrida de um site, atualiza seu número de telefone, adiciona um ítem em seu carrinho de compras - em todas essas situações estamos enviando mensagens para os objetos cliente.
+</div>
 
-   1. num = 10  
-   2. puts(num.instance_of? Fixnum) # output true  
+Mesmo um objeto criado recentemente não é algo vazio. Tão breve quanto um objeto passa a existir, ele já responde a certo número de mensagens. Todo objeto "nasce" com certas habilidades inatas. Para ver uma lista desses métodos inatos, podemos chamar o método methods (e ainda solicitar que o resultado seja ordenado - chamando o método sort, - para facilitar a visualização):
 
-num = 10 puts(num.instance_of? Fixnum) # output true
-Literal Constructors
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+puts d.methods.sort
+<% end -%>
 
-That means you can use special notation, instead of a call to new, to create a new object of that class. The classes with literal constructors are shown in the table below. When you use one of these literal constructors, you bring a new object into existence
+O resultato é uma lista com todas as mensagens (métodos) que este novo e recém-criado método possui. Entre todos estes muitos métodos, os métodos object_id e respond_to? são importantes.
 
-Examples:
+Todo objeto em Ruby possui um identificador numérico único associado a ele. Podemos ver este identificado pedindo para o objeto mostrar seu identificador (via método object_id):
+
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+puts "The id of obj is #{d.object_id}."
+<% end -%>
+
+Podemos determinar antecipadamente (antes de perguntarmos alguma coisa para o objeto) se o objeto sabe como responder a mensagem que pretendemos enviar. Fazemos isso utilizando o método respond_to?. Esse método existe em todos os objetos; podemos questionar qualquer objeto para verificar se ele responde alguma mensagem. O método respond_to? normalmente aparece em conjunto com um teste lógico condicional (if).
+
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+if d.respond_to?("talk")
+  d.talk
+else
+  puts "Sorry, the object doesn't understand the 'talk' message."
+end
+<% end -%>
+
+As seguintes instruções:
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+d1 = d
+d1.display
+<% end -%>
+fazem com que d e d1 apontem para o mesmo objeto.
+
+Podemos perguntar para qualquer objeto de qual classe ele é membro utilizando o método Objeto.class. No programa acima, se escrevermos as seguintes instruções:
+
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+d = Dog.new('Alsatian', 'Lassie')
+puts d.class.to_s
+<% end -%>
+
+O resultado será:
+
+<% coderay(:language => 'bash', :line_numbers => 'inline') do -%>
+>ruby p029dog.rb
+Dog
+>Exit code: 0
+<% end -%>
+
+O método instance_of? retorna verdadeiro (true) se um objeto é instância de dada classe, como no exemplo abaixo?
+
+<% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
+num = 10
+puts(num.instance_of? Fixnum) # output true
+<% end -%>
+
+
+h2. Construtores Literais
+
+Isso significa que podemos utilizar uma notação especial, ao invés de chamar new, para criar um novo objeto de determinada classe. As classes com construtores literais são demonstradas abaixo. Quando usamos algum desses construtores literais, fazemos que um novo objeto passe a existir.
+
+b. Exemplos:
 
 String - 'hello' or "hello"
 Symbol - :symbol or :"hello wrold"
 Array - [x, y, z]
 Hash - {"India" => "IN"}
 Range - 3..7 or 3...7
-Garbage Collection
 
-The statement:
+h2. Coleta de Lixo (Garbage Collection)
+
+A instrução abaixo:
+
 d =nil
-makes d a nil reference, meaning it does not refer to anything. If I now say:
+
+faz com que d receba uma referencia para nil, isto significa que d não aponta para coisa alguma. Agora, se fizermos:
+
 d1 = nil
-then the Dog object is abandoned and eligible for Garbage Collection (GC). The Ruby object heap allocates a minimum of 8 megabytes. Ruby's GC is called mark-and-sweep. The "mark" stage checks objects to see if they are still in use. If an object is in a variable that can still be used in the current scope, the object (and any object inside that object) is marked for keeping. If the variable is long gone, off in another method, the object isn't marked. The "sweep" stage then frees objects which haven't been marked.
+
+então o objeto Dog é abandonado e eleito para a Coleta de Lixo (Garbage Collection - GC). The Ruby object heap allocates a minimum of 8 megabytes. Ruby's GC is called mark-and-sweep. The "mark" stage checks objects to see if they are still in use. If an object is in a variable that can still be used in the current scope, the object (and any object inside that object) is marked for keeping. If the variable is long gone, off in another method, the object isn't marked. The "sweep" stage then frees objects which haven't been marked.
 
 Ruby uses a conservative mark-and-sweep GC mechanism. There is no guarantee that an object will undergo garbage collection before the program terminates.
 
@@ -179,7 +200,9 @@ The idea of a class method is that you send a message to the object that is the 
 Here's an example:
 
 Dog#bark - the instance method bark in the class Dog
+
 Dog.color - the class method color, in the class Dog
+
 Dog::color - another way to refer to the class method color
 
 In writing about Ruby, the pound notation (#) is sometimes used to indicate an instance method - for example, we say File.chmod to denote the class method chmod of class File, and File#chmod to denote the instance method that has the same name. This notation is not part of Ruby syntax.
