@@ -5,7 +5,7 @@ filter:
   - erb
   - textile
 ---
-p(title). <%= h(@page.title) %>
+p(title). <%=h(@page.title) %>
 
 O paradigma procedural foi utilizado até agora para escrevermos nossos programas (note que este paradigma continua sendo utilizado em linguagens como C). Programar proceduralmente quer dizer que focamos nos passos requeridos para completar uma tarefa (de programação) sem dar muita atenção em como os dados são manipulados.
 
@@ -188,23 +188,26 @@ faz com que d receba uma referencia para nil, isto significa que d não aponta p
 
 d1 = nil
 
-então o objeto Dog é abandonado e eleito para a Coleta de Lixo (Garbage Collection - GC). The Ruby object heap allocates a minimum of 8 megabytes. Ruby's GC is called mark-and-sweep. The "mark" stage checks objects to see if they are still in use. If an object is in a variable that can still be used in the current scope, the object (and any object inside that object) is marked for keeping. If the variable is long gone, off in another method, the object isn't marked. The "sweep" stage then frees objects which haven't been marked.
+então o objeto Dog é abandonado e eleito para a Coleta de Lixo (Garbage Collection - GC). O Ruby aloca ao menos 8 megabytes de memória no heap. O coletor de lixo do Ruby é chamado de marque e limpe. O estágio de marcacão verifica se o objeto está em uso. Se um objeto é referenciado por uma variável que pode ser utilizado no escopo atual, o objeto (e qualquer objeto dentro dele) é marcado para ser mantido. Se a variável deixa de existir, e o objeto não possuir outras referencias, ele não é marcado. O estágio da limpeza remove da memória os objetos que não foram marcados.
 
-Ruby uses a conservative mark-and-sweep GC mechanism. There is no guarantee that an object will undergo garbage collection before the program terminates.
+O Ruby usa um mecanismo conservador de marcar e limpar. Não há garantia de que o objeto será liberado pelo coletor de lixo antes do programa terminar.
 
-If you stuff something in an array and you happen to keep that array around, it's all marked. If you stuff something in a constant or global variable, it's forever marked.
-Class Methods
+Se voce referenciar algum objeto como elemento de um vetor você faz com que todos objetos referenciados pelo vetor são marcados. Se você referenciar um objeto por uma constante ou por uma variável global, ele sempre será marcado.
 
-The idea of a class method is that you send a message to the object that is the class rather than to one of the class's instances. Class methods serve a purpose. Some operations pertaining to a class can't be performed by individual instances of that class. new is an excellent example. We call Dog.new because, until we've created an individual dog instance, we can't send it any messages! Besides, the job of spawning a new object logically belongs to the class. It doesn't make sense for instances of Dog to spawn each other. It does make sense, however, for the instance-creation process to be centralized as an activity of the class Dog. It's vital to understand that by Dog.new, we have a method that we can access through the class object Dog but not through its instances. Individual dog objects (instances of the class Dog) do not have this method. A class object (like Dog) has its own methods, its own state, its own identity. It doesn't share these things with instances of itself.
 
-Here's an example:
+h2. Métodos de Classe
 
-Dog#bark - the instance method bark in the class Dog
+A idéia dos métodos de classe é que você envie uma mensagem para o objeto que representa a classe ao invés de um objeto que é instância da classe. Métodos de classe cumprem esse papel. Algumas operacões devem ser executadas por pela classe e não por uma instância dela. O método new é um excelente exemplo disso. Nós chamamos Dog.new porque até que uma instância esteja instanciada, não poderemos enviar nenhuma mensagem para o objeto. Além de que, o trabalho de gerar um novo objeto pertence à classe. Não faz sentido um objeto da classe Dog gere outro objeto do mesmo tipo. Faz sentido, contudo, que o processo de criacão de um objeto seja centralizado como uma tarefa da classe Dog. É vital entender que por Dog.new, nós podemos acessar todo o objeto da classe Dog, mas não suas instâncias. Os objetos dog (instancias da classe Dog) não possuem esse método. Um objeto de classe (como Dog) possui seus próprios métodos, seu próprio estado, sua própria identidade e não divide essas caracteristicas com suas instâncias.
 
-Dog.color - the class method color, in the class Dog
+Aqui temos um exemplo:
 
-Dog::color - another way to refer to the class method color
+Dog#bark - o método de instância bark na classe Dog
 
-In writing about Ruby, the pound notation (#) is sometimes used to indicate an instance method - for example, we say File.chmod to denote the class method chmod of class File, and File#chmod to denote the instance method that has the same name. This notation is not part of Ruby syntax.
+Dog.color - o método color da classe Dog
 
-You will learn how to write class methods, later on here.
+Dog::color - outra forma de escrever o método color da classe Dog
+
+Nos textos sobre Ruby, a notacão do caractere # (tralha, sustenido, jogo-da-velha -- não sei como chama) é usado para indicar um método de instância, por exemplo, File.chmod indica o método de classe chmod da classe File, e File#chmod indica o método de instância que possui o mesmo nome. Esta notacão não é parte da sintaxe do Ruby.
+
+Você irá aprender como criar seus métodos de classe nos próximos capítulos nesse tutorial.
+
