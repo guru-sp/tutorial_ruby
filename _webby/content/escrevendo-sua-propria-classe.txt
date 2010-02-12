@@ -9,144 +9,151 @@ p(title). <%=h(@page.title) %>
 
 O paradigma procedural foi utilizado até agora para escrevermos nossos programas (note que este paradigma continua sendo utilizado em linguagens como C). Programar proceduralmente quer dizer que focamos nos passos requeridos para completar uma tarefa (de programação) sem dar muita atenção em como os dados são manipulados.
 
-No paradigma de Orientação a Objetos, objetos são nossos agentes, "procuradores", no escopo do nosso programa. Pedimos informações para os objetos. Atribuimos para eles tarefas. Dizemos para eles executarem cálculos e, em seguida, retornar o valor calculado. Juntamos uns aos outros para que trabalhem conjuntamente.
+No paradigma de Orientação a Objetos, objetos são nossos agentes, "procuradores", no escopo do nosso programa. Pedimos informações para os objetos. Atribuímos para eles tarefas. Dizemos para eles executarem cálculos e, em seguida, retornar o valor calculado. Juntamos uns aos outros para que trabalhem conjuntamente.
 
-Quando projetamos uma classe, pensamos sobre os objetos que serão criados com base naquele tipo de classe. Pensamos sobre as coisas que o objeto sabe e faz.
+Quando projetamos uma classe, pensamos sobre os objetos que serão criados com base naquele tipo de classe. Pensamos sobre as coisas que o objeto **sabe** e **faz**.
 
-Coisas que o objeto sabe sobre ele mesmo são chamadas variáveis de instancia. Elas representam o estado do objeto (os dados: por exemplo, a quantidade e o código do produto), e podem ter valores únicos para cada objeto daquele tipo.
+Coisas que o objeto **sabe** sobre ele mesmo são chamadas __variáveis de instância__. Elas representam o estado do objeto (os dados: por exemplo, a quantidade e o código do produto), e podem ter valores únicos para cada objeto daquele tipo.
 
-Coisas que um objeto podem fazer são chamados métodos.
+Coisas que um objeto pode **fazer** são chamados __métodos__.
 
-<div class='box'>
-Um objeto é uma entidade que serve como um conteiner de dados e que controla o acesso a eles. Associando a um objeto um conjunto de atribudos, que, essencialmente, não são mais do que variáveis que pertencem ao objeto. Também podem ser associados a um objeto um conjuto de funções que disponibilizam um meio (interface) de operarmos sobre os dados do objeto, chamados métodos. - Hal Fulton (N.T.: Tradução Livre do original)
-</div>
+bq. Um objeto é uma entidade que serve como um contêiner de dados e que controla o acesso a eles. Associando a um objeto um conjunto de atributos, que, essencialmente, não são mais do que variáveis que pertencem ao objeto. Também podem ser associados a um objeto um conjunto de funções que disponibilizam um meio (interface) de operarmos sobre os dados do objeto, chamados métodos. - Hal Fulton (N.T.: Tradução Livre do original)
+
 
 Um objeto é uma combinação de estados (dados) e métodos que modificam estes estados (funções).
 
-Dessa forma uma classe é usada para contruir um objeto. Uma classe é um molde para um objeto. Por exemplo, podemos usar uma classe Botão para fazer dezenas de botões diferentes, cada botão tendo sua própria cor, tamanho, forma, entre outras. Um objeto é uma instância de uma classe.
+Dessa forma uma classe é usada para construir um objeto. Uma classe é um molde para um objeto. Por exemplo, podemos usar uma classe Botão para fazer dezenas de botões diferentes, cada botão tendo sua própria cor, tamanho, forma, entre outras. Um objeto é uma instância de uma classe.
 
 <div class='box'>
 b. Leia cuidadosamente
 
-Classes em Ruby são objetos de primeira classes - todas são intâncias da classe Class. Quando uma nova classe é definida (normalmente usando class Nome ... end), um objeto do tipo Class é criado e é associado a uma contante (Nome, neste caso). Quando Nome.new é chamado para criar um novo objeto, o método de classe new da classe Class é executado primeiro para alocar memória para o objeto (atravéz do método allocate) e, em seguida, o método initialize do novo objeto é executado. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescritas. A inicialização é feita pelo método de instância initialize, enquanto a contrução é feita pelo método de classe new. O método initialize não é um contrutor.
+Classes em Ruby são objetos de primeira classe - todas são instâncias da classe **Class**. Quando uma nova classe é definida (normalmente usando **class** Nome ... **end**), um objeto do tipo **Class** é criado e é associado a uma constante (Nome, neste caso). Quando Nome.**new** é chamado para criar um novo objeto, o método de classe **new** da classe **Class** é executado primeiro para alocar memória para o objeto (através do método **allocate**) e, em seguida, o método **initialize** do novo objeto é executado. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescritas. A inicialização é feita pelo método de instância **initialize**, enquanto a construção é feita pelo método de classe **new**. O método **initialize** não é um construtor.
 </div>
 
-Vamos escrever nossa primera classe - p029dog.rb
+Vamos escrever nossa primeira classe - **p029dog.rb**
 
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
 # p029dog.rb
-# define class Dog
-class Dog
-  def initialize(breed, name)
-    # Instance variables
-    @breed = breed
-    @name = name
+# defina a classe Cachorro
+class Cachorro
+  def initialize(raca, nome)
+    # Variáveis de instância
+    @raca = raca
+    @nome = nome
   end
 
-  def bark
-    puts 'Ruff! Ruff!'
+  def late
+    puts 'Au! Au!'
   end
 
-  def display
-    puts "I am of #{@breed} breed and my name is #{@name}"
+  def mostra
+    puts "Sou da raca #{@raca} e meu nome eh #{@nome}"
   end
 end
 
-# make an object
-# Objects are created on the heap
-d = Dog.new('Labrador', 'Benzy')
+# cria um objeto
+# Objetos são criados na pilha
+d = Cachorro.new('Labrador', 'Benzy')
 
 =begin
-  Every object is "born" with certain innate abilities.
-  To see a list of innate methods, you can call the methods
-  method (and throw in a sort operation, to make it
-  easier to browse visually). Remove the comment and execute.
+  Cada objeto "nasce" com certas características inatas.
+  Para ver uma lista dos métodos do objeto, você pode chamar
+  o método methods (e usar uma operação de sort para facilitar
+  a visualização). Remova o comentário e execute
 =end
-# puts d.methods.sort
 
-# Amongst these many methods, the methods object_id and respond_to? are important.
-# Every object in Ruby has a unique id number associated with it
-puts "The id of obj is #{d.object_id}."
+# puts d.methods.sort  
 
-# To know whether the object knows how to handle the message you want
-# to send it, by using the respond_to? method.
-if d.respond_to?("talk")
-  d.talk
+# Entre todos esses métodos, os métodos object_id 
+# e respond_to são importantes.
+# Cada objeto no Ruby tem um id único associado ao mesmo.
+
+puts "O id do obj é #{d.object_id}."
+
+
+# Para saber se o objeto sabe como lidar com uma mensagem que
+# você queira enviar a ele você pode usar o método respond_to?.
+if d.respond_to?("fala")
+  d.fala
 else
-  puts "Sorry, the object doesn't understand the 'talk' message."
+  puts "Desculpe, o objeto nao entende a mensagem 'fala'."
 end
 
-d.bark
-d.display
+d.late
+d.mostra
 
-# making d and d1 point to the same object
+# fazendo d e d1 apontar para o mesmo objeto
 d1 = d
 d1.display
 
-# making d a nil reference, meaning it does not refer to anything
+# tornando d uma referência nula, o que significa
+# que ele não se referencia a nada
 d = nil
 d.display
 
-# If I now say
+# Se eu faço
 d1 = nil
-# then the Dog object is abandoned and eligible for Garbage Collection (GC)
+# Então o objeto Cachorro é abandonado e elegível para ser
+# coletado para o lixo (GC)
 <% end -%>
 
 A saída é esta:
 
-<% coderay(:language => 'bash', :line_number => 'inline') do -%>
+<% coderay(:language => '', :line_number => 'inline') do -%>
 >ruby p029dog.rb
 The id of obj is 22982920.
-Sorry, the object doesn't understand the 'talk' message.
-Ruff! Ruff!
-I am of Labrador breed and my name is Benzy
-I am of Labrador breed and my name is Benzy
+Desculpe, o objeto nao entende a mensagem 'fala'.
+Au! Au!
+Sou da raca Labrador e meu nome eh Benzy.
+Sou da raca Labrador e meu nome eh Benzy.
 >Exit code: 0
 <% end -%>
 
-O método new é usado para criar um objeto da classe Dog. Objetos são criados no heap. A variável d é conhechida como uma variável de referência. Isso quer dizer que ela não contém o objeto, mas somente contém alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para "dizer" ao objeto: "use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método)." Por exemplo:
-
-b. d.bark
+O método new é usado para criar um objeto da classe Cachorro. Objetos são criados na pilha (heap). A variável d é conhecida como variável de referência. Isso quer dizer que ela não contém o objeto. Contém somente alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para "dizer" ao objeto: "use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método)." Por exemplo:
+**d.late**
 
 <div class='box'>
-Em Rails: Se estivermos escrevendo uma aplicação em Rais em que uma das entidades do modelo seja Cliente, então quando escrevermos o código que fazem as coisas acontecerem - um cliente acessa a área restrida de um site, atualiza seu número de telefone, adiciona um ítem em seu carrinho de compras - em todas essas situações estamos enviando mensagens para os objetos cliente.
+**No framework Rails:**
+Se estivermos escrevendo uma aplicação em Rails em que uma das entidades do modelo seja Cliente, então quando escrevermos o código que fazem as coisas acontecerem - um cliente acessa a área restrita de um site, atualiza seu número de telefone, adiciona um item em seu carrinho de compras - em todas essas situações estamos enviando mensagens para os objetos cliente.
 </div>
 
-Mesmo um objeto criado recentemente não é algo vazio. Tão breve quanto um objeto passa a existir, ele já responde a certo número de mensagens. Todo objeto "nasce" com certas habilidades inatas. Para ver uma lista desses métodos inatos, podemos chamar o método methods (e ainda solicitar que o resultado seja ordenado - chamando o método sort, - para facilitar a visualização):
+Mesmo um objeto criado recentemente não é algo vazio. Tão breve quanto um objeto passa a existir, ele já responde a certo número de mensagens. Todo objeto "nasce" com certas habilidades inatas. Para ver uma lista desses métodos inatos, podemos chamar o método **methods** (e ainda solicitar que o resultado seja ordenado - chamando o método **sort**, - para facilitar a visualização):
 
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
 puts d.methods.sort
 <% end -%>
 
-O resultato é uma lista com todas as mensagens (métodos) que este novo e recém-criado método possui. Entre todos estes muitos métodos, os métodos object_id e respond_to? são importantes.
+O resultado é uma lista com todas as mensagens (métodos) que este novo e recém-criado método possui. Entre todos estes muitos métodos, os métodos **object_id** e **respond_to?** são importantes.
 
-Todo objeto em Ruby possui um identificador numérico único associado a ele. Podemos ver este identificado pedindo para o objeto mostrar seu identificador (via método object_id):
+Todo objeto em Ruby possui um identificador numérico único associado a ele. Podemos ver este identificado pedindo para o objeto mostrar seu identificador (via método **object_id**):
 
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
-puts "The id of obj is #{d.object_id}."
+puts "O id do objeto é #{d.object_id}."
 <% end -%>
 
-Podemos determinar antecipadamente (antes de perguntarmos alguma coisa para o objeto) se o objeto sabe como responder a mensagem que pretendemos enviar. Fazemos isso utilizando o método respond_to?. Esse método existe em todos os objetos; podemos questionar qualquer objeto para verificar se ele responde alguma mensagem. O método respond_to? normalmente aparece em conjunto com um teste lógico condicional (if).
+Podemos determinar antecipadamente (antes de perguntarmos alguma coisa para o objeto) se o objeto sabe como responder a mensagem que pretendemos enviar. Fazemos isso utilizando o método **respond_to?**. Esse método existe em todos os objetos; podemos questionar qualquer objeto para verificar se ele responde alguma mensagem. O método **respond_to?** normalmente aparece em conjunto com um teste lógico condicional (if).
 
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
-if d.respond_to?("talk")
-  d.talk
+if d.respond_to?("fala")
+  d.fala
 else
-  puts "Sorry, the object doesn't understand the 'talk' message."
+  puts "Desculpe, o objeto nao entende a mensagem 'fala'."
 end
 <% end -%>
 
 As seguintes instruções:
+
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
 d1 = d
 d1.display
 <% end -%>
+
 fazem com que d e d1 apontem para o mesmo objeto.
 
-Podemos perguntar para qualquer objeto de qual classe ele é membro utilizando o método Objeto.class. No programa acima, se escrevermos as seguintes instruções:
+Podemos perguntar para qualquer objeto de qual classe ele é membro utilizando o método **Object.class**. No programa acima, se escrevermos as seguintes instruções:
 
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
-d = Dog.new('Alsatian', 'Lassie')
+d = Cachorro.new('Pastor', 'Lassie')
 puts d.class.to_s
 <% end -%>
 
@@ -154,21 +161,21 @@ O resultado será:
 
 <% coderay(:language => 'bash', :line_numbers => 'inline') do -%>
 >ruby p029dog.rb
-Dog
+Cachorro
 >Exit code: 0
 <% end -%>
 
-O método instance_of? retorna verdadeiro (true) se um objeto é instância de dada classe, como no exemplo abaixo?
+O método **instance_of?** retorna verdadeiro (true) se um objeto é instância de dada classe, como no exemplo abaixo:
 
 <% coderay(:language => 'ruby', :line_numbers => 'inline') do -%>
 num = 10
-puts(num.instance_of? Fixnum) # output true
+puts(num.instance_of? Fixnum) # saída true
 <% end -%>
 
 
 h2. Construtores Literais
 
-Isso significa que podemos utilizar uma notação especial, ao invés de chamar new, para criar um novo objeto de determinada classe. As classes com construtores literais são demonstradas abaixo. Quando usamos algum desses construtores literais, fazemos que um novo objeto passe a existir.
+Isso significa que podemos utilizar uma notação especial, ao invés de chamar **new**, para criar um novo objeto de determinada classe. As classes com construtores literais são demonstradas abaixo. Quando usamos algum desses construtores literais, fazemos que um novo objeto passe a existir.
 
 b. Exemplos:
 
@@ -182,32 +189,34 @@ h2. Coleta de Lixo (Garbage Collection)
 
 A instrução abaixo:
 
-d =nil
+d = nil
 
-faz com que d receba uma referencia para nil, isto significa que d não aponta para coisa alguma. Agora, se fizermos:
+faz com que d receba uma referência para **nil**, isto significa que d não aponta para coisa alguma. Agora, se fizermos:
 
 d1 = nil
 
-então o objeto Dog é abandonado e eleito para a Coleta de Lixo (Garbage Collection - GC). O Ruby aloca ao menos 8 megabytes de memória no heap. O coletor de lixo do Ruby é chamado de marque e limpe. O estágio de marcacão verifica se o objeto está em uso. Se um objeto é referenciado por uma variável que pode ser utilizado no escopo atual, o objeto (e qualquer objeto dentro dele) é marcado para ser mantido. Se a variável deixa de existir, e o objeto não possuir outras referencias, ele não é marcado. O estágio da limpeza remove da memória os objetos que não foram marcados.
+então o objeto Cachorro é abandonado e eleito para a **Coleta de Lixo** (Garbage Collection - GC). O Ruby aloca ao menos __8 megabytes__ de memória na pilha. O coletor de lixo do Ruby é do tipo de __marque-e-limpa__. O estágio de "marcação" verifica se o objeto está em uso. Se um objeto é referenciado por uma variável que pode ser utilizado no escopo atual, o objeto (e qualquer objeto dentro dele) é marcado para ser mantido. Se a variável deixa de existir e o objeto não possuir outras referências, ele não é marcado. O estágio da "limpeza" remove da memória os objetos que não foram marcados.
 
-O Ruby usa um mecanismo conservador de marcar e limpar. Não há garantia de que o objeto será liberado pelo coletor de lixo antes do programa terminar.
+O Ruby usa um mecanismo conservador de marca-e-limpar. Não há garantia de que o objeto será liberado pelo coletor de lixo antes do programa terminar.
 
-Se voce referenciar algum objeto como elemento de um vetor você faz com que todos objetos referenciados pelo vetor são marcados. Se você referenciar um objeto por uma constante ou por uma variável global, ele sempre será marcado.
+Se você colocar algo dentro de um vetor e você mantiver esse vetor ativo, ele estará **todo marcado**. Se você referenciar um objeto por uma constante ou por uma variável global, **ele sempre estará marcado**.
 
 
 h2. Métodos de Classe
 
-A idéia dos métodos de classe é que você envie uma mensagem para o objeto que representa a classe ao invés de um objeto que é instância da classe. Métodos de classe cumprem esse papel. Algumas operacões devem ser executadas por pela classe e não por uma instância dela. O método new é um excelente exemplo disso. Nós chamamos Dog.new porque até que uma instância esteja instanciada, não poderemos enviar nenhuma mensagem para o objeto. Além de que, o trabalho de gerar um novo objeto pertence à classe. Não faz sentido um objeto da classe Dog gere outro objeto do mesmo tipo. Faz sentido, contudo, que o processo de criacão de um objeto seja centralizado como uma tarefa da classe Dog. É vital entender que por Dog.new, nós podemos acessar todo o objeto da classe Dog, mas não suas instâncias. Os objetos dog (instancias da classe Dog) não possuem esse método. Um objeto de classe (como Dog) possui seus próprios métodos, seu próprio estado, sua própria identidade e não divide essas caracteristicas com suas instâncias.
+A ideia dos métodos de classe é que você envie uma mensagem para o objeto que representa a classe ao invés de um objeto que é instância da classe. Métodos de classe cumprem esse papel. Algumas operações devem ser executadas por pela classe e não por uma instância dela. O método **new** é um excelente exemplo disso. Nós chamamos Cachorro.**new** porque até que uma instância esteja instanciada, não poderemos enviar nenhuma mensagem para o objeto. Além de que, a tarefa de gerar um novo objeto pertence à classe.
+
+Não faz sentido um objeto da classe Cachorro gere outro objeto do mesmo tipo. Faz sentido, contudo, que o processo de criação de um objeto seja centralizado como uma tarefa da classe Cachorro. É vital entender que por Cachorro.new, nós podemos acessar todo o objeto da classe Cachorro, mas não suas instâncias. Os objetos do tipo cachorro (instâncias da classe Cachorro) não possuem esse método. Um objeto de classe (como Cachorro) possui seus próprios métodos, seu próprio estado, sua própria identidade e não divide essas características com suas instâncias.
 
 Aqui temos um exemplo:
 
-Dog#bark - o método de instância bark na classe Dog
+**Cachorro#late** - o método de instância **late** na classe **Cachorro**
 
-Dog.color - o método color da classe Dog
+**Cachorro.cor** - o método **cor** da classe **Cachorro**
 
-Dog::color - outra forma de escrever o método color da classe Dog
+**Cachorro::cor** - outra forma de escrever o método **cor** da classe **Cachorro**
 
-Nos textos sobre Ruby, a notacão do caractere # (tralha, sustenido, jogo-da-velha -- não sei como chama) é usado para indicar um método de instância, por exemplo, File.chmod indica o método de classe chmod da classe File, e File#chmod indica o método de instância que possui o mesmo nome. Esta notacão não é parte da sintaxe do Ruby.
+Nos textos sobre Ruby, a notação do __caractere #__ (tralha, sustenido, jogo-da-velha) é usada para indicar um método de instância, por exemplo, **File.chmod** indica o método de classe **chmod** da classe **File**, e **File#chmod** indica o método de instância que possui o mesmo nome. **Esta notação não faz parte da sintaxe do Ruby**.
 
-Você irá aprender como criar seus métodos de classe nos próximos capítulos nesse tutorial.
+Você aprenderá como criar seus métodos de classe nos próximos capítulos deste tutorial.
 
