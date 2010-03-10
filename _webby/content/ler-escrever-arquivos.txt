@@ -1,0 +1,97 @@
+---
+title:      Ler-Escrever-Arquivos
+created_at: 2010-03-10 12:06:40.191549 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Let's look at how we can read / write to a text file with the help of a simple program p027readwrite.rb
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p027readwrite.rb  
+# Open and read from a text file  
+# Note that since a block is given, file will  
+# automatically be closed when the block terminates  
+File.open('p014constructs.rb', 'r') do |f1|  
+  while line = f1.gets  
+    puts line  
+  end  
+end  
+  
+# Create a new file and write to it  
+File.open('test.rb', 'w') do |f2|  
+  # use "\n" for two lines of text  
+  f2.puts "Created by Satish\nThank God!"  
+end
+<% end %>
+
+The File.open method can open the file in different modes like 'r' Read-only, starts at beginning of file (default); 'r+' Read/Write, starts at beginning of file; 'w' Write-only, truncates existing file to zero length or creates a new file for writing. Please check the online documentation for a full list of modes available. File.open opens a new File if there is no associated block. If the optional block is given, it will be passed file as an argument, and the file will automatically be closed when the block terminates. Always close a file that you open. In the case of a file open for writing, this is very important and can actually prevent lost data.
+
+File implements a readlines method that reads an entire file into an array, line by line.
+
+Both class methods open and readlines belong to the IO class, whose sub-class is File. We have not done classes, objects, inheritance yet but for the record these two methods are inherited by the sub-class File from the class IO.
+
+h2. Percorrendo Árvores de Diretórios
+
+The Find module supports top-down traversal of a set of file paths, given as arguments to the find method. If an argument is a directory, then its name and name of all its files and sub-directories will be passed in (in the example below, this would be from where you run this program).
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+require 'find'  
+Find.find('./') do |f|  
+  type = case  
+         when File.file?(f) then "F"  
+         when File.directory?(f) then "D"  
+         else "?"  
+         end  
+  puts "#{type}: #{f}"  
+end
+<% end %>
+
+We shall talk about require soon here.
+
+h2. Acesso Aleatório
+
+It's quite easy to access a file randomly. Let's say we have a text file (named hellousa.rb), the contents of which is shown below:
+
+puts 'Hello USA'  
+We now need to display the contents of the file from the word USA. Here's how - program p028xrandom.rb:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p028xrandom.rb  
+# We now need to display the contents of the file from the word USA  
+f = File.new("hellousa.rb")  
+  
+# SEEK_CUR - Seeks to first integer number parameter plus current position  
+# SEEK_END - Seeks to first integer number parameter plus end of stream  
+#   (you probably want a negative value for first integer number parameter)  
+# SEEK_SET - Seeks to the absolute location given by first integer number parameter  
+# :: is the scope operator - more on this later  
+f.seek(12, IO::SEEK_SET)  
+print f.readline  
+f.close
+<% end %>
+
+The output is:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+>ruby p028xrandom.rb  
+USA'  
+>Exit code: 0
+<% end %>
+
+Ruby supports the notion of a file pointer. The file pointer indicates the current location in the file. The File.new method opens the file 'hellousa.rb' in read-only mode (default mode), returns a new File object and the file pointer is positioned at the beginning of the file. In the above program, the next statement is f.seek(12, IO::SEEK_SET). The seek method of class IO, moves the file pointer to a given integer distance (first parameter of seek method) in the stream according to the value of the second parameter in the seek method.
+
+IO::SEEK_CUR - Seeks to first integer number parameter plus current position
+IO::SEEK_END - Seeks to first integer number parameter plus end of stream (you probably want a negative value for first integer number parameter)
+IO::SEEK_SET - Seeks to the absolute location given by first integer number parameter
+More on the scope operator :: here.
+
+h2. Ruby permite a serialização de um objeto?
+
+Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling. Saving an object and some or all of its components is done using the method Marshal.dump. Later on you can reconstitute the object using Marshal.load. Ruby uses marshaling to store session data. Refer topic Object Serialization later on.
+
+h2. Sumário
+
+I have listed down all the important points you need to remember after you have completed the following topics: Arrays, Ranges, Symbols, Hashes, Random Numbers, Read/Write Text Files.

@@ -58,12 +58,12 @@ h3. Parte 4
 ## Variáveis de ambiente
 ## Argumentos de linha de comando
 ## Biblioteca GetoptLong
-# Ranges (intervalos)
-# Símbolos em Ruby
-# Hashes
+# "Intervalos (Ranges)":intervalos.html
+# "Símbolos em Ruby":simbolos.html
+# "Hashes (dicionários)":hashes-ruby.html
 ## Usando símbolos como chaves hash
-# Números aleatórios
-# Ler/escrever arquivos
+# "Números aleatórios":numeros-aleatorios.html
+# "Ler/escrever arquivos":ler-escrever-arquivos.html
 ## Varrendo árvores de diretórios
 ## Acesso aleatório
 # Resumo 4
