@@ -1,0 +1,46 @@
+---
+title:      Intervalos (Ranges)
+created_at: 2010-03-10 11:52:48.875419 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+The first and perhaps most natural use of ranges is to express a sequence. Sequences have a start point, an end point, and a way to produce successive values in the sequence. In Ruby, these sequences are created using the ".." and "..." range operators. The two dot form creates an inclusive range, and the three-dot form creates a range that excludes the specified high value. In Ruby ranges are not represented internally as lists: the sequence 1..100000 is held as a Range object containing references to two Fixnum objects. Refer program p021ranges.rb. If you need to, you can convert a range to a list using the to_a method.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+(1..10).to_a -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+<% end %>
+
+Ranges implement methods that let you iterate over them and test their contents in a variety of ways.
+
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p021ranges.rb  
+=begin  
+  Sequences have a start point, an end point, and a way to  
+  produce successive values in the sequence  
+  In Ruby, sequences are created using the ".." and "..."  
+  range operators.  
+  The two dot form creates an inclusive range.  
+  The three-dot form creates a  range that excludes the specified  
+  high value  
+  The sequence 1..100000 is held as a Range object  
+=end  
+digits = -1..9  
+puts digits.include?(5)          # true  
+puts digits.min                  # -1  
+puts digits.max                  # 9  
+puts digits.reject {|i| i < 5 }  # [5, 6, 7, 8, 9]
+<% end %>
+
+Another use of the versatile range is as an interval test: seeing if some value falls within the interval represented by the range. We do this using ===, the case equality operator.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+(1..10) === 5       -> true  
+(1..10) === 15      -> false  
+(1..10) === 3.14159 -> true  
+('a'..'j') === 'c'  -> true  
+('a'..'j') === 'z'  -> false
+<% end %>

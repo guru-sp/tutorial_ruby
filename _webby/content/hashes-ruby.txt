@@ -1,0 +1,82 @@
+---
+title:      Hashes
+created_at: 2010-03-03 18:40:01.610313 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays, uma vez que são coleções indexadas de referências a objetos. No entanto, um índice de um array contém somente inteiros (semelhante a um índice remissivo), já utilizando hash você pode indexá-lo com os objetos de qualquer tipo: strings, expressões regulares, e assim por diante. Quando você armazena um valor em um hash, você sempre fornecer dois objetos - o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como o índice, também pode ser objetos de qualquer tipo.
+
+O *exemplop040myhash.rb* abaixo, criar um hash com literais(strings): a chave => o valor entre chaves.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p040myhash.rb
+h = {'cachorro' => 'canino', 'gato' => 'felino', 'burro' => 'asinino', 12 => 'dozino'}
+puts h.length  # 4
+puts h['cachorro']  # 'canino'
+puts h
+puts h[12]
+<% end %>
+
+A saída do código acima é:
+
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
+>ruby p040myhash.rb
+4
+canino
+12dozinogatofelinoburroasininocachorrocanino
+dozino
+>Exit code: 0
+<% end %>
+
+Comparado com arrays, os hashes tem uma vantagem significante: eles podem usar qualquer objeto como índice.
+
+Hashes tem um valor padrão, que é retornado, após uma tentativa de acessa uma chave não existente. Por padrão este valor é nil.
+
+A classe *Hash* tem muitos métodos e você pode consultá-los "aqui":http://railsapi.com/doc/ruby-v1.9/classes/Hash.html.
+
+h2. Usando símbolos como chaves do Hash
+
+Ao invés, de utilizar uma string como chave, de preferência pelo uso de um símbolo. Veja o exemplo a seguir no programa *p041symbolhash.rb*.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p041symbolhash.rb
+pessoa = Hash.new
+pessoa[:apelido] = 'GuruIndiano'
+pessoa[:idioma] = 'Marata'
+pessoa[:sobrenome] = 'Talim'
+puts pessoa[:sobrenome] # Talim
+<% end %>
+
+Outro exemplo *p0411symbolhash.rb*.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p0411symbolhash.rb
+h = {:apelido => 'GuruIndiano', :idioma => 'Marata', :sobrenome => 'Talim'}
+puts h
+<% end %>
+
+A saída do exemplo acima é:
+
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
+idiomaMaratasobrenomeTalimapelidoGuruIndiano
+<% end %>
+
+Outra maneira de fazer a mesma coisa é mostrada no programa *p0412symbolhash.rb*.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p0412symbolhash.rb
+h = {:apelido, 'GuruIndiano', :idioma, 'Marata', :sobrenome, 'Talim'}
+puts h
+<% end %>
+
+A saída é:
+
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
+idiomaMaratasobrenomeTalimapelidoGuruIndiano
+<% end %>
+
+Ou seja, exatamente o mesmo que ocorreu na execução do programa *p0411symbolhash.rb*.
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Ler-Escrever-Arquivos</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Ler-Escrever-Arquivos</p>
+<p>Let&#8217;s look at how we can read / write to a text file with the help of a simple program p027readwrite.rb</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p027readwrite.rb  </span>
+<span class="no"> 2</span> <span class="c"># Open and read from a text file  </span>
+<span class="no"> 3</span> <span class="c"># Note that since a block is given, file will  </span>
+<span class="no"> 4</span> <span class="c"># automatically be closed when the block terminates  </span>
+<span class="no"> 5</span> <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">p014constructs.rb</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">r</span><span class="dl">'</span></span>) <span class="r">do</span> |f1|  
+<span class="no"> 6</span>   <span class="r">while</span> line = f1.gets  
+<span class="no"> 7</span>     puts line  
+<span class="no"> 8</span>   <span class="r">end</span>  
+<span class="no"> 9</span> <span class="r">end</span>  
+<span class="no"><strong>10</strong></span>   
+<span class="no">11</span> <span class="c"># Create a new file and write to it  </span>
+<span class="no">12</span> <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">test.rb</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">w</span><span class="dl">'</span></span>) <span class="r">do</span> |f2|  
+<span class="no">13</span>   <span class="c"># use &quot;\n&quot; for two lines of text  </span>
+<span class="no">14</span>   f2.puts <span class="s"><span class="dl">&quot;</span><span class="k">Created by Satish</span><span class="ch">\n</span><span class="k">Thank God!</span><span class="dl">&quot;</span></span>  
+<span class="no">15</span> <span class="r">end</span>
+</pre>
+</div>
+<p>The File.open method can open the file in different modes like &#8216;r&#8217; Read-only, starts at beginning of file (default); &#8216;r+&#8217; Read/Write, starts at beginning of file; &#8216;w&#8217; Write-only, truncates existing file to zero length or creates a new file for writing. Please check the online documentation for a full list of modes available. File.open opens a new File if there is no associated block. If the optional block is given, it will be passed file as an argument, and the file will automatically be closed when the block terminates. Always close a file that you open. In the case of a file open for writing, this is very important and can actually prevent lost data.</p>
+<p>File implements a readlines method that reads an entire file into an array, line by line.</p>
+<p>Both class methods open and readlines belong to the IO class, whose sub-class is File. We have not done classes, objects, inheritance yet but for the record these two methods are inherited by the sub-class File from the class IO.</p>
+<h2>Percorrendo Árvores de Diretórios</h2>
+<p>The Find module supports top-down traversal of a set of file paths, given as arguments to the find method. If an argument is a directory, then its name and name of all its files and sub-directories will be passed in (in the example below, this would be from where you run this program).</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> require <span class="s"><span class="dl">'</span><span class="k">find</span><span class="dl">'</span></span>  
+<span class="no"> 2</span> <span class="co">Find</span>.find(<span class="s"><span class="dl">'</span><span class="k">./</span><span class="dl">'</span></span>) <span class="r">do</span> |f|  
+<span class="no"> 3</span>   type = <span class="r">case</span>  
+<span class="no"> 4</span>          <span class="r">when</span> <span class="co">File</span>.file?(f) <span class="r">then</span> <span class="s"><span class="dl">&quot;</span><span class="k">F</span><span class="dl">&quot;</span></span>  
+<span class="no"> 5</span>          <span class="r">when</span> <span class="co">File</span>.directory?(f) <span class="r">then</span> <span class="s"><span class="dl">&quot;</span><span class="k">D</span><span class="dl">&quot;</span></span>  
+<span class="no"> 6</span>          <span class="r">else</span> <span class="s"><span class="dl">&quot;</span><span class="k">?</span><span class="dl">&quot;</span></span>  
+<span class="no"> 7</span>          <span class="r">end</span>  
+<span class="no"> 8</span>   puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>type<span class="idl">}</span></span><span class="k">: </span><span class="il"><span class="idl">#{</span>f<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
+<span class="no"> 9</span> <span class="r">end</span>
+</pre>
+</div>
+<p>We shall talk about require soon here.</p>
+<h2>Acesso Aleatório</h2>
+<p>It&#8217;s quite easy to access a file randomly. Let&#8217;s say we have a text file (named hellousa.rb), the contents of which is shown below:</p>
+<p>puts &#8216;Hello USA&#8217;  <br />
+We now need to display the contents of the file from the word USA. Here&#8217;s how &#8211; program p028xrandom.rb:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p028xrandom.rb  </span>
+<span class="no"> 2</span> <span class="c"># We now need to display the contents of the file from the word USA  </span>
+<span class="no"> 3</span> f = <span class="co">File</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">hellousa.rb</span><span class="dl">&quot;</span></span>)  
+<span class="no"> 4</span>   
+<span class="no"> 5</span> <span class="c"># SEEK_CUR - Seeks to first integer number parameter plus current position  </span>
+<span class="no"> 6</span> <span class="c"># SEEK_END - Seeks to first integer number parameter plus end of stream  </span>
+<span class="no"> 7</span> <span class="c">#   (you probably want a negative value for first integer number parameter)  </span>
+<span class="no"> 8</span> <span class="c"># SEEK_SET - Seeks to the absolute location given by first integer number parameter  </span>
+<span class="no"> 9</span> <span class="c"># :: is the scope operator - more on this later  </span>
+<span class="no"><strong>10</strong></span> f.seek(<span class="i">12</span>, <span class="co">IO</span>::<span class="co">SEEK_SET</span>)  
+<span class="no">11</span> print f.readline  
+<span class="no">12</span> f.close
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p028xrandom.rb  
+<span class="no">2</span> <span class="co">USA</span><span class="s"><span class="dl">'</span><span class="k">  
+<span class="no">3</span> &gt;Exit code: 0
+<span class="no">4</span> </span></span></pre>
+</div>
+<p>Ruby supports the notion of a file pointer. The file pointer indicates the current location in the file. The File.new method opens the file &#8216;hellousa.rb&#8217; in read-only mode (default mode), returns a new File object and the file pointer is positioned at the beginning of the file. In the above program, the next statement is f.seek(12, IO::SEEK_SET). The seek method of class IO, moves the file pointer to a given integer distance (first parameter of seek method) in the stream according to the value of the second parameter in the seek method.</p>
+<p>IO::SEEK_CUR &#8211; Seeks to first integer number parameter plus current position<br />
+IO::SEEK_END &#8211; Seeks to first integer number parameter plus end of stream (you probably want a negative value for first integer number parameter)<br />
+IO::SEEK_SET &#8211; Seeks to the absolute location given by first integer number parameter<br />
+More on the scope operator :: here.</p>
+<h2>Ruby permite a serialização de um objeto?</h2>
+<p>Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling. Saving an object and some or all of its components is done using the method Marshal.dump. Later on you can reconstitute the object using Marshal.load. Ruby uses marshaling to store session data. Refer topic Object Serialization later on.</p>
+<h2>Sumário</h2>
+<p>I have listed down all the important points you need to remember after you have completed the following topics: Arrays, Ranges, Symbols, Hashes, Random Numbers, Read/Write Text Files.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

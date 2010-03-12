@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Numeros-Aleatorios</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Numeros-Aleatorios</p>
+<p>Ruby comes with a random number generator. The method to get a randomly chosen number is rand. If you call rand, you&#8217;ll get a float greater than or equal to 0.0 and less than 1.0. If you give it an integer parameter (by calling rand(5) ), you will get an integer value greater than or equal to 0 and less than 5.</p>
+<p>Here&#8217;s an example: p026phrase.rb</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p026phrase.rb  </span>
+<span class="no"> 2</span> <span class="c">=begin  
+<span class="no"> 3</span>   If you call rand, you'll get a float greater than or equal to 0.0 
+<span class="no"> 4</span>   and less than 1.0. If you give it an integer parameter (by calling rand(5) ), 
+<span class="no"> 5</span>   you will get an integer value greater than or equal to 0 and less than 5 
+<span class="no"> 6</span> =end </span>
+<span class="no"> 7</span>  
+<span class="no"> 8</span> <span class="c"># The program below makes three lists of words, and then randomly picks one word </span>
+<span class="no"> 9</span> <span class="c"># from each of the three lists and prints out the result </span>
+<span class="no"><strong>10</strong></span> word_list_one = [<span class="s"><span class="dl">'</span><span class="k">24/7</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">multi-Tier</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">30,000 foot</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">B-to-B</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">win-win</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">front-end</span><span class="dl">'</span></span>, 
+<span class="no">11</span>                  <span class="s"><span class="dl">'</span><span class="k">web-based</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">pervasive</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">smart</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">six-sigma</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">critical-path</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">dynamic</span><span class="dl">'</span></span>] 
+<span class="no">12</span> word_list_two = [<span class="s"><span class="dl">'</span><span class="k">empowered</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">sticky</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">value-added</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">oriented</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">centric</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">distributed</span><span class="dl">'</span></span>, 
+<span class="no">13</span>                  <span class="s"><span class="dl">'</span><span class="k">clustered</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">branded</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">outside-the-box</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">positioned</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">networked</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">focused</span><span class="dl">'</span></span>, 
+<span class="no">14</span>                  <span class="s"><span class="dl">'</span><span class="k">leveraged</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">aligned</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">targeted</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">shared</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">cooperative</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">accelerated</span><span class="dl">'</span></span>] 
+<span class="no">15</span> word_list_three = [<span class="s"><span class="dl">'</span><span class="k">process</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">tipping-point</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">solution</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">architecture</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">core competency</span><span class="dl">'</span></span>, 
+<span class="no">16</span>                    <span class="s"><span class="dl">'</span><span class="k">strategy</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">mindshare</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">portal</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">space</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">vision</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">paradigm</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">mission</span><span class="dl">'</span></span>]  
+<span class="no">17</span>   
+<span class="no">18</span> one_len = word_list_one.length  
+<span class="no">19</span> two_len = word_list_two.length  
+<span class="no"><strong>20</strong></span> three_len = word_list_three.length  
+<span class="no">21</span>   
+<span class="no">22</span> rand1 = rand(one_len)  
+<span class="no">23</span> rand2 = rand(two_len)  
+<span class="no">24</span> rand3 = rand(three_len)
+<span class="no">25</span>   
+<span class="no">26</span> phrase = word_list_one[rand1] + <span class="s"><span class="dl">&quot;</span><span class="k"> </span><span class="dl">&quot;</span></span> + word_list_two[rand2] + <span class="s"><span class="dl">&quot;</span><span class="k"> </span><span class="dl">&quot;</span></span> + word_list_three[rand3]  
+<span class="no">27</span>   
+<span class="no">28</span> puts phrase
+</pre>
+</div>
+<p>The above program makes three lists of words, and then randomly picks one word from each of the three lists and prints out the result.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

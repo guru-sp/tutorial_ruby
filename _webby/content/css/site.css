@@ -9,11 +9,12 @@ color:
   link:               "#125AA7"
   link-hover:         "#000"
   blockquote:         "#666"
-  box-bg:             "#eee"
+  box-bg:             "#e0e0e0"
   highlight:          "#D82925" #light yellow
   quiet:              "#666"
   alt:                "#666"
   box-bg-important:   "#FFF3CF"
+  box-bg-important-border:   "#FC0"
 ---
 
 body {
@@ -67,6 +68,14 @@ p.title {
 
 .box {
   background: <%= @page.color['box-bg-important'] %>;
+  margin: 10px 0 10px 0;
+  padding: 5px 15px 5px 15px;
+  border: 1px solid <%= @page.color['box-bg-important-border'] %>;
+}
+
+.box p{
+  padding: 0;
+  margin: 5px 0 5px 0;
 }
 
 /* EOF */

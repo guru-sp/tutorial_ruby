@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Literais string são sequências de caracteres entre aspas simples ou dupla. '' (duas aspas simples) que não contêm nada dentro delas; nós chamamos de string vazia. Aqui está um programa *p003stringsruby.rb* que explora strings a um certo nível.
+Literais string são sequências (ou cadeias) de caracteres entre aspas simples ou dupla. '' (duas aspas simples) que não contêm nada dentro delas; nós chamamos de string vazia. Aqui está um programa *p003stringsruby.rb* que explora strings a um certo nível.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p003stringsruby.rb  
@@ -27,7 +27,7 @@ puts 'It\'s my Ruby'
 puts 'Olá' * 3  
 # Definindo uma constante
 # Mais sobre constantes depois, aqui  
-# http://rubylearning.com/satishtalim/ruby_names.html  
+# nomes_em_ruby.html  
 PI = 3.1416
 puts PI
 <% end -%>
