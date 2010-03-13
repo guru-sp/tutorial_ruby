@@ -47,10 +47,13 @@
 <pre><span class="no">1</span> &gt;ruby p040myhash.rb
 <span class="no">2</span> 4
 <span class="no">3</span> canino
-<span class="no">4</span> 12dozinogatofelinoburroasininocachorrocanino
+<span class="no">4</span> {&quot;cachorro&quot;=&gt;&quot;canino&quot;, &quot;gato&quot;=&gt;&quot;felino&quot;, &quot;burro&quot;=&gt;&quot;asinino&quot;, 12=&gt;&quot;dozino&quot;}
 <span class="no">5</span> dozino
 <span class="no">6</span> &gt;Exit code: 0
 </pre>
+</div>
+<div class='box'>
+<p>Caso seja executado o programa apresentado acima no Ruby 1.8, a saída será diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração.</p>
 </div>
 <p>Comparado com arrays, os hashes tem uma vantagem significante: eles podem usar qualquer objeto como índice.</p>
 <p>Hashes tem um valor padrão, que é retornado, após uma tentativa de acessa uma chave não existente. Por padrão este valor é nil.</p>
@@ -75,20 +78,24 @@
 </div>
 <p>A saída do exemplo acima é:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> idiomaMaratasobrenomeTalimapelidoGuruIndiano
+<pre><span class="no">1</span> {:apelido=&gt;&quot;GuruIndiano&quot;, :idioma=&gt;&quot;Marata&quot;, :sobrenome=&gt;&quot;Talim&quot;}
 </pre>
 </div>
 <p>Outra maneira de fazer a mesma coisa é mostrada no programa <strong>p0412symbolhash.rb</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p0412symbolhash.rb</span>
-<span class="no">2</span> h = {<span class="sy">:apelido</span>, <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, <span class="sy">:idioma</span>, <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, <span class="sy">:sobrenome</span>, <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
+<span class="no">2</span> h = {apelido: <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, idioma: <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, sobrenome: <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
 <span class="no">3</span> puts h
 </pre>
 </div>
 <p>A saída é:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> idiomaMaratasobrenomeTalimapelidoGuruIndiano
+<pre><span class="no">1</span> {:apelido=&gt;&quot;GuruIndiano&quot;, :idioma=&gt;&quot;Marata&quot;, :sobrenome=&gt;&quot;Talim&quot;}
 </pre>
+</div>
+<div class='box'>
+<p>O último exemplo não iria funcionar se formos usar o Ruby 1.8, pois ele utiliza uma sintaxe nova para declarar hashes, que foi introduzida no Ruby 1.9.</p>
+<p>Para o Ruby 1.8 precisariamos colocar o dois pontos &#8220;:&#8221; antes das chaves e não depois.</p>
 </div>
 <p>Ou seja, exatamente o mesmo que ocorreu na execução do programa <strong>p0411symbolhash.rb</strong>.</p>
    </div>

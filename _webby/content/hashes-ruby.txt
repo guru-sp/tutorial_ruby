@@ -26,11 +26,13 @@ A saída do código acima é:
 >ruby p040myhash.rb
 4
 canino
-12dozinogatofelinoburroasininocachorrocanino
+{"cachorro"=>"canino", "gato"=>"felino", "burro"=>"asinino", 12=>"dozino"}
 dozino
 >Exit code: 0
 <% end %>
-
+<div class='box'>
+Caso seja executado o programa apresentado acima no Ruby 1.8, a saída será diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração.
+</div>
 Comparado com arrays, os hashes tem uma vantagem significante: eles podem usar qualquer objeto como índice.
 
 Hashes tem um valor padrão, que é retornado, após uma tentativa de acessa uma chave não existente. Por padrão este valor é nil.
@@ -61,22 +63,27 @@ puts h
 A saída do exemplo acima é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
-idiomaMaratasobrenomeTalimapelidoGuruIndiano
+{:apelido=>"GuruIndiano", :idioma=>"Marata", :sobrenome=>"Talim"}
 <% end %>
 
 Outra maneira de fazer a mesma coisa é mostrada no programa *p0412symbolhash.rb*.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p0412symbolhash.rb
-h = {:apelido, 'GuruIndiano', :idioma, 'Marata', :sobrenome, 'Talim'}
+h = {apelido: 'GuruIndiano', idioma: 'Marata', sobrenome: 'Talim'}
 puts h
 <% end %>
 
 A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
-idiomaMaratasobrenomeTalimapelidoGuruIndiano
+{:apelido=>"GuruIndiano", :idioma=>"Marata", :sobrenome=>"Talim"}
 <% end %>
 
+<div class='box'>
+O último exemplo não iria funcionar se formos usar o Ruby 1.8, pois ele utiliza uma sintaxe nova para declarar hashes, que foi introduzida no Ruby 1.9.
+
+Para o Ruby 1.8 precisariamos colocar o dois pontos ":" antes das chaves e não depois.
+</div>
 Ou seja, exatamente o mesmo que ocorreu na execução do programa *p0411symbolhash.rb*.
 
