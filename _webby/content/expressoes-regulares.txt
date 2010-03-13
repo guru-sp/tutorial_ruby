@@ -7,31 +7,31 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Expressões regulares, como criptografia, é uma poderosa ferramenta para trabalhar com texto. Ruby possui esta funcionalidade incluida em seu núcleo. Ela é usada para o casamento de padrões e processamento de texto.
+Expressões regulares, embora crípticas, são uma poderosa ferramenta para trabalhar com texto. O Ruby possui esta funcionalidade incluída em seu núcleo. Elas são usadas para o casamento de padrões e processamento de texto.
 
-Muitas pessoas acham que expressões regulares são difíceis de usar, difíceis de ler, de manter e, consequentemente, contraprodutiva. Você pode apenas um pequeno número de expressões regulares em suas aplicacões em Ruby e Rails. Não é pré-requisito, para programar em Rails, tornar-se um especialista em Expressões Regulares. Entretanto, é recomendado o aprendizado, ao menos basicamente, de como as expressões regulares básicas funcionam.
+Muitas pessoas acham que expressões regulares são difíceis de usar, difíceis de ler, de manter e, consequentemente, improdutivas. Você pode acabar usando apenas um pequeno número de expressões regulares em suas aplicações em Ruby e Rails. Não é pré-requisito, para programar em Rails, tornar-se um especialista em Expressões Regulares. Entretanto, é recomendado o aprendizado, ao menos o básico de como as expressões regulares funcionam.
 
-Uma expressão regular é uma forma simples de especificar um padrão de caracteres que será casado com uma cadeia de caracteres. Em Ruby, você normalmente cria uma expressão regular escrevendo um padrão entre caracteres de barra '/' (/padrão/). Em Ruby, expressões regulares são objetos (do tipo Regexp) e podem ser manipulados como tais. // é uma expressão regular e uma instância da classe Regexp, como demonstrado abaixo:
+**Uma expressão regular é uma forma simples de especificar um padrão de caracteres que será casado com uma string**. Em Ruby, você normalmente cria uma expressão regular escrevendo um padrão entre caracteres de barra '/' (/padrão/). Em Ruby, expressões regulares são objetos (do tipo **Regexp**) e podem ser manipulados como tais. **//** é uma expressão regular e uma instância da classe Regexp, como demonstrado abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 //.class    # Regexp
 <% end -%>
 
-Você pode escrever um padrão que casa com uma cadeia de caracteres contendo o texto Prune ou o texto Ruby usando a seguinte expressão regular:
+Você pode escrever um padrão que casa com uma cadeia de caracteres contendo o texto Pune ou o texto Ruby usando a seguinte expressão regular:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 /Pune|Ruby/
 <% end -%>
 
-Caracteres de barra ('/') delimitam o padrão, que consistem em dois padrões que serão casados, separados por um caractere de pipe (|). O caractere pipe (|) significa "ou o padrão que está na direita ou no padrão que está na esquerda", neste caso Prune ou Ruby.
+Caracteres de barra ('/') delimitam o padrão, que consistem em dois padrões que serão casados, separados por um caractere de pipe (|). O caractere pipe (|) significa "ou o padrão que está a direita ou o padrão que está a esquerda", neste caso __Pune ou Ruby__.
 
-A forma mais simples de verificar se há um padrão que casa entre uma expressão regular e uma cadeia de caracteres é o método /match/. Você pode fazer isso em qualquer direcão: objetos Regexp e objetos String, ambos respondem ao método match. Se não houver casamento entre os padrões, o método retorna nil. Se houver um casamento de padrão, é retornado uma instância da classe MatchData. Podemos utilizar o operador =~ para casar uma cadeia de caracteres contra uma expressão regular. Caso o padrão seja encontrado, =~ retorna a posicão em que o padrão foi encontrado, caso contrário retorna nil.
+A forma mais simples de verificar se há um padrão que case entre uma expressão regular e uma cadeia de caracteres é o método **match/**. Você pode fazer isso em qualquer direção: objetos Regexp e objetos String, ambos respondem ao método **match**. Se não houver casamento entre os padrões, o método retorna **nil**. Se houver um casamento de padrão, é retornado uma instância da classe **MatchData**. Podemos utilizar o operador **=~** para casar uma cadeia de caracteres contra uma expressão regular. Caso o padrão seja encontrado, **=~** retorna a posição em que o padrão foi encontrado, caso contrário retorna **nil**.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-m1 = /Ruby/.match("The future is Ruby")
-puts m1.class  # it returns MatchData
-m2 = "The future is Ruby" =~ /Ruby/
-puts m2          # it returns 14
+m1 = /Ruby/.match("O futuro eh Ruby")
+puts m1.class  # retorna MatchData
+m2 = "O futuro eh Ruby" =~ /Ruby/
+puts m2          # retorna 14
 <% end -%>
 
 Os possíveis componentes de uma expressão regular incluem os seguintes:
@@ -46,7 +46,7 @@ Qualquer caractere literal que for adicionado em uma expressão regular casa con
 
 Esta expressão regular casa com a cadeia de caracteres "a", assim como qualquer cadeia de caracteres que contenha a letra "a".
 
-Alguns caracteres têm significado especial para o parser de expressães regulares. Quando você quer casar algum desses caracteres especiais, você tem que escapá-lo com o caractere de barra-invertida (\). Por exemplo, para casar o caractere ? (interrogacão), você deve escrever isto:
+Alguns caracteres têm significado especial para o parser de expressões regulares. Quando você quer casar algum desses caracteres especiais, você tem que escapá-lo com o caractere de barra-invertida (\). Por exemplo, para casar o caractere ? (interrogação), você deve escrever isto:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 /\?/
@@ -58,13 +58,13 @@ Os caracteres especiais incluem ^, $, ? , ., /, \, [, ], {, }, (, ), +, e *.
 
 h2. O caractere coringa . (ponto)
 
-Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu padrão. Isto é feito utilizando o caractere curinga . (ponto). Um ponto casa com qualquer caractere exceto o caractere de nova linha (\n). Esta expressão regular:
+Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu padrão. Isto é feito utilizando o caractere coringa . (ponto). Um ponto casa com qualquer caractere exceto o caractere de nova linha (\n). Esta expressão regular:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 /.ejected/
 <% end -%>
 
-casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere curinga ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condicões no casamento de padrões enquanto permite o casamento de multiplas cadeias de caracteres, usando classes de caracteres.
+casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere coringa ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condições no casamento de padrões enquanto permite o casamento de múltiplas cadeias de caracteres, usando classes de caracteres.
 
 
 h2. Classes de Caracteres
@@ -75,9 +75,9 @@ Uma classe de caractere é uma lista explicita de caracteres, colocada entre col
 /[dr]ejected/
 <% end -%>
 
-Isto significa "case d ou r, seguido de ejected". Este novo padrão casa tanto com "dejected" ou "rejected", mas não com "&ejected". Uma classe de caracteres é um tipo de quase caratere curinga: elas possibilitam multiplos caracteres em uma posicão na expressão regular, mas apenas um número limitado de caracteres.
+Isto significa "case d ou r, seguido de ejected". Este novo padrão casa tanto com "dejected" ou "rejected", mas não com "&ejected". Uma classe de caracteres é um tipo de caractere quase coringa: elas possibilitam múltiplos caracteres em uma posição na expressão regular, mas apenas um número limitado de caracteres.
 
-Em uma classe de caracteres, você pode, inclusive, incluir um intervalo de caracteres. Um uso comum desses intervalos, é a classe para letras minúsculas:
+Em uma classe de caracteres, você pode, inclusive, incluir um intervalo de caracteres. Um uso comum desses intervalos é a classe para letras minúsculas:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 /[a-z]/
@@ -99,7 +99,7 @@ Você cria esse tipo de "busca negativa" negando uma classe de caracteres. Para 
 /[^A-Fa-f0-9]/
 <% end -%>
 
-Algumas classes de caracteres são tão comuns que possuem abreviacões especiais.
+Algumas classes de caracteres são tão comuns que possuem abreviações especiais.
 
 
 h2. Sequencias especiais de escape para classes de caracteres comuns
@@ -116,9 +116,9 @@ Mas você pode fazer a mesma coisa de forma mais concisa com a sequência especi
 /\d/
 <% end -%>
 
-Outras duas sequencias de escape predefinidas bastente úteis são:
+Outras duas sequencias de escape predefinidas bastante úteis são:
 \w que casa qualquer dígito, caractere alfabético ou caractere de underscore (_).
-\s que casa qualquer caractere de espaco em branco (espaco, tabulacão, linha nova).
+\s que casa qualquer caractere de espaço em branco (espaço, tabulação, linha nova).
 
 Cada uma dessas classes predefinidas possui sua forma negada. Você pode casar qualquer caractere que não seja um dígito fazendo isto:
 
@@ -126,61 +126,63 @@ Cada uma dessas classes predefinidas possui sua forma negada. Você pode casar q
 /\D/
 <% end -%>
 
-Da mesma forma, \W casa com qualquer caractere que não seja alfabético ou underscore, e \S casa com qualquer caractere que não seja espaco em branco.
+Da mesma forma, \W casa com qualquer caractere que não seja alfabético ou underscore, e \S casa com qualquer caractere que não seja espaço em branco.
 
-Sempre que um padrão casa um objeto MatchData é retornado.
+Sempre que um padrão casa um objeto **MatchData** é retornado.
 
-Toda operacão de casamento pode ser bem sucedida ou falhar. Vamos iniciar pelo caso mais simpes: a falha. Quando você tentar casar uma string com um patrão, e não houver casamento, o resultado é sempre nil:
+Toda operação de casamento pode ser bem sucedida ou falhar. Vamos iniciar pelo caso mais simples: a falha. Quando você tentar casar uma string com um padrão, e não houver casamento, o resultado é sempre **nil**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 /a/.match("b") # nil
 <% end -%>
 
-Este nil funciona como falso ou "sem resposta" quando um casamento de padrão é tratado como um teste verdadeiro/falso.
+Este **nil** funciona como falso ou "sem resposta" quando um casamento de padrão é tratado como um teste verdadeiro/falso.
 
-Diferentemente de nil, um objeto MatchData retornado por um casamento bem sucedido é tratado como um valor Booleano verdadeiro, que torna simples os teste de casamento/não casamento. Além disso, o objeto MatchData retornado armazena os dados do casamento, possibilitando que você possa verificar-los com os métodos apropriados: onde o casamento iniciou (em qual caractere na string), quanto do padrão casou na string, o que foi capturado nos agrupamentos entre parênteses, e outras coisas mais.
+Diferentemente de **nil**, um objeto **MatchData** retornado por um casamento bem sucedido é tratado como um valor Booleano verdadeiro, que torna simples os teste de casamento/não casamento. Além disso, o objeto **MatchData** retornado armazena os dados do casamento, possibilitando que você possa verificar-los com os métodos apropriados: onde o casamento iniciou (em qual caractere na string), quanto do padrão casou na string, o que foi capturado nos agrupamentos entre parênteses, e outras coisas mais.
 
-Para utilizar o objeto MatchData, você precisa, primeiramente, armazená-lo. Considere um exemplo em que gostariamos de extrair um número de telefone de uma string e armazenar suas diferentes partes (código de área, operadora, número) em partes. Exemplo p064regexp.rb
+Para utilizar o objeto **MatchData**, você precisa, primeiramente, armazená-lo. Considere um exemplo em que gostaríamos de extrair um número de telefone de uma string e armazenar suas diferentes partes (código de área, operadora, número) em partes. Exemplo **p064regexp.rb**
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p064regexp.rb
-string = "My phone number is (123) 555-1234."
+string = "Meu telefone é (123) 555-1234."
 phone_re = /\((\d{3})\)\s+(\d{3})-(\d{4})/
 m = phone_re.match(string)
 unless m
-  puts "There was no match..."
+  puts "Não houve casamento..."
   exit
 end
-print "The whole string we started with: "
+print "Toda a string com que começamos: "
 puts m.string
-print "The entire part of the string that matched: "
+print "Toda a parte da string que foi casada: "
 puts m[0]
-puts "The three captures: "
+puts "As três capturas: "
 3.times do |index|
-  puts "Capture ##{index + 1}: #{m.captures[index]}"
+  puts "Captura ##{index + 1}: #{m.captures[index]}"
 end
-puts "Here's another way to get at the first capture:"
-print "Capture #1: "
+puts "Outro jeito de conseguir a primeira captura:"
+print "Captura #1: "
 puts m[1]
 <% end -%>
 
-Neste código, nós usamos o método string do objeto MatchData (puts m.string) para obter toda string que casou com o padrão. Para obter as partes da string que casaram com nosso padrão, nós adicionamos os índices do objeto MatchData entre colchetes, com o valor 0 no índice (puts m[0]). Nós também usamos o método times (3.times do |index|) para iterar exatamente 3 vezes com o bloco de código e imprimir os subcasamentos (as capturas entre parenteses) sucessivamente. Dentro do bloco de código o método chamado captures extrai a substring que casa com a parte do padrão que está entre parênteses. Finalizando, nós exibimos novamente a primeira captura, mas dessa vez utilizamos uma técnica diferente: indexamos o objeto MatchData diretamente com colchetes e inteiros positivos, cada inteiro correspondendo a uma captura de subpadrão.
+Neste código, nós usamos o método **string** do objeto **MatchData** (**puts m.string**) para obter toda string em que a operação **match** foi executada. Para obter as partes da string que casaram com nosso padrão, nós adicionamos os índices do objeto **MatchData** a entre colchetes, com o valor 0 no índice (**puts m[0]**). Também usamos o método times (**3.times do |index|**) para iterar exatamente 3 vezes com o bloco de código e imprimir os subcasamentos (as capturas entre parenteses) sucessivamente. Dentro do bloco de código o método chamado **captures** extrai as substrins que casam com a parte do padrão que está entre parênteses. Finalizando, nós exibimos novamente a primeira captura, mas dessa vez utilizamos uma técnica diferente: indexamos o objeto **MatchData** diretamente com colchetes e inteiros positivos, cada inteiro correspondendo a uma captura.
 
 Aqui está a saída:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
 >ruby p064regexp.rb
-The whole string we started with: My phone number is (123) 555-1234.
-The entire part of the string that matched: (123) 555-1234
-The three captures:
-Capture #1: 123
-Capture #2: 555
-Capture #3: 1234
-Here's another way to get at the first capture:
+Toda a string com que começamos: Meu telefone é (123) 555-1234.
+Toda a parte da string que foi casada (123) 555-1234
+As três capturas:
+Captura #1: 123
+Captura #2: 555
+Captura #3: 1234
+Outro jeito de conseguir a primeira captura:
 Capture #1: 123
 >Exit code: 0
 <% end -%>
 
-Leia o tutorial de regular expressões do Ruby-centric aqui ### Incluir link ### (Em Inglês), para mais detalhes quanto à expressões regulares.
+Leia o "tutorial de expressões regulares do site Regular-Expressions.info (em inglês)":http://www.regular-expressions.info/ruby.html, para mais detalhes quanto à expressões regulares na linguagem Ruby.
 
-O tópico acima foi adaptado do livro "Ruby for Rails".
+Uma boa aplicação para testar suas expressões regulares é o "Rubular.com":http://www.rubular.com.
+
+O tópico acima foi adaptado do livro "Ruby for Rails":http://www.manning.com/black/.

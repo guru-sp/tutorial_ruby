@@ -7,9 +7,9 @@ filter:
 ---
 p(title). <%= @page.title %>
 
-Este é mais um tutorial de Ruby, idealizado pelos membros do "GURU-SP":http://www.guru-sp.org (Grupo de Usuários Ruby de SP). Apesar de existir uma "grande quantidade de materiais de Ruby em português":http://guru-sp.com/index.php/Links espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender as particularidades desta linguagem de programação.
+Este é mais um tutorial de Ruby, idealizado pelos membros do "GURU-SP":http://www.guru-sp.org (Grupo de Usuários Ruby de SP). Apesar de existir uma "grande quantidade de material relacionado a Ruby em língua portuguesa":http://guru-sp.com/index.php/Links espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender algumas particularidades desta linguagem de programação.
 
-Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. Buscaremos melhorar o conteúdo e adicionar tópicos intermediários e avançados de Ruby.
+Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. É um tutorial introdutório e que não aborda tópicos avançados. Buscaremos melhorar o conteúdo e adicionar tópicos intermediários e avançados de Ruby.
 
 
 h2. Índice
@@ -53,17 +53,17 @@ h3. Parte 3
 # "Resumo 3":sumario-ruby3.html
 
 h3. Parte 4
-# Arrays em Ruby
+# "Arrays Ruby":arrays-ruby.html
 ## Atribuição paralela
 ## Variáveis de ambiente
 ## Argumentos de linha de comando
 ## Biblioteca GetoptLong
-# Ranges (intervalos)
-# Símbolos em Ruby
-# Hashes
+# "Intervalos (Ranges)":intervalos.html
+# "Símbolos em Ruby":simbolos.html
+# "Hashes (dicionários)":hashes-ruby.html
 ## Usando símbolos como chaves hash
-# Números aleatórios
-# Ler/escrever arquivos
+# "Números aleatórios":numeros-aleatorios.html
+# "Ler/escrever arquivos":ler-escrever-arquivos.html
 ## Varrendo árvores de diretórios
 ## Acesso aleatório
 # Resumo 4

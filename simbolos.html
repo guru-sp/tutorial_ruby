@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Simbolos em Ruby (Symbols)</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Simbolos em Ruby (Symbols)</p>
+<p>A symbol looks like a variable name but it&#8217;s prefixed with a colon. Examples &#8211; :action, :line_items. You don&#8217;t have to pre-declare a symbol and they are guaranteed to be unique. There&#8217;s no need to assign some kind of value to a symbol &#8211; Ruby takes care of that for you. Ruby also guarantees that no matter where it appears in your program, a particular symbol will have the same value.</p>
+<p>Alternatively, you can consider the colon to mean &#8220;thing named&#8221; so :id is &#8220;the thing named id.&#8221; You can also think of :id as meaning the name of the variable id, and plain id as meaning the value of the variable.</p>
+<div class='box'>
+<p>A Symbol is the most basic Ruby object you can create. It&#8217;s just a name and an internal ID. Symbols are useful because a given symbol name refers to the same object throughout a Ruby program. Symbols are more efficient than strings. Two strings with the same contents are two different objects, but for any given name there is only one Symbol object. This can save both time and memor</p>
+</div>
+<p>Refer the example: p039symbol.rb below</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="c"># p039symbol.rb  </span>
+<span class="no">2</span> <span class="c"># use the object_id method of class Object  </span>
+<span class="no">3</span> <span class="c"># it returns an integer identifier for an object  </span>
+<span class="no">4</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">string</span><span class="dl">&quot;</span></span>.object_id  
+<span class="no">5</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">string</span><span class="dl">&quot;</span></span>.object_id  
+<span class="no">6</span> puts <span class="sy">:symbol</span>.object_id  
+<span class="no">7</span> puts <span class="sy">:symbol</span>.object_id
+</pre>
+</div>
+<p>The output when I ran the program on my PC was:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p039symbol.rb  
+<span class="no">2</span> <span class="i">21066960</span>  
+<span class="no">3</span> <span class="i">21066930</span>  
+<span class="no">4</span> <span class="i">132178</span>  
+<span class="no">5</span> <span class="i">132178</span>  
+<span class="no">6</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>  
+</pre>
+</div>
+<p>Therefore, when do we use a string versus a symbol?</p>
+<p>If the contents (the sequence of characters) of the object are important, use a string<br />
+If the identity of the object is important, use a symbol</p>
+<div class='box'>
+<p>Ruby uses symbols, and maintains a Symbol Table to hold them. Symbols are names &#8211; names of instance variables, names of methods, names of classes. So if there is a method called control_movie, there is automatically a symbol :control_movie. Ruby&#8217;s interpreted, so it keeps its Symbol Table handy at all times. You can find out what&#8217;s on it at any given moment by calling Symbol.all_symbols.</p>
+<p>A Symbol object is created by prefixing an operator, string, variable, constant, method, class, module name with a colon. The symbol object will be unique for each different name but does not refer to a particular instance of the name, for the duration of a program&#8217;s execution. Thus, if Fred is a constant in one context, a method in another, and a class in a third, the Symbol :Fred will be the same object in all three contexts.</p>
+</div>
+<p>This can be illustrated by this simple program &#8211; p039xsymbol.rb:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p039xsymbol.rb  </span>
+<span class="no"> 2</span> <span class="r">class</span> <span class="cl">Test</span>  
+<span class="no"> 3</span>   puts <span class="sy">:Test</span>.object_id.to_s  
+<span class="no"> 4</span>   <span class="r">def</span> <span class="fu">test</span>  
+<span class="no"> 5</span>     puts <span class="sy">:test</span>.object_id.to_s  
+<span class="no"> 6</span>     <span class="iv">@test</span> = <span class="i">10</span>  
+<span class="no"> 7</span>     puts <span class="sy">:test</span>.object_id.to_s  
+<span class="no"> 8</span>   <span class="r">end</span>  
+<span class="no"> 9</span> <span class="r">end</span>  
+<span class="no"><strong>10</strong></span> t = <span class="co">Test</span>.new  
+<span class="no">11</span> t.test  
+</pre>
+</div>
+<p>The output when I ran the program on my PC was:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p039xsymbol.rb  
+<span class="no">2</span> <span class="i">116458</span>  
+<span class="no">3</span> <span class="i">79218</span>  
+<span class="no">4</span> <span class="i">79218</span>  
+<span class="no">5</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>
+</pre>
+</div>
+<p>Here is another example &#8211; p039xysymbol.rb:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="c"># p039xysymbol.rb  </span>
+<span class="no">2</span> know_ruby = <span class="sy">:yes</span>  
+<span class="no">3</span> <span class="r">if</span> know_ruby == <span class="sy">:yes</span>  
+<span class="no">4</span>   puts <span class="s"><span class="dl">'</span><span class="k">You are a Rubyist</span><span class="dl">'</span></span>  
+<span class="no">5</span> <span class="r">else</span>  
+<span class="no">6</span>   puts <span class="s"><span class="dl">'</span><span class="k">Start learning Ruby</span><span class="dl">'</span></span>  
+<span class="no">7</span> <span class="r">end</span>  
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p039xysymbol.rb  
+<span class="no">2</span> <span class="co">You</span> are a <span class="co">Rubyist</span>  
+<span class="no">3</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>
+</pre>
+</div>
+<p>In this example, :yes is a symbol. Symbols don&#8217;t contain values or objects, like variables do. Instead, they&#8217;re used as a consistent name within code. For example, in the preceding code you could easily replace the symbol with a string, as in example &#8211; p039xyzsymbol.rb</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> <span class="c"># p039xyzsymbol.rb  </span>
+<span class="no">2</span> know_ruby = <span class="s"><span class="dl">'</span><span class="k">yes</span><span class="dl">'</span></span>  
+<span class="no">3</span> <span class="r">if</span> know_ruby == <span class="s"><span class="dl">'</span><span class="k">yes</span><span class="dl">'</span></span>  
+<span class="no">4</span>   puts <span class="s"><span class="dl">'</span><span class="k">You are a Rubyist</span><span class="dl">'</span></span>  
+<span class="no">5</span> <span class="r">else</span>  
+<span class="no">6</span>   puts <span class="s"><span class="dl">'</span><span class="k">Start learning Ruby</span><span class="dl">'</span></span>  
+<span class="no">7</span> <span class="r">end</span>
+</pre>
+</div>
+<p>This gives the same result, but isn&#8217;t as efficient. In this example, every mention of &#8216;yes&#8217; creates a new object stored separately in memory, whereas symbols are single reference values that are only initialized once. In the first code example, only :yes exists, whereas in the second example you end up with the full strings of &#8216;yes&#8217; and &#8216;yes&#8217; taking up memory.</p>
+<p>We can also transform a String into a Symbol and vice-versa:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">string</span><span class="dl">&quot;</span></span>.to_sym.class <span class="c"># Symbol  </span>
+<span class="no">2</span> puts <span class="sy">:symbol</span>.to_s.class    <span class="c"># String</span>
+</pre>
+</div>
+<p>Symbols are particularly useful when creating hashes and you want to have a distinction between keys and values. Please refer to Using Symbols as Hash Keys for a practical example.</p>
+<div class='box'>
+<p>Fabio Akita a Brazilian Rails enthusiast, also known online as &#8220;AkitaOnRails&#8221;, wrote this exclusive article on Ruby Symbols for the rubylearning.com members like you. Do read the article, after you have gone through this lesson.</p>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>
