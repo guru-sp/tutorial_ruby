@@ -1,7 +1,16 @@
-Esse tutorial será uma uma tradução parcial do tutorial do Satish Talim, que é utilizando no Rubylearning,org
+### Tradução tutorial do Rubylearning.com ###
+
+Esse tutorial será uma uma tradução parcial do tutorial do Satish Talim, que é utilizando no Rubylearning.org
 
 O tutorial original pode ser encontrado aqui:
 http://rubylearning.com/satishtalim/tutorial.html
+
+Nessa planilha no google docs você pode ver o status da tradução e colocar que páginas vai traduzir/revisar:
+https://spreadsheets.google.com/ccc?key=0Atdcc1EGqZ0HdGxQWVZPRWtreWRsTGREZVZDekFlNGc&hl=pt_BR
+
+No branch "eng" do Bruno Coimbra você encontra todas as páginas estruturadas no formato do webby (assim você não perde tempo
+formatando, apenas precisa traduzir o texto):
+http://github.com/bbcoimbra/tutorial_ruby/tree/eng/_webby/content/
 
 O tutorial gerado por esse projeto está hospedado no github pages na seguinte URL:
 http://guru-sp.github.com/tutorial_ruby/
@@ -17,6 +26,7 @@ http://groups.google.com.br/group/ruby-sp/browse_thread/thread/e7dcb8393cc9ba45
 E peça permissão para ser commiter do projeto.
 
 Então faça:
+
     git clone git@github.com:guru-sp/tutorial_ruby.git
 
 Além disso você precisa criar um branch gh-pages para trabalhar nas páginas web.
@@ -40,7 +50,7 @@ No diretório gh-pages você encontra a seguinte estrutura de pastas:
     images/
     index.html
 
-Você deve editar somente a pasta webby e dentro dela executar o comando "webby". E este gerará
+Você deve editar somente o conteúdo da pasta _webby e dentro dela executar o comando "webby". E este gerará
 as páginas html, css e imagens com as mudanças feitas.
 
 Para mais informações de como usar o webby acesse http://webby.rubyforge.org/tutorial/.
@@ -49,4 +59,4 @@ Se quiser criar algum exemplo em ruby (arquivo .rb) ou alterar esse readme, vá 
 
     git checkout master
 
-Qualquer dúvida, entra na lista do Guru-SP e pergunte!
+Qualquer dúvida, entre na lista do Guru-SP e pergunte!
