@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Arrays Ruby</title>
+   <title>Arrays em Ruby</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -30,105 +30,119 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Arrays Ruby</p>
-<p>An Array is just a list of items in order (like mangoes, apples, and oranges). Every slot in the list acts like a variable: you can see what object a particular slot points to, and you can make it point to a different object. You can make an array by using square brackets In Ruby, the first value in an array has index 0. The size and length methods return the number of elements in an array. The last element of the array is at index size-1. Negative index values count from the end of the array, so the last element of an array can also be accessed with an index of -1. If you attempt to read an element beyond the end of an array (with an index &gt;= size) or before the beginning of an array (with an index &lt; -size), Ruby simply returns nil and does not throw an exception. Ruby&#8217;s arrays are mutable &#8211; arrays are dynamically resizable; you can append elements to them and they grow as needed. Let us look at the following example p018arrays.rb. Please go through the program carefully.</p>
+      <p class="title">Arrays em Ruby</p>
+<p>Um <b>Array</b> (arranjo) é apenas uma lista de itens em ordem (como mangas, maçãs e laranjas). Cada posição na lista atua como<br />
+uma variável: você pode ver para qual objeto uma determinada posição aponta para, e você pode fazer ela apontar para um<br />
+objeto diferente. Você pode fazer um array usando colchetes. Em Ruby, o primeiro valor em um array tem o índice 0. Os<br />
+métodos <b>size</b> e <b>length</b> retornam o número de elementos no array. O último elemento de um array está no índice <b>size-1</b>.<br />
+Valores negativos de índice são contados a partir do final do array, de modo que o último elemento de um array pode ser<br />
+acessado com um índice -1. Se você tentar ler um elemento além do final do array (com um índice &gt;= <b>size</b>) ou antes do<br />
+início do array (com índice &lt; -size), o Ruby simplesmente retornará nil (nulo) e não lançará uma exceção. Os arrays em<br />
+Ruby são mutáveis &#8211; arrays são redimensionados dinamicamente; você pode acrescentar elementos a eles e eles crescem o<br />
+necessário. Vamos olhar para o seguinte exemplo <b>p018arrays.rb</b>. Por favor, siga pelo programa com atenção.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p018arrays.rb  </span>
 <span class="no"> 2</span> <span class="c"># Arrays  </span>
 <span class="no"> 3</span>   
-<span class="no"> 4</span> <span class="c"># Empty array  </span>
+<span class="no"> 4</span> <span class="c"># array vazio  </span>
 <span class="no"> 5</span> var1 = []  
-<span class="no"> 6</span> <span class="c"># Array index starts from 0  </span>
+<span class="no"> 6</span> <span class="c"># Índice do array inicia em 0  </span>
 <span class="no"> 7</span> puts var1[<span class="i">0</span>]  
 <span class="no"> 8</span>   
 <span class="no"> 9</span> var2 = [<span class="i">5</span>]  
-<span class="no"><strong>10</strong></span> <span class="c"># an array holding a single number  </span>
+<span class="no"><strong>10</strong></span> <span class="c"># um array armazenando apenas um número </span>
 <span class="no">11</span> puts var2[<span class="i">0</span>]  
 <span class="no">12</span>    
-<span class="no">13</span> <span class="c"># an array holding two strings  </span>
-<span class="no">14</span> var3 = [<span class="s"><span class="dl">'</span><span class="k">Hello</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Goodbye</span><span class="dl">'</span></span>]  
+<span class="no">13</span> <span class="c"># um array armazenando duas strings </span>
+<span class="no">14</span> var3 = [<span class="s"><span class="dl">'</span><span class="k">Olá</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Tchau</span><span class="dl">'</span></span>]  
 <span class="no">15</span> puts var3[<span class="i">0</span>]  
 <span class="no">16</span> puts var3[<span class="i">1</span>]  
 <span class="no">17</span>   
-<span class="no">18</span> flavour = <span class="s"><span class="dl">'</span><span class="k">mango</span><span class="dl">'</span></span>  
-<span class="no">19</span> <span class="c"># an array whose elements are pointing  </span>
-<span class="no"><strong>20</strong></span> <span class="c"># to three objects - a float, a string and an array  </span>
-<span class="no">21</span> var4 = [<span class="fl">80.5</span>, flavour, [<span class="pc">true</span>, <span class="pc">false</span>]]  
+<span class="no">18</span> sabor = <span class="s"><span class="dl">'</span><span class="k">manga</span><span class="dl">'</span></span>  
+<span class="no">19</span> <span class="c"># um array cujos elementos apontam para três</span>
+<span class="no"><strong>20</strong></span> <span class="c"># objetos - um float, uma string e um array  </span>
+<span class="no">21</span> var4 = [<span class="fl">80.5</span>, sabor, [<span class="pc">true</span>, <span class="pc">false</span>]]  
 <span class="no">22</span> puts var4[<span class="i">2</span>]  
 <span class="no">23</span>   
-<span class="no">24</span> <span class="c"># a trailing comma is ignored  </span>
+<span class="no">24</span> <span class="c"># uma vírgula no final é ignorada</span>
 <span class="no">25</span> name = [<span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Ruby</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Java</span><span class="dl">'</span></span>,]  
 <span class="no">26</span> puts name[<span class="i">0</span>]  
 <span class="no">27</span> puts name[<span class="i">1</span>]  
 <span class="no">28</span> puts name[<span class="i">2</span>]  
 <span class="no">29</span> puts name[<span class="i">3</span>]  
-<span class="no"><strong>30</strong></span> <span class="c"># the next one outputs nil  </span>
-<span class="no">31</span> <span class="c"># nil is Ruby's way of saying nothing  </span>
+<span class="no"><strong>30</strong></span> <span class="c"># o próximo tem como saída nil</span>
+<span class="no">31</span> <span class="c"># nil é o jeito do Ruby dizer 'nada' </span>
 <span class="no">32</span> puts name[<span class="i">4</span>]  
-<span class="no">33</span> <span class="c"># we can add more elements too  </span>
+<span class="no">33</span> <span class="c"># podemos adicionar mais elementos também</span>
 <span class="no">34</span> name[<span class="i">4</span>] = <span class="s"><span class="dl">'</span><span class="k">Pune</span><span class="dl">'</span></span> 
 <span class="no">35</span> puts name[<span class="i">4</span>] 
-<span class="no">36</span> <span class="c"># we can add anything! </span>
+<span class="no">36</span> <span class="c"># podemos adicionar qualquer coisa!</span>
 <span class="no">37</span> name[<span class="i">5</span>] = <span class="fl">4.33</span> 
 <span class="no">38</span> puts name[<span class="i">5</span>] 
-<span class="no">39</span> <span class="c"># we can add an array to an array </span>
+<span class="no">39</span> <span class="c"># podemos adicionar um array a um array</span>
 <span class="no"><strong>40</strong></span> name[<span class="i">6</span>] = [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>] 
 <span class="no">41</span> puts name[<span class="i">6</span>] 
 <span class="no">42</span>  
-<span class="no">43</span> <span class="c"># some methods on arrays </span>
+<span class="no">43</span> <span class="c"># alguns métodos da classe array</span>
 <span class="no">44</span> newarr = [<span class="i">45</span>, <span class="i">23</span>, <span class="i">1</span>, <span class="i">90</span>] 
 <span class="no">45</span> puts newarr.sort 
 <span class="no">46</span> puts newarr.length 
 <span class="no">47</span> puts newarr.first 
 <span class="no">48</span> puts newarr.last 
 <span class="no">49</span>  
-<span class="no"><strong>50</strong></span> <span class="c"># method each (iterator) - extracts each element into lang </span>
-<span class="no">51</span> <span class="c"># do end is a block of code </span>
-<span class="no">52</span> <span class="c"># we shall talk about blocks soon here - </span>
-<span class="no">53</span> <span class="c"># http://rubylearning.com/satishtalim/ruby_blocks_and_procs.html </span>
-<span class="no">54</span> <span class="c"># variable lang refers to each item in the array as it goes through the loop </span>
-<span class="no">55</span> languages = [<span class="s"><span class="dl">'</span><span class="k">Pune</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Mumbai</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Bangalore</span><span class="dl">'</span></span>] 
-<span class="no">56</span>  
-<span class="no">57</span> languages.each <span class="r">do</span> |lang| 
-<span class="no">58</span>   puts <span class="s"><span class="dl">'</span><span class="k">I love </span><span class="dl">'</span></span> + lang + <span class="s"><span class="dl">'</span><span class="k">!</span><span class="dl">'</span></span> 
-<span class="no">59</span>   puts <span class="s"><span class="dl">'</span><span class="k">Don</span><span class="ch">\'</span><span class="k">t you?</span><span class="dl">'</span></span>  
-<span class="no"><strong>60</strong></span> <span class="r">end</span>  
-<span class="no">61</span>   
-<span class="no">62</span> <span class="c"># delete an entry in the middle and shift the remaining entries  </span>
-<span class="no">63</span> languages.delete(<span class="s"><span class="dl">'</span><span class="k">Mumbai</span><span class="dl">'</span></span>)  
-<span class="no">64</span> languages.each <span class="r">do</span> |lang|  
-<span class="no">65</span>   puts <span class="s"><span class="dl">'</span><span class="k">I love </span><span class="dl">'</span></span> + lang + <span class="s"><span class="dl">'</span><span class="k">!</span><span class="dl">'</span></span>  
-<span class="no">66</span>   puts <span class="s"><span class="dl">'</span><span class="k">Don</span><span class="ch">\'</span><span class="k">t you?</span><span class="dl">'</span></span>  
+<span class="no"><strong>50</strong></span> <span class="c"># o método each (iterador - extrai cada elemento em lang</span>
+<span class="no">51</span> <span class="c"># do end é um bloco de código </span>
+<span class="no">52</span> <span class="c"># falaremos sobre blocos mais tarde</span>
+<span class="no">53</span> <span class="c"># a variável lang se refere a cada item no array a medida que ele é iterado no loop</span>
+<span class="no">54</span> linguas = [<span class="s"><span class="dl">'</span><span class="k">Pune</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Mumbai</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Bangalore</span><span class="dl">'</span></span>] 
+<span class="no">55</span>  
+<span class="no">56</span> linguas.each <span class="r">do</span> |lang| 
+<span class="no">57</span>   puts <span class="s"><span class="dl">'</span><span class="k">Eu amo </span><span class="dl">'</span></span> + lang + <span class="s"><span class="dl">'</span><span class="k">!</span><span class="dl">'</span></span> 
+<span class="no">58</span>   puts <span class="s"><span class="dl">'</span><span class="k">voce nao?</span><span class="dl">'</span></span>  
+<span class="no">59</span> <span class="r">end</span>  
+<span class="no"><strong>60</strong></span> 
+<span class="no">61</span> <span class="c"># apaga uma entrada no meio e desloca o restante da entradas   </span>
+<span class="no">62</span> linguas.delete(<span class="s"><span class="dl">'</span><span class="k">Mumbai</span><span class="dl">'</span></span>)
+<span class="no">63</span> 
+<span class="no">64</span> linguas.each <span class="r">do</span> |lang|  
+<span class="no">65</span>   puts <span class="s"><span class="dl">'</span><span class="k">Eu amo </span><span class="dl">'</span></span> + lang + <span class="s"><span class="dl">'</span><span class="k">!</span><span class="dl">'</span></span> 
+<span class="no">66</span>   puts <span class="s"><span class="dl">'</span><span class="k">voce nao?</span><span class="dl">'</span></span>   
 <span class="no">67</span> <span class="r">end</span>  
 </pre>
 </div>
-<p>The method each (for any object) allows us to do something (whatever we want) to each object the array points to. In the example, we are able to go through each object in the array without using any numbers. Here are a few things to remember:</p>
+<p>O método <b>each</b> (para qualquer objeto) permite-nos fazer algo (o que quisermos) para cada (each) objeto para o qual o<br />
+array aponta. No exemplo, somos capazes de iterar sobre o array sem usar nenhum número. Aqui estão algumas coisas para<br />
+se lembrar:</p>
 <ul>
-	<li>The variable lang inside the &#8220;goalposts&#8221; refers to each item in the array as it goes through the loop. You can give this any name you want, but make it memorable.</li>
-	<li>The do and end identify a block of code that will be executed for each item. Blocks are used extensively in Ruby.</li>
+	<li>A variável lang dentro das &#8220;traves&#8221; (barras verticais) se refere a cada item no array a medida que ele é iterado no<br />
+loop. Você pode dar a esta variável o nome que quiser, mas escolha um nome especial.</li>
 </ul>
-<p>Here&#8217;s an interesting example of a method that returns an array. Example p019mtdarry.rb</p>
+<ul>
+	<li>O <b>do</b> e o <b>end</b> identificam um bloco de código que será executado para cada item. Blocos são usados extensivamente em<br />
+Ruby.</li>
+</ul>
+<p>Aqui está um exemplo interessante de um método que retorna um array. Exemplo <b>p019mtdarry.rb</b>.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p019mtdarry.rb  </span>
-<span class="no"> 2</span> <span class="c"># if you give return multiple parameters,  </span>
-<span class="no"> 3</span> <span class="c"># the method returns them in an array  </span>
-<span class="no"> 4</span> <span class="c"># The times method of the Integer class iterates block num times,  </span>
-<span class="no"> 5</span> <span class="c"># passing in values from zero to num-1  </span>
+<span class="no"> 2</span> <span class="c"># se você dá ao return multiplos parâmetros.  </span>
+<span class="no"> 3</span> <span class="c"># o método os retornará em um array </span>
+<span class="no"> 4</span> <span class="c"># o método times da classe Integer itera num vezes,  </span>
+<span class="no"> 5</span> <span class="c"># passando para num os valores de 0 a num-1  </span>
 <span class="no"> 6</span>   
 <span class="no"> 7</span> <span class="r">def</span> <span class="fu">mtdarry</span>  
 <span class="no"> 8</span>   <span class="i">10</span>.times <span class="r">do</span> |num|  
-<span class="no"> 9</span>     square = num * num  
-<span class="no"><strong>10</strong></span>     <span class="r">return</span> num, square <span class="r">if</span> num &gt; <span class="i">5</span>  
+<span class="no"> 9</span>     quadrado = num * num  
+<span class="no"><strong>10</strong></span>     <span class="r">return</span> n, quadrado <span class="r">if</span> n &gt; <span class="i">5</span>  
 <span class="no">11</span>   <span class="r">end</span>  
 <span class="no">12</span> <span class="r">end</span>  
 <span class="no">13</span>   
-<span class="no">14</span> <span class="c"># using parallel assignment to collect the return value  </span>
-<span class="no">15</span> num, square = mtdarry  
+<span class="no">14</span> <span class="c"># usando atribuição paralela para coletar o valor de retorno</span>
+<span class="no">15</span> num, quadrado = mtdarry  
 <span class="no">16</span> puts num  
-<span class="no">17</span> puts square  
+<span class="no">17</span> puts quadrado  
 </pre>
 </div>
-<p>The output is:</p>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p019mtdarry.rb  
 <span class="no">2</span> <span class="i">6</span>  
@@ -136,77 +150,143 @@
 <span class="no">4</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>  
 </pre>
 </div>
-<p>The times method of the Integer class iterates block num times, passing in values from zero to num-1. As we can see, if you give return multiple parameters, the method returns them in an array. You can use parallel assignment to collect this return value.</p>
+<p>O método <b>times</b> da classe <b>Integer</b> (inteiro) itera o bloco n vezes, passando os valores de zero a num-1. Como podemos ver, se você dá ao <b>return</b> múltiplos parâmetros, o método retorna estes em um array. Você pode usar a atribuição em paralelo para coletar esses valores de retorno.</p>
 <p>h2.Atribuição paralela</p>
-<p>To explain this, we&#8217;ll use the terms lvalue and rvalue. An lvalue is something that can appear on its own on the left-hand side of an assignment (a variable, constant, or attribute setter method). An rvalue is something that can appear on its own on the right hand side. Ruby lets you have a comma-separated list of rvalues. Once Ruby sees more than one rvalue in an assignment, the rules of parallel assignment come into play. First, all the rvalues evaluated, left to right, and collected into an array (unless they are already an array). This array will be the eventual value returned by the overall assignment. Next, the left hand side (lhs) is inspected. If it contains a single element, the array is assigned to that element.</p>
+<p>Para explicar ussi, usaremos os termos lvalue (valor á esquerda) e rvalue (valor à direita).<br />
+Um lvalue é algo que pode aparecer por si mesmo no lado esquerdo de uma atribuição (uma variável, constante ou método que seta algum atributo). Um rvalue é algo que pode aparecer por si só no lado direito. Ruby permite que você tenha uma lista de rvalues separados por vírgula. Uma vez que o Ruby vê mais que um rvalue em uma atribuição, as regras de atribuição paralela entram em cena. Em primeiro lugar, todos os rvalues são avaliados, da esquerda para a direita e então coletados em um array (ao menos que eles já sejam um array). Este array será o evento valor retornado pela atribuição como um todo. Em seguida, o lado a esquerda é inspecionado. Se ele contém um único elemento, o array é associado a esse elemento.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> a = <span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>, <span class="i">4</span> <span class="c"># =&gt; a == [1, 2, 3, 4]  </span>
 <span class="no">2</span> b = [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>, <span class="i">4</span>] <span class="c"># =&gt; b == [1, 2, 3, 4]  </span>
 </pre>
 </div>
-<p>If the lhs contains a comma, Ruby matches values on the rhs against successive elements on the lhs. Excess elements are discarded.</p>
+<p>Se o lado  esquerdo contém uma vírgula, o Ruby casa os valores do lado direito com os sucessivos elementos do lado esquerdo. Os elementos que restam são descartados.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> a, b = <span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>, <span class="i">4</span> <span class="c"># =&gt; a == 1, b == 2  </span>
 <span class="no">2</span> c, = <span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>, <span class="i">4</span> <span class="c"># =&gt; c == 1  </span>
 </pre>
 </div>
 <h2>Variáveis de ambiente</h2>
-<p>An environment variable is a link between our program and the outside world. An environment variable is essentially a label referring to a piece of text; and can be used to store configuration information such as paths, usernames, and so on. You can access operating system environment variables using the predefined variable ENV.</p>
+<p>Uma variável de ambiente é um link entre nosso programa e o mundo externo. Uma variável de ambiente é essencialmente um<br />
+rótulo que se refere a um pedaço de texto; e pode ser usada para armazenar informações de configurações como caminhos,<br />
+nomes de usuário e assim por diante. Você pode acessar variáveis de ambiente do sistema operacional usando a variável<br />
+predefinada ENV.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="co">ENV</span>.each {|k,v| puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>k<span class="idl">}</span></span><span class="k">: </span><span class="il"><span class="idl">#{</span>v<span class="idl">}</span></span><span class="dl">&quot;</span></span>}
 </pre>
 </div>
-<p>Ruby sets ENV to the environment variables. After that, iteration proceeds with each. This time, the block takes two parameters: k (key) and v (value). Blocks are a completely general mechanism and can take any number of arguments.</p>
-<p>The values of some environment variables are read by Ruby when it first starts. These variables modify the behavior of the interpreter, as shown below.</p>
-<p>Imagem</p>
-<p>A Ruby program may write to the ENV object. On most systems this changes the values of the corresponding environment variables. However, this change is local to the process that makes it and to any subsequently spawned child processes. A subprocess changes an environment variable, and this change is inherited by a process that it then starts. However, the change is not visible to the original parent. (This just goes to prove that parents never really know what their children are doing.)</p>
+<p>Ruby seta ENV para as variáveis do ambiente. Após isso, a iteração procede com each. Desta vez o bloco recebe dois parâmetros:<br />
+k (chave) e v (valor). BLocos são um mecanismo completamente geral e podem receber qualquer número de argumentos.</p>
+<p>Os valores de algumas variávels de ambiente são lidos pelo Ruby quando ele inicializa. Essas variáveis modificam o comportamento<br />
+do intepretador, como mostrado na tabela abaixo.</p>
+<table>
+	<tr>
+		<td> <b>Nome da variável</b> </td>
+		<td> <b>Descrição</b> </td>
+	</tr>
+	<tr>
+		<td> DLN_LIBRARY_PATH     </td>
+		<td> Busca no caminho (path) por módulos carregados dinamicamente </td>
+	</tr>
+	<tr>
+		<td> HOME                 </td>
+		<td> Aponta para o diretório home do usuário. Usado para expandir o ~ em nomes de diretórios e arquivos </td>
+	</tr>
+	<tr>
+		<td> LOGDIR               </td>
+		<td> Ponteiro alternativo para o diretório home do usuário se $HOME não estiver setado. Usado apenas  por Dir.chdir</td>
+	</tr>
+	<tr>
+		<td> OPENSSL_CONF         </td>
+		<td> Indica a localização do arquivo de configuração do OPenSSL </td>
+	</tr>
+	<tr>
+		<td> RUBYLIB              </td>
+		<td> Caminho de busca adicional para programas Ruby ($SAFE deve ser 0)</td>
+	</tr>
+	<tr>
+		<td> RUBYLIB_PREFIX       </td>
+		<td> (windows somente) ALtera o caminho de RUBYLIB adicionando esse prefixo a cada componente</td>
+	</tr>
+	<tr>
+		<td> RUBYOPT              </td>
+		<td> opções adicionais de linha de comando ao Ruby; examinado após as opções reais de linha de comando<br />
+serem parseadas ($SAFE deve ser 0)</td>
+	</tr>
+	<tr>
+		<td> RUBYPATH             </td>
+		<td> com a opção -S, busca o camnho para programas Ruby (o padrão é o PATH)</td>
+	</tr>
+	<tr>
+		<td> RUBYSHELL            </td>
+		<td> Shell a se usar quando criando um novo processo no Windows; se não setado, checará também SHELL<br />
+ou COMPSPEC</td>
+	</tr>
+	<tr>
+		<td> RUBY_TCL_DLL         </td>
+		<td> sobrescreve o nome padrão para a bibliota compartilhada ou DLL do TCL</td>
+	</tr>
+	<tr>
+		<td> RUBY_TK_DLL          </td>
+		<td> sobrescreve o nome padrão para a bibliota compartilhada ou DLL do Tk tanto essa variável como a do TCL precisando ser setadas para se usar uma das duas bibliotecas</td>
+	</tr>
+</table>
+<p>Um programa Ruby pode escrever no objeto ENV. Na maioria dos sistemas isso muda os valores das variáveis de ambiente<br />
+correspondentes. Entretanto, essa mudança é local para o processo que a faz e para qualquer processo filho criado. Um<br />
+subprocesso altera uma variável de ambiente e essa mudança é herdada por um processo que é iniciado pelo primeiro. Entretanto,<br />
+a mudança não é visível para o pai original (isso apenas serve para provar que os pais realmente nunca sabem o que seus filhos<br />
+estão fazendo).</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="co">ENV</span>[<span class="s"><span class="dl">&quot;</span><span class="k">course</span><span class="dl">&quot;</span></span>] = <span class="s"><span class="dl">&quot;</span><span class="k">FORPC101</span><span class="dl">&quot;</span></span>  
 <span class="no">2</span> puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span><span class="co">ENV</span>[<span class="s"><span class="dl">'</span><span class="k">course</span><span class="dl">'</span></span>]<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
 </pre>
 </div>
 <p>h2.Argumentos de linha de comando</p>
-<p>If you&#8217;re starting a program from the command line, you can append parameters onto the end of the command and the program processes them.</p>
-<p>You can do the same with your Ruby application. Ruby automatically places any parameters that are appended to the command line when you launch your Ruby program into a special array called ARGV. If your program is:</p>
+<p>Se você está iniciando um programa da linha de comando, você pode adicionar parâmetros no final do commando e estes serão processados pelo programa.</p>
+<p>Você pode fazer o mesmo com sua aplicação Ruby. O Ruby automaticamente coloca qualquer parâmetro que são adicionados à linha de comando quando você executa seu programa Ruby em<br />
+um array especial chamado ARGV. Se seu programa é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> f = <span class="pc">ARGV</span>[<span class="i">0</span>]  
 <span class="no">2</span> puts f  
 </pre>
 </div>
-<p>You can execute this program from the command line as:</p>
+<p>Você pode executar esse programa da linha de comando assim:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> ruby tmp.rb <span class="i">23</span>
 </pre>
 </div>
-<p>The program should display 23.</p>
+<p>E o programa deve mostrar 23 como saída.</p>
 <p>h2.Biblioteca GetoptLong</p>
-<p>Class GetoptLong supports command-line option parsing. Options may be a minus sign (-) followed by a single character, or two minus signs (&#8212;) followed by a name (a long option). Options may be given in any order. A single internal option may have multiple external representations. For example, the option to control verbose output could be any of -v, &#8212;verbose, or &#8212;details. Some options may also take an associated value. Each internal option is passed to GetoptLong as an array, containing strings representing the option&#8217;s external forms and a flag. The flag specifies how GetoptLong is to associate an argument with the option (NO_ARGUMENT, REQUIRED_ARGUMENT, or OPTIONAL_ARGUMENT).</p>
-<p>Suppose I want to call a Ruby program as:</p>
+<p>A Classe <b>GetoptLong</b> suparta o parsing de opções de linha de comando. As opções podem ter<br />
+um sinal de menos (-) seguido por um único caractere ou dois sinais de menos (&#8212;) seguidos por<br />
+um nome (uma opção longa).<br />
+As opções podem ser dadas em qualquer ordem. Uma única opção interna pode ter múltiplas representações externas. Por exemplo, a opção para controlar a saída verbosa pode ser tanto -v, &#8212;verbose ou -details. Algumas opções podem também receber um valor associado. Cada opção<br />
+interna é passada a <b>GetoptLong</b> como um array, contendo strings representando as formas externas e uma flag. A flag especifica como <b>GetoptLong</b> é associada ao argumento com a opção (NO_ARGUMENT, REQUIRED_ARGUMENT, or OPTIONAL_ARGUMENT).</p>
+<p>Suponha que eu queira chamar um programa Ruby assim:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> ruby tsftpc.rb -hftp.ibiblio.org -n21 -uanonymous -ps<span class="iv">@s</span>.com
 </pre>
 </div>
-<p>Here&#8217;s the code to do so:</p>
+<p>Aqui está o código de como fazê-lo:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> require <span class="s"><span class="dl">'</span><span class="k">getoptlong</span><span class="dl">'</span></span>  
 <span class="no"> 2</span>    
-<span class="no"> 3</span> <span class="c"># Call using &quot;ruby tsftpc.rb -hftp.ibiblio.org -n21 -uanonymous -ps@s.com&quot;  </span>
-<span class="no"> 4</span> <span class="c"># The parameters can be in any order  </span>
+<span class="no"> 3</span> <span class="c"># Chame usando &quot;ruby tsftpc.rb -hftp.ibiblio.org -n21 -uanonymous -ps@s.com&quot;  </span>
+<span class="no"> 4</span> <span class="c"># Os parâmetros podem estar em qualquer ordem </span>
 <span class="no"> 5</span> <span class="r">unless</span> <span class="pc">ARGV</span>.length == <span class="i">4</span>  
-<span class="no"> 6</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Usage: ruby tsftpc.rb -hftp_site_url -nport_no -uuser_name -ppassword</span><span class="dl">&quot;</span></span>  
+<span class="no"> 6</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Uso: ruby tsftpc.rb -hftp_site_url -nport_no -uuser_name -ppassword</span><span class="dl">&quot;</span></span>  
 <span class="no"> 7</span>   exit  
 <span class="no"> 8</span> <span class="r">end</span>  
 <span class="no"> 9</span>    
 <span class="no"><strong>10</strong></span> host_name = port_no = user_name = password = <span class="s"><span class="dl">'</span><span class="dl">'</span></span>  
-<span class="no">11</span> <span class="c"># specify the options we accept and initialize  </span>
-<span class="no">12</span> <span class="c"># the option parser  </span>
+<span class="no">11</span> <span class="c"># specifica a opção que aceitamos e  </span>
+<span class="no">12</span> <span class="c"># inicializa o parser de opções </span>
 <span class="no">13</span> opts = <span class="co">GetoptLong</span>.new(  
 <span class="no">14</span> [ <span class="s"><span class="dl">&quot;</span><span class="k">--hostname</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">-h</span><span class="dl">&quot;</span></span>, <span class="co">GetoptLong</span>::<span class="co">REQUIRED_ARGUMENT</span> ],  
 <span class="no">15</span> [ <span class="s"><span class="dl">&quot;</span><span class="k">--port</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">-n</span><span class="dl">&quot;</span></span>, <span class="co">GetoptLong</span>::<span class="co">REQUIRED_ARGUMENT</span> ],  
 <span class="no">16</span> [ <span class="s"><span class="dl">&quot;</span><span class="k">--username</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">-u</span><span class="dl">&quot;</span></span>, <span class="co">GetoptLong</span>::<span class="co">REQUIRED_ARGUMENT</span> ],  
 <span class="no">17</span> [ <span class="s"><span class="dl">&quot;</span><span class="k">--pass</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">-p</span><span class="dl">&quot;</span></span>, <span class="co">GetoptLong</span>::<span class="co">REQUIRED_ARGUMENT</span> ]  
 <span class="no">18</span> )  
-<span class="no">19</span> <span class="c"># process the parsed options  </span>
+<span class="no">19</span> <span class="c"># processa as opções parseadas  </span>
 <span class="no"><strong>20</strong></span> opts.each <span class="r">do</span> |opt, arg|  
 <span class="no">21</span>   <span class="r">case</span> opt  
 <span class="no">22</span>     <span class="r">when</span> <span class="s"><span class="dl">'</span><span class="k">--hostname</span><span class="dl">'</span></span>  
@@ -221,31 +301,32 @@
 <span class="no">31</span> <span class="r">end</span>  
 </pre>
 </div>
-<p>require gives you access to the many extensions and programming libraries bundled with the Ruby programming language-as well as an even larger number of extensions and libraries written independently by other programmers and made available for use with Ruby. We shall be studying require in more detail, later on. Also, later on, we shall study how to access constants using ::</p>
-<p>How do I convert objects into an Array? If you want to wrap objects in an Array, you can use a special Kernel module Array method (that starts with a capital letter and looks like a class). This special method converts its argument into an array. For example:</p>
+<p><b>require</b> te dá acesso as muitas extensões e bibliotecas de programação que vem com a linguagem Ruby &#8211; além de um número maior ainda de extensões e bibliotecas escritas independentemente por<br />
+outros programadores e tornadas disponíveis para se usar com Ruby. Nós estudaremos o require em mais detalhas mais tarde. Além disso, mais tarde, deveremos estudar como acessar constantes usando ::</p>
+<p><b>Como converto objetos em um Array?</b> Se você quer empacotar objetos em um <b>Array</b>, você pode usar um método especial Array do módulo <b>Kernel</b> (que começa com letra maiúscula e se parece com uma classe). Esse método especial converte seus argumentos em um array. Por exemplo:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> str = <span class="s"><span class="dl">'</span><span class="k">hello</span><span class="dl">'</span></span>  
+<pre><span class="no">1</span> str = <span class="s"><span class="dl">'</span><span class="k">ola</span><span class="dl">'</span></span>  
 <span class="no">2</span> print Array(str).class <span class="c"># Array  </span>
 </pre>
 </div>
-<p>Another example:</p>
+<p>Outro exemplo:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> str = <span class="s"><span class="dl">'</span><span class="k">hello</span><span class="k">\n</span><span class="k">world</span><span class="dl">'</span></span>  
-<span class="no">2</span> print Array(str) <span class="c"># [&quot;hello\\nworld&quot;]  </span>
+<pre><span class="no">1</span> str = <span class="s"><span class="dl">'</span><span class="k">ola</span><span class="k">\n</span><span class="k">mundo</span><span class="dl">'</span></span>  
+<span class="no">2</span> print Array(str) <span class="c"># [&quot;ola\nmundo&quot;]  </span>
 </pre>
 </div>
-<p>What are the ancestors of Array? Run the following program, to find that out:</p>
+<p><b>Quais são os ancenstrais de Array?</b> Rode o segunte programa para descobrir:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> a = [<span class="i">1</span>,<span class="i">2</span>,<span class="i">3</span>,<span class="i">4</span>]  
 <span class="no">2</span> print a.class.ancestors  
 </pre>
 </div>
-<p>You should see:</p>
+<p>Você verá:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> [<span class="co">Array</span>, <span class="co">Enumerable</span>, <span class="co">Object</span>, <span class="co">Kernel</span>, <span class="co">BasicObject</span>]  
 </pre>
 </div>
-<p>You can refer to all the details of the Array class here.</p>
+<p>Você pode ver os <a href="http://www.ruby-doc.org/ruby-1.9/classes/Array.html" title="em inglês">detalhes da classe Array na documentação oficial do Ruby</a>.</p>
    </div>
 
    <div class="column span-5 append-1 last">
