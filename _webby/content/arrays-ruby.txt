@@ -124,7 +124,7 @@ puts quadrado
 
 A saída é:
 
-<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
 >ruby p019mtdarry.rb  
 6  
 36  
@@ -302,7 +302,7 @@ print a.class.ancestors
 
 Você verá:
 
-<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
 [Array, Enumerable, Object, Kernel, BasicObject]  
 <% end %>
 

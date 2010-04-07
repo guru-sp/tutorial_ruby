@@ -28,13 +28,13 @@ A saída do código acima é:
 4
 canino
 {"cachorro"=>"canino", "gato"=>"felino", 
- "burro"=>"asinino", 12=>"dozino"}
+ "burro"=>"asinino", 12=>"dodezino"}
 dodezino
 >Exit code: 0
 <% end %>
 
 <div class='box'>
-Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenção do hash é diferente da
+Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenação do hash é diferente da
 declarada
 </div>
 
