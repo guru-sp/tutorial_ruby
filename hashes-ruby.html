@@ -23,23 +23,23 @@
 <body>
 
 <div class="container">
-
-   <div class="column span-20 prepend-2 append-2 first last" id="header">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
      <p class="title">Tutorial de Ruby do GURU-SP</p>
      <hr>
    </div>
 
-   <div class="column span-15 prepend-2 first">
+   <div class="column span-17 prepend-1 first">
       <p class="title">Hashes</p>
-<p>Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays, uma vez que são coleções indexadas de referências a objetos. No entanto, um índice de um array contém somente inteiros (semelhante a um índice remissivo), já utilizando hash você pode indexá-lo com os objetos de qualquer tipo: strings, expressões regulares, e assim por diante. Quando você armazena um valor em um hash, você sempre fornecer dois objetos &#8211; o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como o índice, também pode ser objetos de qualquer tipo.</p>
-<p>O <strong>exemplop040myhash.rb</strong> abaixo, criar um hash com literais(strings): a chave =&gt; o valor entre chaves.</p>
+<p>Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays a medida que são coleções indexadas de referências a objetos. No entanto, enquanto o o array é indexado por inteiros (semelhante a um índice remissivo), o hash pode ser indexado com objetos de qualquer tipo: strings, expressões regulares e assim por diante. Quando você armazena um valor em um hash, você na verdade fornece dois objetos &#8211; o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como os índices, podem ser objetos de qualquer tipo.</p>
+<p>O exemplo <b>040myhash.rb</b> abaixo cria um hash com literais (strings): uma lista de pares chave =&gt; valor entre</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p040myhash.rb</span>
-<span class="no">2</span> h = {<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">canino</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">gato</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">felino</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">burro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">asinino</span><span class="dl">'</span></span>, <span class="i">12</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">dozino</span><span class="dl">'</span></span>}
-<span class="no">3</span> puts h.length  <span class="c"># 4</span>
-<span class="no">4</span> puts h[<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span>]  <span class="c"># 'canino'</span>
-<span class="no">5</span> puts h
-<span class="no">6</span> puts h[<span class="i">12</span>]
+<span class="no">2</span> h = {<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">canino</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">gato</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">felino</span><span class="dl">'</span></span>, 
+<span class="no">3</span>     <span class="s"><span class="dl">'</span><span class="k">burro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">asinino</span><span class="dl">'</span></span>, <span class="i">12</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">dodezino</span><span class="dl">'</span></span>}
+<span class="no">4</span> puts h.length  <span class="c"># 4</span>
+<span class="no">5</span> puts h[<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span>]  <span class="c"># 'canino'</span>
+<span class="no">6</span> puts h
+<span class="no">7</span> puts h[<span class="i">12</span>]
 </pre>
 </div>
 <p>A saída do código acima é:</p>
@@ -47,18 +47,20 @@
 <pre><span class="no">1</span> &gt;ruby p040myhash.rb
 <span class="no">2</span> 4
 <span class="no">3</span> canino
-<span class="no">4</span> {&quot;cachorro&quot;=&gt;&quot;canino&quot;, &quot;gato&quot;=&gt;&quot;felino&quot;, &quot;burro&quot;=&gt;&quot;asinino&quot;, 12=&gt;&quot;dozino&quot;}
-<span class="no">5</span> dozino
-<span class="no">6</span> &gt;Exit code: 0
+<span class="no">4</span> {&quot;cachorro&quot;=&gt;&quot;canino&quot;, &quot;gato&quot;=&gt;&quot;felino&quot;, 
+<span class="no">5</span>  &quot;burro&quot;=&gt;&quot;asinino&quot;, 12=&gt;&quot;dozino&quot;}
+<span class="no">6</span> dodezino
+<span class="no">7</span> &gt;Exit code: 0
 </pre>
 </div>
 <div class='box'>
-<p>Caso seja executado o programa apresentado acima no Ruby 1.8, a saída será diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração.</p>
+<p>Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenção do hash é diferente da<br />
+declarada</p>
 </div>
-<p>Comparado com arrays, os hashes tem uma vantagem significante: eles podem usar qualquer objeto como índice.</p>
-<p>Hashes tem um valor padrão, que é retornado, após uma tentativa de acessa uma chave não existente. Por padrão este valor é nil.</p>
-<p>A classe <strong>Hash</strong> tem muitos métodos e você pode consultá-los <a href="http://railsapi.com/doc/ruby-v1.9/classes/Hash.html">aqui</a>.</p>
-<h2>Usando símbolos como chaves do Hash</h2>
+<p>Comparados com arrays, os hashes têm uma vantagem significativa: eles podem usar qualquer objeto como índice.</p>
+<p>Hashes têm um valor padrão. Tal valor é retornado após uma tentativa de acesso a uma chave não existente. Por padrão este valor é <b>nil</b>.</p>
+<p>A classe <strong>Hash</strong> tem muitos métodos e você pode consultá-los <a href="http://railsapi.com/doc/ruby-v1.9/classes/Hash.html">aqui</a> (em inglês).</p>
+<h2>Usando Símbolos como chaves do Hash</h2>
 <p>Ao invés, de utilizar uma string como chave, de preferência pelo uso de um símbolo. Veja o exemplo a seguir no programa <strong>p041symbolhash.rb</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p041symbolhash.rb</span>
@@ -93,14 +95,13 @@
 <pre><span class="no">1</span> {:apelido=&gt;&quot;GuruIndiano&quot;, :idioma=&gt;&quot;Marata&quot;, :sobrenome=&gt;&quot;Talim&quot;}
 </pre>
 </div>
+<p>Ou seja, exatamente o mesmo que ocorreu na execução do programa <b>p0411symbolhash.rb</b>.</p>
 <div class='box'>
-<p>O último exemplo não iria funcionar se formos usar o Ruby 1.8, pois ele utiliza uma sintaxe nova para declarar hashes, que foi introduzida no Ruby 1.9.</p>
-<p>Para o Ruby 1.8 precisariamos colocar o dois pontos &#8220;:&#8221; antes das chaves e não depois.</p>
+<p>O último exemplo (<b>p0412symbolhash.rb</b>) não funcionará no Ruby 1.8. Ele utiliza uma sintaxe nova para declarar hashes introduzida no Ruby 1.9.</p>
 </div>
-<p>Ou seja, exatamente o mesmo que ocorreu na execução do programa <strong>p0411symbolhash.rb</strong>.</p>
    </div>
 
-   <div class="column span-5 append-2 last">
+   <div class="column span-5 append-1 last">
 
       <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
 
@@ -115,7 +116,7 @@
       <p class="incr"></p>
    </div>
 
-   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
      <hr />
      <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
    </div>

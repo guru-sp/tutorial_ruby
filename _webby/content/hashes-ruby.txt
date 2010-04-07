@@ -7,13 +7,14 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays, uma vez que são coleções indexadas de referências a objetos. No entanto, um índice de um array contém somente inteiros (semelhante a um índice remissivo), já utilizando hash você pode indexá-lo com os objetos de qualquer tipo: strings, expressões regulares, e assim por diante. Quando você armazena um valor em um hash, você sempre fornecer dois objetos - o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como o índice, também pode ser objetos de qualquer tipo.
+Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays a medida que são coleções indexadas de referências a objetos. No entanto, enquanto o o array é indexado por inteiros (semelhante a um índice remissivo), o hash pode ser indexado com objetos de qualquer tipo: strings, expressões regulares e assim por diante. Quando você armazena um valor em um hash, você na verdade fornece dois objetos - o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como os índices, podem ser objetos de qualquer tipo.
 
-O *exemplop040myhash.rb* abaixo, criar um hash com literais(strings): a chave => o valor entre chaves.
+O exemplo **040myhash.rb** abaixo cria um hash com literais (strings): uma lista de pares chave => valor entre 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p040myhash.rb
-h = {'cachorro' => 'canino', 'gato' => 'felino', 'burro' => 'asinino', 12 => 'dozino'}
+h = {'cachorro' => 'canino', 'gato' => 'felino', 
+    'burro' => 'asinino', 12 => 'dodezino'}
 puts h.length  # 4
 puts h['cachorro']  # 'canino'
 puts h
@@ -26,20 +27,24 @@ A saída do código acima é:
 >ruby p040myhash.rb
 4
 canino
-{"cachorro"=>"canino", "gato"=>"felino", "burro"=>"asinino", 12=>"dozino"}
-dozino
+{"cachorro"=>"canino", "gato"=>"felino", 
+ "burro"=>"asinino", 12=>"dozino"}
+dodezino
 >Exit code: 0
 <% end %>
+
 <div class='box'>
-Caso seja executado o programa apresentado acima no Ruby 1.8, a saída será diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração.
+Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenção do hash é diferente da
+declarada
 </div>
-Comparado com arrays, os hashes tem uma vantagem significante: eles podem usar qualquer objeto como índice.
 
-Hashes tem um valor padrão, que é retornado, após uma tentativa de acessa uma chave não existente. Por padrão este valor é nil.
+Comparados com arrays, os hashes têm uma vantagem significativa: eles podem usar qualquer objeto como índice.
 
-A classe *Hash* tem muitos métodos e você pode consultá-los "aqui":http://railsapi.com/doc/ruby-v1.9/classes/Hash.html.
+Hashes têm um valor padrão. Tal valor é retornado após uma tentativa de acesso a uma chave não existente. Por padrão este valor é **nil**.
 
-h2. Usando símbolos como chaves do Hash
+A classe *Hash* tem muitos métodos e você pode consultá-los "aqui":http://railsapi.com/doc/ruby-v1.9/classes/Hash.html (em inglês).
+
+h2. Usando Símbolos como chaves do Hash
 
 Ao invés, de utilizar uma string como chave, de preferência pelo uso de um símbolo. Veja o exemplo a seguir no programa *p041symbolhash.rb*.
 
@@ -80,10 +85,11 @@ A saída é:
 {:apelido=>"GuruIndiano", :idioma=>"Marata", :sobrenome=>"Talim"}
 <% end %>
 
-<div class='box'>
-O último exemplo não iria funcionar se formos usar o Ruby 1.8, pois ele utiliza uma sintaxe nova para declarar hashes, que foi introduzida no Ruby 1.9.
+Ou seja, exatamente o mesmo que ocorreu na execução do programa **p0411symbolhash.rb**.
 
-Para o Ruby 1.8 precisariamos colocar o dois pontos ":" antes das chaves e não depois.
+<div class='box'>
+O último exemplo (**p0412symbolhash.rb**) não funcionará no Ruby 1.8. Ele utiliza uma sintaxe nova para declarar hashes introduzida no Ruby 1.9.
 </div>
-Ou seja, exatamente o mesmo que ocorreu na execução do programa *p0411symbolhash.rb*.
+
+
 
