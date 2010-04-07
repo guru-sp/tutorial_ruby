@@ -66,7 +66,7 @@ h3. Parte 4
 # "Ler/escrever arquivos":ler-escrever-arquivos.html
 ## Varrendo árvores de diretórios
 ## Acesso aleatório
-# Resumo 4
+# "Resumo 4":sumario-ruby4.html
 
 h3. Parte 5
 # "Expressões Regulares":expressoes-regulares.html

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Numeros-Aleatorios</title>
+   <title>Números Aleatórios</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -29,41 +29,52 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Numeros-Aleatorios</p>
-<p>Ruby comes with a random number generator. The method to get a randomly chosen number is rand. If you call rand, you&#8217;ll get a float greater than or equal to 0.0 and less than 1.0. If you give it an integer parameter (by calling rand(5) ), you will get an integer value greater than or equal to 0 and less than 5.</p>
-<p>Here&#8217;s an example: p026phrase.rb</p>
+      <p class="title">Números Aleatórios</p>
+<p>O Ruby vem com um gerador de números aleatórios (ou randômicos). O meio de se obter um número escolhido aleatório é o <b>rand</b>. Se você chamar <b>rand</b> terá um float maior que ou igual a 0.0 e menor que 1.0. Se você der a ele um parâmetro inteiro (chamando, por exemplo, rand(5)), você obterá um valor inteiro maior que ou igual a 0 e menor que 5.</p>
+<p>Aqui está um exemplo: <b>p026phrase.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p026phrase.rb  </span>
 <span class="no"> 2</span> <span class="c">=begin  
-<span class="no"> 3</span>   If you call rand, you'll get a float greater than or equal to 0.0 
-<span class="no"> 4</span>   and less than 1.0. If you give it an integer parameter (by calling rand(5) ), 
-<span class="no"> 5</span>   you will get an integer value greater than or equal to 0 and less than 5 
-<span class="no"> 6</span> =end </span>
-<span class="no"> 7</span>  
-<span class="no"> 8</span> <span class="c"># The program below makes three lists of words, and then randomly picks one word </span>
-<span class="no"> 9</span> <span class="c"># from each of the three lists and prints out the result </span>
-<span class="no"><strong>10</strong></span> word_list_one = [<span class="s"><span class="dl">'</span><span class="k">24/7</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">multi-Tier</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">30,000 foot</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">B-to-B</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">win-win</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">front-end</span><span class="dl">'</span></span>, 
-<span class="no">11</span>                  <span class="s"><span class="dl">'</span><span class="k">web-based</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">pervasive</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">smart</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">six-sigma</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">critical-path</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">dynamic</span><span class="dl">'</span></span>] 
-<span class="no">12</span> word_list_two = [<span class="s"><span class="dl">'</span><span class="k">empowered</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">sticky</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">value-added</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">oriented</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">centric</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">distributed</span><span class="dl">'</span></span>, 
-<span class="no">13</span>                  <span class="s"><span class="dl">'</span><span class="k">clustered</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">branded</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">outside-the-box</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">positioned</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">networked</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">focused</span><span class="dl">'</span></span>, 
-<span class="no">14</span>                  <span class="s"><span class="dl">'</span><span class="k">leveraged</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">aligned</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">targeted</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">shared</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">cooperative</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">accelerated</span><span class="dl">'</span></span>] 
-<span class="no">15</span> word_list_three = [<span class="s"><span class="dl">'</span><span class="k">process</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">tipping-point</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">solution</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">architecture</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">core competency</span><span class="dl">'</span></span>, 
-<span class="no">16</span>                    <span class="s"><span class="dl">'</span><span class="k">strategy</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">mindshare</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">portal</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">space</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">vision</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">paradigm</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">mission</span><span class="dl">'</span></span>]  
-<span class="no">17</span>   
-<span class="no">18</span> one_len = word_list_one.length  
-<span class="no">19</span> two_len = word_list_two.length  
-<span class="no"><strong>20</strong></span> three_len = word_list_three.length  
-<span class="no">21</span>   
-<span class="no">22</span> rand1 = rand(one_len)  
-<span class="no">23</span> rand2 = rand(two_len)  
-<span class="no">24</span> rand3 = rand(three_len)
-<span class="no">25</span>   
-<span class="no">26</span> phrase = word_list_one[rand1] + <span class="s"><span class="dl">&quot;</span><span class="k"> </span><span class="dl">&quot;</span></span> + word_list_two[rand2] + <span class="s"><span class="dl">&quot;</span><span class="k"> </span><span class="dl">&quot;</span></span> + word_list_three[rand3]  
+<span class="no"> 3</span>   Se você chamar **rand** terá um float maior que 
+<span class="no"> 4</span>   ou igual a 0.0 e menor que 1.0. Se você der a ele 
+<span class="no"> 5</span>   um parâmetro inteiro (chamando, por exemplo, rand(5)),
+<span class="no"> 6</span>   você obterá um valor inteiro maior que ou igual a 0 
+<span class="no"> 7</span>   e menor que 5
+<span class="no"> 8</span> =end </span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span> <span class="c"># O programa abaixo faz três listas de palavras e </span>
+<span class="no">11</span> <span class="c"># então escolhe aleatoriamente uma palavra</span>
+<span class="no">12</span> <span class="c"># para cada uma das três listas e imprime o resultado </span>
+<span class="no">13</span> 
+<span class="no">14</span> lista_palavras_um = [<span class="s"><span class="dl">'</span><span class="k">24/7</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">multicamada</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">30,000 pés</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">B2B</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">win-win</span><span class="dl">'</span></span>,
+<span class="no">15</span>                    <span class="s"><span class="dl">'</span><span class="k">front-end</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">web-based</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">pervasivo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">inteligente</span><span class="dl">'</span></span>, 
+<span class="no">16</span>                     <span class="s"><span class="dl">'</span><span class="k">seis-sigma</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">caminho-crítico</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">dinâmico</span><span class="dl">'</span></span>]
+<span class="no">17</span>                     
+<span class="no">18</span> lista_palavras_dois = [<span class="s"><span class="dl">'</span><span class="k">empowered</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">sticky</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">value-added</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">orientado</span><span class="dl">'</span></span>,
+<span class="no">19</span>                        <span class="s"><span class="dl">'</span><span class="k">centrado</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">distribuído</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">agrupado</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">branded</span><span class="dl">'</span></span>,
+<span class="no"><strong>20</strong></span>                        <span class="s"><span class="dl">'</span><span class="k">fora-da-caixa</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">posicionado</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">em rede</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">focado</span><span class="dl">'</span></span>, 
+<span class="no">21</span>                        <span class="s"><span class="dl">'</span><span class="k">alavancado</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">alinhado</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">targeted</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">compartilhado</span><span class="dl">'</span></span>,
+<span class="no">22</span>                        <span class="s"><span class="dl">'</span><span class="k">cooperativo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">acelerado</span><span class="dl">'</span></span>]
+<span class="no">23</span>                        
+<span class="no">24</span> lista_palavras_tres = [<span class="s"><span class="dl">'</span><span class="k">processo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">tipping-point</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">solução</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">arquitetura</span><span class="dl">'</span></span>,
+<span class="no">25</span>                        <span class="s"><span class="dl">'</span><span class="k">competência central</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">estratégia</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">mindshare</span><span class="dl">'</span></span>, 
+<span class="no">26</span>                        <span class="s"><span class="dl">'</span><span class="k">portal</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">espaço</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">visão</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">paradigma</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">missão</span><span class="dl">'</span></span>]  
 <span class="no">27</span>   
-<span class="no">28</span> puts phrase
+<span class="no">28</span> tamanho_um = lista_palavras_um.length  
+<span class="no">29</span> tamanho_dois = lista_palavras_dois.length  
+<span class="no"><strong>30</strong></span> tamanho_tres = lista_palavras_tres.length  
+<span class="no">31</span>   
+<span class="no">32</span> rand1 = rand(tamanho_um)  
+<span class="no">33</span> rand2 = rand(tamanho_dois)  
+<span class="no">34</span> rand3 = rand(tamanho_tres)
+<span class="no">35</span>   
+<span class="no">36</span> frase = lista_palavras_um[rand1] + <span class="s"><span class="dl">&quot;</span><span class="k"> </span><span class="dl">&quot;</span></span> 
+<span class="no">37</span>         + lista_palavras_dois[rand2] + <span class="s"><span class="dl">&quot;</span><span class="k"> </span><span class="dl">&quot;</span></span> + lista_palavras_tres[rand3]  
+<span class="no">38</span>   
+<span class="no">39</span> puts frase
 </pre>
 </div>
-<p>The above program makes three lists of words, and then randomly picks one word from each of the three lists and prints out the result.</p>
+<p>O programa acima cria três listas de palavras e então seleciona aleatoriamente uma palavra de cada uma das listas e imprime o resultado.</p>
    </div>
 
    <div class="column span-5 append-1 last">
