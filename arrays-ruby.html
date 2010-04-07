@@ -151,7 +151,7 @@ Ruby.</li>
 </pre>
 </div>
 <p>O método <b>times</b> da classe <b>Integer</b> (inteiro) itera o bloco n vezes, passando os valores de zero a num-1. Como podemos ver, se você dá ao <b>return</b> múltiplos parâmetros, o método retorna estes em um array. Você pode usar a atribuição em paralelo para coletar esses valores de retorno.</p>
-<p>h2.Atribuição paralela</p>
+<h2>Atribuição paralela</h2>
 <p>Para explicar ussi, usaremos os termos lvalue (valor á esquerda) e rvalue (valor à direita).<br />
 Um lvalue é algo que pode aparecer por si mesmo no lado esquerdo de uma atribuição (uma variável, constante ou método que seta algum atributo). Um rvalue é algo que pode aparecer por si só no lado direito. Ruby permite que você tenha uma lista de rvalues separados por vírgula. Uma vez que o Ruby vê mais que um rvalue em uma atribuição, as regras de atribuição paralela entram em cena. Em primeiro lugar, todos os rvalues são avaliados, da esquerda para a direita e então coletados em um array (ao menos que eles já sejam um array). Este array será o evento valor retornado pela atribuição como um todo. Em seguida, o lado a esquerda é inspecionado. Se ele contém um único elemento, o array é associado a esse elemento.</p>
 <div class="CodeRay">
