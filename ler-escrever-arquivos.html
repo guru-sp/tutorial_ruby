@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Ler-Escrever-Arquivos</title>
+   <title>Lendo e escrevendo em arquivos</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -29,31 +29,33 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Ler-Escrever-Arquivos</p>
-<p>Let&#8217;s look at how we can read / write to a text file with the help of a simple program p027readwrite.rb</p>
+      <p class="title">Lendo e escrevendo em arquivos</p>
+<p>Vamos ver como podemos ler/escrever para um arquivo de texto com a ajuda de um simples programa <b>p027readwrite.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p027readwrite.rb  </span>
-<span class="no"> 2</span> <span class="c"># Open and read from a text file  </span>
-<span class="no"> 3</span> <span class="c"># Note that since a block is given, file will  </span>
-<span class="no"> 4</span> <span class="c"># automatically be closed when the block terminates  </span>
+<span class="no"> 2</span> <span class="c"># Abrir e ler um arquivo de texto</span>
+<span class="no"> 3</span> <span class="c"># Note que como é dado um bloco, o arquivo</span>
+<span class="no"> 4</span> <span class="c"># é automaticamente fechado quando o bloco termina  </span>
 <span class="no"> 5</span> <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">p014constructs.rb</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">r</span><span class="dl">'</span></span>) <span class="r">do</span> |f1|  
 <span class="no"> 6</span>   <span class="r">while</span> line = f1.gets  
 <span class="no"> 7</span>     puts line  
 <span class="no"> 8</span>   <span class="r">end</span>  
 <span class="no"> 9</span> <span class="r">end</span>  
-<span class="no"><strong>10</strong></span>   
-<span class="no">11</span> <span class="c"># Create a new file and write to it  </span>
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span> <span class="c"># Cria um novo arquivo e escreve nele  </span>
 <span class="no">12</span> <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">test.rb</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">w</span><span class="dl">'</span></span>) <span class="r">do</span> |f2|  
-<span class="no">13</span>   <span class="c"># use &quot;\n&quot; for two lines of text  </span>
-<span class="no">14</span>   f2.puts <span class="s"><span class="dl">&quot;</span><span class="k">Created by Satish</span><span class="ch">\n</span><span class="k">Thank God!</span><span class="dl">&quot;</span></span>  
+<span class="no">13</span>   <span class="c"># use &quot;\n&quot; para duas linhas de texto </span>
+<span class="no">14</span>   f2.puts <span class="s"><span class="dl">&quot;</span><span class="k">Criado por Satish</span><span class="ch">\n</span><span class="k">Gracas a Deus!</span><span class="dl">&quot;</span></span>  
 <span class="no">15</span> <span class="r">end</span>
 </pre>
 </div>
-<p>The File.open method can open the file in different modes like &#8216;r&#8217; Read-only, starts at beginning of file (default); &#8216;r+&#8217; Read/Write, starts at beginning of file; &#8216;w&#8217; Write-only, truncates existing file to zero length or creates a new file for writing. Please check the online documentation for a full list of modes available. File.open opens a new File if there is no associated block. If the optional block is given, it will be passed file as an argument, and the file will automatically be closed when the block terminates. Always close a file that you open. In the case of a file open for writing, this is very important and can actually prevent lost data.</p>
-<p>File implements a readlines method that reads an entire file into an array, line by line.</p>
-<p>Both class methods open and readlines belong to the IO class, whose sub-class is File. We have not done classes, objects, inheritance yet but for the record these two methods are inherited by the sub-class File from the class IO.</p>
-<h2>Percorrendo Árvores de Diretórios</h2>
-<p>The Find module supports top-down traversal of a set of file paths, given as arguments to the find method. If an argument is a directory, then its name and name of all its files and sub-directories will be passed in (in the example below, this would be from where you run this program).</p>
+<p>O método <b>File.open</b> pode abrir o arquivo em modos diferentes como o &#8216;r&#8217; (somente-leitura), que inicia no começo do arquivo; &#8216;r+&#8217; Leitura/Escrita, começa no início do arquivo; &#8216;w&#8217; Somente-escrita, trunca o arquivo existente para tamanho zero ou cria um novo arquivo para escrita. Cheque a documentação do Ruby para uma lista completa dos modos disponíveis. <b>File.open</b> abre um novo arquivo (<b>File</b>) se não existe nenhum bloco associado. Se o bloco opcional é dado, ele será passado como argumento ao arquivo, e o arquivo será fechado automaticamente quando o bloco termina. Sempre feche um arquivo que você abriu. No caso de um arquivo aberto para escrita, isso é muito importante e pode até mesmo prevenir a perda de dados.</p>
+<p><b>File</b> implementa um método <b>readlines</b> (lê linhas) que lê um arquivo inteiro dentro de um array, linha por linha.</p>
+<div class="box">
+<p>Ambos métodos de classe, <b>open</b> e <b>readlines</b>, pertencem a classe <b>IO</b>, cuja subclasse é <strong>File</strong>. Ainda não estudamos classes, objetos e herança mas, apenas para registro, estes dois métodos são herdados pela subclasse <b>File</b> da classe <b>IO</b>.</p>
+</div>
+<h2>Varrendo Árvores de Diretórios</h2>
+<p>O módulo <b>Find</b> pode percorrer de maneira top-down (de cima para baixo) um conjunto de caminhos de arquivo, dados como argumento para o método <b>find</b>. Se o argumento for um diretório, então seu nome e o nome de todos seus arquivos e subdiretórios serão passados (no exemplo abaixo, isso seria a partir do diretório que você roda o programa).</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> require <span class="s"><span class="dl">'</span><span class="k">find</span><span class="dl">'</span></span>  
 <span class="no"> 2</span> <span class="co">Find</span>.find(<span class="s"><span class="dl">'</span><span class="k">./</span><span class="dl">'</span></span>) <span class="r">do</span> |f|  
@@ -66,42 +68,45 @@
 <span class="no"> 9</span> <span class="r">end</span>
 </pre>
 </div>
-<p>We shall talk about require soon here.</p>
+<p>Falaremos sobre <b>require</b> em breve.</p>
 <h2>Acesso Aleatório</h2>
-<p>It&#8217;s quite easy to access a file randomly. Let&#8217;s say we have a text file (named hellousa.rb), the contents of which is shown below:</p>
-<p>puts &#8216;Hello USA&#8217;  <br />
-We now need to display the contents of the file from the word USA. Here&#8217;s how &#8211; program p028xrandom.rb:</p>
+<p>É bastante fácil acessar um arquivo aleatoriamente. Digamos que temos um arquivo texto (chamado olaeua.rb) cujo conteúdo é mostrado abaixo:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> puts <span class="s"><span class="dl">'</span><span class="k">Ola EUA</span><span class="dl">'</span></span>
+</pre>
+</div>
+<p>Agora precisamos mostrar o conteúdo do arquivo a partir da palavra EUA. Aqui está como &#8211; programa p028xrandom.rb:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p028xrandom.rb  </span>
-<span class="no"> 2</span> <span class="c"># We now need to display the contents of the file from the word USA  </span>
+<span class="no"> 2</span> <span class="c"># Precisamos mostrar o conteúdo do arquivo a partir da palavra EUA  </span>
 <span class="no"> 3</span> f = <span class="co">File</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">hellousa.rb</span><span class="dl">&quot;</span></span>)  
 <span class="no"> 4</span>   
-<span class="no"> 5</span> <span class="c"># SEEK_CUR - Seeks to first integer number parameter plus current position  </span>
-<span class="no"> 6</span> <span class="c"># SEEK_END - Seeks to first integer number parameter plus end of stream  </span>
-<span class="no"> 7</span> <span class="c">#   (you probably want a negative value for first integer number parameter)  </span>
-<span class="no"> 8</span> <span class="c"># SEEK_SET - Seeks to the absolute location given by first integer number parameter  </span>
-<span class="no"> 9</span> <span class="c"># :: is the scope operator - more on this later  </span>
-<span class="no"><strong>10</strong></span> f.seek(<span class="i">12</span>, <span class="co">IO</span>::<span class="co">SEEK_SET</span>)  
+<span class="no"> 5</span> <span class="c"># SEEK_CUR - Busca a partir do primeiro parâmetro inteiro mais a posição atual</span>
+<span class="no"> 6</span> <span class="c"># SEEK_END - Busca a partir do primeiro parâmetro inteiro mais a posição final do stream</span>
+<span class="no"> 7</span> <span class="c">#  (você provavelmente quer um valor negativo para o primeiro parâmetro inteiro)</span>
+<span class="no"> 8</span> <span class="c"># SEEK_SET - Busca a partir da posição absoluta dada pelo primeiro parâmetro inteiro</span>
+<span class="no"> 9</span> <span class="c"># :: é o operador de escopo - será explicado mais tarde  </span>
+<span class="no"><strong>10</strong></span> f.seek(<span class="i">10</span>, <span class="co">IO</span>::<span class="co">SEEK_SET</span>)  
 <span class="no">11</span> print f.readline  
 <span class="no">12</span> f.close
 </pre>
 </div>
-<p>The output is:</p>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p028xrandom.rb  
-<span class="no">2</span> <span class="co">USA</span><span class="s"><span class="dl">'</span><span class="k">  
+<span class="no">2</span> EUA'  
 <span class="no">3</span> &gt;Exit code: 0
-<span class="no">4</span> </span></span></pre>
+</pre>
 </div>
-<p>Ruby supports the notion of a file pointer. The file pointer indicates the current location in the file. The File.new method opens the file &#8216;hellousa.rb&#8217; in read-only mode (default mode), returns a new File object and the file pointer is positioned at the beginning of the file. In the above program, the next statement is f.seek(12, IO::SEEK_SET). The seek method of class IO, moves the file pointer to a given integer distance (first parameter of seek method) in the stream according to the value of the second parameter in the seek method.</p>
-<p>IO::SEEK_CUR &#8211; Seeks to first integer number parameter plus current position<br />
-IO::SEEK_END &#8211; Seeks to first integer number parameter plus end of stream (you probably want a negative value for first integer number parameter)<br />
-IO::SEEK_SET &#8211; Seeks to the absolute location given by first integer number parameter<br />
-More on the scope operator :: here.</p>
+<p>O Ruby suporta a ideia de um apontador para um arquivo. O apontador para um arquivo indica a posição atual no arquivo. O método <b>File.new</b> abri o arquivo &#8216;hellousa.rb&#8217; no modo somente leitura (modo padrão), retorna um novo objeto <b>File</b> e o ponteiro para o arquivo é posicionado no início do mesmo. No programa acima, a próxima instrução é f.seek(10, IO:SEEK_SET). O método <b>seek</b> da classe <a href="http://www.ruby-doc.org/ruby-1.9/classes/IO.html"><b>IO</b></a>, move o ponteiro do arquivo para uma distância dada por um número inteiro (o primeiro parâmetro do método <strong>seek</strong>) no stream de acordo com o valor do segundo parâmetro no método <b>seek</b>.</p>
+<p><b>IO::SEEK_CUR</b> &#8211; Busca a partir do primeiro parâmetro inteiro mais a posição atual;<br />
+<b>IO::SEEK_END</b> &#8211; Busca a partir do primeiro parâmetro inteiro mais a posição final do stream (você provavelmente quer um valor negativo para o primeiro parâmetro inteiro);<br />
+<b>IO::SEEK_SET</b> &#8211; Busca a partir da posição absoluta dada pelo primeiro parâmetro inteiro.</p>
+<p>Leia mais sobre o operador :: na <a href="constantes.html">seção sobre constantes</a>.</p>
 <h2>Ruby permite a serialização de um objeto?</h2>
-<p>Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling. Saving an object and some or all of its components is done using the method Marshal.dump. Later on you can reconstitute the object using Marshal.load. Ruby uses marshaling to store session data. Refer topic Object Serialization later on.</p>
+<p>Uma das funcionalidades do Java é a capacidade de serializar objetos, o que permite que você armazene-os em qualquer lugar e então os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling (&#8220;preparação&#8221;). Salvar um objeto e alguns ou todos os seus componentes é feito usando o método <b>Marshal.dump</b>. Em um momento posterior você pode reconstituir o objeto usando Marshal.load. O Ruby usa marshaling para armazenar dados de sessão. Dirija-se ao <a href="serializacao-ruby.html">tópico Serialização de Objetos</a> para saber mais.</p>
 <h2>Sumário</h2>
-<p>I have listed down all the important points you need to remember after you have completed the following topics: Arrays, Ranges, Symbols, Hashes, Random Numbers, Read/Write Text Files.</p>
+<p>Listei todos os <a href="sumario-ruby4.html">pontos importantes</a> que você precisa saber após ter completado os seguintes tópicos: Arrays, Intervalos, Símbolos, Hashes (Dicionários), Números aleatórios, Lendo/Escrevendo em arquivos de texto.</p>
    </div>
 
    <div class="column span-5 append-1 last">

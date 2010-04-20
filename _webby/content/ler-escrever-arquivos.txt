@@ -1,5 +1,5 @@
 ---
-title:      Ler e escrever arquivos
+title:      Lendo e escrevendo em arquivos
 created_at: 2010-03-10 12:06:40.191549 -03:00
 filter:
   - erb
@@ -28,18 +28,17 @@ File.open('test.rb', 'w') do |f2|
 end
 <% end %>
 
-O método **File.open** pode abrir o arquivo em modos diferentes como o 'r' (somente-leitura), que inicia no começo do arquivo; 'r+' Leitura/Escrita, começa no início do arquivo; 'w' Somente-escrita, trunca o arquivo existente para tamanho zero ou cria um novo arquivo para escrita. Cheque a documentação do Ruby para uma lista completa dos modos disponíveis.
-**File.open** abre um novo arquivo (**File**) se não existe nenhum bloco associado. Se o bloco opcional é dado, ele será passado como argumento ao arquivo, e o arquivo será fechado automaticamente quando o bloco termina. Sempre feche um arquivo que você abriu. No caso de um arquivo aberto para escrita, isso é muito importante e pode até mesmo prevenir a perda de dados.
+O método **File.open** pode abrir o arquivo em modos diferentes como o 'r' (somente-leitura), que inicia no começo do arquivo; 'r+' Leitura/Escrita, começa no início do arquivo; 'w' Somente-escrita, trunca o arquivo existente para tamanho zero ou cria um novo arquivo para escrita. Cheque a documentação do Ruby para uma lista completa dos modos disponíveis. **File.open** abre um novo arquivo (**File**) se não existe nenhum bloco associado. Se o bloco opcional é dado, ele será passado como argumento ao arquivo, e o arquivo será fechado automaticamente quando o bloco termina. Sempre feche um arquivo que você abriu. No caso de um arquivo aberto para escrita, isso é muito importante e pode até mesmo prevenir a perda de dados.
 
 **File** implementa um método **readlines** (lê linhas) que lê um arquivo inteiro dentro de um array, linha por linha.
 
-Ambos métodos de classe, **open** e **readlines**, pertencem a classe **IO**, cuja subclasse é **File*. Ainda não estudamos classes, objetos e herança mas, apenas para registro,
-estes dois métodos são herdados pela subclasse **File** da classe **IO**.
-Both class methods open and readlines belong to the IO class, whose sub-class is File. We have not done classes, objects, inheritance yet but for the record these two methods are inherited by the sub-class File from the class IO.
+<div class="box">
+Ambos métodos de classe, **open** e **readlines**, pertencem a classe **IO**, cuja subclasse é **File*. Ainda não estudamos classes, objetos e herança mas, apenas para registro, estes dois métodos são herdados pela subclasse **File** da classe **IO**.
+</div>
 
-h2. Percorrendo Árvores de Diretórios
+h2. Varrendo Árvores de Diretórios
 
-The Find module supports top-down traversal of a set of file paths, given as arguments to the find method. If an argument is a directory, then its name and name of all its files and sub-directories will be passed in (in the example below, this would be from where you run this program).
+O módulo **Find** pode percorrer de maneira top-down (de cima para baixo) um conjunto de caminhos de arquivo, dados como argumento para o método **find**. Se o argumento for um diretório, então seu nome e o nome de todos seus arquivos e subdiretórios serão passados (no exemplo abaixo, isso seria a partir do diretório que você roda o programa).
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 require 'find'  
@@ -53,49 +52,55 @@ Find.find('./') do |f|
 end
 <% end %>
 
-We shall talk about require soon here.
+Falaremos sobre **require** em breve.
 
 h2. Acesso Aleatório
 
-It's quite easy to access a file randomly. Let's say we have a text file (named hellousa.rb), the contents of which is shown below:
-
-puts 'Hello USA'  
-We now need to display the contents of the file from the word USA. Here's how - program p028xrandom.rb:
+É bastante fácil acessar um arquivo aleatoriamente. Digamos que temos um arquivo texto (chamado olaeua.rb) cujo conteúdo é mostrado abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+puts 'Ola EUA'
+<% end %>
+
+Agora precisamos mostrar o conteúdo do arquivo a partir da palavra EUA. Aqui está como - programa p028xrandom.rb:
+  
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p028xrandom.rb  
-# We now need to display the contents of the file from the word USA  
+# Precisamos mostrar o conteúdo do arquivo a partir da palavra EUA  
 f = File.new("hellousa.rb")  
   
-# SEEK_CUR - Seeks to first integer number parameter plus current position  
-# SEEK_END - Seeks to first integer number parameter plus end of stream  
-#   (you probably want a negative value for first integer number parameter)  
-# SEEK_SET - Seeks to the absolute location given by first integer number parameter  
-# :: is the scope operator - more on this later  
-f.seek(12, IO::SEEK_SET)  
+# SEEK_CUR - Busca a partir do primeiro parâmetro inteiro mais a posição atual
+# SEEK_END - Busca a partir do primeiro parâmetro inteiro mais a posição final do stream
+#  (você provavelmente quer um valor negativo para o primeiro parâmetro inteiro)
+# SEEK_SET - Busca a partir da posição absoluta dada pelo primeiro parâmetro inteiro
+# :: é o operador de escopo - será explicado mais tarde  
+f.seek(10, IO::SEEK_SET)  
 print f.readline  
 f.close
 <% end %>
 
-The output is:
+A saída é:
 
-<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
 >ruby p028xrandom.rb  
-USA'  
+EUA'  
 >Exit code: 0
 <% end %>
 
-Ruby supports the notion of a file pointer. The file pointer indicates the current location in the file. The File.new method opens the file 'hellousa.rb' in read-only mode (default mode), returns a new File object and the file pointer is positioned at the beginning of the file. In the above program, the next statement is f.seek(12, IO::SEEK_SET). The seek method of class IO, moves the file pointer to a given integer distance (first parameter of seek method) in the stream according to the value of the second parameter in the seek method.
+O Ruby suporta a ideia de um apontador para um arquivo. O apontador para um arquivo indica a posição atual no arquivo. O método **File.new** abri o arquivo 'hellousa.rb' no modo somente leitura (modo padrão), retorna um novo objeto **File** e o ponteiro para o arquivo é posicionado no início do mesmo. No programa acima, a próxima instrução é f.seek(10, IO:SEEK_SET). O método **seek** da classe "**IO**":http://www.ruby-doc.org/ruby-1.9/classes/IO.html, move o ponteiro do arquivo para uma distância dada por um número inteiro (o primeiro parâmetro do método *seek*) no stream de acordo com o valor do segundo parâmetro no método **seek**.
 
-IO::SEEK_CUR - Seeks to first integer number parameter plus current position
-IO::SEEK_END - Seeks to first integer number parameter plus end of stream (you probably want a negative value for first integer number parameter)
-IO::SEEK_SET - Seeks to the absolute location given by first integer number parameter
-More on the scope operator :: here.
+
+**IO::SEEK_CUR** - Busca a partir do primeiro parâmetro inteiro mais a posição atual;
+**IO::SEEK_END** - Busca a partir do primeiro parâmetro inteiro mais a posição final do stream (você provavelmente quer um valor negativo para o primeiro parâmetro inteiro);
+**IO::SEEK_SET** - Busca a partir da posição absoluta dada pelo primeiro parâmetro inteiro.
+
+Leia mais sobre o operador :: na "seção sobre constantes":constantes.html.
 
 h2. Ruby permite a serialização de um objeto?
 
-Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling. Saving an object and some or all of its components is done using the method Marshal.dump. Later on you can reconstitute the object using Marshal.load. Ruby uses marshaling to store session data. Refer topic Object Serialization later on.
+Uma das funcionalidades do Java é a capacidade de serializar objetos, o que permite que você armazene-os em qualquer lugar e então os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling ("preparação"). Salvar um objeto e alguns ou todos os seus componentes é feito usando o método **Marshal.dump**. Em um momento posterior você pode reconstituir o objeto usando Marshal.load. O Ruby usa marshaling para armazenar dados de sessão. Dirija-se ao "tópico Serialização de Objetos":serializacao-ruby.html para saber mais.
+
 
 h2. Sumário
 
-I have listed down all the important points you need to remember after you have completed the following topics: Arrays, Ranges, Symbols, Hashes, Random Numbers, Read/Write Text Files.
+Listei todos os "pontos importantes":sumario-ruby4.html que você precisa saber após ter completado os seguintes tópicos: Arrays, Intervalos, Símbolos, Hashes (Dicionários), Números aleatórios, Lendo/Escrevendo em arquivos de texto.
