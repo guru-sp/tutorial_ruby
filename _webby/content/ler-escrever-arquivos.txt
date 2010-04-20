@@ -1,5 +1,5 @@
 ---
-title:      Ler-Escrever-Arquivos
+title:      Ler e escrever arquivos
 created_at: 2010-03-10 12:06:40.191549 -03:00
 filter:
   - erb
@@ -7,30 +7,34 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Let's look at how we can read / write to a text file with the help of a simple program p027readwrite.rb
+Vamos ver como podemos ler/escrever para um arquivo de texto com a ajuda de um simples programa **p027readwrite.rb**
+
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p027readwrite.rb  
-# Open and read from a text file  
-# Note that since a block is given, file will  
-# automatically be closed when the block terminates  
+# Abrir e ler um arquivo de texto
+# Note que como é dado um bloco, o arquivo
+# é automaticamente fechado quando o bloco termina  
 File.open('p014constructs.rb', 'r') do |f1|  
   while line = f1.gets  
     puts line  
   end  
 end  
-  
-# Create a new file and write to it  
+
+# Cria um novo arquivo e escreve nele  
 File.open('test.rb', 'w') do |f2|  
-  # use "\n" for two lines of text  
-  f2.puts "Created by Satish\nThank God!"  
+  # use "\n" para duas linhas de texto 
+  f2.puts "Criado por Satish\nGracas a Deus!"  
 end
 <% end %>
 
-The File.open method can open the file in different modes like 'r' Read-only, starts at beginning of file (default); 'r+' Read/Write, starts at beginning of file; 'w' Write-only, truncates existing file to zero length or creates a new file for writing. Please check the online documentation for a full list of modes available. File.open opens a new File if there is no associated block. If the optional block is given, it will be passed file as an argument, and the file will automatically be closed when the block terminates. Always close a file that you open. In the case of a file open for writing, this is very important and can actually prevent lost data.
+O método **File.open** pode abrir o arquivo em modos diferentes como o 'r' (somente-leitura), que inicia no começo do arquivo; 'r+' Leitura/Escrita, começa no início do arquivo; 'w' Somente-escrita, trunca o arquivo existente para tamanho zero ou cria um novo arquivo para escrita. Cheque a documentação do Ruby para uma lista completa dos modos disponíveis.
+**File.open** abre um novo arquivo (**File**) se não existe nenhum bloco associado. Se o bloco opcional é dado, ele será passado como argumento ao arquivo, e o arquivo será fechado automaticamente quando o bloco termina. Sempre feche um arquivo que você abriu. No caso de um arquivo aberto para escrita, isso é muito importante e pode até mesmo prevenir a perda de dados.
 
-File implements a readlines method that reads an entire file into an array, line by line.
+**File** implementa um método **readlines** (lê linhas) que lê um arquivo inteiro dentro de um array, linha por linha.
 
+Ambos métodos de classe, **open** e **readlines**, pertencem a classe **IO**, cuja subclasse é **File*. Ainda não estudamos classes, objetos e herança mas, apenas para registro,
+estes dois métodos são herdados pela subclasse **File** da classe **IO**.
 Both class methods open and readlines belong to the IO class, whose sub-class is File. We have not done classes, objects, inheritance yet but for the record these two methods are inherited by the sub-class File from the class IO.
 
 h2. Percorrendo Árvores de Diretórios
