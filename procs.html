@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Procs em Ruby</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Procs em Ruby</p>
+<p><em>Blocos não são objetos</em>, mas eles podem ser convertidos em objetos da classe <strong>Proc</strong>. Podemos fazer isso chamando o método <strong>lambda</strong>, presente no módulo <strong>Kernel</strong> do Ruby. Um bloco criado com <strong>lambda</strong>, atua como um método Ruby. Caso você não especifique o número correto de argumentos, você não pode chamar o bloco.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> prc = lambda {<span class="s"><span class="dl">&quot;</span><span class="k">hello</span><span class="dl">&quot;</span></span>}
+</pre>
+</div>
+<p>Objetos <strong>Proc</strong> são blocos de código que são vinculados a um grupo de variáveis locais. A classe <strong>Proc</strong> tem uma chamada de método que justamente instancia o bloco. O programa <strong>p024proccall.rb</strong> ilustra isso.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># Blocos não são objetos</span>
+<span class="no"> 2</span> <span class="c"># eles podem ser convertidos em objetos da classe Proc,</span>
+<span class="no"> 3</span> <span class="c"># chamando o método lambda</span>
+<span class="no"> 4</span> prc = lambda {puts <span class="s"><span class="dl">'</span><span class="k">Olá</span><span class="dl">'</span></span>}
+<span class="no"> 5</span> <span class="c"># o método call chama o bloco</span>
+<span class="no"> 6</span> prc.call
+<span class="no"> 7</span> 
+<span class="no"> 8</span> <span class="c"># outro exemplo</span>
+<span class="no"> 9</span> brinde = lambda <span class="r">do</span>
+<span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">'</span><span class="k">Viva</span><span class="dl">'</span></span>
+<span class="no">11</span> <span class="r">end</span>
+<span class="no">12</span> brinde.call
+</pre>
+</div>
+<p>A saída deste código será:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p024proccall.rb
+<span class="no">2</span> Olá
+<span class="no">3</span> Viva
+<span class="no">4</span> &gt;Exit code: 0
+</pre>
+</div>
+<p>Se você chamar o método <em>class</em> do objeto prc, você verá que ele pertence a classe <strong>Proc</strong>, como podemos ver no exemplo abaixo:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> prc = lambda {puts <span class="s"><span class="dl">'</span><span class="k">Hello</span><span class="dl">'</span></span>}
+<span class="no">2</span> puts prc.class
+<span class="no">3</span> <span class="c">#a saída será Proc</span>
+</pre>
+</div>
+<p>Lembre-se que você não pode passar métodos dentro de outros métodos (mas você pode passar procs dentro dos métodos), e métodos não podem retornar outros métodos (mas eles podem retornar procs).</p>
+<p>O próximo exemplo mostra como <em>os métodos podem usar procs</em>. Exemplo <strong>p025mtdproc.rb</strong></p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c">=begin
+<span class="no"> 2</span>   Você não pode passar métodos dentro de outros métodos
+<span class="no"> 3</span>   (mas pode passar procs dentro dos métodos),
+<span class="no"> 4</span>   e métodos não podem retornar outros métodos (mas eles podem retornar procs)
+<span class="no"> 5</span> =end</span>
+<span class="no"> 6</span> 
+<span class="no"> 7</span> <span class="r">def</span> <span class="fu">algum_metodo</span> algum_proc
+<span class="no"> 8</span>   puts <span class="s"><span class="dl">'</span><span class="k">Início do método</span><span class="dl">'</span></span>
+<span class="no"> 9</span>   algum_proc.call
+<span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">'</span><span class="k">Fim do método</span><span class="dl">'</span></span>
+<span class="no">11</span> <span class="r">end</span>
+<span class="no">12</span> 
+<span class="no">13</span> fale = lambda <span class="r">do</span>
+<span class="no">14</span>   puts <span class="s"><span class="dl">'</span><span class="k">Olá</span><span class="dl">'</span></span>
+<span class="no">15</span> <span class="r">end</span>
+<span class="no">16</span> 
+<span class="no">17</span> algum_metodo fale
+</pre>
+</div>
+<p>A saída do exemplo será:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> &gt;ruby p025mtdproc.rb
+<span class="no">2</span> Início do método
+<span class="no">3</span> Olá
+<span class="no">4</span> Fim do método
+<span class="no">5</span> &gt;Exit code: 0
+</pre>
+</div>
+<p>Aqui está outro exemplo da passagem de argumentos usando <strong>lambda</strong>.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> umBlock = lambda { |x| puts x }
+<span class="no">2</span> umBlock.call <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
+<span class="no">3</span> <span class="c"># a saída será: Olá Mundo!</span>
+</pre>
+</div>
+<div class='box'>
+<p>O <strong>Fabio Akita</strong>, grande entusiasta do Rails e Ruby, também conhecido online como &#8220;AkitaOnRails&#8221;, escreveu um excelente artigo sobre <a href="http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/">Closures/Blocos em Ruby</a> para os membros do <em>rubylearning.com</em>, que também foi publicado em português no seu <a href="http://akitaonrails.com/2007/11/30/anatomia-de-ruby-blocks-closures">blog</a>. Se você quiser saber mais sobre blocos em Ruby, esse artigo poderá te ajudar em muito.</p>
+<p>Outro artigo recomendado é o do <a href="http://blog.areacriacoes.com.br/2008/9/22/blocos">Daniel Lopes</a>, que explica de uma forma bem didática o conceito e uso de blocos.</p>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>
