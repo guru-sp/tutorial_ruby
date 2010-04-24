@@ -58,15 +58,15 @@ h3. Parte 4
 ## Variáveis de ambiente
 ## Argumentos de linha de comando
 ## Biblioteca GetoptLong
-# "Intervalos (Ranges)":intervalos.html
+# "Séries (Ranges)":series.html
 # "Símbolos em Ruby":simbolos.html
 # "Hashes (dicionários)":hashes-ruby.html
 ## Usando símbolos como chaves hash
 # "Números aleatórios":numeros-aleatorios.html
-# "Ler/escrever arquivos":ler-escrever-arquivos.html
+# "Lendo e escrevendo em arquivos":ler-escrever-arquivos.html
 ## Varrendo árvores de diretórios
 ## Acesso aleatório
-# Resumo 4
+# "Resumo 4":sumario-ruby4.html
 
 h3. Parte 5
 # "Expressões Regulares":expressoes-regulares.html
@@ -113,12 +113,12 @@ h3. Parte 7
 # Resumo 7
 
 h3. Parte 8
-# Serialização de objetos
+# Serialização de objetos":serializacao-ruby.html
 # Módulos / Mixins
 # Self
 ## Contexto do nível mais alto
 ## Self dentro de definições de classes e módulos
 ## Self na definição de métodos de instância
 ## Self na definição de métodos singleton e métodos de classe
-# Constantes
+# "Constantes":constantes.html
 # Resumo 8

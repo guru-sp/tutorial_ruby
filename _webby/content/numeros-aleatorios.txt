@@ -1,5 +1,5 @@
 ---
-title:      Numeros-Aleatorios
+title:      Números Aleatórios
 created_at: 2010-03-10 12:04:30.370531 -03:00
 filter:
   - erb
@@ -7,39 +7,51 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Ruby comes with a random number generator. The method to get a randomly chosen number is rand. If you call rand, you'll get a float greater than or equal to 0.0 and less than 1.0. If you give it an integer parameter (by calling rand(5) ), you will get an integer value greater than or equal to 0 and less than 5.
+O Ruby vem com um gerador de números aleatórios (ou randômicos). O meio de se obter um número escolhido aleatório é o **rand**. Se você chamar **rand** terá um float maior que ou igual a 0.0 e menor que 1.0. Se você der a ele um parâmetro inteiro (chamando, por exemplo, rand(5)), você obterá um valor inteiro maior que ou igual a 0 e menor que 5.
 
-Here's an example: p026phrase.rb
+Aqui está um exemplo: **p026phrase.rb**
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p026phrase.rb  
 =begin  
-  If you call rand, you'll get a float greater than or equal to 0.0 
-  and less than 1.0. If you give it an integer parameter (by calling rand(5) ), 
-  you will get an integer value greater than or equal to 0 and less than 5 
+  Se você chamar **rand** terá um float maior que 
+  ou igual a 0.0 e menor que 1.0. Se você der a ele 
+  um parâmetro inteiro (chamando, por exemplo, rand(5)),
+  você obterá um valor inteiro maior que ou igual a 0 
+  e menor que 5
 =end 
- 
-# The program below makes three lists of words, and then randomly picks one word 
-# from each of the three lists and prints out the result 
-word_list_one = ['24/7', 'multi-Tier', '30,000 foot', 'B-to-B', 'win-win', 'front-end', 
-                 'web-based', 'pervasive', 'smart', 'six-sigma', 'critical-path', 'dynamic'] 
-word_list_two = ['empowered', 'sticky', 'value-added', 'oriented', 'centric', 'distributed', 
-                 'clustered', 'branded', 'outside-the-box', 'positioned', 'networked', 'focused', 
-                 'leveraged', 'aligned', 'targeted', 'shared', 'cooperative', 'accelerated'] 
-word_list_three = ['process', 'tipping-point', 'solution', 'architecture', 'core competency', 
-                   'strategy', 'mindshare', 'portal', 'space', 'vision', 'paradigm', 'mission']  
+
+# O programa abaixo faz três listas de palavras e 
+# então escolhe aleatoriamente uma palavra
+# para cada uma das três listas e imprime o resultado 
+
+lista_palavras_um = ['24/7', 'multicamada', '30,000 pés', 'B2B', 'win-win',
+                   'front-end', 'web-based', 'pervasivo', 'inteligente', 
+                    'seis-sigma', 'caminho-crítico', 'dinâmico']
+                    
+lista_palavras_dois = ['empowered', 'sticky', 'value-added', 'orientado',
+                       'centrado', 'distribuído', 'agrupado', 'branded',
+                       'fora-da-caixa', 'posicionado', 'em rede', 'focado', 
+                       'alavancado', 'alinhado', 'targeted', 'compartilhado',
+                       'cooperativo', 'acelerado']
+                       
+lista_palavras_tres = ['processo', 'tipping-point', 'solução', 'arquitetura',
+                       'competência central', 'estratégia', 'mindshare', 
+                       'portal', 'espaço', 'visão', 'paradigma', 'missão']  
   
-one_len = word_list_one.length  
-two_len = word_list_two.length  
-three_len = word_list_three.length  
+tamanho_um = lista_palavras_um.length  
+tamanho_dois = lista_palavras_dois.length  
+tamanho_tres = lista_palavras_tres.length  
   
-rand1 = rand(one_len)  
-rand2 = rand(two_len)  
-rand3 = rand(three_len)
+rand1 = rand(tamanho_um)  
+rand2 = rand(tamanho_dois)  
+rand3 = rand(tamanho_tres)
   
-phrase = word_list_one[rand1] + " " + word_list_two[rand2] + " " + word_list_three[rand3]  
+frase = lista_palavras_um[rand1] + " " 
+        + lista_palavras_dois[rand2] + " " + lista_palavras_tres[rand3]  
   
-puts phrase
+puts frase
 <% end %>
 
-The above program makes three lists of words, and then randomly picks one word from each of the three lists and prints out the result.
+O programa acima cria três listas de palavras e então seleciona aleatoriamente uma palavra de cada uma das listas e imprime o resultado.
+

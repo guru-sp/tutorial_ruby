@@ -23,7 +23,6 @@
 <body>
 
 <div class="container">
-
    <div class="column span-22 prepend-1 append-1 first last" id="header">
      <p class="title">Tutorial de Ruby do GURU-SP</p>
      <hr>
@@ -40,14 +39,14 @@
 	<li>Podemos adicionar novos elementos a um Array existente.</li>
 	<li>O método each (para cada objeto) é um iterador que extrai cada elemento do array. O método each permite que façamos<br />
 o que quisermos com cada um dos objetos que o array aponta para.</li>
-	<li>A variável entre as barras verticais, ie, | | refere-se a cada item no array a medida que ele é iterado no loop. Você pode dar a essa variável o nome que desejar.</li>
-	<li>Sequências tem um ponto de início, de término e um modo de produzir valores sucessicos na sequência. No Ruby, essas sequências são criadas usando os operadores de intervalo <strong>&#8220;..&#8221;</strong> e <strong>&#8220;&#8230;&#8221;</strong>.</li>
+	<li>A variável entre as barras verticais, isto é, | | refere-se a cada item no array a medida que ele é iterado no loop. Você pode dar a essa variável o nome que desejar.</li>
+	<li>Sequências tem um ponto de início, de término e um modo de produzir valores sucessivos na sequência. No Ruby, essas sequências são criadas usando os operadores de intervalo <strong>&#8220;..&#8221;</strong> e <strong>&#8220;&#8230;&#8221;</strong>.</li>
 	<li>A forma com os dois pontos cria um intervalo inclusivo, e a forma com três pontos cria um intervalo exclusivo, excluindo o valor mais alto do intervalo.</li>
 	<li>No Ruby, a sequência <strong>1..100000</strong> é armazenada como um objeto do tipo <strong>Range</strong> contendo referências a dois objetos <strong>Fixnum</strong>.</li>
 	<li>O método <strong>.to_a</strong> converte um Range em um <strong>Array</strong>.</li>
 	<li>Outro uso versátil do range é no teste de um intervalo: ver se um valor está dentro do intervalo representado pelo range. Fazemos isso usando <strong>===</strong>, o operador de igualdade de caso.</li>
 	<li>Ranges não estão limitados a inteiros ou números. O início e o fim de um de um intervalo pode ser qualquer objeto Ruby.</li>
-	<li>Um símbolo (symbol) parece com um nome de varíavel mas é prefixado com dois pontos.</li>
+	<li>Um símbolo (symbol) parece com um nome de variável mas é prefixado com dois pontos.</li>
 	<li>Você pode pensar em <strong>:id</strong> como significando o nome da variável id, e <strong>id</strong> (sem os dois pontos) como o valor da variável.</li>
 	<li>Símbolos são úteis porque um nome de símbolo se refere ao mesmo objeto ao longo de um programa Ruby.</li>
 	<li>Símbolos podem ser considerados constantes sem valores.</li>
@@ -58,17 +57,17 @@ o que quisermos com cada um dos objetos que o array aponta para.</li>
 		<li>Se a identidade do objeto é importante, use um símbolo.</li>
 	</ol></li>
 	<li>Um objeto do tipo símbolo é criado prefixando um operador, string, variável, constante, método, nome de módulo com dois pontos.</li>
-	<li>Se <strong>Fred</strong> é uma consstante em um contexto, um método em outro e uma classe em um terceiro, o Símbolo <strong>:Fred</strong> será o mesmo objeto nos três contextos.</li>
-	<li>Hashes são similares a arrays por representarem uma coleção indexada de referências a objetos. Entretanto, enquanto você indexa os arrays com inteiros, você pode indexar um hash com objetos de qualquer tipo: strings, expreesões regulares e assim por diante.</li>
+	<li>Se <strong>Fred</strong> é uma constante em um contexto, um método em outro e uma classe em um terceiro, o Símbolo <strong>:Fred</strong> será o mesmo objeto nos três contextos.</li>
+	<li>Hashes são similares a arrays por representarem uma coleção indexada de referências a objetos. Entretanto, enquanto você indexa os arrays com inteiros, você pode indexar um hash com objetos de qualquer tipo: strings, expressões regulares e assim por diante.</li>
 	<li>Quando você armazena um valor em um hash, você realmente provê dois objetos &#8211; o índice (normalmente chamado chave ou key) e o valor.</li>
 	<li>nil é retornado quando se tenta acessar uma chave que não existe no hash.</li>
 	<li>O método para obter um número escolhido aleatoriamente no Ruby é o rand.</li>
-	<li>Se você chamar rand você obterá um float maior ou igual a 0.0 e menor que 1.0. Se você der a ele um inteiro como parâmetro de entreda (chamando, por exemplo, <strong>rand(5)</strong>), você obterá um inteiro maior ou igual a 0 e menor que 5.</li>
-	<li>O método <strong>File.open</strong> pode abrir um arquivo em modos diferentes como <strong>&#8216;r&#8217;</strong> (somente leitura, iniciando no começo do arquivo (padrão)), <strong>&#8216;r+&#8217;</strong> (Escrita/leitura, inicia no começo do arquivo), <strong>&#8216;w&#8217;</strong> (somente escrita), trounca o arquivo existente para o tamanho vazio ou cria um novo arquivo para escrita.</li>
+	<li>Se você chamar rand você obterá um float maior ou igual a 0.0 e menor que 1.0. Se você der a ele um inteiro como parâmetro de entrada (chamando, por exemplo, <strong>rand(5)</strong>), você obterá um inteiro maior ou igual a 0 e menor que 5.</li>
+	<li>O método <strong>File.open</strong> pode abrir um arquivo em modos diferentes como <strong>&#8216;r&#8217;</strong> (somente leitura, iniciando no começo do arquivo (padrão)), <strong>&#8216;r+&#8217;</strong> (Escrita/leitura, inicia no começo do arquivo), <strong>&#8216;w&#8217;</strong> (somente escrita), troca o arquivo existente para o tamanho vazio ou cria um novo arquivo para escrita.</li>
 	<li><strong>File.open</strong> abre um novo arquivo se não há nenhum bloco associado. Se o bloco é dado, ele passará o arquivo como um argumento,<br />
 e o arquivo será automaticamente fechado quando o bloco terminar.</li>
 	<li>Sempre feche um arquivo que você abrir. No caso de um arquivo aberto para escrita, isso é muito importante e pode realmente prevenir uma perda de dados.</li>
-	<li>O método <strong>seek</strong> (procurar) da classe <strong>IO</strong>, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEE_CUR &#8211; busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END &#8211; busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET &#8211; Busca a posilção absoluta dada pelo número inteiro do primeiro parâmetro.</li>
+	<li>O método <strong>seek</strong> (procurar) da classe <strong>IO</strong>, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEE_CUR &#8211; busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END &#8211; busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET &#8211; Busca a posição absoluta dada pelo número inteiro do primeiro parâmetro.</li>
 </ol>
    </div>
 
@@ -87,7 +86,7 @@ e o arquivo será automaticamente fechado quando o bloco terminar.</li>
       <p class="incr"></p>
    </div>
 
-   <div class="column span-20 prepend-2 append-2 first last" id="footer">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
      <hr />
      <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
    </div>

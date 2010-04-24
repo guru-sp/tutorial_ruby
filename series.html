@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Séries (Ranges)</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Séries (Ranges)</p>
+<p>O primeiro e talvez o mais natural uso das séries (intervalos ou, em inglês, ranges) é para expressar uma sequência. Sequências tem um ponto de início, um ponto de término e um modo de produzir valores sucessivos na sequência. No Ruby, essas sequências são criadas usando os operadores de intervalo &#8220;..&#8221; e &#8220;&#8230;&#8221;. A forma com dois pontos cria uma série inclusiva e a forma de três pontos cria uma série que exclui o valor mais alto especificado. No Ruby as séries não são interpretadas internamente como listas: a sequência 1..100000 é armazenada como um objeto do tipo <b>Range</b> contendo referências a dois objetos <b>Fixnum</b>. Remeta-se ao programa <b>p021ranges.rb</b>. Caso você precise, é possível converter uma série para uma lista (array) usando o método <b>to_a</b>.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> (<span class="i">1</span>..<span class="i">10</span>).to_a -&gt; [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>, <span class="i">4</span>, <span class="i">5</span>, <span class="i">6</span>, <span class="i">7</span>, <span class="i">8</span>, <span class="i">9</span>, <span class="i">10</span>]
+</pre>
+</div>
+<p>Séries implementam métodos que permitem que você itere sobre elas e teste seus conteúdos de diversas maneiras.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># p021ranges.rb  </span>
+<span class="no"> 2</span> <span class="c">=begin
+<span class="no"> 3</span>   Sequências tem um ponto de início, de término 
+<span class="no"> 4</span>   e um modo de produzir valores sucessivos
+<span class="no"> 5</span>   No Ruby, essas sequências são criadas usando os 
+<span class="no"> 6</span>   operadores de intervalo &quot;..&quot; e &quot;...&quot;.
+<span class="no"> 7</span>   A forma com dois pontos cria uma série
+<span class="no"> 8</span>   inclusiva e a forma de três pontos cria uma 
+<span class="no"> 9</span>   série que exclui o valor mais alto especificado.
+<span class="no"><strong>10</strong></span> =end  </span>
+<span class="no">11</span> digitos = <span class="i">-1</span>..<span class="i">9</span>  
+<span class="no">12</span> puts digitos.include?(<span class="i">5</span>)          <span class="c"># true  </span>
+<span class="no">13</span> puts digitos.min                  <span class="c"># -1  </span>
+<span class="no">14</span> puts digitos.max                  <span class="c"># 9  </span>
+<span class="no">15</span> puts digitos.reject {|i| i &lt; <span class="i">5</span> }  <span class="c"># [5, 6, 7, 8, 9]</span>
+</pre>
+</div>
+<p>Outro uso do versátil Range é para testar um intervalo: verificar se algum valor está dentro do intervalo representado pela série. Fazemos isso usando o operador de igualdade ===.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> (<span class="i">1</span>..<span class="i">10</span>) === <span class="i">5</span>       -&gt; <span class="pc">true</span>  
+<span class="no">2</span> (<span class="i">1</span>..<span class="i">10</span>) === <span class="i">15</span>      -&gt; <span class="pc">false</span>  
+<span class="no">3</span> (<span class="i">1</span>..<span class="i">10</span>) === <span class="fl">3.14159</span> -&gt; <span class="pc">true</span>  
+<span class="no">4</span> (<span class="s"><span class="dl">'</span><span class="k">a</span><span class="dl">'</span></span>..<span class="s"><span class="dl">'</span><span class="k">j</span><span class="dl">'</span></span>) === <span class="s"><span class="dl">'</span><span class="k">c</span><span class="dl">'</span></span>  -&gt; <span class="pc">true</span>  
+<span class="no">5</span> (<span class="s"><span class="dl">'</span><span class="k">a</span><span class="dl">'</span></span>..<span class="s"><span class="dl">'</span><span class="k">j</span><span class="dl">'</span></span>) === <span class="s"><span class="dl">'</span><span class="k">z</span><span class="dl">'</span></span>  -&gt; <span class="pc">false</span>
+</pre>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

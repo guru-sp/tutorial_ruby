@@ -1,0 +1,45 @@
+---
+title:      Séries (Ranges)
+created_at: 2010-03-10 11:52:48.875419 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+O primeiro e talvez o mais natural uso das séries (intervalos ou, em inglês, ranges) é para expressar uma sequência. Sequências tem um ponto de início, um ponto de término e um modo de produzir valores sucessivos na sequência. No Ruby, essas sequências são criadas usando os operadores de intervalo ".." e "...". A forma com dois pontos cria uma série inclusiva e a forma de três pontos cria uma série que exclui o valor mais alto especificado. No Ruby as séries não são interpretadas internamente como listas: a sequência 1..100000 é armazenada como um objeto do tipo **Range** contendo referências a dois objetos **Fixnum**. Remeta-se ao programa **p021ranges.rb**. Caso você precise, é possível converter uma série para uma lista (array) usando o método **to_a**.
+
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+(1..10).to_a -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+<% end %>
+
+Séries implementam métodos que permitem que você itere sobre elas e teste seus conteúdos de diversas maneiras.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# p021ranges.rb  
+=begin
+  Sequências tem um ponto de início, de término 
+  e um modo de produzir valores sucessivos
+  No Ruby, essas sequências são criadas usando os 
+  operadores de intervalo ".." e "...".
+  A forma com dois pontos cria uma série
+  inclusiva e a forma de três pontos cria uma 
+  série que exclui o valor mais alto especificado.
+=end  
+digitos = -1..9  
+puts digitos.include?(5)          # true  
+puts digitos.min                  # -1  
+puts digitos.max                  # 9  
+puts digitos.reject {|i| i < 5 }  # [5, 6, 7, 8, 9]
+<% end %>
+
+Outro uso do versátil Range é para testar um intervalo: verificar se algum valor está dentro do intervalo representado pela série. Fazemos isso usando o operador de igualdade ===.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+(1..10) === 5       -> true  
+(1..10) === 15      -> false  
+(1..10) === 3.14159 -> true  
+('a'..'j') === 'c'  -> true  
+('a'..'j') === 'z'  -> false
+<% end %>
