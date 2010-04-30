@@ -31,7 +31,7 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Ruby Method Missing</p>
 <p>Quando você envia uma mensagem a um objeto, este executa o primeiro método que ele encontra no <a href="http://phrogz.net/RubyLibs/RubyMethodLookupFlow.pdf">caminho de busca do método</a> (arquivo PDF) com o mesmo nome da mensagem. Se ele falha em encontrar tal método, ele lança uma exceção do tipo <strong>NoMethodError</strong> &#8211; a menos que você tenha fornecido ao objeto um método chamado <strong>method_missing</strong> (método ausente). Ao método <strong>method_missing</strong> é passado o símbolo do método não existente, uma lista de argumentos que foram passados na chamada original e qualquer bloco passado ao método original.</p>
-<p><strong>method_missing</strong> faz parte de uma rede de segurança: Ele lhe fornece um jeito de interceptar mensagens não respondidas e trata-as de maneira elegante. Veja o exemplo p012zmm.rb abaixo.</p>
+<p><strong>method_missing</strong> faz parte de uma rede de segurança: Ele lhe fornece um jeito de interceptar mensagens não respondidas e trata-as de maneira elegante. Veja o exemplo <strong>p012zmm.rb</strong> abaixo:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="r">class</span> <span class="cl">Dummy</span>
 <span class="no">2</span>   <span class="r">def</span> <span class="fu">method_missing</span>(m, *args, &amp;block)  

@@ -7,13 +7,13 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-_Blocos não são objetos_, mas eles podem ser convertidos em objetos da classe *Proc*. Podemos fazer isso chamando o método *lambda*, presente no módulo *Kernel* do Ruby. Um bloco criado com *lambda*, atua como um método Ruby. Caso você não especifique o número correto de argumentos, você não pode chamar o bloco.
+_Blocos não são objetos_, mas eles podem ser convertidos em objetos da classe *Proc*. Podemos fazer isso chamando o método *lambda*, presente no módulo *Kernel* do Ruby. Um bloco criado com *lambda* atua como um método Ruby. Caso você não especifique o número correto de argumentos, você não pode chamar o bloco.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 prc = lambda {"hello"}
 <% end %>
 
-Objetos *Proc* são blocos de código que são vinculados a um grupo de variáveis locais. A classe *Proc* tem uma chamada de método que justamente instancia o bloco. O programa *p024proccall.rb* ilustra isso.
+Objetos *Proc* são blocos de código que são vinculados a um grupo de variáveis locais. A classe *Proc* tem uma chamada de método que invoca o bloco. O programa *p024proccall.rb* ilustra isso.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # Blocos não são objetos
@@ -30,7 +30,7 @@ end
 brinde.call
 <% end %>
 
-A saída deste código será:
+A saída deste código é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
 >ruby p024proccall.rb
@@ -84,14 +84,13 @@ Fim do método
 Aqui está outro exemplo da passagem de argumentos usando *lambda*.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-umBlock = lambda { |x| puts x }
-umBlock.call 'Olá Mundo!'
+umBloco = lambda { |x| puts x }
+umBloco.call 'Olá Mundo!'
 # a saída será: Olá Mundo!
 <% end %>
 
 <div class='box'>
-
-O *Fabio Akita*, grande entusiasta do Rails e Ruby, também conhecido online como "AkitaOnRails", escreveu um excelente artigo sobre "Closures/Blocos em Ruby":http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/ para os membros do _rubylearning.com_, que também foi publicado em português no seu "blog":http://akitaonrails.com/2007/11/30/anatomia-de-ruby-blocks-closures. Se você quiser saber mais sobre blocos em Ruby, esse artigo poderá te ajudar em muito.
+*Fabio Akita*, grande entusiasta do Rails e Ruby, também conhecido online como "AkitaOnRails", escreveu um excelente artigo sobre "Closures/Blocos em Ruby (em inglês)":http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/ para os membros do _rubylearning.com_, que também foi publicado em português no seu "blog":http://akitaonrails.com/2007/11/30/anatomia-de-ruby-blocks-closures. Se você quiser saber mais sobre blocos em Ruby, esse artigo poderá te ajudar em muito.
 
 Outro artigo recomendado é o do "Daniel Lopes":http://blog.areacriacoes.com.br/2008/9/22/blocos, que explica de uma forma bem didática o conceito e uso de blocos.
 

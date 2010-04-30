@@ -79,7 +79,7 @@ h3. Parte 5
 ## Coletor de Lixo (Garbage Collection)
 ## Métodos de Classe
 # "Ruby method missing (método faltando)":ruby-method-missing.html
-# Procs em Ruby
+# "Procs em Ruby":procs.html
 # Incluindo Outros Arquivos
 # Classes Abertas do Ruby
 # Herança

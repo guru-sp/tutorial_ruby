@@ -30,12 +30,12 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">Procs em Ruby</p>
-<p><em>Blocos não são objetos</em>, mas eles podem ser convertidos em objetos da classe <strong>Proc</strong>. Podemos fazer isso chamando o método <strong>lambda</strong>, presente no módulo <strong>Kernel</strong> do Ruby. Um bloco criado com <strong>lambda</strong>, atua como um método Ruby. Caso você não especifique o número correto de argumentos, você não pode chamar o bloco.</p>
+<p><em>Blocos não são objetos</em>, mas eles podem ser convertidos em objetos da classe <strong>Proc</strong>. Podemos fazer isso chamando o método <strong>lambda</strong>, presente no módulo <strong>Kernel</strong> do Ruby. Um bloco criado com <strong>lambda</strong> atua como um método Ruby. Caso você não especifique o número correto de argumentos, você não pode chamar o bloco.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> prc = lambda {<span class="s"><span class="dl">&quot;</span><span class="k">hello</span><span class="dl">&quot;</span></span>}
 </pre>
 </div>
-<p>Objetos <strong>Proc</strong> são blocos de código que são vinculados a um grupo de variáveis locais. A classe <strong>Proc</strong> tem uma chamada de método que justamente instancia o bloco. O programa <strong>p024proccall.rb</strong> ilustra isso.</p>
+<p>Objetos <strong>Proc</strong> são blocos de código que são vinculados a um grupo de variáveis locais. A classe <strong>Proc</strong> tem uma chamada de método que invoca o bloco. O programa <strong>p024proccall.rb</strong> ilustra isso.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># Blocos não são objetos</span>
 <span class="no"> 2</span> <span class="c"># eles podem ser convertidos em objetos da classe Proc,</span>
@@ -51,7 +51,7 @@
 <span class="no">12</span> brinde.call
 </pre>
 </div>
-<p>A saída deste código será:</p>
+<p>A saída deste código é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p024proccall.rb
 <span class="no">2</span> Olá
@@ -99,13 +99,13 @@
 </div>
 <p>Aqui está outro exemplo da passagem de argumentos usando <strong>lambda</strong>.</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> umBlock = lambda { |x| puts x }
-<span class="no">2</span> umBlock.call <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
+<pre><span class="no">1</span> umBloco = lambda { |x| puts x }
+<span class="no">2</span> umBloco.call <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
 <span class="no">3</span> <span class="c"># a saída será: Olá Mundo!</span>
 </pre>
 </div>
 <div class='box'>
-<p>O <strong>Fabio Akita</strong>, grande entusiasta do Rails e Ruby, também conhecido online como &#8220;AkitaOnRails&#8221;, escreveu um excelente artigo sobre <a href="http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/">Closures/Blocos em Ruby</a> para os membros do <em>rubylearning.com</em>, que também foi publicado em português no seu <a href="http://akitaonrails.com/2007/11/30/anatomia-de-ruby-blocks-closures">blog</a>. Se você quiser saber mais sobre blocos em Ruby, esse artigo poderá te ajudar em muito.</p>
+<p><strong>Fabio Akita</strong>, grande entusiasta do Rails e Ruby, também conhecido online como &#8220;AkitaOnRails&#8221;, escreveu um excelente artigo sobre <a href="http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/" title="em inglês">Closures/Blocos em Ruby</a> para os membros do <em>rubylearning.com</em>, que também foi publicado em português no seu <a href="http://akitaonrails.com/2007/11/30/anatomia-de-ruby-blocks-closures">blog</a>. Se você quiser saber mais sobre blocos em Ruby, esse artigo poderá te ajudar em muito.</p>
 <p>Outro artigo recomendado é o do <a href="http://blog.areacriacoes.com.br/2008/9/22/blocos">Daniel Lopes</a>, que explica de uma forma bem didática o conceito e uso de blocos.</p>
 </div>
    </div>
