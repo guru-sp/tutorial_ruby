@@ -82,7 +82,7 @@ h3. Parte 5
 # "Procs em Ruby":procs.html
 # Incluindo Outros Arquivos
 # Classes Abertas do Ruby
-# Herança
+# "Herança":heranca.html
 ## Herança e variáveis de classe
 # Sobreposição (Overriding) de Métodos
 ## Uso do super
