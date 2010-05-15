@@ -28,8 +28,8 @@ O programa *p004usodestring.rb* mostra-nos mais algumas formas de uso de strings
 PI = 3.1416  
 puts PI  
 # Definindo uma variável local  
-minhaString = 'Eu amo minha cidade'  
-puts minhaString  
+minha_string = 'Eu amo minha cidade'  
+puts minha_string  
 =begin  
   Conversões
   .to_i, .to_f, .to_s  
