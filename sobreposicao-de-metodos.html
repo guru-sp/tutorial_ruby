@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Sobreposicao de Metodos</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Sobreposicao de Metodos</p>
+<p>Sobreposição de métodos(override) em programação orientada a objetos, é um recurso da linguagem que permite que a subclasse, rescreva uma implementação especifica de um método que já esta previsto em uma super-class. A implementação na subclasse sobrepõe a implementação na super-class.</p>
+<p>Aqui esta um exemplo p037xmtdoverride.rb:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> A  
+<span class="no"> 2</span>           def a  
+<span class="no"> 3</span>             puts <span class="s"><span class="dl">'</span><span class="k">Dentro da classe A</span><span class="dl">'</span></span>  
+<span class="no"> 4</span>           end  
+<span class="no"> 5</span>         end  
+<span class="no"> 6</span> 
+<span class="no"> 7</span>         class B &lt; A  
+<span class="no"> 8</span>           def a  
+<span class="no"> 9</span>             puts <span class="s"><span class="dl">'</span><span class="k">Dentro da classe B</span><span class="dl">'</span></span>  
+<span class="no"><strong>10</strong></span>           end  
+<span class="no">11</span>         end  
+<span class="no">12</span> 
+<span class="no">13</span>         b = B.new  
+<span class="no">14</span>         b.a
+</pre>
+</div>
+<p>O Método na classe B sobrepôs o método na classe A.</p>
+<h2>Uso do super</h2>
+<p>A forma de se lidar com argumentos super:</p>
+<ul>
+	<li>Quando você invoca super sem argumentos, Ruby envia uma mensagem para o pai do objeto atual, pedindo para invocar um método do mesmo nome que o método que invocou super, ele automaticamente encaminha os argumentos que foram passados para o método a partir de qual foi chamado.</li>
+	<li>Chamando com uma lista de argumentos vazia &#8211; super()- ele não envia argumentos para o primeiro método, até mesmo se os argumentos foram passados para o método atual.</li>
+	<li>Chamando com argumentos específicos &#8211; super(a, b, c) &#8211; envia exatamente esses argumentos.</li>
+</ul>
+<p>Um exemplo p038bicycle.rb do Ruby for Rails book highlights</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Bicycle</span>
+<span class="no"> 2</span>     attr_reader <span class="sy">:gears</span>, <span class="sy">:wheels</span>, <span class="sy">:seats</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>(gears = <span class="i">1</span>)
+<span class="no"> 4</span>       <span class="iv">@wheels</span> = <span class="i">2</span>
+<span class="no"> 5</span>       <span class="iv">@seats</span> = <span class="i">1</span>
+<span class="no"> 6</span>       <span class="iv">@gears</span> = gears
+<span class="no"> 7</span>     <span class="r">end</span>
+<span class="no"> 8</span>   <span class="r">end</span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span>   <span class="r">class</span> <span class="cl">Tandem</span> &lt; <span class="co">Bicycle</span>
+<span class="no">11</span>     <span class="r">def</span> <span class="fu">initialize</span>(gears)
+<span class="no">12</span>       <span class="r">super</span>
+<span class="no">13</span>       <span class="iv">@seats</span> = <span class="i">2</span>
+<span class="no">14</span>     <span class="r">end</span>
+<span class="no">15</span>   <span class="r">end</span>
+<span class="no">16</span>   t = <span class="co">Tandem</span>.new(<span class="i">2</span>)
+<span class="no">17</span>   puts t.gears
+<span class="no">18</span>   puts t.wheels
+<span class="no">19</span>   puts t.seats
+<span class="no"><strong>20</strong></span>   b = <span class="co">Bicycle</span>.new
+<span class="no">21</span>   puts b.gears
+<span class="no">22</span>   puts b.wheels
+<span class="no">23</span>   puts b.seats
+</pre>
+</div>
+<p>A saida:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p038bicycle.rb
+<span class="no">2</span>   2
+<span class="no">3</span>   2
+<span class="no">4</span>   2
+<span class="no">5</span>   1
+<span class="no">6</span>   2
+<span class="no">7</span>   1
+<span class="no">8</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>Vamos falar com mais profundidade sobre attr_reader mais tarde.</p>
+<h2>Redefinindo métodos</h2>
+<p>(Adaptado do livro de David Blanck&#8217;s, Ruby for Rails)</p>
+<p>Nada impede que você defina um método duas vezes. Programa p038or.rb</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> OR  
+<span class="no"> 2</span>           def mtd  
+<span class="no"> 3</span>             puts <span class="s"><span class="dl">&quot;</span><span class="k">Primeira definição do método mtd</span><span class="dl">&quot;</span></span>  
+<span class="no"> 4</span>           end  
+<span class="no"> 5</span>           def mtd  
+<span class="no"> 6</span>             puts <span class="s"><span class="dl">&quot;</span><span class="k">Segunda definição do método mtd</span><span class="dl">&quot;</span></span>  
+<span class="no"> 7</span>           end  
+<span class="no"> 8</span>         end  
+<span class="no"> 9</span>         <span class="co">OR</span>.new.mtd
+</pre>
+</div>
+<p>O que acontece quando chamamos o mtd em uma instancia de OR? Vamos descobrir:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="co">OR</span>.new.mtd
+</pre>
+</div>
+<p>O resultado mostrado é a segunda definição do método mtd. A segunda definição é prevalecida: Nós vemos o resultado pela segunda, não pela primeira. Nada impede que você defina um método duas vezes, no entanto, a nova versão tem precedência.</p>
+<h2>Classe abstrata</h2>
+<p>Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos “abstratos” indefinidos, que é deixado para as subclass definir. Por exemplo:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># Essa classe é abstrata, mais não define Ola ou Nome  </span>
+<span class="no"> 2</span>         <span class="c"># Nenhuma sintaxe especial é necessária: qualquer classe que invoca os métodos.</span>
+<span class="no"> 3</span>         <span class="c"># que é destinado a implementar uma subclasse é abstrato.  </span>
+<span class="no"> 4</span>         <span class="r">class</span> <span class="cl">AbstractKlass</span>  
+<span class="no"> 5</span>           <span class="r">def</span> <span class="fu">welcome</span>  
+<span class="no"> 6</span>             puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>ola<span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
+<span class="no"> 7</span>           <span class="r">end</span>  
+<span class="no"> 8</span>         <span class="r">end</span>  
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span>         <span class="c"># A concrete class  </span>
+<span class="no">11</span>         <span class="r">class</span> <span class="cl">ConcreteKlass</span> &lt; <span class="co">AbstractKlass</span>  
+<span class="no">12</span>           <span class="r">def</span> <span class="fu">ola</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Ola</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
+<span class="no">13</span>           <span class="r">def</span> <span class="fu">nome</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Estudantes de Ruby</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
+<span class="no">14</span>         <span class="r">end</span>
+<span class="no">15</span> 
+<span class="no">16</span>         <span class="co">ConcreteKlass</span>.new.welcome <span class="c"># imprime &quot;Ola Estudantes de Ruby&quot;</span>
+</pre>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

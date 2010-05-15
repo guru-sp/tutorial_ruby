@@ -1,0 +1,138 @@
+---
+title:      Sobreposicao de Metodos
+created_at: 2010-05-11 09:23:39.261413 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+Sobreposição de métodos(override) em programação orientada a objetos, é um recurso da linguagem que permite que a subclasse, rescreva uma implementação especifica de um método que já esta previsto em uma super-class. A implementação na subclasse sobrepõe a implementação na super-class.
+
+Aqui esta um exemplo p037xmtdoverride.rb:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class A  
+	  def a  
+	    puts 'Dentro da classe A'  
+	  end  
+	end  
+
+	class B < A  
+	  def a  
+	    puts 'Dentro da classe B'  
+	  end  
+	end  
+
+	b = B.new  
+	b.a
+<% end -%>
+
+O Método na classe B sobrepôs o método na classe A.
+
+h2. Uso do super
+
+A forma de se lidar com argumentos super:
+
+* Quando você invoca super sem argumentos, Ruby envia uma mensagem para o pai do objeto atual, pedindo para invocar um método do mesmo nome que o método que invocou super, ele automaticamente encaminha os argumentos que foram passados para o método a partir de qual foi chamado.
+* Chamando com uma lista de argumentos vazia - super()- ele não envia argumentos para o primeiro método, até mesmo se os argumentos foram passados para o método atual.
+* Chamando com argumentos específicos - super(a, b, c) - envia exatamente esses argumentos.
+
+
+Um exemplo p038bicycle.rb do Ruby for Rails book highlights 
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class Bicycle
+    attr_reader :gears, :wheels, :seats
+    def initialize(gears = 1)
+      @wheels = 2
+      @seats = 1
+      @gears = gears
+    end
+  end
+
+  class Tandem < Bicycle
+    def initialize(gears)
+      super
+      @seats = 2
+    end
+  end
+  t = Tandem.new(2)
+  puts t.gears
+  puts t.wheels
+  puts t.seats
+  b = Bicycle.new
+  puts b.gears
+  puts b.wheels
+  puts b.seats
+<% end -%>
+
+
+A saida:
+
+<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
+  >ruby p038bicycle.rb
+  2
+  2
+  2
+  1
+  2
+  1
+  >Exit code: 0
+<% end -%>
+
+
+Vamos falar com mais profundidade sobre attr_reader mais tarde.
+
+
+h2. Redefinindo métodos
+
+(Adaptado do livro de David Blanck's, Ruby for Rails)
+
+Nada impede que você defina um método duas vezes. Programa p038or.rb
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class OR  
+	  def mtd  
+	    puts "Primeira definição do método mtd"  
+	  end  
+	  def mtd  
+	    puts "Segunda definição do método mtd"  
+	  end  
+	end  
+	OR.new.mtd
+<% end -%>
+
+
+O que acontece quando chamamos o mtd em uma instancia de OR? Vamos descobrir:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  OR.new.mtd
+<% end -%>
+
+
+O resultado mostrado é a segunda definição do método mtd. A segunda definição é prevalecida: Nós vemos o resultado pela segunda, não pela primeira. Nada impede que você defina um método duas vezes, no entanto, a nova versão tem precedência.
+
+
+h2. Classe abstrata
+
+Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos “abstratos” indefinidos, que é deixado para as subclass definir. Por exemplo:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # Essa classe é abstrata, mais não define Ola ou Nome  
+	# Nenhuma sintaxe especial é necessária: qualquer classe que invoca os métodos.
+	# que é destinado a implementar uma subclasse é abstrato.  
+	class AbstractKlass  
+	  def welcome  
+	    puts "#{ola} #{nome}"  
+	  end  
+	end  
+
+	# A concrete class  
+	class ConcreteKlass < AbstractKlass  
+	  def ola; "Ola"; end  
+	  def nome; "Estudantes de Ruby"; end  
+	end
+
+	ConcreteKlass.new.welcome # imprime "Ola Estudantes de Ruby"
+<% end -%>

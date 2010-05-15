@@ -1,0 +1,161 @@
+---
+title: Herança em Ruby
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+Herança é uma relação entre duas classes. Sabemos que todos gatos são mamíferos e que todos mamíferos são animais. O benefício da herança é que classes em níveis mais baixos da hierarquia obtêm as características daquelas em um nível mais alto, mas podem também adicionar características específicas a si mesmas. Se todos mamíferos respiram, então todos gatos respiram. No Ruby,
+uma classe pode apenas herdar de uma única outra classe. Outras linguagens suportam herança múltipla, uma funcionalidade que permite que classes herdem características de múltiplas classes, mas Ruby não suporta isso.
+
+Podemos expressar esse conceito no Ruby como mostrado no programa **p033mammal.rb** abaixo:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class Mammifero
+    def respira
+      puts "inspira e expira"
+    end
+  end
+
+  class Gato < Mamifero
+    def fala
+      puts "Miau"
+    end
+  end
+
+  rani = Gato.new
+  rani.respira
+  rani.fala
+<% end -%>
+
+Embora não tenhamos especificado como um Gato deve respirar, cada gato herdará este comportamento da classe Mamífero visto que Gato foi definido como uma subclasse de Mamífero (na terminologia de orientação a objetos, a classe menor é a subclasse e a classe maior é a superclasse. A subclasse é às vezes conhecida como classe derivada ou filha e a superclasse como classe pai). Portanto, do ponto de vista do programador, gatos obtêm a a habilidade de respirar de graça; após adicionarmos o método fala, nossos gatos podem respirar e falar.
+
+
+Existirão situações em que certas propriedades da superclasse não devem ser herdadas por uma subclasse particular. Embora aves em geral saibam como voar, pinguins são uma subclasse de aves que não voam. No exemplo **p034bird.rb** abaixo, nós sobrescrevemos (override) o método voa na classe Pinguim:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class Ave
+    def limpase
+      puts "Estou limpando minhas penas."
+    end
+    def voa
+      puts "Estou voando."
+    end
+  end
+
+  class Pinguim < Ave
+    def voa
+      puts "Desculpe. Prefiro nadar."
+    end
+  end
+
+  p = Pinguim.new
+  p.limpase
+  p.voa
+<% end -%>
+
+Ao invés de definir exaustivamente cada característica de cada nova classe, precisamos apenas adicionar ou redefinir as diferenças entre cada subclasse e de sua superclasse. Esse uso da herança é algumas vezes chamado de programação diferencial. É um dos benfícios da programação orientada a objetos.
+
+Os dois programas abaixo foram tirados do "Guia do Usuário Ruby (em inglês)":http://www.rubyist.net/%7Eslagell/ruby/inheritance.html
+
+Então, a **herança** permite que você cria uma classe que é uma versão refinada ou uma especialização de outra classe. A herança é indicada por <.
+
+Aqui está outro exemplo, **p035inherit.rb**:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class GF
+    @m =10
+    puts @m.object_id
+    def initialize
+      puts 'Na classe GF'
+    end
+    def gfmethod
+      puts 'chamada de metodo de GF'
+    end
+  end
+
+  # classe F, subclasse de GF
+  class F < GF
+    def initialize
+      super
+      puts 'Na classe F'
+    end
+  end
+
+  # classe S, subclasse de F
+  class S < F
+    def initialize
+      super
+      puts @m
+      puts @m.object_id
+      puts 'Na classe S'
+    end
+  end
+  
+  filho = S.new
+  filho.gfmethod
+<% end -%>
+
+Uma classe pode apenas herdar der uma classe de cada vez (isto é, uma classe pode herdar uma classe que herda de outra classe e que, por sua vez, herda de outra classe, mas uma única classe não pode herdar de várias classes ao mesmo tempo).
+
+
+<div class='box'>
+Existem muitas classes e módulos (mais sobre isso será explicado adiante) que vem com Ruby por padrão. Elas estão disponíveis para todos programas Ruby automaticamente; não é necessário usar o **require**. Algumas classes inclusas no Ruby são **Array**, **Bignum**, **Class**, **Dir**, **Exception**, **File**, **Fixnum**, **Float**, **Integer**, **IO**, **Module**, **Numeric**, **Object**, **Range**, **String**, **Thread**, **Time**. Alguns módulos inclusos são **Comparable**, **Enumerable**, **GC**, **Kernel**, **Math**.
+
+A classe **Objeto** é a classe pai de todas as classes em Ruby. Seus métodos estão portanto disponíveis para todos os objetos ao menos que sejam explicitamente sobrescritos. No Ruby 1.9, **Object** não é mais a raiz da hierarquia de classes. Uma nova classe chamada **BasicObject** tem esse objetivo, e **Objeto** passa a ser uma subclasse de **BasicObject**. Esta é uma classe bem simples, com quase nenhum método próprio. Quando você cria uma classe no Ruby 1.9, você ainda extende **Object** ao menos que você especifique a superclasse, e, a maioria dos programadores, nunca precisará usar ou extender **BasicObject**.
+
+No Ruby, **initialize** (inicializar) é um método ordinário e é herdado como qualquer outro.
+</div>
+
+<div class='box'>
+**No Rails:** A Herança é uma das técnicas chave usadas na organização do projeto da programação e do framework.
+</div>
+
+h2. Herança e Variáveis de Instância
+
+Considere o código:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class Cachorro
+    def initialize(raca)
+      @raca = raca
+    end
+  end
+
+  class Lab < Cachorro
+    def initialize(raca, nome)
+      super(raca)
+      @nome = nome
+    end
+
+    def to_s
+      "(#@raca, #@nome)"
+    end
+  end
+
+  puts Lab.new("Labrador", "Benzy").to_s
+<% end -%>
+
+O método **to_s** na classe Lab referencia a variável @breed da superclasse **Cachorro**. Esse código funciona como você esperaria:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+   puts Lab.new("Labrador", "Benzy").to_s ==> (Labrador, Benzy)
+<% end -%>
+
+Visto que esse código se comporta como esperado, você pode ousar dizer que todas as variáveis foram herdadas. Mas não é assim que Ruby funciona.
+
+Todos objetos Ruby tem um conjunto de variáveis de instância. Essas não são definidas pelos objetos da classe - elas são simplesmente criadas quando um valor é associado as mesmas. Por variáveis de instância não serem definidas por uma classe, elas não tem relação com o mecanismo de herança.
+
+No código acima, **Lab** define um método **initialize** que encadeia ao método **initialize** de sua superclasse. Isto é, o método **super** passa o argumento **raca** para o método **initialize** da classe pai (**Cachorro**). O método encadeado atribui um valor para a variável **@raca**, o que faz essa passe a existir para uma instância particular de Lab.
+
+**super** é um método especial que invoca um método com mesmo nome do método atual na superclasse da classe em questão.
+
+A razão para que às vezes pareça que essas variáveis de instância são herdadas está no fato das variáveis de instância serem criadas pelos primeiros métodos que atribuem valores a elas, e estes métodos são geralmente herdados ou encadeados.
+
+Visto que as variáveis de instância não tem nada a ver com a herança, segue que uma variável de instância usada por uma subclasse não pode "ocultar" uma variável de instância na superclasse. Se uma subclasse usa uma variável de instância com o mesmo nome de uma variável usada em um de seus ancestrais, ela irá sobrescrever o valor da variável de seus ancestrais.
+
+
+
+
