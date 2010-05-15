@@ -1,0 +1,42 @@
+---
+title:      Sobrecarregando métodos em Ruby
+created_at: 2010-05-06 21:10:49.600687 -03:00
+filter:
+  - erb
+  - textile
+---
+p(title). <%= h(@page.title) %>
+
+**Você quer criar duas versões diferentes de um método possuindo o mesmo nome: dois métodos que diferem entre si pelos argumentos que possuem.** Porém, uma _classe Ruby pode ter somente um método com um determinado nome_ (se você definir um método com o mesmo nome duas vezes, a definição do último método prevalece conforme visto no exemplo **p038or.rb** no tópico **Sobrescrevendo métodos em Ruby**). Dentro daquele método simples, então, você pode por a lógica que varia dependendo de quantos e que tipos de objetos foram passados a ele como argumentos.
+
+Aqui está uma classe _Retangulo_ que representa uma forma retangular num plano. Você pode instanciar um _Retangulo_ de um dos dois jeitos: passando as coordenadas de seus cantos superior esquerdo e inferior direito, ou passando as coordenadas de seu canto superior esquerdo junto com seu tamanho e largura. Há apenas um método **initialize**, mas você pode chamá-lo como se houvessem dois.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+# O construtor do Retangulo aceita argumento em ambas
+# das seguintes formas:
+#   Retangulo.new([x_superior, y_esquerda], tamanho, largura)
+#   Rectangle.new([x_superior, y_esquerda], [x_inferior, y_direita])
+class Retangulo
+  def initialize(*args)
+    if args.size < 2  || args.size > 3
+      # modificar isto para lançar exceção, depois
+      puts 'Este metodo recebe 2 ou 3 argumentos'
+    else
+      if args.size == 2
+        puts 'Dois argumentos'
+      else
+        puts 'Tres argumentos'
+      end
+    end
+  end
+end
+Rectangle.new([10, 23], 4, 10)
+Rectangle.new([10, 23], [14, 13])
+<% end -%>
+
+O programa **p037retangulo.rb**, acima, está incompleto da perpectiva da classe _Retangulo_, mas é suficiente para demonstrar como é feita a sobrecarga de métodos. Lembre-se, também, que o método **initialize** recebe um número variável de argumentos.
+
+h2. Sumário
+
+Eu listei todos os **pontos importantes** que você precisa lembrar depois de concluir os seguintes tópicos: **Incluindo outros arquivos**, **Classes abertas em Ruby**, **Herança**, **Sobrescrevendo métodos**, **Sobrecarregando métodos**.
+

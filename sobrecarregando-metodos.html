@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Sobrecarregando métodos em Ruby</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Sobrecarregando métodos em Ruby</p>
+<p><b>Você quer criar duas versões diferentes de um método possuindo o mesmo nome: dois métodos que diferem entre si pelos argumentos que possuem.</b> Porém, uma <em>classe Ruby pode ter somente um método com um determinado nome</em> (se você definir um método com o mesmo nome duas vezes, a definição do último método prevalece conforme visto no exemplo <b>p038or.rb</b> no tópico <b>Sobrescrevendo métodos em Ruby</b>). Dentro daquele método simples, então, você pode por a lógica que varia dependendo de quantos e que tipos de objetos foram passados a ele como argumentos.</p>
+<p>Aqui está uma classe <em>Retangulo</em> que representa uma forma retangular num plano. Você pode instanciar um <em>Retangulo</em> de um dos dois jeitos: passando as coordenadas de seus cantos superior esquerdo e inferior direito, ou passando as coordenadas de seu canto superior esquerdo junto com seu tamanho e largura. Há apenas um método <b>initialize</b>, mas você pode chamá-lo como se houvessem dois.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span> <span class="c"># O construtor do Retangulo aceita argumento em ambas</span>
+<span class="no"> 2</span> <span class="c"># das seguintes formas:</span>
+<span class="no"> 3</span> <span class="c">#   Retangulo.new([x_superior, y_esquerda], tamanho, largura)</span>
+<span class="no"> 4</span> <span class="c">#   Rectangle.new([x_superior, y_esquerda], [x_inferior, y_direita])</span>
+<span class="no"> 5</span> <span class="r">class</span> <span class="cl">Retangulo</span>
+<span class="no"> 6</span>   <span class="r">def</span> <span class="fu">initialize</span>(*args)
+<span class="no"> 7</span>     <span class="r">if</span> args.size &lt; <span class="i">2</span>  || args.size &gt; <span class="i">3</span>
+<span class="no"> 8</span>       <span class="c"># modificar isto para lançar exceção, depois</span>
+<span class="no"> 9</span>       puts <span class="s"><span class="dl">'</span><span class="k">Este metodo recebe 2 ou 3 argumentos</span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span>     <span class="r">else</span>
+<span class="no">11</span>       <span class="r">if</span> args.size == <span class="i">2</span>
+<span class="no">12</span>         puts <span class="s"><span class="dl">'</span><span class="k">Dois argumentos</span><span class="dl">'</span></span>
+<span class="no">13</span>       <span class="r">else</span>
+<span class="no">14</span>         puts <span class="s"><span class="dl">'</span><span class="k">Tres argumentos</span><span class="dl">'</span></span>
+<span class="no">15</span>       <span class="r">end</span>
+<span class="no">16</span>     <span class="r">end</span>
+<span class="no">17</span>   <span class="r">end</span>
+<span class="no">18</span> <span class="r">end</span>
+<span class="no">19</span> <span class="co">Rectangle</span>.new([<span class="i">10</span>, <span class="i">23</span>], <span class="i">4</span>, <span class="i">10</span>)
+<span class="no"><strong>20</strong></span> <span class="co">Rectangle</span>.new([<span class="i">10</span>, <span class="i">23</span>], [<span class="i">14</span>, <span class="i">13</span>])
+</pre>
+</div>
+<p>O programa <b>p037retangulo.rb</b>, acima, está incompleto da perpectiva da classe <em>Retangulo</em>, mas é suficiente para demonstrar como é feita a sobrecarga de métodos. Lembre-se, também, que o método <b>initialize</b> recebe um número variável de argumentos.</p>
+<h2>Sumário</h2>
+<p>Eu listei todos os <b>pontos importantes</b> que você precisa lembrar depois de concluir os seguintes tópicos: <b>Incluindo outros arquivos</b>, <b>Classes abertas em Ruby</b>, <b>Herança</b>, <b>Sobrescrevendo métodos</b>, <b>Sobrecarregando métodos</b>.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>
