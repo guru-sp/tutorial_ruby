@@ -84,12 +84,12 @@ h3. Parte 5
 # Classes Abertas do Ruby
 # "Herança":heranca.html
 ## Herança e variáveis de classe
-# Sobreposição (Overriding) de Métodos
+# "Sobreposição (Overriding) de Métodos":sobreposicao-de-metodos.html
 ## Uso do super
-## Redefinindo métodos
+## Redefinindo métodos 
 ## Classe abstrata
 # "Sobrecarregando métodos em Ruby":sobrecarregando-metodos.html
-# Resumo 5
+# "Resumo 5":sumario-ruby5.html
 
 h3. Parte 6
 # Controle de Acesso
