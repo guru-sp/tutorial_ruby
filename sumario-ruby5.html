@@ -52,8 +52,6 @@
 	<li>GUARDE ISSO: &#8220;Class é um objeto, e Object é uma classe&#8221;. Hal Futon</li>
 	<li>Quando uma nova classe é definida, por exemplo, Nome, um objeto do tipo Classe é criado e associado a constante (Nome, neste caso). Quando Nome.new é chamado para criar um novo objeto, o método de classe new em Class é executado por padrão, o que por sua vez invoca allocate para alocar memória para o objeto, antes de finalmente chamar o método initialize do novo objeto. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescritas. A inicialização é feita pelo método de instância initialize enquanto a construção é feita pelo método de classe new. initialize não é um construtor!</li>
 	<li>Objetos são criados na pilha.</li>
-</ol>
-<ol>
 	<li>Na declaração: d = Cachorro.novo(&#8216;Labrador&#8217;, &#8216;Benzy&#8217;) a variável d é conhecida como variável de referência. Ela não armazena o objeto, mas mantém algo equivalente a um ponteiro ou um endereço do objeto. Você utiliza o operador ponto (.) na variável de referência para dizer &#8220;use a coisa antes do ponto para obter a coisa após o ponto&#8221;. Por exemplo: d.late</li>
 	<li>Assim que objeto entra em existência, ele já responde a um número de mensagens (os métodos). Cada objeto &#8220;nasce&#8221; com certas habilidades inatas. Para ver uma lista dos métodos inatos, você pode chamar o método methods: puts d.methods . O resultado é uma lista de todos as mensagens que já vem embutidas neste novo objeto. Entre estes métodos object_id e respond_to? são dois muito importantes.</li>
 	<li>Todo objeto em Ruby tem um número de identificação único (id) associado com ele e que pode ser encontrado pelo método object_id.</li>
@@ -81,7 +79,6 @@ do módulo Kernel.</li>
 	<li>Chamado com argumentos específicos &#8211; super(a, b, c) &#8211; ele envia exatamente estes argumentos.</li>
 	<li>Uma classe Ruby pode apenas um método com um dado nome.</li>
 </ol>
-<li>
    </div>
 
    <div class="column span-5 append-1 last">
