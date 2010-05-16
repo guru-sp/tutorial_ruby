@@ -8,52 +8,53 @@ filter:
 p(title). <%= h(@page.title) %>
 
 # Expressões regulares, embora enigmáticas, são uma ferramenta poderosa para se trabalhar com texto. O Ruby possui essa funcionalidade incluída. É usada para casamento de padrões e processamento de texto.
-# Muitas pessoas acham difícil usar expressões regulares, difiícil para lê-las, difíceis de se fazer manutenção e , essencialmente, improdutivas.
-# O site rubular.com é uma boa ferramenta para testar suas expresões regulares.
-# Você pode acabar usando apenas uma pequena parte de expressões regulares nas suas aplicaçõe Ruby on Rails.
-# Tornar-se um mago ndas expresões regulares não é um pré-requisito para usar Rails.
-# É recomendávem aprender pelo menos o báscio de como as expresões regulares funcionam.
+# Muitas pessoas acham difícil usar expressões regulares, difícil para lê-las, difíceis de se fazer manutenção e , essencialmente, improdutivas.
+# O site rubular.com é uma boa ferramenta para testar suas expressões regulares.
+# Você pode acabar usando apenas uma pequena parte de expressões regulares nas suas aplicações Ruby on Rails.
+# Tornar-se um mago das expressões regulares não é um pré-requisito para usar Rails.
+# É recomendável aprender pelo menos o básico de como as expressões regulares funcionam.
 # Uma expressão regular é simplesmente uma forma de se especificar um padrão de caracteres a serem casados em uma string.
 # No Ruby você geralmente cria uma expressão regular escrevendo um padrão entre barras invertidas (/padrão/). No Ruby as expressões regulares são objetos (do tipo Regexp) e podem ser manipulado como tal. // é uma expressão regular e uma instância da classe Regexp.
-# Um objeto é uma entidade que serve como recipiente para dados e que também controla o acesso a estes dados. Associado a um objeto está um conjunto de atributos, que são essencialmente não mais que variáveis que pertencem ao objeto. Também associados aos objetos há um conjunto de funçoes que proveem uma interface para as funcionalidades dos objetos, chamados métodos.
+# Um objeto é uma entidade que serve como recipiente para dados e que também controla o acesso a estes dados. Associado a um objeto está um conjunto de atributos, que são essencialmente não mais que variáveis que pertencem ao objeto. Também associados aos objetos há um conjunto de funções que proveem uma interface para as funcionalidades dos objetos, chamados métodos.
 # Coisas que um objeto sabe sobre si mesmo são chamadas variáveis de instância. Elas representa o estado atual do objeto (os dados - por exemplo, a quantidade e o id do produto) e podem ter valores únicos para cada objeto de um mesmo tipo.
 # As coisas que um objeto pode fazer são chamadas métodos.
 # Um objeto é uma combinação de estado e métodos que usam esse estado.
-# Uma classe é usada para construir um objeto. Uma classe é uma estrutora para um objeto.
+# Uma classe é usada para construir um objeto. Uma classe é uma estrutura para um objeto.
 # Mais de 30 classes estão inclusas na hierarquia de classes do Ruby. A hierarquia de classes do próximo tópico é importante.
-# Em Ruby, tudo desde um inteiro até uma string é considerado um objeto. Cada objeto tem métodos que podem ser usados para se fazer várias coisas úteis. Para usar um método, você precisa colocar um ponto depois do objeto e então colocar o nome do méotodo. Alguns métodos como puts e gets estão disponíveis em todo lugar e não precisam ser associados com um objeto em específico. Tecnicalmente, estes métodos são providos pelo módulo Kernel do Ruby (mais sobre isso será explicado depois) e são inclusos em todos objetos Ruby (o módulo Kernel é incluso pela classe Objeto, então todos os seus métodos estão disponíveis em qualquer objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado main da classe Object é criado automaticamente. Este objeto dá acesso para os métodos de Kernel.
+# Em Ruby, tudo desde um inteiro até uma string é considerado um objeto. Cada objeto tem métodos que podem ser usados para se fazer várias coisas úteis. Para usar um método, você precisa colocar um ponto depois do objeto e então colocar o nome do método. Alguns métodos como puts e gets estão disponíveis em todo lugar e não precisam ser associados com um objeto em específico. Tecnicamente, estes métodos são providos pelo módulo Kernel do Ruby (mais sobre isso será explicado depois) e são inclusos em todos objetos Ruby (o módulo Kernel é incluso pela classe Objeto, então todos os seus métodos estão disponíveis em qualquer objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado main da classe Object é criado automaticamente. Este objeto dá acesso para os métodos de Kernel.
 # Os inteiros em Ruby são objetos das class Fixnum ou Bignum. As classes Bignum e Fixnum representam inteiros de tamanhos diferentes. Ambas classes são Inteiros (e portanto Numeric). Os números em ponto flutuante são objetos da classe Float, correspondem ao tipo de arquitetura nativa double.
-# Uma nova classe é tipicamente definada usando: class Nome ... end
-# Classes no Ruby são objetos de primeira classe - cada um é uma instâncai de class.
+# Uma nova classe é tipicamente definida usando: class Nome ... end
+# Classes no Ruby são objetos de primeira classe - cada um é uma instância de class.
 # GUARDE ISSO: "Class é um objeto, e Object é uma classe". Hal Futon
-# Quando uma nova classe é definida, por exemplo, Nome, um objeto do tipo Classe é criado e associado a constante (Nome, neste caso). Quando Nome.new é chamado para criar um novo objeto, o método de classe new em Class é executado por padrão, o que por sua vez invoca allocate para alocar memória para o objeto, antes de finalmente chamar o método initialize do novo objeto. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescriptas. A inicialização é feita pelo método de instância initialize enquanto a construção é feita pelo método de classe new. initialize não é um construtor!
+# Quando uma nova classe é definida, por exemplo, Nome, um objeto do tipo Classe é criado e associado a constante (Nome, neste caso). Quando Nome.new é chamado para criar um novo objeto, o método de classe new em Class é executado por padrão, o que por sua vez invoca allocate para alocar memória para o objeto, antes de finalmente chamar o método initialize do novo objeto. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescritas. A inicialização é feita pelo método de instância initialize enquanto a construção é feita pelo método de classe new. initialize não é um construtor!
 # Objetos são criados na pilha.
 
-# In the statement: d = Dog.new('Labrador', 'Benzy') The variable d is known as a reference variable. It does not hold the object itself, but it holds something like a pointer or an address of the object. You use the dot operator (.) on a reference variable to say, "use the thing before the dot to get me the thing after the dot." For example: d.bark
-# As soon as an object comes into existence, it already responds to a number of messages. Every object is "born" with certain innate abilities. To see a list of innate methods, you can call the methods method: puts d.methods The result is a list of all the messages (methods) this newly minted object comes bundled with. Amongst these many methods, the methods object_id and respond_to? are important.
-# Every object in Ruby has a unique id number associated with it that can be found by the method object_id.
-# You can determine in advance (before you ask the object to do something) whether the object knows how to handle the message you want to send it, by using the respond_to? method.
-# You can ask any object of which class it's a member by using its Object.class method.
-# instance_of? returns true if object is an instance of the given class.
-# Literal 'Constructors' means you can use special notation, instead of a call to new, to create a new object of that class. Look at the example given for String. Symbol, Array, Hash, Range, Regexp
-# Garbage Collection (GC): The Ruby object heap allocates a minimum of 8 megabytes. Ruby's GC is called mark-and-sweep. The "mark" stage checks objects to see if they are still in use. If an object is in a variable that can still be used in the current scope, the object (and any object inside that object) is marked for keeping. If the variable is long gone, off in another method, the object isn't marked. The "sweep" stage then frees objects which haven't been marked. Ruby uses a conservative mark-and-sweep GC mechanism. There is no guarantee that an object will undergo garbage collection before the program terminates.
-# Variables are used to hold references to objects. Variables themselves have no type, nor are they objects themselves.
-# method_missing gives you a way to intercept unanswerable messages and handle them gracefully.
-# Blocks are not objects, but they can be converted into objects of class Proc. This can be done by calling the lambda method of the module Kernel.
-# Remember you cannot pass methods into other methods (but you can pass procs into methods), and methods cannot return other methods (but they can return procs).
-# The load method includes the named Ruby source file every time the method is executed.
-# The more commonly used require method loads any given file only once.
-# Note that you say require 'filename', not require 'filename.rb'.
-# In Ruby, classes are never closed: you can always add methods to an existing class. This applies to the classes you write as well as the standard, built-in classes. All you have to do is open up a class definition for an existing class, and the new contents you specify will be added to whatever's there.
-# The benefit of inheritance is that classes lower down the hierarchy get the features of those higher up, but can also add specific features of their own.
-# In Ruby, a class can only inherit from a single other class.
-# The Object class is the parent class of all classes in Ruby. Its methods are therefore available to all objects unless explicitly overridden.
-# Method overriding allows a subclass to provide a specific implementation of a method that is already provided by one of its superclasses. The implementation in the subclass overrides (replaces) the implementation in the superclass.
-# Nothing stops you from defining a method twice, however the new version takes precedence.
-# When you invoke super with no arguments Ruby sends a message to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. It automatically forwards the arguments that were passed to the method from which it's called.
-# Called with an empty argument list - super() - it sends no arguments to the higher-up method, even if arguments were passed to the current method.
-# Called with specific arguments - super(a, b, c) - it sends exactly those arguments.
-# A Ruby class can have only one method with a given name.
+# Na declaração: d = Cachorro.novo('Labrador', 'Benzy') a variável d é conhecida como variável de referência. Ela não armazena o objeto, mas mantém algo equivalente a um ponteiro ou um endereço do objeto. Você utiliza o operador ponto (.) na variável de referência para dizer "use a coisa antes do ponto para obter a coisa após o ponto". Por exemplo: d.late
+# Assim que objeto entra em existência, ele já responde a um número de mensagens (os métodos). Cada objeto "nasce" com certas habilidades inatas. Para ver uma lista dos métodos inatos, você pode chamar o método methods: puts d.methods . O resultado é uma lista de todos as mensagens que já vem embutidas neste novo objeto. Entre estes métodos object_id e respond_to? são dois muito importantes.
+# Todo objeto em Ruby tem um número de identificação único (id) associado com ele e que pode ser encontrado pelo método object_id.
+# Você pode determinar com antecedência se um objeto sabe como lidar com uma mensagem que você queira enviar para ele usando o método respond_to? (responde_a?).
+# Você pode perguntar para qualquer objeto de qual classe ele é membro usando o método Object.class.
+# instance_of? (instância_de?) retorna true (verdadeiro) se o objeto é uma instância de uma dada classe.
+# 'Construtores' literais significa que você pode usar uma notação especial, ao invés de uma chamada a new para criar um novo objeto dessa classe. Veja o exemplo dado para String. Symbol, Array, Hash, Range e Regexp
+# Coletor de Lixo (GC): A pilha de objetos do Ruby aloca um mínimo de 8 megabytes. O GC do ruby é chamado de mark-and-sweep (marca-e-varre). O estágio de 'marcação' checa se os objetos ainda estão em uso. Se um objeto é uma variável que ainda pode ser usada pelo escopo atual, o objeto (e qualquer objeto dentro dele) é marcado para ser mantido.  Se a variável não é usada faz um bom tempo, o objeto não é marcado. O estágio de "varrer" então libera espaço dos objetos que não foram marcados. O Ruby usa um mecanismo de GC mark-and-sweep conservador. Não há garantia de que um objeto irá passar pelo GC antes que o programa termine.
+# Variáveis são usadas para se manter referências a objetos.
+# method_missing (metodo_faltando) dá a você um jeito de interceptar mensagens não respondidas e tratá-las.
+# Blocos não são objetos, mas eles podem ser convertidos em objetos da classe Proc. Isso pode ser feito chamando o método lambda
+do módulo Kernel.
+# Lembre-se que você não podem passar métodos dentro de outros métodos (mas você pode passar procs dentro de métodos), e métodos não podem retornar outros métodos (mas podem retornar procs).
+# O método load (carregar) inclui o arquivo de código Ruby referenciado toda vez que é executado.
+# O método require (requerer), usado com maior frequência, carrega qualquer arquivo apenas uma vez.
+# Note que você deve escrever require 'nome_do_arquivo' e não require 'nome_do_arquivo.rb'
+# No Ruby, classes nunca são fechadas: você pode sempre adicionar métodos para uma classe existente. Isso se aplica para as classes que você escreve assim como para as classes padrão inclusas na linguagem. Tudo que você tem que fazer é abrir a definição de uma classe existente e o novo conteúdo que você especificar será adicionado.
+# O benefício da herança etá no fato de que classes em um nível mais baixo da hierarquia obtêm funcionalidades daquelas em um nível mais alto, mas podem também adicionar novas funcionalidades específicas a si mesmas.
+# No Ruby uma classe pode somente herdar de uma única outra classe.
+# A classe Objeto é pai de todas as outras classes em Ruby. Portanto, seus métodos estão disponíveis para todos objetos ao menos que sejam explicitamente sobrescritos.
+# A sobrescrita de métodos permite que uma subclasse forneça uma implementação específica de um método que já foi fornecido por uma de suas superclasses. A implementação da subclasse sobrescreve (substitui) a implementação da superclasse.
+# Nade lhe impede de definir um método duas vezes, embora a versão mais nova tome precedência.
+# Quando você invoca super com nenhum argumento o Ruby envia uma mensagem para o pai do objeto atual, pedindo para que esse invoce um método com o mesmo nome que o método que invocou super. Ele automaticamente passa os argumentos que foram passados para o método da qual foi chamado.
+# Chamado com uma lista de argumentos vazia - super() - ele não envia nenhum argumento para o método da superclasse, mesmo se argumentos foram passados para o método atual.
+# Chamado com argumentos específicos - super(a, b, c) - ele envia exatamente estes argumentos.
+# Uma classe Ruby pode apenas um método com um dado nome.
 
 
 
