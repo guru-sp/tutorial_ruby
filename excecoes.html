@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Exceções</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Exceções</p>
+<h2>Raising An Exception</h2>
+<p>An exception is a special kind of object, an instance of the class Exception or a descendant of that class that represents some kind of exceptional condition; it indicates that something has gone wrong. When this occurs, an exception is raised (or thrown). By default, Ruby programs terminate when an exception occurs. But it is possible to declare exception handlers. An exception handler is a block of code that is executed if an exception occurs during the execution of some other block of code. Raising an exception means stopping normal execution of the program and transferring the flow-of-control to the exception handling code where you either deal with the problem that&#8217;s been encountered or exit the program completely. Which of these happens &#8211; dealing with it or aborting the program &#8211; depends on whether you have provided a rescue clause (rescue is a fundamental part of the Ruby language). If you haven&#8217;t provided such a clause, the program terminates; if you have, control flows to the rescue clause.</p>
+<p>Ruby has some predefined classes &#8211; Exception and its children &#8211; that help you to handle errors that can occur in your program. The following figure shows the Ruby exception hierarchy.</p>
+
+			<ol>
+				<li>INCLUIR IMAGEM AQUI! (Exception Hierarchy) ########</li>
+			</ol><p>Reference: The above figure is from the Programming Ruby book.</p>
+<p>The chart above shows that most of the subclasses extend a class known as StandardError. These are the &#8220;normal&#8221; exceptions that typical Ruby programs try to handle. The other exceptions represent lower-level, more serious, or less recoverable conditions, and normal Ruby programs do not typically attempt to handle them.</p>
+<p>The following method raises an exception whenever it&#8217;s called. Its second message will never be printed. Program p043raise.rb</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p043raise.rb</span>
+<span class="no">2</span>   <span class="r">def</span> <span class="fu">raise_exception</span>
+<span class="no">3</span>     puts <span class="s"><span class="dl">'</span><span class="k">I am before the raise.</span><span class="dl">'</span></span>
+<span class="no">4</span>     raise <span class="s"><span class="dl">'</span><span class="k">An error has occured</span><span class="dl">'</span></span>
+<span class="no">5</span>     puts <span class="s"><span class="dl">'</span><span class="k">I am after the raise</span><span class="dl">'</span></span>
+<span class="no">6</span>   <span class="r">end</span>
+<span class="no">7</span>   raise_exception
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p043raise.rb
+<span class="no">2</span>   I am before the raise.
+<span class="no">3</span>   p043raise.rb:4:in `raise_exception': An error has occured (RuntimeError)
+<span class="no">4</span>       from p043raise.rb:7
+<span class="no">5</span>   &gt;Exit code: 1
+</pre>
+</div>
+<p>The raise method is from the Kernel module. By default, raise creates an exception of the RuntimeError class. To raise an exception of a specific class, you can pass in the class name as an argument to raise. Refer program p044inverse.rb</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p044inverse.rb</span>
+<span class="no">2</span>   <span class="r">def</span> <span class="fu">inverse</span>(x)
+<span class="no">3</span>     raise <span class="co">ArgumentError</span>, <span class="s"><span class="dl">'</span><span class="k">Argument is not numeric</span><span class="dl">'</span></span> <span class="r">unless</span> x.is_a? <span class="co">Numeric</span>
+<span class="no">4</span>     <span class="fl">1.0</span> / x
+<span class="no">5</span>   <span class="r">end</span>
+<span class="no">6</span>   puts inverse(<span class="i">2</span>)
+<span class="no">7</span>   puts inverse(<span class="s"><span class="dl">'</span><span class="k">not a number</span><span class="dl">'</span></span>)
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p044inverse.rb
+<span class="no">2</span>   0.5
+<span class="no">3</span>   p044inverse.rb:3:in `inverse': Argument is not numeric (ArgumentError)
+<span class="no">4</span>       from p044inverse.rb:7
+<span class="no">5</span>   &gt;Exit code: 1
+</pre>
+</div>
+<p>Remember, methods that act as queries are often named with a trailing ?. is_a? is a method in the Object class and returns true or false. The unless modifier when tacked at the end of a normal statement means execute the preceding expression unless condition is true.</p>
+<p>Defining new exception classes: To be even more specific about an error, you can define your own Exception subclass:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">class</span> <span class="cl">NotInvertibleError</span> &lt; <span class="co">StandardError</span>
+<span class="no">2</span>   <span class="r">end</span>
+</pre>
+</div>
+<h2>Handling an Exception</h2>
+<p>To do exception handling, we enclose the code that could raise an exception in a begin-end block and use one or more rescue clauses to tell Ruby the types of exceptions we want to handle. It is to be noted that the body of a method definition is an implicit begin-end block; the begin is omitted, and the entire body of the method is subject to exception handling, ending with the end of the method.</p>
+<p>The program p045handexcp.rb illustrates this:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p045handexcp.rb</span>
+<span class="no"> 2</span>   <span class="r">def</span> <span class="fu">raise_and_rescue</span>
+<span class="no"> 3</span>     <span class="r">begin</span>
+<span class="no"> 4</span>       puts <span class="s"><span class="dl">'</span><span class="k">I am before the raise.</span><span class="dl">'</span></span>
+<span class="no"> 5</span>       raise <span class="s"><span class="dl">'</span><span class="k">An error has occured.</span><span class="dl">'</span></span>
+<span class="no"> 6</span>       puts <span class="s"><span class="dl">'</span><span class="k">I am after the raise.</span><span class="dl">'</span></span>
+<span class="no"> 7</span>     <span class="r">rescue</span>
+<span class="no"> 8</span>       puts <span class="s"><span class="dl">'</span><span class="k">I am rescued.</span><span class="dl">'</span></span>
+<span class="no"> 9</span>     <span class="r">end</span>
+<span class="no"><strong>10</strong></span>     puts <span class="s"><span class="dl">'</span><span class="k">I am after the begin block.</span><span class="dl">'</span></span>
+<span class="no">11</span>   <span class="r">end</span>
+<span class="no">12</span>   raise_and_rescue
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p045handexcp.rb
+<span class="no">2</span>   I am before the raise.
+<span class="no">3</span>   I am rescued.
+<span class="no">4</span>   I am after the begin block.
+<span class="no">5</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>Observe that the code interrupted by the exception never gets run. Once the exception is handled, execution continues immediately after the begin block that spawned it.</p>
+<p>If you write a rescue clause with no parameter list, the parameter defaults to StandardError. Each rescue clause can specify multiple exceptions to catch. At the end of each rescue clause you can give Ruby the name of a local variable to receive the matched exception. The parameters to the rescue clause can also be arbitrary expressions (including method calls) that return an Exception class. If we use raise with no parameters, it re-raises the exception.</p>
+<p>You can stack rescue clauses in a begin/rescue block. Exceptions not handled by one rescue clause will trickle down to the next:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">begin</span>
+<span class="no"> 2</span>     <span class="c"># -</span>
+<span class="no"> 3</span>   <span class="r">rescue</span> <span class="co">OneTypeOfException</span>
+<span class="no"> 4</span>     <span class="c"># -</span>
+<span class="no"> 5</span>   <span class="r">rescue</span> <span class="co">AnotherTypeOfException</span>
+<span class="no"> 6</span>     <span class="c"># -</span>
+<span class="no"> 7</span>   <span class="r">else</span>
+<span class="no"> 8</span>     <span class="c"># Other exceptions</span>
+<span class="no"> 9</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>For each rescue clause in the begin block, Ruby compares the raised Exception against each of the parameters in turn. The match will succeed if the exception named in the rescue clause is the same as the type of the currently thrown exception, or is a superclass of that exception. The code in an else clause is executed if the code in the body of the begin statement runs to completion without exceptions. If an exception occurs, then the else clause will obviously not be executed. The use of an else clause is not particularly common in Ruby.</p>
+<p>If you want to interrogate a rescued exception, you can map the Exception object to a variable within the rescue clause, as shown in the program p046excpvar.rb</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p046excpvar.rb</span>
+<span class="no">2</span>   <span class="r">begin</span>
+<span class="no">3</span>     raise <span class="s"><span class="dl">'</span><span class="k">A test exception.</span><span class="dl">'</span></span>
+<span class="no">4</span>   <span class="r">rescue</span> <span class="co">Exception</span> =&gt; e
+<span class="no">5</span>     puts e.message
+<span class="no">6</span>     puts e.backtrace.inspect
+<span class="no">7</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p046excpvar.rb
+<span class="no">2</span>   A test exception.
+<span class="no">3</span>   [&quot;p046excpvar.rb:3&quot;]
+<span class="no">4</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>The Exception class defines two methods that return details about the exception. The message method returns a string that may provide human-readable details about what went wrong. The other important method is backtrace. This method returns an array of strings that represent the call stack at the point that the exception was raised.</p>
+<p>If you need the guarantee that some processing is done at the end of a block of code, regardless of whether an exception was raised then the ensure clause can be used. ensure goes after the last rescue clause and contains a chunk of code that will always be executed as the block terminates. The ensure block will always run.</p>
+<p>Some common exceptions are:</p>
+<p>RuntimeError (this is the default exception raised by the raise method), NoMethodError, NameError, IOError, TypeError and ArgumentError.</p>
+<p>An Example: Let&#8217;s modify program p027readwrite.rb to include exception handling as shown in example p046xreadwrite.rb below.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p046xreadwrite.rb</span>
+<span class="no"> 2</span>   <span class="c"># Open and read from a text file</span>
+<span class="no"> 3</span>   <span class="c"># Note that since a block is given, file will automatically be closed when the block terminates</span>
+<span class="no"> 4</span>   <span class="r">begin</span>
+<span class="no"> 5</span>     <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">p014constructs.rb</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">r</span><span class="dl">'</span></span>) <span class="r">do</span> |f1|
+<span class="no"> 6</span>       <span class="r">while</span> line = f1.gets
+<span class="no"> 7</span>         puts line
+<span class="no"> 8</span>       <span class="r">end</span>
+<span class="no"> 9</span>     <span class="r">end</span>
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span>     <span class="c"># Create a new file and write to it</span>
+<span class="no">12</span>     <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">test.rb</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">w</span><span class="dl">'</span></span>) <span class="r">do</span> |f2|
+<span class="no">13</span>       <span class="c"># use &quot;&quot; for two lines of text</span>
+<span class="no">14</span>       f2.puts <span class="s"><span class="dl">&quot;</span><span class="k">Created by Satish</span><span class="ch">\n</span><span class="k">Thank God!</span><span class="dl">&quot;</span></span>
+<span class="no">15</span>     <span class="r">end</span>
+<span class="no">16</span>   <span class="r">rescue</span> <span class="co">Exception</span> =&gt; msg
+<span class="no">17</span>     <span class="c"># display the system generated error message</span>
+<span class="no">18</span>     puts msg
+<span class="no">19</span>   <span class="r">end</span>
+</pre>
+</div>
+<div class='box'>
+<p>Improper error messages can provide critical information about an application which may aid an attacker in exploiting the application. The most common problem occurs when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user. Security analysts view logging and error handling as potential areas of risk. It is recommended that production applications should not use, for example, a puts e.backtrace.inspect call unless it is being directly committed into a log that is not viewable to the end user.</p>
+</div>
+<h2>Validation example</h2>
+<p>Here&#8217;s an example from the Ruby Cookbook, showing how one can do validation of user&#8217;s inputs.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Name</span>
+<span class="no"> 2</span>     <span class="c"># Define default getter methods, but not setter methods.</span>
+<span class="no"> 3</span>     attr_reader <span class="sy">:first</span>, <span class="sy">:last</span>
+<span class="no"> 4</span>     <span class="c"># When someone tries to set a first name, enforce rules about it.</span>
+<span class="no"> 5</span>     <span class="r">def</span> <span class="fu">first=</span>(first)
+<span class="no"> 6</span>       <span class="r">if</span> first == <span class="pc">nil</span> <span class="r">or</span> first.size == <span class="i">0</span>
+<span class="no"> 7</span>         raise <span class="co">ArgumentError</span>.new(<span class="s"><span class="dl">'</span><span class="k">Everyone must have a first name.</span><span class="dl">'</span></span>)
+<span class="no"> 8</span>       <span class="r">end</span>
+<span class="no"> 9</span>       first = first.dup
+<span class="no"><strong>10</strong></span>       first[<span class="i">0</span>] = first[<span class="i">0</span>].chr.capitalize
+<span class="no">11</span>       <span class="iv">@first</span> = first
+<span class="no">12</span>     <span class="r">end</span>
+<span class="no">13</span> 
+<span class="no">14</span>     <span class="c"># When someone tries to set a last name, enforce rules about it.</span>
+<span class="no">15</span>     <span class="r">def</span> <span class="fu">last=</span>(last)
+<span class="no">16</span>       <span class="r">if</span> last == <span class="pc">nil</span> <span class="r">or</span> last.size == <span class="i">0</span>
+<span class="no">17</span>         raise <span class="co">ArgumentError</span>.new(<span class="s"><span class="dl">'</span><span class="k">Everyone must have a last name.</span><span class="dl">'</span></span>)
+<span class="no">18</span>       <span class="r">end</span>
+<span class="no">19</span>       <span class="iv">@last</span> = last
+<span class="no"><strong>20</strong></span>     <span class="r">end</span>
+<span class="no">21</span> 
+<span class="no">22</span>     <span class="r">def</span> <span class="fu">full_name</span>
+<span class="no">23</span>       <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span><span class="iv">@first</span><span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span><span class="iv">@last</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no">24</span>     <span class="r">end</span>
+<span class="no">25</span>     <span class="c"># Delegate to the setter methods instead of setting the instance</span>
+<span class="no">26</span>     <span class="c"># variables directly.</span>
+<span class="no">27</span>     <span class="r">def</span> <span class="fu">initialize</span>(first, last)
+<span class="no">28</span>       <span class="pc">self</span>.first = first
+<span class="no">29</span>       <span class="pc">self</span>.last = last
+<span class="no"><strong>30</strong></span>     <span class="r">end</span>
+<span class="no">31</span>   <span class="r">end</span>
+<span class="no">32</span> 
+<span class="no">33</span>   jacob = <span class="co">Name</span>.new(<span class="s"><span class="dl">'</span><span class="k">Jacob</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Berendes</span><span class="dl">'</span></span>)
+<span class="no">34</span>   jacob.first = <span class="s"><span class="dl">'</span><span class="k">Mary Sue</span><span class="dl">'</span></span>
+<span class="no">35</span>   jacob.full_name <span class="c"># =&gt; &quot;Mary Sue Berendes&quot;</span>
+<span class="no">36</span>   john = <span class="co">Name</span>.new(<span class="s"><span class="dl">'</span><span class="k">john</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">von Neumann</span><span class="dl">'</span></span>)
+<span class="no">37</span>   john.full_name <span class="c"># =&gt; &quot;John von Neumann&quot;</span>
+<span class="no">38</span>   john.first = <span class="s"><span class="dl">'</span><span class="k">john</span><span class="dl">'</span></span>
+<span class="no">39</span>   john.first <span class="c"># =&gt; &quot;John&quot;</span>
+<span class="no"><strong>40</strong></span>   john.first = <span class="pc">nil</span>
+<span class="no">41</span>   <span class="c"># ArgumentError: Everyone must have a first name.</span>
+<span class="no">42</span>   <span class="co">Name</span>.new(<span class="s"><span class="dl">'</span><span class="k">Kero, international football star and performance artist</span><span class="dl">'</span></span>, <span class="pc">nil</span>)
+<span class="no">43</span>   <span class="c"># ArgumentError: Everyone must have a last name.</span>
+</pre>
+</div>
+<p>The Name class keeps track of peoples&#8217; first and last names. It uses setter methods to enforce two somewhat parochial rules: everyone must have both a first and a last name, and everyone&#8217;s first name must begin with a capital letter. The Name class has been written in such a way, that the rules are enforced both in the constructor and after the object has been created. Sometimes you don&#8217;t trust the data coming in through the setter methods. That&#8217;s when you can define your own methods to stop bad data before it infects your objects. Within a class, you have direct access to the instance variables. You can simply assign to an instance variable and the setter method won&#8217;t be triggered. If you do want to trigger the setter method, you&#8217;ll have to call it explicitly. Note how, in the Name#initialize method above, we call the first= and last= methods instead of assigning to @first and @last. This makes sure the validation code gets run for the initial values of every Name object. We can&#8217;t just say first = first, because first is a variable name in that method.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

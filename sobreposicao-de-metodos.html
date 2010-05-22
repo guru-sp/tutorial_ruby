@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Sobreposicao de Metodos</title>
+   <title>SobreposiÃ§Ã£o de MÃ©todos</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -29,35 +29,35 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Sobreposicao de Metodos</p>
-<p>SobreposiÃ§Ã£o de mÃ©todos(override) em programaÃ§Ã£o orientada a objetos, Ã© um recurso da linguagem que permite que a subclasse, rescreva uma implementaÃ§Ã£o especifica de um mÃ©todo que jÃ¡ esta previsto em uma super-class. A implementaÃ§Ã£o na subclasse sobrepÃµe a implementaÃ§Ã£o na super-class.</p>
-<p>Aqui esta um exemplo p037xmtdoverride.rb:</p>
+      <p class="title">SobreposiÃ§Ã£o de MÃ©todos</p>
+<p><b>SobreposiÃ§Ã£o de mÃ©todos</b> (override) em programaÃ§Ã£o orientada a objetos, Ã© um recurso da linguagem que permite que a subclasse, rescreva uma implementaÃ§Ã£o especifica de um mÃ©todo que jÃ¡ esta previsto em uma superclasse. A implementaÃ§Ã£o na subclasse sobrepÃµe a implementaÃ§Ã£o na superclasse.</p>
+<p>Aqui esta um exemplo <b>p037xmtdoverride.rb</b>:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="r">class</span>Â AÂ Â 
-<span class="no"> 2</span>         Â Â defÂ aÂ Â 
-<span class="no"> 3</span>         Â Â Â Â putsÂ <span class="s"><span class="dl">'</span><span class="k">Dentro da classe A</span><span class="dl">'</span></span>Â Â 
-<span class="no"> 4</span>         Â Â endÂ Â 
-<span class="no"> 5</span>         endÂ Â 
+<pre><span class="no"> 1</span>   <span class="r">class</span><span class="er">Â</span><span class="er"> </span><span class="co">A</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 2</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>a<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 3</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">'</span><span class="k">Dentro da classe A</span><span class="dl">'</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 4</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 5</span>         <span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
 <span class="no"> 6</span> 
-<span class="no"> 7</span>         classÂ BÂ &lt;Â AÂ Â 
-<span class="no"> 8</span>         Â Â defÂ aÂ Â 
-<span class="no"> 9</span>         Â Â Â Â putsÂ <span class="s"><span class="dl">'</span><span class="k">Dentro da classe B</span><span class="dl">'</span></span>Â Â 
-<span class="no"><strong>10</strong></span>         Â Â endÂ Â 
-<span class="no">11</span>         endÂ Â 
+<span class="no"> 7</span>         <span class="r">class</span><span class="er">Â</span><span class="er"> </span><span class="co">B</span><span class="er">Â</span><span class="er"> </span>&lt;<span class="er">Â</span><span class="er"> </span><span class="co">A</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 8</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>a<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 9</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">'</span><span class="k">Dentro da classe B</span><span class="dl">'</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"><strong>10</strong></span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no">11</span>         <span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
 <span class="no">12</span> 
-<span class="no">13</span>         bÂ =Â B.newÂ Â 
+<span class="no">13</span>         b<span class="er">Â</span><span class="er"> </span>=<span class="er">Â</span><span class="er"> </span><span class="co">B</span>.new<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
 <span class="no">14</span>         b.a
 </pre>
 </div>
 <p>O MÃ©todo na classe B sobrepÃ´s o mÃ©todo na classe A.</p>
 <h2>Uso do super</h2>
-<p>A forma de se lidar com argumentos super:</p>
+<p>A forma de se lidar com argumentos <b>super</b>:</p>
 <ul>
-	<li>Quando vocÃª invoca super sem argumentos, Ruby envia uma mensagem para o pai do objeto atual, pedindo para invocar um mÃ©todo do mesmo nome que o mÃ©todo que invocou super, ele automaticamente encaminha os argumentos que foram passados para o mÃ©todo a partir de qual foi chamado.</li>
-	<li>Chamando com uma lista de argumentos vazia &#8211; super()- ele nÃ£o envia argumentos para o primeiro mÃ©todo, atÃ© mesmo se os argumentos foram passados para o mÃ©todo atual.</li>
-	<li>Chamando com argumentos especÃ­ficos &#8211; super(a, b, c) &#8211; envia exatamente esses argumentos.</li>
+	<li>Quando vocÃª invoca <b>super</b> sem argumentos, Ruby envia uma mensagem para o pai do objeto atual, pedindo para invocar um mÃ©todo do mesmo nome que o mÃ©todo que invocou <b>super</b>, ele automaticamente encaminha os argumentos que foram passados para o mÃ©todo a partir de qual foi chamado.</li>
+	<li>Chamando com uma lista de argumentos vazia &#8211; <b>super()</b>- ele nÃ£o envia argumentos para o primeiro mÃ©todo, atÃ© mesmo se os argumentos foram passados para o mÃ©todo atual.</li>
+	<li>Chamando com argumentos especÃ­ficos &#8211; <b>super(a, b, c)</b> &#8211; envia exatamente esses argumentos.</li>
 </ul>
-<p>Um exemplo p038bicycle.rb do Ruby for Rails book highlights</p>
+<p>Um exemplo (<b>p038bicycle.rb</b>) do livro Ruby for Rails enfatiza isso:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Bicycle</span>
 <span class="no"> 2</span>     attr_reader <span class="sy">:gears</span>, <span class="sy">:wheels</span>, <span class="sy">:seats</span>
@@ -84,7 +84,7 @@
 <span class="no">23</span>   puts b.seats
 </pre>
 </div>
-<p>A saida:</p>
+<p>A saÃ­da:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p038bicycle.rb
 <span class="no">2</span>   2
@@ -96,19 +96,19 @@
 <span class="no">8</span>   &gt;Exit code: 0
 </pre>
 </div>
-<p>Vamos falar com mais profundidade sobre attr_reader mais tarde.</p>
-<h2>Redefinindo mÃ©todos</h2>
-<p>(Adaptado do livro de David Blanck&#8217;s, Ruby for Rails)</p>
-<p>Nada impede que vocÃª defina um mÃ©todo duas vezes. Programa p038or.rb</p>
+<p>Vamos falar com mais detalhes sobre <b>attr_reader</b> <a href="controle-de-acesso.html">mais tarde</a>.</p>
+<h2>Redefinindo MÃ©todos</h2>
+<p>(Adaptado do livro de David Black, Ruby for Rails)</p>
+<p>Nada impede que vocÃª defina um mÃ©todo duas vezes. Programa <b>p038or.rb</b>:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="r">class</span>Â ORÂ Â 
-<span class="no"> 2</span>         Â Â defÂ mtdÂ Â 
-<span class="no"> 3</span>         Â Â Â Â putsÂ <span class="s"><span class="dl">&quot;</span><span class="k">Primeira definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span>Â Â 
-<span class="no"> 4</span>         Â Â endÂ Â 
-<span class="no"> 5</span>         Â Â defÂ mtdÂ Â 
-<span class="no"> 6</span>         Â Â Â Â putsÂ <span class="s"><span class="dl">&quot;</span><span class="k">Segunda definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span>Â Â 
-<span class="no"> 7</span>         Â Â endÂ Â 
-<span class="no"> 8</span>         endÂ Â 
+<pre><span class="no"> 1</span>   <span class="r">class</span><span class="er">Â</span><span class="er"> </span><span class="co">OR</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 2</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>mtd<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 3</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">&quot;</span><span class="k">Primeira definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 4</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 5</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>mtd<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 6</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">&quot;</span><span class="k">Segunda definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 7</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
+<span class="no"> 8</span>         <span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
 <span class="no"> 9</span>         <span class="co">OR</span>.new.mtd
 </pre>
 </div>
@@ -118,14 +118,14 @@
 </pre>
 </div>
 <p>O resultado mostrado Ã© a segunda definiÃ§Ã£o do mÃ©todo mtd. A segunda definiÃ§Ã£o Ã© prevalecida: NÃ³s vemos o resultado pela segunda, nÃ£o pela primeira. Nada impede que vocÃª defina um mÃ©todo duas vezes, no entanto, a nova versÃ£o tem precedÃªncia.</p>
-<h2>Classe abstrata</h2>
-<p>Em Ruby, podemos definir uma classe abstrata como a que invoca certos mÃ©todos â€œabstratosâ€ indefinidos, que Ã© deixado para as subclass definir. Por exemplo:</p>
+<h2>Classe Abstrata</h2>
+<p>Em Ruby, podemos definir uma classe abstrata como a que invoca certos mÃ©todos â€œabstratosâ€ indefinidos, que Ã© deixado para as subclasses definir. Por exemplo:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c">#Â Essa classe Ã© abstrata, mais nÃ£o define Ola ou NomeÂ Â </span>
 <span class="no"> 2</span>         <span class="c">#Â Nenhuma sintaxe especial Ã© necessÃ¡ria: qualquer classe que invoca os mÃ©todos.</span>
 <span class="no"> 3</span>         <span class="c">#Â que Ã© destinado a implementar uma subclasse Ã© abstrato.Â Â </span>
 <span class="no"> 4</span>         <span class="r">class</span> <span class="cl">AbstractKlass</span>  
-<span class="no"> 5</span>           <span class="r">def</span> <span class="fu">welcome</span>  
+<span class="no"> 5</span>           <span class="r">def</span> <span class="fu">bemvindo</span>  
 <span class="no"> 6</span>             puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>ola<span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
 <span class="no"> 7</span>           <span class="r">end</span>  
 <span class="no"> 8</span>         <span class="r">end</span>  
@@ -136,7 +136,7 @@
 <span class="no">13</span>           <span class="r">def</span> <span class="fu">nome</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Estudantes de Ruby</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
 <span class="no">14</span>         <span class="r">end</span>
 <span class="no">15</span> 
-<span class="no">16</span>         <span class="co">ConcreteKlass</span>.new.welcome <span class="c"># imprimeÂ &quot;Ola Estudantes de Ruby&quot;</span>
+<span class="no">16</span>         <span class="co">ConcreteKlass</span>.new.bemvindo <span class="c"># imprimeÂ &quot;Ola Estudantes de Ruby&quot;</span>
 </pre>
 </div>
    </div>

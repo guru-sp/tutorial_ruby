@@ -234,6 +234,6 @@ Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts 
 puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode - de fato, deve - chamá-los sem um recebedor.
 
 
-Falaremos sobre self em mais detalhes mais  tarde.
+Falaremos sobre self detalhadamente mais tarde.
 
 

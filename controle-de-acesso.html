@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Controle de acesso</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Controle de acesso</p>
+<p>O único jeito fácil de se mudar o estado de um objeto em Ruby é chamando um de seus métodos. Controle o acesso a métodos e você terá controlado o acesso a objetos. Uma boa regra é nunca expor métodos que podem deixar um objeto em um estado inválido.</p>
+<p>Ruby lhe dá três níveis de proteção:</p>
+<ol>
+	<li><b>Métodos públicos (public)</b> podem ser chamados por todos &#8211; nenhum controle de acesso é forçado. Os métodos de instância de uma classe (estes não pertencem a apenas um objeto; ao invés disso cada instância da classe pode chamá-los) são públicos por padrão; qualquer um pode chamá-los. O método <b>initialize</b> é sempre privado.</li>
+	<li><b>Métodos protegidos (protected)</b> podem ser chamados apenas por objetos da classe que os definem e suas subclasses. O aaceso é mantido na família. Entretanto, o uso de <b>protected</b> é limitado.</li>
+	<li><b>Métodos privados (private)</b> não podem ser chamados com um recebedor explícito &#8211; o recebedor é sempre <b>self</b>. Isso significa que podem ser chamados apenas no contexto do objeto atual; você não pode chamar o método private de outros objetos.</li>
+</ol>
+<p>O controle de acesso é determinado dinamicamente, a medida que o programa executa e não estaticamente. Você terá uma violação de acesso apenas quando o código tenta executar o método restrito. Observemos o programa <b>p047classaccess.rb</b> abaixo:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p047classaccess.rb</span>
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">AcessoClasse</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">m1</span> <span class="c"># este método é público</span>
+<span class="no"> 4</span>     <span class="r">end</span>
+<span class="no"> 5</span>     protected
+<span class="no"> 6</span>       <span class="r">def</span> <span class="fu">m2</span> <span class="c"># este método é protegido</span>
+<span class="no"> 7</span>       <span class="r">end</span>
+<span class="no"> 8</span>     private
+<span class="no"> 9</span>       <span class="r">def</span> <span class="fu">m3</span> <span class="c"># este método é privado</span>
+<span class="no"><strong>10</strong></span>       <span class="r">end</span>
+<span class="no">11</span>   <span class="r">end</span>
+<span class="no">12</span>   ca = <span class="co">AcesoClasse</span>.new
+<span class="no">13</span>   ca.m1
+<span class="no">14</span>   <span class="c">#ca.m2</span>
+<span class="no">15</span>   <span class="c">#ca.m3</span>
+</pre>
+</div>
+<p>Se você remover os comentários das duas últimas declarações no programa acima, você obterá um erro de violação de acesso (access violation runtime error)</p>
+<p>Alternativamente, você pode configurar os níveis de acesso de métodos listando-os como argumentos para as funções de acesso de controle.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">class</span> <span class="cl">AcessoClasse</span>
+<span class="no">2</span>     <span class="r">def</span> <span class="fu">m1</span> <span class="c"># este método é público</span>
+<span class="no">3</span>     <span class="r">end</span>
+<span class="no">4</span>     public <span class="sy">:m1</span>
+<span class="no">5</span>     protected <span class="sy">:m2</span>, <span class="sy">:m3</span>
+<span class="no">6</span>     private <span class="sy">:m4</span>, <span class="sy">:m5</span>
+<span class="no">7</span>   <span class="r">end</span>
+<span class="no">8</span> 
+</pre>
+</div>
+<p>Aqui está um exemplo para o controle de acesso protegido (<b>p047zclassaccess.rb</b>):</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p047zclassaccess.rb</span>
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">Pessoa</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>(idade)
+<span class="no"> 4</span>       <span class="iv">@idade</span> = idade
+<span class="no"> 5</span>     <span class="r">end</span>
+<span class="no"> 6</span>     <span class="r">def</span> <span class="fu">idade</span>
+<span class="no"> 7</span>       <span class="iv">@idade</span>
+<span class="no"> 8</span>     <span class="r">end</span>
+<span class="no"> 9</span>     <span class="r">def</span> <span class="fu">compara_idade</span>(c)
+<span class="no"><strong>10</strong></span>       <span class="r">if</span> c.idade &gt; idade
+<span class="no">11</span>         <span class="s"><span class="dl">&quot;</span><span class="k">A idade do outro objeto é maior.</span><span class="dl">&quot;</span></span>
+<span class="no">12</span>       <span class="r">else</span>
+<span class="no">13</span>         <span class="s"><span class="dl">&quot;</span><span class="k">A idade do outro objeto é menor.</span><span class="dl">&quot;</span></span>
+<span class="no">14</span>       <span class="r">end</span>
+<span class="no">15</span>     <span class="r">end</span>
+<span class="no">16</span>     protected <span class="sy">:idade</span>
+<span class="no">17</span>   <span class="r">end</span>
+<span class="no">18</span> 
+<span class="no">19</span>   chris = <span class="co">Pessoa</span>.new(<span class="i">25</span>)
+<span class="no"><strong>20</strong></span>   marcos = <span class="co">Pessoa</span>.new(<span class="i">34</span>)
+<span class="no">21</span>   puts chris.compara_idade(marcos)
+<span class="no">22</span>   <span class="c">#puts chris.idade</span>
+</pre>
+</div>
+<p>A saída é</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p047zclassaccess.rb
+<span class="no">2</span>   A idade do outro objeto é maior.
+<span class="no">3</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa pergunta ao outro objeto (marcos) para executar seu método idade. Portanto, age não pode ser privado.</p>
+<p>É aí que entra o nível de proteção protected. Com idade protegida ao invés de privada, chris pode perguntar a marcos para executar idade, porque chris e marcos são ambos instâncias da mesma classe. Mas se você tentar chamar o método idade de um objeto Pessoa quando <b>self</b> é qualquer outra coisa que não um objeto do tipo Pessoa, o método falhará.</p>
+<p>Um método protegido é então como um método privado, mas com uma exceção para casos em que a classe de <b>self</b> (chris) e a classe do objeto tendo o método chamado em si (marcos) são a mesma.</p>
+<p>Atente-se que, se você remover o comentário da última declaração do programa, isso é, quando você usa idade diretamente, o Ruby lança uma exceção.</p>
+<div class='box'>
+<p>No Ruby, <b>público</b>, <b>privado</b> e <b>protegido</b> se aplicam apenas a métodos. Instâncias e variáveis de classe são encapsuladas e efetivamente privadas e constantes são efetivamente públicas. Não há nenhum modo de fazer uma variável de instância acessível de fora de uma classe (exceto quando se usando um método acessor). E não há como definir uma constante que seja inacessível para uso externo.</p>
+</div>
+<h2>Sobrepondo métodos privados</h2>
+<p>Métodos privados não podem ser chamados de fora da classe que os defina. Mas eles são herdados por subclasses. Isto significa que estas subclasses podem chamá-los e podem sobrepô-los.</p>
+<div class='box'>
+<p>Classes frequentemente usam métodos privados como métodos de ajuda internos. Eles não são parte da API pública da classe e não são planejados para que sejam visíveis. Se você, por ventura, definir um método em sua subclasse que  tem o mesmo nome de um método privado na superclasse, você terá substituído o método de utilidade interno à superclasse, e isso irá provavelmente causar um comportamento não desejado.</p>
+</div>
+<h2>Métodos acessores</h2>
+<p>O encapsulamento é obtido quando as variáveis de instância são privadas para um objeto e você tem getters e setters (no Ruby os chamamos de leitores e escritores de atributos). Para fazer variáveis de instância disponíveis, o Ruby provê métodos acessores (accessors) que retornam seus valores. O programa <b>p048accessor.rb</b> ilustra isso.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p048accessor.rb</span>
+<span class="no"> 2</span>   <span class="c"># Primeiro sem os métodos acessores</span>
+<span class="no"> 3</span>   <span class="r">class</span> <span class="cl">Musica</span>
+<span class="no"> 4</span>     <span class="r">def</span> <span class="fu">initialize</span>(nome, artista)
+<span class="no"> 5</span>       <span class="iv">@nome</span> = nome
+<span class="no"> 6</span>       <span class="iv">@artista</span> = artista
+<span class="no"> 7</span>     <span class="r">end</span>
+<span class="no"> 8</span>     <span class="r">def</span> <span class="fu">nome</span>
+<span class="no"> 9</span>       <span class="iv">@nome</span>
+<span class="no"><strong>10</strong></span>     <span class="r">end</span>
+<span class="no">11</span>     <span class="r">def</span> <span class="fu">artista</span>
+<span class="no">12</span>       <span class="iv">@artista</span>
+<span class="no">13</span>     <span class="r">end</span>
+<span class="no">14</span>   <span class="r">end</span>
+<span class="no">15</span> 
+<span class="no">16</span>   musica = <span class="co">Musica</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">Brasil</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">Ivete Sangalo</span><span class="dl">&quot;</span></span>)
+<span class="no">17</span>   puts musica.nome
+<span class="no">18</span>   puts musica.artista
+<span class="no">19</span> 
+<span class="no"><strong>20</strong></span>   <span class="c"># Agora com métodos acessores</span>
+<span class="no">21</span>   <span class="r">class</span> <span class="cl">Musica</span>
+<span class="no">22</span>     <span class="r">def</span> <span class="fu">initialize</span>(nome, artista)
+<span class="no">23</span>       <span class="iv">@nome</span> = nome
+<span class="no">24</span>       <span class="iv">@artista</span> = artista
+<span class="no">25</span>     <span class="r">end</span>
+<span class="no">26</span>     attr_reader <span class="sy">:nome</span>, <span class="sy">:artista</span> <span class="c"># cria leitor apenas</span>
+<span class="no">27</span>     <span class="c"># Para criar métodos leitores e escritores</span>
+<span class="no">28</span>     <span class="c"># attr_accessor :nome</span>
+<span class="no">29</span>     <span class="c"># Para criar métodos escritores</span>
+<span class="no"><strong>30</strong></span>     <span class="c"># attr_writer :nome</span>
+<span class="no">31</span> 
+<span class="no">32</span>   <span class="r">end</span>
+<span class="no">33</span> 
+<span class="no">34</span>   musica = <span class="co">Musica</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">Brasil</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">Ivete Sangalo</span><span class="dl">&quot;</span></span>)
+<span class="no">35</span>   puts musica.nome
+<span class="no">36</span>   puts musica.artista
+</pre>
+</div>
+<h3>Variáveis de instância são herdadas por uma subclasse?</h3>
+<p>David Black, o autor do livro Ruby for Rails, tem isso a dizer: Variáveis de instância são por objeto, não por classe, e elas não são herdadas. Mas se um método usa uma, e esse método está disponível para suas subclasses, então ele ainda usará a variável &#8212; mas &#8220;a variável&#8221; no sentido de uma por objeto. Veja o seguinte programa &#8211; <b>p049instvarinherit.rb</b>:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p049instvarinherit.rb</span>
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">C</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>
+<span class="no"> 4</span>       <span class="iv">@n</span> = <span class="i">100</span>
+<span class="no"> 5</span>     <span class="r">end</span>
+<span class="no"> 6</span> 
+<span class="no"> 7</span>     <span class="r">def</span> <span class="fu">aumenta_n</span>
+<span class="no"> 8</span>       <span class="iv">@n</span> *= <span class="i">20</span>
+<span class="no"> 9</span>     <span class="r">end</span>
+<span class="no"><strong>10</strong></span>   <span class="r">end</span>
+<span class="no">11</span> 
+<span class="no">12</span>   <span class="r">class</span> <span class="cl">D</span> &lt; <span class="co">C</span>
+<span class="no">13</span>     <span class="r">def</span> <span class="fu">mostra_n</span>
+<span class="no">14</span>       puts <span class="s"><span class="dl">&quot;</span><span class="k">n eh </span><span class="il"><span class="idl">#{</span><span class="iv">@n</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no">15</span>     <span class="r">end</span>
+<span class="no">16</span>   <span class="r">end</span>
+<span class="no">17</span> 
+<span class="no">18</span>   d = <span class="co">D</span>.new
+<span class="no">19</span>   d.aumenta_n
+<span class="no"><strong>20</strong></span>   d.mostra_n
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p049instvarinherit.rb
+<span class="no">2</span>   n eh 2000
+<span class="no">3</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>O @n nos métodos de D é o mesmo (para cada instância) que o @n em C.</p>
+<div class='box'>
+<p>Todos os objetos Ruby tem um conjunto de variáveis de instância. Estas não são definidas pela classe do objeto &#8211; elas são simplesmente criadas quando um valor é associado a elas. Pelo fato de variáveis de instância não serem definidas por uma classe, elas não são relacionadas aos mecanismos de subclasses e herança.</p>
+</div>
+<h2>Métodos de nível alto</h2>
+<p>Quando você escreve código no nível mais alto, Ruby lhe provê automaticamente um objeto self padrão. Este objeto é uma instância direta de Object. Quando você pergunta para que ele se descreva:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   puts <span class="pc">self</span>
+</pre>
+</div>
+<p>Ele responde:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   main
+</pre>
+</div>
+<p>O objeto main é o objeto atual assim que seu programa inicia.</p>
+<p>Suponhamos que você defina um método no nível mais alto:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">fala</span>
+<span class="no">2</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Ola</span><span class="dl">&quot;</span></span>
+<span class="no">3</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>A quem, ou o que, o método pertence? Ele não está dentro de um bloco de definição de classe nem de módulo, então ele não parece ser um método de instância de uma classe ou módulo. Ele não está associado a nenhum objeto em particular (como em def obj.fala). O que ele é? Objetos do nível mais alto são métodos de instância privados do módulo Kernel.</p>
+<p>Por serem privados, métodos de alto nível não podem ser chamados com um recebedor explícito (o objeto antes do ponto); você pode apenas chamá-los usando o recebedor ímplicito, self. Isso significa que self precisa ser um objeto em cujo caminho de busca de métodos está o método de alto nível dado. Mas todo caminho de busca de métodos de um objeto inclui o módulo Kernel, porque a classe Objeto incorpora (mixes in) Kernel, e todo objeto de uma classe possui Object como ancestral. Isso significa que você pode sempre chamar qualquer método de nível mais alto, onde quer que você esteja em seu programa.<br />
+Isso também significa que você nunca pode usar um recebedor explícito em um método de nível mais alto.</p>
+<p>Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e mprin, como essa aqui:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ola</span><span class="dl">'</span></span>
+</pre>
+</div>
+<p>puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode &#8211; de fato, deve &#8211; chamá-los sem um recebedor.</p>
+<p>Falaremos sobre self detalhadamente mais tarde.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>
