@@ -1,0 +1,239 @@
+---
+title: Controle de acesso
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+O único jeito fácil de se mudar o estado de um objeto em Ruby é chamando um de seus métodos. Controle o acesso a métodos e você terá controlado o acesso a objetos. Uma boa regra é nunca expor métodos que podem deixar um objeto em um estado inválido.
+
+Ruby lhe dá três níveis de proteção:
+
+# **Métodos públicos (public)** podem ser chamados por todos - nenhum controle de acesso é forçado. Os métodos de instância de uma classe (estes não pertencem a apenas um objeto; ao invés disso cada instância da classe pode chamá-los) são públicos por padrão; qualquer um pode chamá-los. O método **initialize** é sempre privado.
+# **Métodos protegidos (protected)** podem ser chamados apenas por objetos da classe que os definem e suas subclasses. O aaceso é mantido na família. Entretanto, o uso de **protected** é limitado.
+# **Métodos privados (private)** não podem ser chamados com um recebedor explícito - o recebedor é sempre **self**. Isso significa que podem ser chamados apenas no contexto do objeto atual; você não pode chamar o método private de outros objetos.
+
+O controle de acesso é determinado dinamicamente, a medida que o programa executa e não estaticamente. Você terá uma violação de acesso apenas quando o código tenta executar o método restrito. Observemos o programa **p047classaccess.rb** abaixo:
+
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p047classaccess.rb
+  class AcessoClasse
+    def m1 # este método é público
+    end
+    protected
+      def m2 # este método é protegido
+      end
+    private
+      def m3 # este método é privado
+      end
+  end
+  ca = AcesoClasse.new
+  ca.m1
+  #ca.m2
+  #ca.m3
+<% end -%>
+
+Se você remover os comentários das duas últimas declarações no programa acima, você obterá um erro de violação de acesso (access violation runtime error)
+
+
+Alternativamente, você pode configurar os níveis de acesso de métodos listando-os como argumentos para as funções de acesso de controle.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class AcessoClasse
+    def m1 # este método é público
+    end
+    public :m1
+    protected :m2, :m3
+    private :m4, :m5
+  end
+
+<% end -%>
+
+Aqui está um exemplo para o controle de acesso protegido (**p047zclassaccess.rb**):
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p047zclassaccess.rb
+  class Pessoa
+    def initialize(idade)
+      @idade = idade
+    end
+    def idade
+      @idade
+    end
+    def compara_idade(c)
+      if c.idade > idade
+        "A idade do outro objeto é maior."
+      else
+        "A idade do outro objeto é menor."
+      end
+    end
+    protected :idade
+  end
+
+  chris = Pessoa.new(25)
+  marcos = Pessoa.new(34)
+  puts chris.compara_idade(marcos)
+  #puts chris.idade
+<% end -%>
+
+
+A saída é
+
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
+  >ruby p047zclassaccess.rb
+  A idade do outro objeto é maior.
+  >Exit code: 0
+<% end -%>
+
+No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa pergunta ao outro objeto (marcos) para executar seu método idade. Portanto, age não pode ser privado.
+
+É aí que entra o nível de proteção protected. Com idade protegida ao invés de privada, chris pode perguntar a marcos para executar idade, porque chris e marcos são ambos instâncias da mesma classe. Mas se você tentar chamar o método idade de um objeto Pessoa quando **self** é qualquer outra coisa que não um objeto do tipo Pessoa, o método falhará.
+
+Um método protegido é então como um método privado, mas com uma exceção para casos em que a classe de **self** (chris) e a classe do objeto tendo o método chamado em si (marcos) são a mesma.
+
+Atente-se que, se você remover o comentário da última declaração do programa, isso é, quando você usa idade diretamente, o Ruby lança uma exceção.
+
+<div class='box'>
+No Ruby, **público**, **privado** e **protegido** se aplicam apenas a métodos. Instâncias e variáveis de classe são encapsuladas e efetivamente privadas e constantes são efetivamente públicas. Não há nenhum modo de fazer uma variável de instância acessível de fora de uma classe (exceto quando se usando um método acessor). E não há como definir uma constante que seja inacessível para uso externo.
+</div>
+
+h2. Sobrepondo métodos privados
+
+Métodos privados não podem ser chamados de fora da classe que os defina. Mas eles são herdados por subclasses. Isto significa que estas subclasses podem chamá-los e podem sobrepô-los.
+
+<div class='box'>
+Classes frequentemente usam métodos privados como métodos de ajuda internos. Eles não são parte da API pública da classe e não são planejados para que sejam visíveis. Se você, por ventura, definir um método em sua subclasse que  tem o mesmo nome de um método privado na superclasse, você terá substituído o método de utilidade interno à superclasse, e isso irá provavelmente causar um comportamento não desejado.
+</div>
+
+h2. Métodos acessores
+
+O encapsulamento é obtido quando as variáveis de instância são privadas para um objeto e você tem getters e setters (no Ruby os chamamos de leitores e escritores de atributos). Para fazer variáveis de instância disponíveis, o Ruby provê métodos acessores (accessors) que retornam seus valores. O programa **p048accessor.rb** ilustra isso.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p048accessor.rb
+  # Primeiro sem os métodos acessores
+  class Musica
+    def initialize(nome, artista)
+      @nome = nome
+      @artista = artista
+    end
+    def nome
+      @nome
+    end
+    def artista
+      @artista
+    end
+  end
+
+  musica = Musica.new("Brasil", "Ivete Sangalo")
+  puts musica.nome
+  puts musica.artista
+
+  # Agora com métodos acessores
+  class Musica
+    def initialize(nome, artista)
+      @nome = nome
+      @artista = artista
+    end
+    attr_reader :nome, :artista # cria leitor apenas
+    # Para criar métodos leitores e escritores
+    # attr_accessor :nome
+    # Para criar métodos escritores
+    # attr_writer :nome
+
+  end
+
+  musica = Musica.new("Brasil", "Ivete Sangalo")
+  puts musica.nome
+  puts musica.artista
+<% end -%>
+
+h3. Variáveis de instância são herdadas por uma subclasse?
+
+David Black, o autor do livro Ruby for Rails, tem isso a dizer: Variáveis de instância são por objeto, não por classe, e elas não são herdadas. Mas se um método usa uma, e esse método está disponível para suas subclasses, então ele ainda usará a variável -- mas "a variável" no sentido de uma por objeto. Veja o seguinte programa - **p049instvarinherit.rb**:
+
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p049instvarinherit.rb
+  class C
+    def initialize
+      @n = 100
+    end
+
+    def aumenta_n
+      @n *= 20
+    end
+  end
+
+  class D < C
+    def mostra_n
+      puts "n eh #{@n}"
+    end
+  end
+
+  d = D.new
+  d.aumenta_n
+  d.mostra_n
+<% end -%>
+
+
+The output is:
+
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
+  >ruby p049instvarinherit.rb
+  n eh 2000
+  >Exit code: 0
+<% end -%>
+
+O @n nos métodos de D é o mesmo (para cada instância) que o @n em C.
+
+<div class='box'>
+Todos os objetos Ruby tem um conjunto de variáveis de instância. Estas não são definidas pela classe do objeto - elas são simplesmente criadas quando um valor é associado a elas. Pelo fato de variáveis de instância não serem definidas por uma classe, elas não são relacionadas aos mecanismos de subclasses e herança.
+</div>
+
+h2. Métodos de nível alto
+
+Quando você escreve código no nível mais alto, Ruby lhe provê automaticamente um objeto self padrão. Este objeto é uma instância direta de Object. Quando você pergunta para que ele se descreva:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  puts self
+<% end -%>
+
+Ele responde:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  main
+<% end -%>
+
+O objeto main é o objeto atual assim que seu programa inicia.
+
+Suponhamos que você defina um método no nível mais alto:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  def fala
+    puts "Ola"
+  end
+<% end -%>
+
+A quem, ou o que, o método pertence? Ele não está dentro de um bloco de definição de classe nem de módulo, então ele não parece ser um método de instância de uma classe ou módulo. Ele não está associado a nenhum objeto em particular (como em def obj.fala). O que ele é? Objetos do nível mais alto são métodos de instância privados do módulo Kernel.
+
+Por serem privados, métodos de alto nível não podem ser chamados com um recebedor explícito (o objeto antes do ponto); você pode apenas chamá-los usando o recebedor ímplicito, self. Isso significa que self precisa ser um objeto em cujo caminho de busca de métodos está o método de alto nível dado. Mas todo caminho de busca de métodos de um objeto inclui o módulo Kernel, porque a classe Objeto incorpora (mixes in) Kernel, e todo objeto de uma classe possui Object como ancestral. Isso significa que você pode sempre chamar qualquer método de nível mais alto, onde quer que você esteja em seu programa.
+Isso também significa que você nunca pode usar um recebedor explícito em um método de nível mais alto.
+
+
+Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e mprin, como essa aqui:
+
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  puts 'Ola'
+<% end -%>
+
+puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode - de fato, deve - chamá-los sem um recebedor.
+
+
+Falaremos sobre self em mais detalhes mais  tarde.
+
+

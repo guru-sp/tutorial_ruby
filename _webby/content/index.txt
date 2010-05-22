@@ -92,10 +92,11 @@ h3. Parte 5
 # "Resumo 5":sumario-ruby5.html
 
 h3. Parte 6
-# Controle de Acesso
+# "Controle de Acesso":controle-de-acesso.html
 ## Sobrepondo métodos privados
-## Métodos de nível mais alto
-## Variáveis de instância são herdadas por uma sub-classe?
+## Métodos acessores
+## Métodos de nível alto
+## Variáveis de instância são herdadas por uma subclasse?
 # Exceções
 ## Lançando uma exceção
 ## Tratando uma exceção

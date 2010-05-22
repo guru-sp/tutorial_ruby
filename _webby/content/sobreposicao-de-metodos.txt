@@ -1,5 +1,5 @@
 ---
-title:      Sobreposicao de Metodos
+title:      Sobreposição de Métodos
 created_at: 2010-05-11 09:23:39.261413 -03:00
 filter:
   - erb
@@ -7,9 +7,9 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Sobreposição de métodos(override) em programação orientada a objetos, é um recurso da linguagem que permite que a subclasse, rescreva uma implementação especifica de um método que já esta previsto em uma super-class. A implementação na subclasse sobrepõe a implementação na super-class.
+**Sobreposição de métodos** (override) em programação orientada a objetos, é um recurso da linguagem que permite que a subclasse, rescreva uma implementação especifica de um método que já esta previsto em uma superclasse. A implementação na subclasse sobrepõe a implementação na superclasse.
 
-Aqui esta um exemplo p037xmtdoverride.rb:
+Aqui esta um exemplo **p037xmtdoverride.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   class A  
@@ -32,14 +32,14 @@ O Método na classe B sobrepôs o método na classe A.
 
 h2. Uso do super
 
-A forma de se lidar com argumentos super:
+A forma de se lidar com argumentos **super**:
 
-* Quando você invoca super sem argumentos, Ruby envia uma mensagem para o pai do objeto atual, pedindo para invocar um método do mesmo nome que o método que invocou super, ele automaticamente encaminha os argumentos que foram passados para o método a partir de qual foi chamado.
-* Chamando com uma lista de argumentos vazia - super()- ele não envia argumentos para o primeiro método, até mesmo se os argumentos foram passados para o método atual.
-* Chamando com argumentos específicos - super(a, b, c) - envia exatamente esses argumentos.
+* Quando você invoca **super** sem argumentos, Ruby envia uma mensagem para o pai do objeto atual, pedindo para invocar um método do mesmo nome que o método que invocou **super**, ele automaticamente encaminha os argumentos que foram passados para o método a partir de qual foi chamado.
+* Chamando com uma lista de argumentos vazia - **super()**- ele não envia argumentos para o primeiro método, até mesmo se os argumentos foram passados para o método atual.
+* Chamando com argumentos específicos - **super(a, b, c)** - envia exatamente esses argumentos.
 
 
-Um exemplo p038bicycle.rb do Ruby for Rails book highlights 
+Um exemplo (**p038bicycle.rb**) do livro Ruby for Rails enfatiza isso:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   class Bicycle
@@ -68,7 +68,7 @@ Um exemplo p038bicycle.rb do Ruby for Rails book highlights
 <% end -%>
 
 
-A saida:
+A saída:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p038bicycle.rb
@@ -82,14 +82,14 @@ A saida:
 <% end -%>
 
 
-Vamos falar com mais profundidade sobre attr_reader mais tarde.
+Vamos falar com mais detalhes sobre **attr_reader** "mais tarde":controle-de-acesso.html.
 
 
-h2. Redefinindo métodos
+h2. Redefinindo Métodos
 
-(Adaptado do livro de David Blanck's, Ruby for Rails)
+(Adaptado do livro de David Black, Ruby for Rails)
 
-Nada impede que você defina um método duas vezes. Programa p038or.rb
+Nada impede que você defina um método duas vezes. Programa **p038or.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   class OR  
@@ -114,16 +114,16 @@ O que acontece quando chamamos o mtd em uma instancia de OR? Vamos descobrir:
 O resultado mostrado é a segunda definição do método mtd. A segunda definição é prevalecida: Nós vemos o resultado pela segunda, não pela primeira. Nada impede que você defina um método duas vezes, no entanto, a nova versão tem precedência.
 
 
-h2. Classe abstrata
+h2. Classe Abstrata
 
-Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos “abstratos” indefinidos, que é deixado para as subclass definir. Por exemplo:
+Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos “abstratos” indefinidos, que é deixado para as subclasses definir. Por exemplo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # Essa classe é abstrata, mais não define Ola ou Nome  
 	# Nenhuma sintaxe especial é necessária: qualquer classe que invoca os métodos.
 	# que é destinado a implementar uma subclasse é abstrato.  
 	class AbstractKlass  
-	  def welcome  
+	  def bemvindo  
 	    puts "#{ola} #{nome}"  
 	  end  
 	end  
@@ -134,5 +134,5 @@ Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos �
 	  def nome; "Estudantes de Ruby"; end  
 	end
 
-	ConcreteKlass.new.welcome # imprime "Ola Estudantes de Ruby"
+	ConcreteKlass.new.bemvindo # imprime "Ola Estudantes de Ruby"
 <% end -%>
