@@ -9,7 +9,7 @@ p(title). <%= @page.title %>
 
 Este é mais um tutorial de Ruby, idealizado pelos membros do "GURU-SP":http://www.guru-sp.org (Grupo de Usuários Ruby de SP). Apesar de existir uma "grande quantidade de material relacionado a Ruby em língua portuguesa":http://guru-sp.com/index.php/Links espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender algumas particularidades desta linguagem de programação.
 
-Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. É um tutorial introdutório e que não aborda tópicos avançados. Buscaremos melhorar o conteúdo e adicionar tópicos intermediários e avançados de Ruby.
+Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. É um tutorial introdutório e que não aborda tópicos avançados. Sinta-se a vontade para corrigir erros encontrados, adicionar informações e novos tópicos fazendo um fork do "projeto no github":http://github.com/guru-sp/tutorial_ruby .
 
 
 h2. Índice
@@ -97,13 +97,13 @@ h3. Parte 6
 ## Métodos acessores
 ## Métodos de nível alto
 ## Variáveis de instância são herdadas por uma subclasse?
-# Exceções
+# "Exceções":excecoes.html
 ## Lançando uma exceção
 ## Tratando uma exceção
 ## Exemplo de validação
-# Logging com Ruby
+# "Logging com Ruby":logging-com-ruby.html
 # A classe Time do Ruby
-# Resumo 6
+# "Resumo 6":sumario-ruby5.html
 
 h3. Parte 7
 # Duck Typing
@@ -111,10 +111,10 @@ h3. Parte 7
 # Objetos mutáveis e imutáveis
 ## Congelando objetos
 ## Frozen? (congelado)
-# Resumo 7
+# "Resumo 7":sumario-ruby7.html
 
 h3. Parte 8
-# Serialização de objetos":serializacao-ruby.html
+# "Serialização de objetos":serializacao-ruby.html
 # Módulos / Mixins
 # Self
 ## Contexto do nível mais alto
@@ -122,5 +122,5 @@ h3. Parte 8
 ## Self na definição de métodos de instância
 ## Self na definição de métodos singleton e métodos de classe
 # "Constantes":constantes.html
-# Resumo 8
+# "Resumo 8":sumario-ruby8.html
 

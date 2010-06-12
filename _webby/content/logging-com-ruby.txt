@@ -1,0 +1,88 @@
+---
+title:      Logging com Ruby
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+(a ser traduzido)
+
+The Logger  class in the Ruby standard library, helps write log messages to a file or stream. It supports time- or size-based rolling of log files. Messages can be assigned severities, and only those messages at or above the logger's current reporting level will be logged.
+
+When you write code, you simply assume that all the messages will be logged. At runtime, you can get a more or a less verbose log by changing the log level. A production application usually has a log level of Logger::INFO or Logger::WARN. From least to most severe, the instance methods are Logger.debug, Logger.info, Logger.warn, Logger.error, and Logger.fatal.
+
+The DEBUG log level is useful for step-by-step diagnostics of a complex task. The ERROR level is often used when handling exceptions: if the program can't solve a problem, it logs the exception rather than crash and expects a human administrator to deal with it. The FATAL level should only be used when the program cannot recover from a problem, and is about to crash or exit.
+
+If your log is being stored in a file, you can have Logger rotate or replace the log file when it gets too big, or once a certain amount of time has elapsed:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  require 'logger'
+  # Keep data for the current month only
+  Logger.new('this_month.log', 'monthly')
+  # Keep data for today and the past 20 days.
+  Logger.new('application.log', 20, 'daily')
+  # Start the log over whenever the log exceeds 100 megabytes in size.
+  Logger.new('application.log', 0, 100 * 1024 * 1024)
+<% end -%>
+
+
+The code below, uses the application's logger to print a debugging message, and (at a higher severity) as part of error-handling code.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  #logex.rb
+  require 'logger'
+  $LOG = Logger.new('log_file.log', 'monthly')
+  def divide(numerator, denominator)
+    $LOG.debug("Numerator: #{numerator}, denominator #{denominator}")
+    begin
+      result = numerator / denominator
+    rescue Exception => e
+      $LOG.error "Error in division!: #{e}"
+      result = nil
+    end
+    return result
+  end
+  divide(10, 2)
+<% end -%>
+
+
+The contents of the file log_file.log is:
+
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
+  # Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /
+  D, [2008-03-18T17:09:29.216000 #2020] DEBUG -- : Numerator: 10, denominator 2
+<% end -%>
+
+
+Now try to call the method by:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  divide(10, 0)
+<% end -%>
+
+
+The contents of the file log_file.log is:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /
+  D, [2008-03-18T17:09:29.216000 #2020] DEBUG -- : Numerator: 10, denominator 2
+  D, [2008-03-18T17:13:50.044000 #2820] DEBUG -- : Numerator: 10, denominator 0
+  E, [2008-03-18T17:13:50.044000 #2820] ERROR -- : Error in division!: divided by 0
+<% end -%>
+
+
+To change the log level, simply assign the appropriate constant to level:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  $LOG.level = Logger::ERROR
+<% end -%>
+
+
+Now our logger will ignore all log messages except those with severity ERROR or FATAL. The contents of the file log_file.log is:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  E, [2008-03-18T17:15:59.919000 #2624] ERROR -- : Error in division!: divided by 0
+<% end -%>
+

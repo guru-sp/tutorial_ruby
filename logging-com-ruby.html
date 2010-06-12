@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Logging com Ruby</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Logging com Ruby</p>
+<p>(a ser traduzido)</p>
+<p>The Logger  class in the Ruby standard library, helps write log messages to a file or stream. It supports time- or size-based rolling of log files. Messages can be assigned severities, and only those messages at or above the logger&#8217;s current reporting level will be logged.</p>
+<p>When you write code, you simply assume that all the messages will be logged. At runtime, you can get a more or a less verbose log by changing the log level. A production application usually has a log level of Logger::INFO or Logger::WARN. From least to most severe, the instance methods are Logger.debug, Logger.info, Logger.warn, Logger.error, and Logger.fatal.</p>
+<p>The DEBUG log level is useful for step-by-step diagnostics of a complex task. The ERROR level is often used when handling exceptions: if the program can&#8217;t solve a problem, it logs the exception rather than crash and expects a human administrator to deal with it. The FATAL level should only be used when the program cannot recover from a problem, and is about to crash or exit.</p>
+<p>If your log is being stored in a file, you can have Logger rotate or replace the log file when it gets too big, or once a certain amount of time has elapsed:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   require <span class="s"><span class="dl">'</span><span class="k">logger</span><span class="dl">'</span></span>
+<span class="no">2</span>   <span class="c"># Keep data for the current month only</span>
+<span class="no">3</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">this_month.log</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">monthly</span><span class="dl">'</span></span>)
+<span class="no">4</span>   <span class="c"># Keep data for today and the past 20 days.</span>
+<span class="no">5</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">application.log</span><span class="dl">'</span></span>, <span class="i">20</span>, <span class="s"><span class="dl">'</span><span class="k">daily</span><span class="dl">'</span></span>)
+<span class="no">6</span>   <span class="c"># Start the log over whenever the log exceeds 100 megabytes in size.</span>
+<span class="no">7</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">application.log</span><span class="dl">'</span></span>, <span class="i">0</span>, <span class="i">100</span> * <span class="i">1024</span> * <span class="i">1024</span>)
+</pre>
+</div>
+<p>The code below, uses the application&#8217;s logger to print a debugging message, and (at a higher severity) as part of error-handling code.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c">#logex.rb</span>
+<span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">logger</span><span class="dl">'</span></span>
+<span class="no"> 3</span>   <span class="gv">$LOG</span> = <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">log_file.log</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">monthly</span><span class="dl">'</span></span>)
+<span class="no"> 4</span>   <span class="r">def</span> <span class="fu">divide</span>(numerator, denominator)
+<span class="no"> 5</span>     <span class="gv">$LOG</span>.debug(<span class="s"><span class="dl">&quot;</span><span class="k">Numerator: </span><span class="il"><span class="idl">#{</span>numerator<span class="idl">}</span></span><span class="k">, denominator </span><span class="il"><span class="idl">#{</span>denominator<span class="idl">}</span></span><span class="dl">&quot;</span></span>)
+<span class="no"> 6</span>     <span class="r">begin</span>
+<span class="no"> 7</span>       result = numerator / denominator
+<span class="no"> 8</span>     <span class="r">rescue</span> <span class="co">Exception</span> =&gt; e
+<span class="no"> 9</span>       <span class="gv">$LOG</span>.error <span class="s"><span class="dl">&quot;</span><span class="k">Error in division!: </span><span class="il"><span class="idl">#{</span>e<span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no"><strong>10</strong></span>       result = <span class="pc">nil</span>
+<span class="no">11</span>     <span class="r">end</span>
+<span class="no">12</span>     <span class="r">return</span> result
+<span class="no">13</span>   <span class="r">end</span>
+<span class="no">14</span>   divide(<span class="i">10</span>, <span class="i">2</span>)
+</pre>
+</div>
+<p>The contents of the file log_file.log is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   # Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /
+<span class="no">2</span>   D, [2008-03-18T17:09:29.216000 #2020] DEBUG -- : Numerator: 10, denominator 2
+</pre>
+</div>
+<p>Now try to call the method by:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   divide(<span class="i">10</span>, <span class="i">0</span>)
+</pre>
+</div>
+<p>The contents of the file log_file.log is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /</span>
+<span class="no">2</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">09</span>:<span class="fl">29.216000</span> <span class="c">#2020] DEBUG -- : Numerator: 10, denominator 2</span>
+<span class="no">3</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] DEBUG -- : Numerator: 10, denominator 0</span>
+<span class="no">4</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] ERROR -- : Error in division!: divided by 0</span>
+</pre>
+</div>
+<p>To change the log level, simply assign the appropriate constant to level:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="gv">$LOG</span>.level = <span class="co">Logger</span>::<span class="co">ERROR</span>
+</pre>
+</div>
+<p>Now our logger will ignore all log messages except those with severity ERROR or FATAL. The contents of the file log_file.log is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">15</span>:<span class="fl">59.919000</span> <span class="c">#2624] ERROR -- : Error in division!: divided by 0</span>
+</pre>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

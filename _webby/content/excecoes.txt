@@ -7,134 +7,132 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-h2. Raising An Exception
+h2. Lançando uma Exceção
 
-An exception is a special kind of object, an instance of the class Exception or a descendant of that class that represents some kind of exceptional condition; it indicates that something has gone wrong. When this occurs, an exception is raised (or thrown). By default, Ruby programs terminate when an exception occurs. But it is possible to declare exception handlers. An exception handler is a block of code that is executed if an exception occurs during the execution of some other block of code. Raising an exception means stopping normal execution of the program and transferring the flow-of-control to the exception handling code where you either deal with the problem that's been encountered or exit the program completely. Which of these happens - dealing with it or aborting the program - depends on whether you have provided a rescue clause (rescue is a fundamental part of the Ruby language). If you haven't provided such a clause, the program terminates; if you have, control flows to the rescue clause.
+Uma exceção é um tipo especial de objeto, uma instância da classe **Exception** ou uma descendente dessa classe que representa um tipo de condição incomum; ela indica que algo de errado aconteceu. Quando isso ocorre, uma exceção é levantada (ou lançada). Por padrão, os programas Ruby terminam quando uma exceção ocorre. Mas é possível declarar tratadores de exceção. Um tratador (handler) de exceção é um bloco de código que é executado se uma exceção ocorre durante a execução de algum outro bloco de código. Levantar uma exceção significa parar a execução normal do programa e transferir o fluxo de controle para o código tratador da exceção onde você pode ou lidar com o problema que foi encontrado ou sair completamente do programa. O que irá acontecer - lidar com o problema ou abortar o programa - depende do que você forneceu um comando de resgate (**rescue**, que é uma parte fundamental da linguagem Ruby). Se você não forneceu este comando, o programa termina; se você forneceu, o fluxo de controle é passado ao comando **rescue**.
 
-Ruby has some predefined classes - Exception and its children - that help you to handle errors that can occur in your program. The following figure shows the Ruby exception hierarchy.
+O Ruby tem algumas classes pré-definidas - Exceptions e  suas filhas - que lhe ajudam a lidar com erros que ocorrem em seu programa. A figura a seguir mostra a hierarquia das exceções em Ruby.
 
-#### INCLUIR IMAGEM AQUI! (Exception Hierarchy) ########
 
-Reference: The above figure is from the Programming Ruby book.
+!images/exception.jpg(Hierarquia das exceções no Ruby)!
 
-The chart above shows that most of the subclasses extend a class known as StandardError. These are the "normal" exceptions that typical Ruby programs try to handle. The other exceptions represent lower-level, more serious, or less recoverable conditions, and normal Ruby programs do not typically attempt to handle them.
+Referência: A figura acima é do livro _Programming Ruby_.
 
-The following method raises an exception whenever it's called. Its second message will never be printed. Program p043raise.rb
+O gráfico acima mostra que a maioria das subclasses estendem uma classe conhecida como StandardError (erro padrão). Estas são as exceções "normais" que os programas Ruby tipicamente tentam tratar. As outras exceções representam condições de mais baixo nível, mais sérias ou com condições menos recuperáveis, e programas normais Ruby normalmente não tentam tratá-las.
+
+O seguinte método lança uma exceção sempre que é chamado. Sua segunda mensagem nunca será impressa. Programa **p043raise.rb**.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p043raise.rb
-  def raise_exception
-    puts 'I am before the raise.'
-    raise 'An error has occured'
-    puts 'I am after the raise'
+  def levanta_excecao
+    puts 'Estou antes do raise.'
+    raise 'Um erro ocorreu'
+    puts 'Estou depois do raise'
   end
-  raise_exception
+  levanta_excecao
 <% end -%>
 
-The output is:
+A saída é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p043raise.rb
-  I am before the raise.
-  p043raise.rb:4:in `raise_exception': An error has occured (RuntimeError)
+  Estou antes do raise.
+  p043raise.rb:4:in `levanta_excecao': Um erro ocorreu (RuntimeError)
       from p043raise.rb:7
   >Exit code: 1
 <% end -%>
 
-
-The raise method is from the Kernel module. By default, raise creates an exception of the RuntimeError class. To raise an exception of a specific class, you can pass in the class name as an argument to raise. Refer program p044inverse.rb
+O método **raise** é do módulo Kernel. Por padrão, **raise** cria uma exceção da classe **RuntimeError**. Para levantar a exceção de uma classe específica, você pode passar o nome da classe como argumento para **raise**. Refira-se ao programa **p044inverse.rb**
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p044inverse.rb
-  def inverse(x)
-    raise ArgumentError, 'Argument is not numeric' unless x.is_a? Numeric
+  def inverte(x)
+    raise ArgumentError, 'O argumento não é numérico' unless x.is_a? Numeric
     1.0 / x
   end
-  puts inverse(2)
-  puts inverse('not a number')
+  puts inverte(2)
+  puts inverte('não é um número')
 <% end -%>
 
-
-The output is:
+A saída é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p044inverse.rb
   0.5
-  p044inverse.rb:3:in `inverse': Argument is not numeric (ArgumentError)
+  p044inverse.rb:3:in `inverte': O argumento não é numérico (ArgumentError)
       from p044inverse.rb:7
   >Exit code: 1
 <% end -%>
 
+Lembre-se, métodos que agem como perguntas são geralmente nomeados com um sinal de interrogação no final. **is_a?** é um método na classe Objeto e retorna verdadeiro ou falso. O modificador **unless** quando colocado no final de uma expressão significa executa a expressão antecedente ao menos que a condição seja verdadeira (ou seja, somente se ele não for verdadeira).
 
-Remember, methods that act as queries are often named with a trailing ?. is_a? is a method in the Object class and returns true or false. The unless modifier when tacked at the end of a normal statement means execute the preceding expression unless condition is true.
 
-Defining new exception classes: To be even more specific about an error, you can define your own Exception subclass:
+Definindo novas classes de exceção: Para ser ainda mais específicio sobre um erro, você pode definir sua própria subclasse de exceção:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   class NotInvertibleError < StandardError
   end
 <% end -%>
 
-h2. Handling an Exception
+h2. Tratando uma Exceção
 
-To do exception handling, we enclose the code that could raise an exception in a begin-end block and use one or more rescue clauses to tell Ruby the types of exceptions we want to handle. It is to be noted that the body of a method definition is an implicit begin-end block; the begin is omitted, and the entire body of the method is subject to exception handling, ending with the end of the method.
+Para fazer o tratamento da exceção, nós colocamos o código que pode lançar uma exceção dentro de um  bloco **begin-end** e usamos uma ou mais cláusulas **rescue** pra contar ao RUby os tipos de exceção que queremos tratar. É importante notar que o corpo de definição de um método é um bloco **begin-end** implícito; o **begin** é omitido, e todo o corpo do método está sujeito ao tratamento de exceção, terminando com o **end** do método.
 
-The program p045handexcp.rb illustrates this:
+O programa p**045handexcp.rb** ilustra isso:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p045handexcp.rb
-  def raise_and_rescue
+  def levanta_e_resgata
     begin
-      puts 'I am before the raise.'
-      raise 'An error has occured.'
-      puts 'I am after the raise.'
+      puts 'Estou antes do raise.'
+      raise 'Um erro ocorreu'
+      puts 'Estou depois do raise'
     rescue
-      puts 'I am rescued.'
+      puts 'Fui resgatado.'
     end
-    puts 'I am after the begin block.'
+    puts 'Estou depois do bloco begin.'
   end
-  raise_and_rescue
+  levanta_e_resgata
 <% end -%>
 
 
-The output is:
+A saída é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p045handexcp.rb
-  I am before the raise.
-  I am rescued.
-  I am after the begin block.
+  Estou antes do raise.
+  Fui resgatado.
+  Estou depois do bloco begin.
   >Exit code: 0
 <% end -%>
 
+Observe que o o código interrompido pela exceção nunca é executado. Uma vez que a exceção é tratada, a execução continua imediatamente depois do bloco begin que a a gerou.
 
-Observe that the code interrupted by the exception never gets run. Once the exception is handled, execution continues immediately after the begin block that spawned it.
+Se você escreve uma cláusula **rescue** sem nenhum parâmetro, o parâmetro será ajustado por padrão para **StandardError**. cada cláusula **rescue** pode especificar múltiplas exceções para serem capturadas. No fim de cada comando **rescue** pode também ser expressões arbitrárias (incluindo chamadas a métodos) que retornam uma classe do tipo **Exception**. Se usarmos **raise** sem parâmetros, ele relançará a exceção.
 
-If you write a rescue clause with no parameter list, the parameter defaults to StandardError. Each rescue clause can specify multiple exceptions to catch. At the end of each rescue clause you can give Ruby the name of a local variable to receive the matched exception. The parameters to the rescue clause can also be arbitrary expressions (including method calls) that return an Exception class. If we use raise with no parameters, it re-raises the exception.
-
-You can stack rescue clauses in a begin/rescue block. Exceptions not handled by one rescue clause will trickle down to the next:
+Você pode empilhar cláusulas de **rescue** em um bloco begin/rescue. Exceções não tratadas por uma cláusula rescue serão passadas para a próxima:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   begin
     # -
-  rescue OneTypeOfException
+  rescue UmTipoDeExcecao
     # -
-  rescue AnotherTypeOfException
+  rescue OutroTipoDeExcecao
     # -
   else
-    # Other exceptions
+    # outras exceções
   end
 <% end -%>
 
+Para cada cláusula **rescue** no bloco **begin**, o Ruby irá comparar a exceção levantada conta cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo do última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula **else** é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.
 
-For each rescue clause in the begin block, Ruby compares the raised Exception against each of the parameters in turn. The match will succeed if the exception named in the rescue clause is the same as the type of the currently thrown exception, or is a superclass of that exception. The code in an else clause is executed if the code in the body of the begin statement runs to completion without exceptions. If an exception occurs, then the else clause will obviously not be executed. The use of an else clause is not particularly common in Ruby.
 
-If you want to interrogate a rescued exception, you can map the Exception object to a variable within the rescue clause, as shown in the program p046excpvar.rb
+Se você quer verificar uma exceção resgatada (em que se usou o rescue). você pode mapear o objeto **Exception** para uma variável com uma cláusula rescue, como mostrado no programa **p046excpvar.rb**
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p046excpvar.rb
   begin
-    raise 'A test exception.'
+    raise 'Uma exceção para teste.'
   rescue Exception => e
     puts e.message
     puts e.backtrace.inspect
@@ -142,30 +140,29 @@ If you want to interrogate a rescued exception, you can map the Exception object
 <% end -%>
 
 
-The output is:
+A saída é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p046excpvar.rb
-  A test exception.
+  Uma exceção para teste.
   ["p046excpvar.rb:3"]
   >Exit code: 0
 <% end -%>
 
+A classe **Exception** define dois métodos que retornam detalhes a respeito da exceção. O método **message** retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é **backtrace**. Este método retorna um array de string que representam a pilha de chamada no ponto em que a exceção foi lançada.
 
-The Exception class defines two methods that return details about the exception. The message method returns a string that may provide human-readable details about what went wrong. The other important method is backtrace. This method returns an array of strings that represent the call stack at the point that the exception was raised.
+Se você precisa de garantia de que algum processamento foi feito no final de um bloco de código, não considerando se uma exceção foi lançada então a cláusula **ensure** (assegurar-se) deve ser usada após o último **rescue** e deve conter um pedaço de código que será executado a medida que o bloco  termina. O bloco **ensure** sempre será executado.
 
-If you need the guarantee that some processing is done at the end of a block of code, regardless of whether an exception was raised then the ensure clause can be used. ensure goes after the last rescue clause and contains a chunk of code that will always be executed as the block terminates. The ensure block will always run.
+Algumas exceções comuns são:
 
-Some common exceptions are:
+RuntimeError (está é a exceção padrão lançada pelo método **raise**), NoMethodError, NameError, IOError, TypeError e ArgumentError.
 
-RuntimeError (this is the default exception raised by the raise method), NoMethodError, NameError, IOError, TypeError and ArgumentError.
-
-An Example: Let's modify program p027readwrite.rb to include exception handling as shown in example p046xreadwrite.rb below.
+Um Exemplo: Vamos modificar o programa **p027readwrite.rb** para incluir o tratamento de exceções como mostrado no exemplo **p046xreadwrite.rb** abaixo.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p046xreadwrite.rb
-  # Open and read from a text file
-  # Note that since a block is given, file will automatically be closed when the block terminates
+  # Abra e leia um arquivo texto
+  # Note que visto que um bloco é dado, o arquivo será fechado automaticamente quando o bloco se encerra
   begin
     File.open('p014constructs.rb', 'r') do |f1|
       while line = f1.gets
@@ -173,69 +170,68 @@ An Example: Let's modify program p027readwrite.rb to include exception handling 
       end
     end
 
-    # Create a new file and write to it
+    # Cria um novo arquivo e escreve nele
     File.open('test.rb', 'w') do |f2|
-      # use "" for two lines of text
-      f2.puts "Created by Satish\nThank God!"
+      # use \n para pular para próxima linha
+      f2.puts "Criado por Satish\nGraças a Deus!"
     end
   rescue Exception => msg
-    # display the system generated error message
+    # mostre a mensagem de erro gerada pelo sistema
     puts msg
   end
 <% end -%>
 
 <div class='box'>
-Improper error messages can provide critical information about an application which may aid an attacker in exploiting the application. The most common problem occurs when detailed internal error messages such as stack traces, database dumps, and error codes are displayed to the user. Security analysts view logging and error handling as potential areas of risk. It is recommended that production applications should not use, for example, a puts e.backtrace.inspect call unless it is being directly committed into a log that is not viewable to the end user.
+Mensagens de erros impróprias podem prover informações críticas sobre uma aplicação que podem auxiliar ataques a mesma. O problema mais comum ocorre quando mensagens de erro internas como traços de pilha, dumps de bancos de dados e códigos de erro são mostrados ao usuário. Analistas de segurança veem logs e tratamentos de erro como possíveis áreas de risco. É recomendado que as aplicações em produção não usem, por exemplo, uma chamada a *puts e.backtrace.inspect** ao menos que ela esteja sendo enviada para um log que não é visível para o usuário final.
 </div>
 
-h2. Validation example
+h2. Exemplo de validação
 
-Here's an example from the Ruby Cookbook, showing how one can do validation of user's inputs.
+Aqui está um exemplo do livro _Ruby Cookbook_, mostrando como se pode fazer validação da entrada do usuário.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  class Name
-    # Define default getter methods, but not setter methods.
-    attr_reader :first, :last
-    # When someone tries to set a first name, enforce rules about it.
-    def first=(first)
-      if first == nil or first.size == 0
-        raise ArgumentError.new('Everyone must have a first name.')
+  class Nome
+    # Define métodos getter padrão mas não métodos setter
+    attr_reader :primeiro, :ultimo
+    # Quando alguém tenta escrever um primeiro nome, force regras sobre ele.
+    def primeiro=(primeiro)
+      if primeiro == nil or first.size == 0
+        raise ArgumentError.new('Todos precisam ter um primeiro nome.')
       end
-      first = first.dup
-      first[0] = first[0].chr.capitalize
-      @first = first
+      primeiro = primeiro.dup
+      primeiro[0] = primeiro[0].chr.capitalize #primeira letra deve estar no plural
+      @primeiro = primeiro
     end
 
-    # When someone tries to set a last name, enforce rules about it.
-    def last=(last)
-      if last == nil or last.size == 0
-        raise ArgumentError.new('Everyone must have a last name.')
+    # Quando alguém tenta escrever um último nome, force regras sobre ele.
+    def sobrenome=(sobrenome)
+      if ultimo == nil or ultimo.size == 0
+        raise ArgumentError.new('Todos devem ter um sobrenome.')
       end
-      @last = last
+      @sobrenome = sobrenome
     end
 
-    def full_name
-      "#{@first} #{@last}"
+    def nome_completo
+      "#{@primeiro} #{@sobrenome}"
     end
-    # Delegate to the setter methods instead of setting the instance
-    # variables directly.
-    def initialize(first, last)
-      self.first = first
-      self.last = last
+    # Delega para o método setter ao invés de escreve na instância diretamente.
+    def initialize(primeiro, sobrenome)
+      self.primeiro = primeiro
+      self.sobrenome = sobrenome
     end
   end
 
-  jacob = Name.new('Jacob', 'Berendes')
-  jacob.first = 'Mary Sue'
-  jacob.full_name # => "Mary Sue Berendes"
-  john = Name.new('john', 'von Neumann')
-  john.full_name # => "John von Neumann"
-  john.first = 'john'
-  john.first # => "John"
-  john.first = nil
-  # ArgumentError: Everyone must have a first name.
-  Name.new('Kero, international football star and performance artist', nil)
-  # ArgumentError: Everyone must have a last name.
+  jacob = Nome.new('Jacob', 'Berendes')
+  jacob.primeiro = 'Mary Sue'
+  jacob.nome_completo # => "Mary Sue Berendes"
+  john = Nome.new('john', 'von Neumann')
+  john.nome_completo # => "John von Neumann"
+  john.primeiro = 'john'
+  john.primeiro # => "John"
+  john.primeiro = nil
+  # ArgumentError: Todos precisam ter um primeiro nome.
+  Name.new('Kero, estrela internacional do futebol e artista de performance', nil)
+  # ArgumentError: Todos precisam ter um sobrenome.
 <% end -%>
 
-The Name class keeps track of peoples' first and last names. It uses setter methods to enforce two somewhat parochial rules: everyone must have both a first and a last name, and everyone's first name must begin with a capital letter. The Name class has been written in such a way, that the rules are enforced both in the constructor and after the object has been created. Sometimes you don't trust the data coming in through the setter methods. That's when you can define your own methods to stop bad data before it infects your objects. Within a class, you have direct access to the instance variables. You can simply assign to an instance variable and the setter method won't be triggered. If you do want to trigger the setter method, you'll have to call it explicitly. Note how, in the Name#initialize method above, we call the first= and last= methods instead of assigning to @first and @last. This makes sure the validation code gets run for the initial values of every Name object. We can't just say first = first, because first is a variable name in that method.
+A classe **Nome** armazenas o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um sobrenome, e o primeiro nome de todas as pessoas deve começar uma letra maiúscula. A classe **Nome** foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método **Nome#initialize** acima, chamamos os métodos **primeiro=** e **sobrenome=** ao invés de atribuir a @primeiro e @sobrenome. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe **Nome**. Não podemos apenas dizer **primeiro = primeiro**, porque *primeiro* é um nome de variável nesse método. Usamos então **self.primeiro* para executar o método **primeiro=**.
