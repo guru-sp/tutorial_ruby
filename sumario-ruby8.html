@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Sumario-ruby8</title>
+   <title>Sumário 8</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -29,14 +29,30 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Sumario-ruby8</p>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.</p>
-<h2>Litora Sociis</h2>
-<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan vestibulum ante. Vestibulum sed tortor. Praesent tempus fringilla elit. Ut elit diam, sagittis in, nonummy in, gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla odio, quis commodo est orci vitae justo. Aliquam placerat odio tincidunt nulla. Cras in libero. Aenean rutrum, magna non tristique posuere, erat odio eleifend nisl, non convallis est tortor blandit ligula. Nulla id augue.</p>
-<blockquote>
-<p>Nullam mattis, odio ut tempus facilisis, metus nisl facilisis metus, auctor consectetuer felis ligula nec mauris. Vestibulum odio erat, fermentum at, commodo vitae, ultrices et, urna. Mauris vulputate, mi pulvinar sagittis condimentum, sem nulla aliquam velit, sed imperdiet mi purus eu magna. Nulla varius metus ut eros. Aenean aliquet magna eget orci. Class aptent taciti sociosqu ad litora.</p>
-</blockquote>
-<p>Vivamus euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel nibh ut turpis dictum sagittis. Aliquam vel velit a elit auctor sollicitudin. Nam vel dui vel neque lacinia pretium. Quisque nunc erat, venenatis id, volutpat ut, scelerisque sed, diam. Mauris ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec mattis. Morbi dignissim sollicitudin libero. Nulla lorem.</p>
+      <p class="title">Sumário 8</p>
+<ol>
+	<li>Ruby Modules are similar to classes in that they hold a collection of methods, constants, and other module and class definitions. Unlike classes, you cannot create objects based on modules; instead, you specify that you want the functionality of a particular module to be added to the functionality of a class, or of a specific object.</li>
+	<li>Modules serve two purposes: First they act as namespace, letting you define methods whose names will not clash with those defined elsewhere. Second, they allow you to share functionality between classes &#8211; if a class mixes in a module, that module&#8217;s instance methods become available as if they had been defined in the class. They get mixed in.</li>
+	<li>Observe how we use require or load. require and load take strings as their arguments.</li>
+</ol>
+require &#8216;motorcycle&#8217; or load &#8216;motorcycle.rb&#8217;
+include takes the name of a module, in the form of a constant, as in include &#8216;Stuff&#8217;.
+The include method accepts any number of Module objects to mix in:
+include Enumerable, Comparable
+Although every class is a module, the include method does not allow a class to be included within another class.
+<ol>
+	<li>Remember that you can mix in more than one module in a class. However, a class cannot inherit from more than one class.</li>
+	<li>Class names tend to be nouns, while module names are often adjectives.</li>
+	<li>At every point when your program is running, there is one and only one self &#8211; the current or default object accessible to you in your program.</li>
+	<li>Please note the rules given for self in the Self related page.</li>
+	<li>Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling.</li>
+	<li>Marshal.dump is used to save a serialized version of an object.</li>
+	<li>Marshal.load is used to read in from a serialized object.</li>
+	<li>A Ruby constant is a reference to an object.</li>
+	<li>Although constants should not be changed, you can modify the internal states of the objects they reference.</li>
+	<li>Remember the rules for constants.</li>
+</ol>
+<li>
    </div>
 
    <div class="column span-5 append-1 last">

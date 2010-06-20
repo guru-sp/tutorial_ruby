@@ -33,20 +33,20 @@
 <p><b>SobreposiÃ§Ã£o de mÃ©todos</b> (override) em programaÃ§Ã£o orientada a objetos, Ã© um recurso da linguagem que permite que a subclasse, rescreva uma implementaÃ§Ã£o especifica de um mÃ©todo que jÃ¡ esta previsto em uma superclasse. A implementaÃ§Ã£o na subclasse sobrepÃµe a implementaÃ§Ã£o na superclasse.</p>
 <p>Aqui esta um exemplo <b>p037xmtdoverride.rb</b>:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="r">class</span><span class="er">Â</span><span class="er"> </span><span class="co">A</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 2</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>a<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 3</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">'</span><span class="k">Dentro da classe A</span><span class="dl">'</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 4</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 5</span>         <span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 6</span> 
-<span class="no"> 7</span>         <span class="r">class</span><span class="er">Â</span><span class="er"> </span><span class="co">B</span><span class="er">Â</span><span class="er"> </span>&lt;<span class="er">Â</span><span class="er"> </span><span class="co">A</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 8</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>a<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 9</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">'</span><span class="k">Dentro da classe B</span><span class="dl">'</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"><strong>10</strong></span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no">11</span>         <span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no">12</span> 
-<span class="no">13</span>         b<span class="er">Â</span><span class="er"> </span>=<span class="er">Â</span><span class="er"> </span><span class="co">B</span>.new<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no">14</span>         b.a
+<pre><span class="no"> 1</span> <span class="r">class</span> <span class="cl">A</span>  
+<span class="no"> 2</span>   <span class="r">def</span> <span class="fu">a</span>  
+<span class="no"> 3</span>     puts <span class="s"><span class="dl">'</span><span class="k">Na classe A</span><span class="dl">'</span></span>  
+<span class="no"> 4</span>   <span class="r">end</span>  
+<span class="no"> 5</span> <span class="r">end</span>  
+<span class="no"> 6</span>   
+<span class="no"> 7</span> <span class="r">class</span> <span class="cl">B</span> &lt; <span class="co">A</span>  
+<span class="no"> 8</span>   <span class="r">def</span> <span class="fu">a</span>  
+<span class="no"> 9</span>     puts <span class="s"><span class="dl">'</span><span class="k">Na classe B</span><span class="dl">'</span></span>  
+<span class="no"><strong>10</strong></span>   <span class="r">end</span>  
+<span class="no">11</span> <span class="r">end</span>  
+<span class="no">12</span>   
+<span class="no">13</span> b = <span class="co">B</span>.new  
+<span class="no">14</span> b.a  
 </pre>
 </div>
 <p>O MÃ©todo na classe B sobrepÃ´s o mÃ©todo na classe A.</p>
@@ -57,31 +57,32 @@
 	<li>Chamando com uma lista de argumentos vazia &#8211; <b>super()</b>- ele nÃ£o envia argumentos para o primeiro mÃ©todo, atÃ© mesmo se os argumentos foram passados para o mÃ©todo atual.</li>
 	<li>Chamando com argumentos especÃ­ficos &#8211; <b>super(a, b, c)</b> &#8211; envia exatamente esses argumentos.</li>
 </ul>
-<p>Um exemplo (<b>p038bicycle.rb</b>) do livro Ruby for Rails enfatiza isso:</p>
+<p>Um exemplo (<b>p038bicycle.rb</b>) do livro __Ruby for Rails)) enfatiza isso:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Bicycle</span>
-<span class="no"> 2</span>     attr_reader <span class="sy">:gears</span>, <span class="sy">:wheels</span>, <span class="sy">:seats</span>
+<pre><span class="no"> 1</span> <span class="r">class</span> <span class="cl">Bicicleta</span>
+<span class="no"> 2</span>   attr_reader <span class="sy">:marchas</span>, <span class="sy">:rodas</span>, <span class="sy">:bancos</span>
 <span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>(gears = <span class="i">1</span>)
-<span class="no"> 4</span>       <span class="iv">@wheels</span> = <span class="i">2</span>
-<span class="no"> 5</span>       <span class="iv">@seats</span> = <span class="i">1</span>
-<span class="no"> 6</span>       <span class="iv">@gears</span> = gears
+<span class="no"> 4</span>       <span class="iv">@rodas</span> = <span class="i">2</span>
+<span class="no"> 5</span>       <span class="iv">@bancos</span> = <span class="i">1</span>
+<span class="no"> 6</span>       <span class="iv">@marchas</span> = gears
 <span class="no"> 7</span>     <span class="r">end</span>
 <span class="no"> 8</span>   <span class="r">end</span>
 <span class="no"> 9</span> 
-<span class="no"><strong>10</strong></span>   <span class="r">class</span> <span class="cl">Tandem</span> &lt; <span class="co">Bicycle</span>
+<span class="no"><strong>10</strong></span>   <span class="r">class</span> <span class="cl">Tandem</span> &lt; <span class="co">Bicicleta</span>
 <span class="no">11</span>     <span class="r">def</span> <span class="fu">initialize</span>(gears)
 <span class="no">12</span>       <span class="r">super</span>
-<span class="no">13</span>       <span class="iv">@seats</span> = <span class="i">2</span>
+<span class="no">13</span>       <span class="iv">@bancos</span> = <span class="i">2</span>
 <span class="no">14</span>     <span class="r">end</span>
 <span class="no">15</span>   <span class="r">end</span>
-<span class="no">16</span>   t = <span class="co">Tandem</span>.new(<span class="i">2</span>)
-<span class="no">17</span>   puts t.gears
-<span class="no">18</span>   puts t.wheels
-<span class="no">19</span>   puts t.seats
-<span class="no"><strong>20</strong></span>   b = <span class="co">Bicycle</span>.new
-<span class="no">21</span>   puts b.gears
-<span class="no">22</span>   puts b.wheels
-<span class="no">23</span>   puts b.seats
+<span class="no">16</span> 
+<span class="no">17</span> t = <span class="co">Tandem</span>.new(<span class="i">2</span>)
+<span class="no">18</span> puts t.marchas
+<span class="no">19</span> puts t.rodas
+<span class="no"><strong>20</strong></span> puts t.bancos
+<span class="no">21</span> b = <span class="co">Bicicleta</span>.new
+<span class="no">22</span> puts b.marchas
+<span class="no">23</span> puts b.rodas
+<span class="no">24</span> puts b.bancos
 </pre>
 </div>
 <p>A saÃ­da:</p>
@@ -101,15 +102,15 @@
 <p>(Adaptado do livro de David Black, Ruby for Rails)</p>
 <p>Nada impede que vocÃª defina um mÃ©todo duas vezes. Programa <b>p038or.rb</b>:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="r">class</span><span class="er">Â</span><span class="er"> </span><span class="co">OR</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 2</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>mtd<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 3</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">&quot;</span><span class="k">Primeira definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 4</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 5</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">def</span><span class="er">Â</span><span class="er"> </span>mtd<span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 6</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>puts<span class="er">Â</span><span class="er"> </span><span class="s"><span class="dl">&quot;</span><span class="k">Segunda definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 7</span>         <span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span><span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 8</span>         <span class="r">end</span><span class="er">Â</span><span class="er"> </span><span class="er">Â</span><span class="er"> </span>
-<span class="no"> 9</span>         <span class="co">OR</span>.new.mtd
+<pre><span class="no"> 1</span> <span class="r">class</span> <span class="cl">OR</span>  
+<span class="no"> 2</span>   <span class="r">def</span> <span class="fu">mtd</span>  
+<span class="no"> 3</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Primeira definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span>  
+<span class="no"> 4</span>   <span class="r">end</span>  
+<span class="no"> 5</span>   <span class="r">def</span> <span class="fu">mtd</span>  
+<span class="no"> 6</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Primeira definiÃ§Ã£o do mÃ©todo mtd</span><span class="dl">&quot;</span></span>  
+<span class="no"> 7</span>   <span class="r">end</span>  
+<span class="no"> 8</span> <span class="r">end</span>  
+<span class="no"> 9</span> <span class="co">OR</span>.new.mtd
 </pre>
 </div>
 <p>O que acontece quando chamamos o mtd em uma instancia de OR? Vamos descobrir:</p>
@@ -121,22 +122,23 @@
 <h2>Classe Abstrata</h2>
 <p>Em Ruby, podemos definir uma classe abstrata como a que invoca certos mÃ©todos â€œabstratosâ€ indefinidos, que Ã© deixado para as subclasses definir. Por exemplo:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="c">#Â Essa classe Ã© abstrata, mais nÃ£o define Ola ou NomeÂ Â </span>
-<span class="no"> 2</span>         <span class="c">#Â Nenhuma sintaxe especial Ã© necessÃ¡ria: qualquer classe que invoca os mÃ©todos.</span>
-<span class="no"> 3</span>         <span class="c">#Â que Ã© destinado a implementar uma subclasse Ã© abstrato.Â Â </span>
-<span class="no"> 4</span>         <span class="r">class</span> <span class="cl">AbstractKlass</span>  
-<span class="no"> 5</span>           <span class="r">def</span> <span class="fu">bemvindo</span>  
-<span class="no"> 6</span>             puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>ola<span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
-<span class="no"> 7</span>           <span class="r">end</span>  
+<pre><span class="no"> 1</span> <span class="c">#Â Essa classe Ã© abstrata, mais nÃ£o define Ola ou NomeÂ Â </span>
+<span class="no"> 2</span> <span class="c">#Â Nenhuma sintaxe especial Ã© necessÃ¡ria: qualquer classe que invoca mÃ©todos</span>
+<span class="no"> 3</span> <span class="c">#Â que sÃ£o destinados para uma subclasse Ã© abstrata</span>
+<span class="no"> 4</span> 
+<span class="no"> 5</span> <span class="r">class</span> <span class="cl">AbstractKlass</span>  
+<span class="no"> 6</span>         <span class="r">def</span> <span class="fu">bemvindo</span>  
+<span class="no"> 7</span>           puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>ola<span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
 <span class="no"> 8</span>         <span class="r">end</span>  
-<span class="no"> 9</span> 
-<span class="no"><strong>10</strong></span>         <span class="c"># A concrete class  </span>
-<span class="no">11</span>         <span class="r">class</span> <span class="cl">ConcreteKlass</span> &lt; <span class="co">AbstractKlass</span>  
-<span class="no">12</span>           <span class="r">def</span> <span class="fu">ola</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Ola</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
-<span class="no">13</span>           <span class="r">def</span> <span class="fu">nome</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Estudantes de Ruby</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
-<span class="no">14</span>         <span class="r">end</span>
-<span class="no">15</span> 
-<span class="no">16</span>         <span class="co">ConcreteKlass</span>.new.bemvindo <span class="c"># imprimeÂ &quot;Ola Estudantes de Ruby&quot;</span>
+<span class="no"> 9</span> <span class="r">end</span>  
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span> <span class="c"># uma classe concreta  </span>
+<span class="no">12</span> <span class="r">class</span> <span class="cl">ConcreteKlass</span> &lt; <span class="co">AbstractKlass</span>  
+<span class="no">13</span>   <span class="r">def</span> <span class="fu">ola</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Ola</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
+<span class="no">14</span>         <span class="r">def</span> <span class="fu">nome</span>; <span class="s"><span class="dl">&quot;</span><span class="k">Estudantes de Ruby</span><span class="dl">&quot;</span></span>; <span class="r">end</span>  
+<span class="no">15</span> <span class="r">end</span>
+<span class="no">16</span> 
+<span class="no">17</span> <span class="co">ConcreteKlass</span>.new.bemvindo <span class="c"># imprimeÂ &quot;Ola Estudantes de Ruby&quot;</span>
 </pre>
 </div>
    </div>

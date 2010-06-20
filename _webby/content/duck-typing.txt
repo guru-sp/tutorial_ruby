@@ -1,0 +1,96 @@
+---
+title:      duck typing
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+You'll have noticed that in Ruby we don't declare the types of variables or methods - everything is just some kind of object. Ruby objects (unlike objects in some other object-oriented languages) can be individually modified. You can always add methods on a per object basis. In Ruby, the behavior or capabilities of an object can deviate from those supplied by its class.
+
+<div class='box'>
+In Ruby, we rely less on the type (or class) of an object and more on its capabilities. Hence, Duck Typing means an object type is defined by what it can do, not by what it is. Duck Typing refers to the tendency of Ruby to be less concerned with the class of an object and more concerned with what methods can be called on it and what operations can be performed on it. In Ruby, we would use respond_to? or might simply pass an object to a method and know that an exception will be raised if it is used inappropriately.
+</div>
+
+If an object walks like a duck and talks like a duck, then the Ruby interpreter is happy to treat it as if it were a duck.
+
+Consider the following example.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # Check whether the object defines the to_str method
+  puts ('A string'.respond_to? :to_str) # => true
+  puts (Exception.new.respond_to? :to_str) # => true
+  puts (4.respond_to? :to_str) # => false
+<% end -%>
+
+The above example is the simplest example of Ruby's philosophy of "duck typing:" if an object quacks like a duck (or acts like a string), just go ahead and treat it as a duck (or a string). Whenever possible, you should treat objects according to the methods they define rather than the classes from which they inherit or the modules they include.
+
+Now consider the following three classes - Duck, Goose and DuckRecording. Program p036duck.rb
+
+h2. Code
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class Duck
+    def quack
+      'Quack!'
+    end
+
+    def swim
+      'Paddle paddle paddle...'
+    end
+  end
+
+  class Goose
+    def honk
+      'Honk!'
+    end
+    def swim
+      'Splash splash splash...'
+    end
+  end
+
+  class DuckRecording
+    def quack
+      play
+  end
+
+    def play
+      'Quack!'
+    end
+  end
+
+  def make_it_quack(duck)
+    duck.quack
+  end
+  puts make_it_quack(Duck.new)
+  puts make_it_quack(DuckRecording.new)
+
+  def make_it_swim(duck)
+    duck.swim
+  end
+  puts make_it_swim(Duck.new)
+  puts make_it_swim(Goose.new)
+<% end -%>
+
+If you refer to the code shown below:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  def make_it_quack(duck)
+    duck.quack
+  end
+  puts make_it_quack(Duck.new)
+  puts make_it_quack(DuckRecording.new)
+<% end -%>
+
+A method that told a Duck to quack works when given a DuckRecoding, due to Duck Typing. Similarly in the following code:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  def make_it_swim(duck)
+    duck.swim
+  end
+  puts make_it_swim(Duck.new)
+  puts make_it_swim(Goose.new)
+<% end -%>
+
+A method that tells a Duck to swim when given a Goose, works.

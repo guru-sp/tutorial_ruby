@@ -1,0 +1,149 @@
+---
+title: Módulos e Mixins
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+Ruby Modules are similar to classes in that they hold a collection of methods, constants, and other module and class definitions. Modules are defined much like classes are, but the module keyword is used in place of the class keyword. Unlike classes, you cannot create objects based on modules nor can you subclass them; instead, you specify that you want the functionality of a particular module to be added to the functionality of a class, or of a specific object. Modules stand alone; there is no "module hierarchy" of inheritance. Modules is a good place to collect all your constants in a central location.
+
+Modules serve two purposes:
+
+* First they act as namespace, letting you define methods whose names will not clash with those defined elsewhere. The examples p058mytrig.rb, p059mymoral.rb, p060usemodule.rb illustrates this.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p058mytrig.rb
+  module Trig
+    PI = 3.1416
+    # class methods
+    def Trig.sin(x)
+      # ...
+    end
+    def Trig.cos(x)
+      # ...
+    end
+  end
+
+  # p059mymoral.rb
+  module Moral
+    VERY_BAD = 0
+    BAD         = 1
+    def Moral.sin(badness)
+      # ...
+    end
+  end
+
+  # p060usemodule.rb
+  require 'p058mytrig'
+  require 'p059mymoral'
+  Trig.sin(Trig::PI/4)
+  Moral.sin(Moral::VERY_BAD)
+<% end -%>
+
+* Second, they allow you to share functionality between classes - if a class mixes in a module, that module's instance methods become available as if they had been defined in the class. They get mixed in. The program p061mixins.rb illustrates this.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p061mixins.rb
+  module D
+    def initialize(name)
+      @name =name
+    end
+    def to_s
+      @name
+    end
+  end
+
+  module Debug
+    include D
+    # Methods that act as queries are often
+    # named with a trailing ?
+    def who_am_i?
+      "#{self.class.name} (\##{self.object_id}): #{self.to_s}"
+    end
+  end
+
+  class Phonograph
+    # the include statement simply makes a reference to a named module
+    # If that module is in a separate file, use require to drag the file in
+    # before using include
+    include Debug
+    # ...
+  end
+
+  class EightTrack
+    include Debug
+    # ...
+  end
+
+  ph = Phonograph.new("West End Blues")
+  et = EightTrack.new("Real Pillow")
+  puts ph.who_am_i?
+  puts et.who_am_i?
+<% end -%>
+
+<div class='box'>
+Observe how we use require or load. require and load take strings as their arguments.
+
+require 'motorcycle' or load 'motorcycle.rb'
+
+include takes the name of a module, in the form of a constant, as in include Stuff.
+
+The include method accepts any number of Module objects to mix in:
+include Enumerable, Comparable
+
+Although every class is a module, the include method does not allow a class to be included within another class.
+</div>
+
+Some more examples:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  #  p062stuff.rb
+  #  A module may contain constants, methods and classes.
+  #  No instances
+
+  module Stuff
+    C = 10
+    def Stuff.m(x)  # prefix with the module name for a class method
+      C*x
+    end
+    def p(x)        # an instance method, mixin for other classes
+      C + x
+    end
+    class T
+      @t = 2
+    end
+  end
+  puts Stuff::C     # Stuff namespace
+  puts Stuff.m(3)   # like a class method
+  x = Stuff::T.new
+  # uninitialized constant error, if you try the following
+  # puts C
+
+  #------------
+
+  # p063stuffusage.rb
+  require 'p062stuff'     # loads Stuff module from Stuff.rb
+                      # $: is a system variable -- contains the path for loads
+  class D
+    include Stuff     # refers to the loaded module
+    puts Stuff.m(4)
+  end
+
+  d = D.new
+  puts d.p(5)         # method p from Stuff
+  puts $:             # array of folders to search for load
+  $: << "c:/"         # add a folder to the load path
+  puts $:
+  puts Stuff.m(5)     # Stuff class methods not called from D object
+<% end -%>
+
+<div class='box'>
+Remember that you can mix in more than one module in a class. However, a class cannot inherit from more than one class. Class names tend to be nouns, while module names are often adjectives.
+</div>
+
+<div class='box'>
+IN RAILS: The Rails source code makes heavy use of modules, in particular the technique of reopening the definition bodies of both classes and modules.
+</div>
+

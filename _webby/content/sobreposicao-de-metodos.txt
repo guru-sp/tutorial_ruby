@@ -12,20 +12,20 @@ p(title). <%= h(@page.title) %>
 Aqui esta um exemplo **p037xmtdoverride.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  class A  
-	  def a  
-	    puts 'Dentro da classe A'  
-	  end  
-	end  
-
-	class B < A  
-	  def a  
-	    puts 'Dentro da classe B'  
-	  end  
-	end  
-
-	b = B.new  
-	b.a
+class A  
+  def a  
+    puts 'Na classe A'  
+  end  
+end  
+  
+class B < A  
+  def a  
+    puts 'Na classe B'  
+  end  
+end  
+  
+b = B.new  
+b.a  
 <% end -%>
 
 O Método na classe B sobrepôs o método na classe A.
@@ -39,38 +39,39 @@ A forma de se lidar com argumentos **super**:
 * Chamando com argumentos específicos - **super(a, b, c)** - envia exatamente esses argumentos.
 
 
-Um exemplo (**p038bicycle.rb**) do livro Ruby for Rails enfatiza isso:
+Um exemplo (**p038bicycle.rb**) do livro __Ruby for Rails)) enfatiza isso:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  class Bicycle
-    attr_reader :gears, :wheels, :seats
+class Bicicleta
+  attr_reader :marchas, :rodas, :bancos
     def initialize(gears = 1)
-      @wheels = 2
-      @seats = 1
-      @gears = gears
+      @rodas = 2
+      @bancos = 1
+      @marchas = gears
     end
   end
 
-  class Tandem < Bicycle
+  class Tandem < Bicicleta
     def initialize(gears)
       super
-      @seats = 2
+      @bancos = 2
     end
   end
-  t = Tandem.new(2)
-  puts t.gears
-  puts t.wheels
-  puts t.seats
-  b = Bicycle.new
-  puts b.gears
-  puts b.wheels
-  puts b.seats
+
+t = Tandem.new(2)
+puts t.marchas
+puts t.rodas
+puts t.bancos
+b = Bicicleta.new
+puts b.marchas
+puts b.rodas
+puts b.bancos
 <% end -%>
 
 
 A saída:
 
-<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
+<% coderay(:lang => "text", :line_numbers => "inline") do -%>
   >ruby p038bicycle.rb
   2
   2
@@ -92,15 +93,15 @@ h2. Redefinindo Métodos
 Nada impede que você defina um método duas vezes. Programa **p038or.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  class OR  
-	  def mtd  
-	    puts "Primeira definição do método mtd"  
-	  end  
-	  def mtd  
-	    puts "Segunda definição do método mtd"  
-	  end  
-	end  
-	OR.new.mtd
+class OR  
+  def mtd  
+    puts "Primeira definição do método mtd"  
+  end  
+  def mtd  
+    puts "Primeira definição do método mtd"  
+  end  
+end  
+OR.new.mtd
 <% end -%>
 
 
@@ -119,20 +120,21 @@ h2. Classe Abstrata
 Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos “abstratos” indefinidos, que é deixado para as subclasses definir. Por exemplo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  # Essa classe é abstrata, mais não define Ola ou Nome  
-	# Nenhuma sintaxe especial é necessária: qualquer classe que invoca os métodos.
-	# que é destinado a implementar uma subclasse é abstrato.  
-	class AbstractKlass  
-	  def bemvindo  
-	    puts "#{ola} #{nome}"  
-	  end  
+# Essa classe é abstrata, mais não define Ola ou Nome  
+# Nenhuma sintaxe especial é necessária: qualquer classe que invoca métodos
+# que são destinados para uma subclasse é abstrata
+
+class AbstractKlass  
+	def bemvindo  
+	  puts "#{ola} #{nome}"  
 	end  
+end  
 
-	# A concrete class  
-	class ConcreteKlass < AbstractKlass  
-	  def ola; "Ola"; end  
-	  def nome; "Estudantes de Ruby"; end  
-	end
+# uma classe concreta  
+class ConcreteKlass < AbstractKlass  
+  def ola; "Ola"; end  
+	def nome; "Estudantes de Ruby"; end  
+end
 
-	ConcreteKlass.new.bemvindo # imprime "Ola Estudantes de Ruby"
+ConcreteKlass.new.bemvindo # imprime "Ola Estudantes de Ruby"
 <% end -%>

@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>acucares sintaticos do ruby</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">acucares sintaticos do ruby</p>
+<p>Programmers use the term syntactic sugar to refer to special rules that let you write your code in a way that doesn&#8217;t correspond to the normal rules but that is easier to remember how to do and looks better.</p>
+<p>Let us say we want to set the name of a dog. As a starting point, name can be set along with everything else at object creation time, as in the example below.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
+<span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed, name)
+<span class="no"> 3</span>       <span class="iv">@breed</span> = breed
+<span class="no"> 4</span>       <span class="iv">@name</span> = name
+<span class="no"> 5</span>     <span class="r">end</span>
+<span class="no"> 6</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># create reader only</span>
+<span class="no"> 7</span>   <span class="r">end</span>
+<span class="no"> 8</span>   nd = <span class="co">NewDog</span>.new(<span class="s"><span class="dl">'</span><span class="k">Doberman</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
+<span class="no"> 9</span>   puts nd.name
+</pre>
+</div>
+<p>Let&#8217;s write a set_name method that allows us to set, or reset, the name of an existing dog. We&#8217;ll also rewrite the initialize method so that it doesn&#8217;t expect a name:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
+<span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
+<span class="no"> 3</span>       <span class="iv">@breed</span> = breed
+<span class="no"> 4</span>     <span class="r">end</span>
+<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># create reader only</span>
+<span class="no"> 6</span>     <span class="c"># setter method</span>
+<span class="no"> 7</span>     <span class="r">def</span> <span class="fu">set_name</span>(nm)
+<span class="no"> 8</span>       <span class="iv">@name</span> = nm
+<span class="no"> 9</span>     <span class="r">end</span>
+<span class="no"><strong>10</strong></span>   <span class="r">end</span>
+<span class="no">11</span>   nd = <span class="co">NewDog</span>.new(<span class="s"><span class="dl">'</span><span class="k">Doberman</span><span class="dl">'</span></span>)
+<span class="no">12</span>   nd.set_name(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
+<span class="no">13</span>   puts nd.name
+</pre>
+</div>
+<p>Ruby allows you to define methods that end with an equal sign (=). Let&#8217;s replace set_name with a method called name=</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">name=</span>(nm)
+<span class="no">2</span>     <span class="iv">@name</span> = nm
+<span class="no">3</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>name= does exactly what set_name did, and in spite of the slightly odd method name, you can call it just like any other method:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
+</pre>
+</div>
+<p>Here&#8217;s the modified example &#8211; p050newdog.rb</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
+<span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
+<span class="no"> 3</span>       <span class="iv">@breed</span> = breed
+<span class="no"> 4</span>     <span class="r">end</span>
+<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span> <span class="c"># create reader only</span>
+<span class="no"> 6</span> 
+<span class="no"> 7</span>     <span class="c"># setter method</span>
+<span class="no"> 8</span>     <span class="r">def</span> <span class="fu">name=</span>(nm)
+<span class="no"> 9</span>       <span class="iv">@name</span> = nm
+<span class="no"><strong>10</strong></span>     <span class="r">end</span>
+<span class="no">11</span>   <span class="r">end</span>
+<span class="no">12</span> 
+<span class="no">13</span>   nd = <span class="co">NewDog</span>.new(<span class="s"><span class="dl">'</span><span class="k">Doberman</span><span class="dl">'</span></span>)
+<span class="no">14</span>   <span class="c">#nd.name=('Benzy')</span>
+<span class="no">15</span>   nd.name = <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>
+<span class="no">16</span>   puts nd.name
+</pre>
+</div>
+<p>The equal sign gives you that familiar &#8220;assigning a value to something&#8221; feeling, so you know you&#8217;re dealing with a setter method. It still looks odd, but Ruby takes care of that, too.</p>
+<p>Ruby gives you some syntactic sugar for calling setter methods. Instead of this:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
+</pre>
+</div>
+<p>you&#8217;re allowed to do this:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   nd.name = <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>
+</pre>
+</div>
+<p>When the interpreter sees the message &#8220;name&#8221; followed by &quot; =&quot;, it automatically ignores the space before equal sign and reads the single message &#8220;name=&#8221; &#8211; a call to the method whose name is name=, which we&#8217;ve defined. As for the right-hand side: parentheses are optional on single arguments to methods, so you can just put &#8216;Benzy&#8217; there and it will be picked up as the argument to the name= method.</p>
+<div class='box'>
+<p>IN RAILS: Method calls using the equal-sign syntax are common in Rails applications.</p>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

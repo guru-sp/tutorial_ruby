@@ -40,7 +40,7 @@ p(title). <%= h(@page.title) %>
 # method_missing (metodo_faltando) dá a você um jeito de interceptar mensagens não respondidas e tratá-las.
 # Blocos não são objetos, mas eles podem ser convertidos em objetos da classe Proc. Isso pode ser feito chamando o método lambda
 do módulo Kernel.
-# Lembre-se que você não podem passar métodos dentro de outros métodos (mas você pode passar procs dentro de métodos), e métodos não podem retornar outros métodos (mas podem retornar procs).
+# Lembre-se que você não pode passar métodos dentro de outros métodos (mas você pode passar procs dentro de métodos), e métodos não pode retornar outros métodos (mas pode retornar procs).
 # O método load (carregar) inclui o arquivo de código Ruby referenciado toda vez que é executado.
 # O método require (requerer), usado com maior frequência, carrega qualquer arquivo apenas uma vez.
 # Note que você deve escrever require 'nome_do_arquivo' e não require 'nome_do_arquivo.rb'
@@ -50,7 +50,7 @@ do módulo Kernel.
 # A classe Objeto é pai de todas as outras classes em Ruby. Portanto, seus métodos estão disponíveis para todos objetos ao menos que sejam explicitamente sobrescritos.
 # A sobrescrita de métodos permite que uma subclasse forneça uma implementação específica de um método que já foi fornecido por uma de suas superclasses. A implementação da subclasse sobrescreve (substitui) a implementação da superclasse.
 # Nade lhe impede de definir um método duas vezes, embora a versão mais nova tome precedência.
-# Quando você invoca super com nenhum argumento o Ruby envia uma mensagem para o pai do objeto atual, pedindo para que esse invoce um método com o mesmo nome que o método que invocou super. Ele automaticamente passa os argumentos que foram passados para o método da qual foi chamado.
+# Quando você invoca super com nenhum argumento o Ruby envia uma mensagem para o pai do objeto atual, pedindo para que esse invoque um método com o mesmo nome que o método que invocou super. Ele automaticamente passa os argumentos que foram passados para o método da qual foi chamado.
 # Chamado com uma lista de argumentos vazia - super() - ele não envia nenhum argumento para o método da superclasse, mesmo se argumentos foram passados para o método atual.
 # Chamado com argumentos específicos - super(a, b, c) - ele envia exatamente estes argumentos.
 # Uma classe Ruby pode apenas um método com um dado nome.

@@ -1,0 +1,70 @@
+---
+title:      Classes Abertas em Ruby
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+<div class='box'>
+ In Ruby, classes are never closed: you can always add methods to an existing class. This applies to the classes you write as well as the standard, built-in classes. All you have to do is open up a class definition for an existing class, and the new contents you specify will be added to whatever's there.
+</div>
+
+Now to the program p031motorcycletest.rb in the last topic, add the method dispAttr
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  require 'p030motorcycle'
+  m = MotorCycle.new('Yamaha', 'red')
+  m.startEngine
+
+  class MotorCycle
+    def dispAttr
+      puts 'Color of MotorCycle is ' + @color
+      puts 'Make  of MotorCycle is ' + @make
+    end
+  end
+  m.dispAttr
+  m.startEngine
+  puts self.class
+  puts self
+<% end -%>
+
+
+Please note that self.class refers to Object and self refers to an object called main of class Object.
+
+One more example is program - p031xdognext.rb
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  require 'p029dog'
+  # define class Dog
+  class Dog
+    def big_bark
+      puts 'Woof! Woof!'
+    end
+  end
+  # make an object
+  d = Dog.new('Labrador', 'Benzy')
+  d.bark
+  d.big_bark
+  d.display
+<% end -%>
+
+Here's another example of adding a method to the String class. The program p032mystring.rb illustrates the same.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class String
+    def writesize
+      self.size
+    end
+  end
+  size_writer = "Tell me my size!"
+  puts size_writer.writesize
+<% end -%>
+
+(You can confirm the output to the above programs yourself).
+
+<div class='box'>
+If you're writing a new method that conceptually belongs in the original class, you can reopen the class and append your method to the class definition. You should only do this if your method is generally useful, and you're sure it won't conflict with a method defined by some library you include in the future. If your method isn't generally useful, or you don't want to take the risk of modifying a class after its initial creation, create a subclass of the original class. The subclass can override its parent's methods, or add new ones. This is safer because the original class, and any code that depended on it, is unaffected.
+</div>
+

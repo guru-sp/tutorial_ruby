@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>objetos mutaveis e imutaveis</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">objetos mutaveis e imutaveis</p>
+<p>Mutable objects are objects whose state can change. Immutable objects are objects whose state never changes after creation.</p>
+<p>Immutable objects have many desirable properties:</p>
+<ul>
+	<li>Immutable objects are thread-safe. Threads cannot corrupt what they cannot change.</li>
+	<li>Immutable objects make it easier to implement encapsulation. If part of an object&#8217;s state is stored in an immutable object, then accessor methods can return that object to outside callers, without fear that those callers can change the object&#8217;s state.</li>
+	<li>Immutable objects make good hash keys, since their hash codes cannot change.</li>
+</ul>
+<p>In Ruby, Mutability is a property of an instance, not of an entire class. Any instance can become immutable by calling freeze.</p>
+<h2>Freezing Objects</h2>
+<p>The freeze method in class Object prevents you from changing an object, effectively turning an object into a constant. After we freeze an object, an attempt to modify it results in TypeError. The following program p050xfreeze.rb illustrates this:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">A simple string. </span><span class="dl">'</span></span>
+<span class="no">2</span>   str.freeze
+<span class="no">3</span>   <span class="r">begin</span>
+<span class="no">4</span>     str &lt;&lt; <span class="s"><span class="dl">'</span><span class="k">An attempt to modify.</span><span class="dl">'</span></span>
+<span class="no">5</span>   <span class="r">rescue</span> =&gt; err
+<span class="no">6</span>     puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>err.class<span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span>err<span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no">7</span>   <span class="r">end</span>
+<span class="no">8</span>   <span class="c"># The output is - TypeError can't modify frozen string</span>
+</pre>
+</div>
+<p>However, freeze operates on an object reference, not on a variable. This means that any operation resulting in a new object will work. This is illustrated by the following example:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">Original string - </span><span class="dl">'</span></span>
+<span class="no">2</span>   str.freeze
+<span class="no">3</span>   str += <span class="s"><span class="dl">'</span><span class="k">attachment</span><span class="dl">'</span></span>
+<span class="no">4</span>   puts str
+<span class="no">5</span>   <span class="c"># Output is - Original string - attachment</span>
+</pre>
+</div>
+<p>The expression str + &#8216;attachment&#8217; is evaluated to a new object, which is then assigned to str. The object is not changed, but the variable str now refers to a new object.</p>
+<h2>frozen?</h2>
+<p>A method frozen? tells you whether an object is frozen or not. Let&#8217;s take an example here:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   a = b = <span class="s"><span class="dl">'</span><span class="k">Original String</span><span class="dl">'</span></span>
+<span class="no"> 2</span>   b.freeze
+<span class="no"> 3</span>   puts a.frozen? <span class="c"># true</span>
+<span class="no"> 4</span>   puts b.frozen? <span class="c"># true</span>
+<span class="no"> 5</span>   a = <span class="s"><span class="dl">'</span><span class="k">New String</span><span class="dl">'</span></span>
+<span class="no"> 6</span>   puts a
+<span class="no"> 7</span>   puts b
+<span class="no"> 8</span>   puts a.frozen? <span class="c"># false</span>
+<span class="no"> 9</span>   puts b.frozen? <span class="c"># true</span>
+</pre>
+</div>
+<p>Let us understand what we are doing here &#8211; a and b are two variables both of which are pointing to a string object &#8211; Original String. We then freeze the object Original String. Hence both a and b are now pointing to the frozen object Original String. This is verified by the statements puts a.frozen? and puts b.frozen?. Next, we create a new string object New String and make variable a point to this new object New String. Variable b is still pointing to the frozen object while a is not. This verified by the last 2 statements of the program.</p>
+<p>Usage:<br />
+Ruby sometimes copies objects and freezes the copies. When you use a string as a hash key, Ruby actually copies the string, freezes the copy, and uses the copy as the hash key: that way, if the original string changes later on, the hash key isn&#8217;t affected.</p>
+<p>Ruby&#8217;s internal file operations work from a frozen copy of a filename instead of using the filename directly. If another thread modifies the original filename in the middle of an operation that&#8217;s supposed to be atomic, there&#8217;s no problem: Ruby wasn&#8217;t relying on the original filename anyway. You can adopt this copy-and-freeze pattern in multi-threaded code to prevent a data structure you&#8217;re working on from being changed by another thread.</p>
+<p>Another common programmer-level use of this feature is to freeze a class in order to prevent future modifications to it.</p>
+<p>Note: Whenever an object in Ruby has no reference to it, then that object is marked for removal and the garbage collector will remove that object based on its algorithm. There is no way to access an un-referenced object.</p>
+<h2>Summary</h2>
+<p>I have listed down all the important points you need to remember after you have completed the following topics: Duck Typing, Syntactic Sugar, Mutable and Immutable Objects.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

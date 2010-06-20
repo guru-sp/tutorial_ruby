@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Incluindo Outros Arquivos</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Incluindo Outros Arquivos</p>
+<p>Ao escrever seus primeiros programas em Ruby, você costuma colocar todo seu código em um único arquivo. Mas, a medida que você cresce como programador Ruby, seus programas também crescerão e em um determinado ponto você perceberá que ter um único arquivo contendo todo o código<br />
+não será uma boa ideia. É mais fácil quebrar seu código em grupos lógicos e colocar cada grupo em um arquivo separado. Quando você começa<br />
+a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (requerer) e <b>load</b> (carregar) (ambos métodos são &#8220;funções&#8221; globais definidas no <b>Kernel</b>, mas são usadas como palavras-chave da linguagem) que o ajudam a inclui outros arquivos em seu programa.</p>
+<p>O método <b>load</b> inclui o arquivo fonte referenciado toda vez que o método é executado:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   load <span class="s"><span class="dl">'</span><span class="k">nome_do_arquivo.rb</span><span class="dl">'</span></span>
+</pre>
+</div>
+<p>O mais comumente usado <b>require</b> carrega o arquivo dado apenas uma vez:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   require <span class="s"><span class="dl">'</span><span class="k">nome_do_arquivo</span><span class="dl">'</span></span>
+</pre>
+</div>
+<p><b>require</b> lhe dá acesso a muitas extensões e bibliotecas de programação empacotadas com a linguagem de programção Ruby &#8211; além de um número ainda maior de extensões e bibliotecas escritas independentemente por outros programadores e disponibilizadas para uso com o Ruby.</p>
+<p>Note que quando você escreve <b>require</b>  &#8216;nome_do_arquivo&#8217; e não &#8216;nome_do_arquivo.rb&#8217;. Especificamente, extensões escritas em C são armazenadas em arquivos terminados por .so ou .dll. Para manter o processo transparante &#8211; isso é, para lhe proteger do problema que é saber se uma extensão que você quer usa um arquivo .rb ou ou outro tipo de arquivo &#8211; o método aceita uma palavra e então faz uma busca automática e tenta todos os nomes de arquivo possível até que encontro o arquivo correspondente a extensão que você requisitou.</p>
+<div class='box'>
+<p>require(string) =&gt; true or false</p>
+<p>O Ruby tenta carregar a biblioteca chamada string, retornando true (verdadeiro) em caso de sucesso. Se o nome de arquivo não foir resolvido para um caminho absoluto, ele será procurado nos diretórios listados em <b>$:</b>. Se o arquivo tem a extensão  &#8220;.rb&#8221;, ele é carregado como um arquivo fonte; se a extensão for &#8220;.so&#8221;, &#8220;.o&#8221; ou &#8220;.dll&#8221;, ou qualque que seja a extensão de bibliotecas compartilhadas na plataforma em questão, o Ruby carregará a biblioteca compartilhada como uma extensão Ruby. Em caso contrário, o Ruby tenta adicionar &#8220;.rb&#8221;, &#8220;.so&#8221; e assim por diante ao nome do arquivo. O me ionalidade é adicionado ao array em <b>$:</b>.</p>
+</div>
+<div class='box'>
+<p>NO RAILS: O Rails usa <b>load</b> ao invés de <b>require</b>, por exemplo, no modo de desenvolvimento &#8211; o que significa que se você está testando sua aplicação em um navegador e fazendo mudanças no código ao mesmo tempo, suas mudanças serão recarregadas, sobrescrevendo qualquer comportamento de caching por parte do servidor Web. Múltiplas chamadas a <b>require</b> no mesmo lugar não tem o mesmo efeito se a aplicação já leu o arquivo por completo.</p>
+</div>
+<p>Agora, vamos olhar para o exemplo de outra classe &#8211; p030motorcycle.rb</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">MotoCicleta</span>
+<span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(fabricante, cor)
+<span class="no"> 3</span>       <span class="c"># Variáveis de instância</span>
+<span class="no"> 4</span>       <span class="iv">@fabricante</span> = fabricante
+<span class="no"> 5</span>       <span class="iv">@cor</span> = cor
+<span class="no"> 6</span>       <span class="r">end</span>
+<span class="no"> 7</span>     <span class="r">def</span> <span class="fu">ligaMotor</span>
+<span class="no"> 8</span>       <span class="r">if</span> (<span class="iv">@estado_motor</span>)
+<span class="no"> 9</span>         puts <span class="s"><span class="dl">'</span><span class="k">O motor já está ligado</span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span>       <span class="r">else</span>
+<span class="no">11</span>         <span class="iv">@estado_motor</span> = <span class="pc">true</span>
+<span class="no">12</span>         puts <span class="s"><span class="dl">'</span><span class="k">Motor ocioso</span><span class="dl">'</span></span>
+<span class="no">13</span>       <span class="r">end</span>
+<span class="no">14</span>     <span class="r">end</span>
+<span class="no">15</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>Escrevemos outro programa <b>p031motorcycletest.rb</b> para testar a classe acima.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p031motorcycletest.rb</span>
+<span class="no">2</span>   require <span class="s"><span class="dl">'</span><span class="k">p030motorcycle</span><span class="dl">'</span></span>
+<span class="no">3</span>   m = <span class="co">MotoCicleta</span>.new(<span class="s"><span class="dl">'</span><span class="k">Yamaha</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">vermelha</span><span class="dl">'</span></span>)
+<span class="no">4</span>   m.ligaMotor
+</pre>
+</div>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

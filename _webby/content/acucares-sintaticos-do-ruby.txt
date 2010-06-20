@@ -1,0 +1,106 @@
+---
+title:      acucares sintaticos do ruby
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+Programmers use the term syntactic sugar to refer to special rules that let you write your code in a way that doesn't correspond to the normal rules but that is easier to remember how to do and looks better.
+
+Let us say we want to set the name of a dog. As a starting point, name can be set along with everything else at object creation time, as in the example below.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class NewDog
+    def initialize(breed, name)
+      @breed = breed
+      @name = name
+    end
+    attr_reader :breed, :name   # create reader only
+  end
+  nd = NewDog.new('Doberman', 'Benzy')
+  puts nd.name
+<% end -%>
+
+
+Let's write a set_name method that allows us to set, or reset, the name of an existing dog. We'll also rewrite the initialize method so that it doesn't expect a name:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class NewDog
+    def initialize(breed)
+      @breed = breed
+    end
+    attr_reader :breed, :name   # create reader only
+    # setter method
+    def set_name(nm)
+      @name = nm
+    end
+  end
+  nd = NewDog.new('Doberman')
+  nd.set_name('Benzy')
+  puts nd.name
+<% end -%>
+
+
+Ruby allows you to define methods that end with an equal sign (=). Let's replace set_name with a method called name=
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  def name=(nm)
+    @name = nm
+  end
+<% end -%>
+
+
+name= does exactly what set_name did, and in spite of the slightly odd method name, you can call it just like any other method:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  nd.name=('Benzy')
+<% end -%>
+
+
+Here's the modified example - p050newdog.rb
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  class NewDog
+    def initialize(breed)
+      @breed = breed
+    end
+    attr_reader :breed, :name # create reader only
+
+    # setter method
+    def name=(nm)
+      @name = nm
+    end
+  end
+
+  nd = NewDog.new('Doberman')
+  #nd.name=('Benzy')
+  nd.name = 'Benzy'
+  puts nd.name
+<% end -%>
+
+
+The equal sign gives you that familiar "assigning a value to something" feeling, so you know you're dealing with a setter method. It still looks odd, but Ruby takes care of that, too.
+
+Ruby gives you some syntactic sugar for calling setter methods. Instead of this:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  nd.name=('Benzy')
+<% end -%>
+
+
+you're allowed to do this:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  nd.name = 'Benzy'
+<% end -%>
+
+When the interpreter sees the message "name" followed by " =", it automatically ignores the space before equal sign and reads the single message "name=" - a call to the method whose name is name=, which we've defined. As for the right-hand side: parentheses are optional on single arguments to methods, so you can just put 'Benzy' there and it will be picked up as the argument to the name= method.
+
+<div class='box'>
+IN RAILS: Method calls using the equal-sign syntax are common in Rails applications.
+</div>
+
+
+

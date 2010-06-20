@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Serialização de Objetos</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">Serialização de Objetos</p>
+<p>Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling.</p>
+<p>We will write a basic class p051gamecharacters.rb just for testing marshalling.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p051gamecharacters.rb</span>
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">GameCharacter</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>(power, type, weapons)
+<span class="no"> 4</span>       <span class="iv">@power</span> = power
+<span class="no"> 5</span>       <span class="iv">@type</span> = type
+<span class="no"> 6</span>       <span class="iv">@weapons</span> = weapons
+<span class="no"> 7</span>     <span class="r">end</span>
+<span class="no"> 8</span>     attr_reader <span class="sy">:power</span>, <span class="sy">:type</span>, <span class="sy">:weapons</span>
+<span class="no"> 9</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>The program p052dumpgc.rb creates an object of the above class and then uses Marshal.dump to save a serialized version of it to the disk.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p052dumpgc.rb</span>
+<span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>
+<span class="no"> 3</span>   gc = <span class="co">GameCharacter</span>.new(<span class="i">120</span>, <span class="s"><span class="dl">'</span><span class="k">Magician</span><span class="dl">'</span></span>, [<span class="s"><span class="dl">'</span><span class="k">spells</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">invisibility</span><span class="dl">'</span></span>])
+<span class="no"> 4</span>   puts gc.power.to_s + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + gc.type + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
+<span class="no"> 5</span>   gc.weapons.each <span class="r">do</span> |w|
+<span class="no"> 6</span>     puts w + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
+<span class="no"> 7</span>   <span class="r">end</span>
+<span class="no"> 8</span> 
+<span class="no"> 9</span>   <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">game</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">w+</span><span class="dl">'</span></span>) <span class="r">do</span> |f|
+<span class="no"><strong>10</strong></span>     <span class="co">Marshal</span>.dump(gc, f)
+<span class="no">11</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>The program p053loadgc.rb uses Marshal.load to read it in.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p053loadgc.rb</span>
+<span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>
+<span class="no"> 3</span>   <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">game</span><span class="dl">'</span></span>) <span class="r">do</span> |f|
+<span class="no"> 4</span>     <span class="iv">@gc</span> = <span class="co">Marshal</span>.load(f)
+<span class="no"> 5</span>   <span class="r">end</span>
+<span class="no"> 6</span> 
+<span class="no"> 7</span>   puts <span class="iv">@gc</span>.power.to_s + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + <span class="iv">@gc</span>.type + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
+<span class="no"> 8</span>   <span class="iv">@gc</span>.weapons.each <span class="r">do</span> |w|
+<span class="no"> 9</span>     puts w + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span>   <span class="r">end</span>
+</pre>
+</div>
+<p>Marshal only serializes data structures. It can&#8217;t serialize Ruby code (like Proc objects), or resources allocated by other processes (like file handles or database connections). Marshal just gives you an error when you try to serialize a file</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

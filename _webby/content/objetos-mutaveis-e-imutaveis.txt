@@ -1,0 +1,78 @@
+---
+title:      objetos mutaveis e imutaveis
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+Mutable objects are objects whose state can change. Immutable objects are objects whose state never changes after creation.
+
+Immutable objects have many desirable properties:
+
+* Immutable objects are thread-safe. Threads cannot corrupt what they cannot change.
+* Immutable objects make it easier to implement encapsulation. If part of an object's state is stored in an immutable object, then accessor methods can return that object to outside callers, without fear that those callers can change the object's state.
+* Immutable objects make good hash keys, since their hash codes cannot change.
+
+In Ruby, Mutability is a property of an instance, not of an entire class. Any instance can become immutable by calling freeze.
+
+h2. Freezing Objects
+
+The freeze method in class Object prevents you from changing an object, effectively turning an object into a constant. After we freeze an object, an attempt to modify it results in TypeError. The following program p050xfreeze.rb illustrates this:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  str = 'A simple string. '
+  str.freeze
+  begin
+    str << 'An attempt to modify.'
+  rescue => err
+    puts "#{err.class} #{err}"
+  end
+  # The output is - TypeError can't modify frozen string
+<% end -%>
+
+
+However, freeze operates on an object reference, not on a variable. This means that any operation resulting in a new object will work. This is illustrated by the following example:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  str = 'Original string - '
+  str.freeze
+  str += 'attachment'
+  puts str
+  # Output is - Original string - attachment
+<% end -%>
+
+
+The expression str + 'attachment' is evaluated to a new object, which is then assigned to str. The object is not changed, but the variable str now refers to a new object.
+
+h2. frozen?
+
+A method frozen? tells you whether an object is frozen or not. Let's take an example here:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  a = b = 'Original String'
+  b.freeze
+  puts a.frozen? # true
+  puts b.frozen? # true
+  a = 'New String'
+  puts a
+  puts b
+  puts a.frozen? # false
+  puts b.frozen? # true
+<% end -%>
+
+Let us understand what we are doing here - a and b are two variables both of which are pointing to a string object - Original String. We then freeze the object Original String. Hence both a and b are now pointing to the frozen object Original String. This is verified by the statements puts a.frozen? and puts b.frozen?. Next, we create a new string object New String and make variable a point to this new object New String. Variable b is still pointing to the frozen object while a is not. This verified by the last 2 statements of the program.
+
+Usage:
+Ruby sometimes copies objects and freezes the copies. When you use a string as a hash key, Ruby actually copies the string, freezes the copy, and uses the copy as the hash key: that way, if the original string changes later on, the hash key isn't affected.
+
+Ruby's internal file operations work from a frozen copy of a filename instead of using the filename directly. If another thread modifies the original filename in the middle of an operation that's supposed to be atomic, there's no problem: Ruby wasn't relying on the original filename anyway. You can adopt this copy-and-freeze pattern in multi-threaded code to prevent a data structure you're working on from being changed by another thread.
+
+Another common programmer-level use of this feature is to freeze a class in order to prevent future modifications to it.
+
+Note: Whenever an object in Ruby has no reference to it, then that object is marked for removal and the garbage collector will remove that object based on its algorithm. There is no way to access an un-referenced object.
+
+h2. Summary
+
+I have listed down all the important points you need to remember after you have completed the following topics: Duck Typing, Syntactic Sugar, Mutable and Immutable Objects.

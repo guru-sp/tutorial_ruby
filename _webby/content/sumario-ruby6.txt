@@ -1,18 +1,28 @@
 ---
-title:      Sumario-ruby6
-created_at: 2009-12-23 14:29:37.834588 -02:00
+title:      Sumário 6
+created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
-  - erb
-  - textile
+ - erb
+ - textile
 ---
 p(title). <%= h(@page.title) %>
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc congue ipsum vestibulum libero. Aenean vitae justo. Nam eget tellus. Etiam convallis, est eu lobortis mattis, lectus tellus tempus felis, a ultricies erat ipsum at metus.
+# Ruby gives you three levels of protection:
+##  public - methods can be called by everyone. A class's instance methods are public by default.
+##  protected - methods can be invoked only by objects of the defining class and its subclasses.
+##  private - methods cannot be called with an explicit receiver - the receiver is always self. This means that private methods can be called only in the context of the current object. The initialize method is always private.
+# Access control is determined dynamically, as the program runs, not statically. You will get an access violation only when the code attempts to execute the restricted method.
+# Top-level methods are private instance methods of the Kernel module.
+# attr_reader is reader only; attr_writer is writer only and attr_accessor is both reader and writer.
+# An exception is a special kind of object, an instance of the class Exception or a descendant of that class.
+# The raise method is from the Kernel module. By default, raise creates an exception of the RuntimeError class. To raise an exception of a specific class, you can pass in the class name as an argument to raise.
+# To do exception handling, we enclose the code that could raise an exception in a begin-end block and use one or more rescue clauses to tell Ruby the types of exceptions we want to handle.
+# It is to be noted that the body of a method definition is an implicit begin-end block; the begin is omitted, and the entire body of the method is subject to exception handling, ending with the end of the method.
+# If you write a rescue clause with no parameter list, the parameter defaults to StandardError.
+# If you need the guarantee that some processing is done at the end of a block of code, regardless of whether an exception was raised then the ensure clause can be used. ensure goes after the last rescue clause and contains a chunk of code that will always be executed as the block terminates. The ensure block will always run.
+# By default, the inspect message, which can be sent to any object, formats the object's ID and instance variables. It returns a string containing a human-readable representation of object. If not overridden, uses the to_s method to generate the string.
+# The Time class contains Ruby's interface to the set of time libraries written in C.
+# Time zero for Ruby is the first second GMT of January 1, 1970.
+# Ruby's DateTime class is superior to Time for astronomical and historical applications, but you can use Time for most everyday programs.
 
-h2. Litora Sociis
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan vestibulum ante. Vestibulum sed tortor. Praesent tempus fringilla elit. Ut elit diam, sagittis in, nonummy in, gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla odio, quis commodo est orci vitae justo. Aliquam placerat odio tincidunt nulla. Cras in libero. Aenean rutrum, magna non tristique posuere, erat odio eleifend nisl, non convallis est tortor blandit ligula. Nulla id augue.
-
-bq. Nullam mattis, odio ut tempus facilisis, metus nisl facilisis metus, auctor consectetuer felis ligula nec mauris. Vestibulum odio erat, fermentum at, commodo vitae, ultrices et, urna. Mauris vulputate, mi pulvinar sagittis condimentum, sem nulla aliquam velit, sed imperdiet mi purus eu magna. Nulla varius metus ut eros. Aenean aliquet magna eget orci. Class aptent taciti sociosqu ad litora.
-
-Vivamus euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse vel nibh ut turpis dictum sagittis. Aliquam vel velit a elit auctor sollicitudin. Nam vel dui vel neque lacinia pretium. Quisque nunc erat, venenatis id, volutpat ut, scelerisque sed, diam. Mauris ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec mattis. Morbi dignissim sollicitudin libero. Nulla lorem.

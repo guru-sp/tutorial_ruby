@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>self</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">self</p>
+<p>At every point when your program is running, there is one and only one self &#8211; the current or default object accessible to you in your program. You can tell which object self  represents by following a small set of rules.<br />
+Top level context</p>
+<p>The top level context is before you have entered any other context, such as a class definition. Therefore the term top level refers to program code written outside of a class or module. If you open a new text file and type:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   x = <span class="i">1</span>
+</pre>
+</div>
+<p>you have created a top level local variable x. If you type:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">m</span>
+<span class="no">2</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>you have created a top level method &#8211; an instance method of Object (even though self is not Object). Top-level methods are always private. Ruby provides you with a start-up self at the top level. If you type:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   puts <span class="pc">self</span>
+</pre>
+</div>
+<p>it displays main &#8211; a special term the default self object uses to refer to itself. The class of the main object is Object.</p>
+<h2>Self inside class and module definitions</h2>
+<p>In a class or module definition, self is the class or module object.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p063xself1.rb</span>
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">S</span>
+<span class="no"> 3</span>     puts <span class="s"><span class="dl">'</span><span class="k">Just started class S</span><span class="dl">'</span></span>
+<span class="no"> 4</span>     puts <span class="pc">self</span>
+<span class="no"> 5</span>     <span class="r">module</span> <span class="cl">M</span>
+<span class="no"> 6</span>       puts <span class="s"><span class="dl">'</span><span class="k">Nested module S::M</span><span class="dl">'</span></span>
+<span class="no"> 7</span>       puts <span class="pc">self</span>
+<span class="no"> 8</span>     <span class="r">end</span>
+<span class="no"> 9</span>     puts <span class="s"><span class="dl">'</span><span class="k">Back in the outer level of S</span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span>     puts <span class="pc">self</span>
+<span class="no">11</span>   <span class="r">end</span>
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p063xself1.rb
+<span class="no">2</span>   Just started class S
+<span class="no">3</span>   S
+<span class="no">4</span>   Nested module S::M
+<span class="no">5</span>   S::M
+<span class="no">6</span>   Back in the outer level of S
+<span class="no">7</span>   S
+<span class="no">8</span>   &gt;Exit code: 0
+</pre>
+</div>
+<h2>Self in instance method definitions</h2>
+<p>At the time the method definition is executed, the most you can say is that self inside this method will be some future object that has access to this method.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p063xself2.rb</span>
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">S</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">m</span>
+<span class="no"> 4</span>       puts <span class="s"><span class="dl">'</span><span class="k">Class S method m:</span><span class="dl">'</span></span>
+<span class="no"> 5</span>       puts <span class="pc">self</span>
+<span class="no"> 6</span>     <span class="r">end</span>
+<span class="no"> 7</span>   <span class="r">end</span>
+<span class="no"> 8</span>   s = <span class="co">S</span>.new
+<span class="no"> 9</span>   s.m
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p063xself2.rb
+<span class="no">2</span>   Class S method m:
+<span class="no">3</span>   #&lt;S:0x2835908&gt;
+<span class="no">4</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>The output #<S:0x2835908> is Ruby&#8217;s way of saying &#8220;an instance of S&#8221;.</p>
+<h2>Self in singleton-method and class-method definitions</h2>
+<p>Singleton methods &#8211; those attached to a particular object can be called by only one object. When a singleton method is executed, self is the object that owns the method, as shown below:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p063xself3.rb</span>
+<span class="no"> 2</span>   obj = <span class="co">Object</span>.new
+<span class="no"> 3</span>   <span class="r">def</span> obj.show
+<span class="no"> 4</span>     print <span class="s"><span class="dl">'</span><span class="k">I am an object: </span><span class="dl">'</span></span>
+<span class="no"> 5</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">here's self inside a singleton method of mine:</span><span class="dl">&quot;</span></span>
+<span class="no"> 6</span>     puts <span class="pc">self</span>
+<span class="no"> 7</span>   <span class="r">end</span>
+<span class="no"> 8</span>   obj.show
+<span class="no"> 9</span>   print <span class="s"><span class="dl">'</span><span class="k">And inspecting obj from outside, </span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">to be sure it's the same object:</span><span class="dl">&quot;</span></span>
+<span class="no">11</span>   puts obj
+</pre>
+</div>
+<p>The output of the above example is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p063xself3.rb
+<span class="no">2</span>   I am an object: here's self inside a singleton method of mine:
+<span class="no">3</span>   #&lt;Object:0x2835688&gt;
+<span class="no">4</span>   And inspecting obj from outside, to be sure it's the same object:
+<span class="no">5</span>   #&lt;Object:0x2835688&gt;
+<span class="no">6</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>Class methods are defined as singleton methods for class objects. Refer to the following program:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p063xself4.rb</span>
+<span class="no">2</span>   <span class="r">class</span> <span class="cl">S</span>
+<span class="no">3</span>     <span class="r">def</span> <span class="co">S</span>.x
+<span class="no">4</span>       puts <span class="s"><span class="dl">&quot;</span><span class="k">Class method of class S</span><span class="dl">&quot;</span></span>
+<span class="no">5</span>       puts <span class="pc">self</span>
+<span class="no">6</span>     <span class="r">end</span>
+<span class="no">7</span>   <span class="r">end</span>
+<span class="no">8</span>   <span class="co">S</span>.x
+</pre>
+</div>
+<p>The output is:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p063xself4.rb
+<span class="no">2</span>   Class method of class S
+<span class="no">3</span>   S
+<span class="no">4</span>   &gt;Exit code: 0
+</pre>
+</div>
+<p>self inside a singleton method (a class method, in this case) is the object whose singleton method it is.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

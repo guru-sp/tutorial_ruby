@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>duck typing</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">duck typing</p>
+<p>You&#8217;ll have noticed that in Ruby we don&#8217;t declare the types of variables or methods &#8211; everything is just some kind of object. Ruby objects (unlike objects in some other object-oriented languages) can be individually modified. You can always add methods on a per object basis. In Ruby, the behavior or capabilities of an object can deviate from those supplied by its class.</p>
+<div class='box'>
+<p>In Ruby, we rely less on the type (or class) of an object and more on its capabilities. Hence, Duck Typing means an object type is defined by what it can do, not by what it is. Duck Typing refers to the tendency of Ruby to be less concerned with the class of an object and more concerned with what methods can be called on it and what operations can be performed on it. In Ruby, we would use respond_to? or might simply pass an object to a method and know that an exception will be raised if it is used inappropriately.</p>
+</div>
+<p>If an object walks like a duck and talks like a duck, then the Ruby interpreter is happy to treat it as if it were a duck.</p>
+<p>Consider the following example.</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># Check whether the object defines the to_str method</span>
+<span class="no">2</span>   puts (<span class="s"><span class="dl">'</span><span class="k">A string</span><span class="dl">'</span></span>.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; true</span>
+<span class="no">3</span>   puts (<span class="co">Exception</span>.new.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; true</span>
+<span class="no">4</span>   puts (<span class="i">4</span>.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; false</span>
+</pre>
+</div>
+<p>The above example is the simplest example of Ruby&#8217;s philosophy of &#8220;duck typing:&#8221; if an object quacks like a duck (or acts like a string), just go ahead and treat it as a duck (or a string). Whenever possible, you should treat objects according to the methods they define rather than the classes from which they inherit or the modules they include.</p>
+<p>Now consider the following three classes &#8211; Duck, Goose and DuckRecording. Program p036duck.rb</p>
+<h2>Code</h2>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Duck</span>
+<span class="no"> 2</span>     <span class="r">def</span> <span class="fu">quack</span>
+<span class="no"> 3</span>       <span class="s"><span class="dl">'</span><span class="k">Quack!</span><span class="dl">'</span></span>
+<span class="no"> 4</span>     <span class="r">end</span>
+<span class="no"> 5</span> 
+<span class="no"> 6</span>     <span class="r">def</span> <span class="fu">swim</span>
+<span class="no"> 7</span>       <span class="s"><span class="dl">'</span><span class="k">Paddle paddle paddle...</span><span class="dl">'</span></span>
+<span class="no"> 8</span>     <span class="r">end</span>
+<span class="no"> 9</span>   <span class="r">end</span>
+<span class="no"><strong>10</strong></span> 
+<span class="no">11</span>   <span class="r">class</span> <span class="cl">Goose</span>
+<span class="no">12</span>     <span class="r">def</span> <span class="fu">honk</span>
+<span class="no">13</span>       <span class="s"><span class="dl">'</span><span class="k">Honk!</span><span class="dl">'</span></span>
+<span class="no">14</span>     <span class="r">end</span>
+<span class="no">15</span>     <span class="r">def</span> <span class="fu">swim</span>
+<span class="no">16</span>       <span class="s"><span class="dl">'</span><span class="k">Splash splash splash...</span><span class="dl">'</span></span>
+<span class="no">17</span>     <span class="r">end</span>
+<span class="no">18</span>   <span class="r">end</span>
+<span class="no">19</span> 
+<span class="no"><strong>20</strong></span>   <span class="r">class</span> <span class="cl">DuckRecording</span>
+<span class="no">21</span>     <span class="r">def</span> <span class="fu">quack</span>
+<span class="no">22</span>       play
+<span class="no">23</span>   <span class="r">end</span>
+<span class="no">24</span> 
+<span class="no">25</span>     <span class="r">def</span> <span class="fu">play</span>
+<span class="no">26</span>       <span class="s"><span class="dl">'</span><span class="k">Quack!</span><span class="dl">'</span></span>
+<span class="no">27</span>     <span class="r">end</span>
+<span class="no">28</span>   <span class="r">end</span>
+<span class="no">29</span> 
+<span class="no"><strong>30</strong></span>   <span class="r">def</span> <span class="fu">make_it_quack</span>(duck)
+<span class="no">31</span>     duck.quack
+<span class="no">32</span>   <span class="r">end</span>
+<span class="no">33</span>   puts make_it_quack(<span class="co">Duck</span>.new)
+<span class="no">34</span>   puts make_it_quack(<span class="co">DuckRecording</span>.new)
+<span class="no">35</span> 
+<span class="no">36</span>   <span class="r">def</span> <span class="fu">make_it_swim</span>(duck)
+<span class="no">37</span>     duck.swim
+<span class="no">38</span>   <span class="r">end</span>
+<span class="no">39</span>   puts make_it_swim(<span class="co">Duck</span>.new)
+<span class="no"><strong>40</strong></span>   puts make_it_swim(<span class="co">Goose</span>.new)
+</pre>
+</div>
+<p>If you refer to the code shown below:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">make_it_quack</span>(duck)
+<span class="no">2</span>     duck.quack
+<span class="no">3</span>   <span class="r">end</span>
+<span class="no">4</span>   puts make_it_quack(<span class="co">Duck</span>.new)
+<span class="no">5</span>   puts make_it_quack(<span class="co">DuckRecording</span>.new)
+</pre>
+</div>
+<p>A method that told a Duck to quack works when given a DuckRecoding, due to Duck Typing. Similarly in the following code:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">make_it_swim</span>(duck)
+<span class="no">2</span>     duck.swim
+<span class="no">3</span>   <span class="r">end</span>
+<span class="no">4</span>   puts make_it_swim(<span class="co">Duck</span>.new)
+<span class="no">5</span>   puts make_it_swim(<span class="co">Goose</span>.new)
+</pre>
+</div>
+<p>A method that tells a Duck to swim when given a Goose, works.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>
