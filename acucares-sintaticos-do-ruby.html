@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>acucares sintaticos do ruby</title>
+   <title>açucares sintáticos do ruby</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -29,29 +29,28 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">acucares sintaticos do ruby</p>
-<p>Programmers use the term syntactic sugar to refer to special rules that let you write your code in a way that doesn&#8217;t correspond to the normal rules but that is easier to remember how to do and looks better.</p>
-<p>Let us say we want to set the name of a dog. As a starting point, name can be set along with everything else at object creation time, as in the example below.</p>
+      <p class="title">açucares sintáticos do ruby</p>
+<p>Programadores utilizam o termo açucares sintático para se referir a regras, que permitem que você escreva seu código de uma maneira que não correspondem as regras normais, mais que seja mais fácil de lembrar como fazer e fica melhor.</p>
+<p>Vamos dizer que queremos definir o nome de um cachorro. Como ponto de partida, o nome pode ser definido junto com tudo, mais em tempo de criação do objeto, como no exemplo abaixo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed, name)
 <span class="no"> 3</span>       <span class="iv">@breed</span> = breed
 <span class="no"> 4</span>       <span class="iv">@name</span> = name
 <span class="no"> 5</span>     <span class="r">end</span>
-<span class="no"> 6</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># create reader only</span>
+<span class="no"> 6</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># Apenas para leitura</span>
 <span class="no"> 7</span>   <span class="r">end</span>
 <span class="no"> 8</span>   nd = <span class="co">NewDog</span>.new(<span class="s"><span class="dl">'</span><span class="k">Doberman</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 <span class="no"> 9</span>   puts nd.name
 </pre>
-</div>
-<p>Let&#8217;s write a set_name method that allows us to set, or reset, the name of an existing dog. We&#8217;ll also rewrite the initialize method so that it doesn&#8217;t expect a name:</p>
+</div><p>Vamos escrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
 <span class="no"> 3</span>       <span class="iv">@breed</span> = breed
 <span class="no"> 4</span>     <span class="r">end</span>
-<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># create reader only</span>
-<span class="no"> 6</span>     <span class="c"># setter method</span>
+<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># Apenas para leitur</span>
+<span class="no"> 6</span>     <span class="c"># método setter</span>
 <span class="no"> 7</span>     <span class="r">def</span> <span class="fu">set_name</span>(nm)
 <span class="no"> 8</span>       <span class="iv">@name</span> = nm
 <span class="no"> 9</span>     <span class="r">end</span>
@@ -60,20 +59,17 @@
 <span class="no">12</span>   nd.set_name(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 <span class="no">13</span>   puts nd.name
 </pre>
-</div>
-<p>Ruby allows you to define methods that end with an equal sign (=). Let&#8217;s replace set_name with a method called name=</p>
+</div><p>Ruby permite que você defina métodos que terminam com um sinal de igual (=). Vamos substituir set_name com um método chamado name=</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">name=</span>(nm)
 <span class="no">2</span>     <span class="iv">@name</span> = nm
 <span class="no">3</span>   <span class="r">end</span>
 </pre>
-</div>
-<p>name= does exactly what set_name did, and in spite of the slightly odd method name, you can call it just like any other method:</p>
+</div><p>name= faz exatamente o que set_name faz e apesar do nome do método um pouco estranho, você pode chamá-lo como qualquer outro método:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 </pre>
-</div>
-<p>Here&#8217;s the modified example &#8211; p050newdog.rb</p>
+</div><p>Exemplo &#8211; p050newdog.rb</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
@@ -81,7 +77,7 @@
 <span class="no"> 4</span>     <span class="r">end</span>
 <span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span> <span class="c"># create reader only</span>
 <span class="no"> 6</span> 
-<span class="no"> 7</span>     <span class="c"># setter method</span>
+<span class="no"> 7</span>     <span class="c"># método setter</span>
 <span class="no"> 8</span>     <span class="r">def</span> <span class="fu">name=</span>(nm)
 <span class="no"> 9</span>       <span class="iv">@name</span> = nm
 <span class="no"><strong>10</strong></span>     <span class="r">end</span>
@@ -92,21 +88,18 @@
 <span class="no">15</span>   nd.name = <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>
 <span class="no">16</span>   puts nd.name
 </pre>
-</div>
-<p>The equal sign gives you that familiar &#8220;assigning a value to something&#8221; feeling, so you know you&#8217;re dealing with a setter method. It still looks odd, but Ruby takes care of that, too.</p>
-<p>Ruby gives you some syntactic sugar for calling setter methods. Instead of this:</p>
+</div><p>O sinal de igual da a algo que você conhece como &#8220;atribui um valor a algo&#8221;, assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.</p>
+<p>Ruby lhe da um pouco de açucares sintático para chamar métodos setter.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 </pre>
-</div>
-<p>you&#8217;re allowed to do this:</p>
+</div><p>você tem permissão para fazer isso:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name = <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>
 </pre>
-</div>
-<p>When the interpreter sees the message &#8220;name&#8221; followed by &quot; =&quot;, it automatically ignores the space before equal sign and reads the single message &#8220;name=&#8221; &#8211; a call to the method whose name is name=, which we&#8217;ve defined. As for the right-hand side: parentheses are optional on single arguments to methods, so you can just put &#8216;Benzy&#8217; there and it will be picked up as the argument to the name= method.</p>
+</div><p>Quando o interpretador vê a mensagem &#8220;name&#8221; seguido de &#8220;=&#8221;, ele automaticamente ignora os espaços antes do sinal de igual e lê a mensagem como única, &#8220;name=&#8221; &#8211; Uma chamada para o método cujo nome é name=, o que nós definimos. Quanto ao lado direito: os parênteses são opcionais para métodos com argumentos simples, sendo assim, você pode colocar apenas &#8216;Benzy&#8217; lá e ele vai ser pego como argumento para o método name=.</p>
 <div class='box'>
-<p>IN RAILS: Method calls using the equal-sign syntax are common in Rails applications.</p>
+<p>NO RAILS: Chamadas de métodos usando sinal de igual são comuns em aplicações Rails.</p>
 </div>
    </div>
 
