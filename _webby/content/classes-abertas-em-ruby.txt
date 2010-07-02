@@ -8,63 +8,62 @@ filter:
 p(title). <%= h(@page.title) %>
 
 <div class='box'>
- In Ruby, classes are never closed: you can always add methods to an existing class. This applies to the classes you write as well as the standard, built-in classes. All you have to do is open up a class definition for an existing class, and the new contents you specify will be added to whatever's there.
+No Ruby as classes nunca são fechadas: você pode sempre adicionar métodos a uma classe existente. Isso se aplica para classes que você escreve assim como para as classes padrões que vem com a linguagem. Tudo o que você tem que fazer é abrir a definição de uma classe existente e então o conteúdo será adicionado a mesma.
 </div>
 
-Now to the program p031motorcycletest.rb in the last topic, add the method dispAttr
+Veja o programa **p031motorcycletest.rb** do último tópico, e adicione o método mostraAttr
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   require 'p030motorcycle'
-  m = MotorCycle.new('Yamaha', 'red')
-  m.startEngine
+  m = MotoCicleta.new('Yamaha', 'vermelha')
+  m.ligaMotor
 
-  class MotorCycle
-    def dispAttr
-      puts 'Color of MotorCycle is ' + @color
-      puts 'Make  of MotorCycle is ' + @make
+  class MotoCicleta
+    def mostraAttr
+      puts 'A cor da Motocicleta é ' + @cor
+      puts 'O fabricante  da Motocicleta é ' + @fabricante
     end
   end
-  m.dispAttr
-  m.startEngine
+  m.mostraAttr
+  m.ligaMotor
   puts self.class
   puts self
 <% end -%>
 
+Perceba que self.class se refere a **Object** e self se refere a um objeto chamado main da classe **Object**.
 
-Please note that self.class refers to Object and self refers to an object called main of class Object.
-
-One more example is program - p031xdognext.rb
+Mais um exemplo é o programa - **p031xdognext.rb**
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   require 'p029dog'
-  # define class Dog
-  class Dog
-    def big_bark
-      puts 'Woof! Woof!'
+  # definea a classe Cachorro
+  class Cachorro
+    def late_alto
+      puts 'AU! AU!'
     end
   end
-  # make an object
-  d = Dog.new('Labrador', 'Benzy')
-  d.bark
-  d.big_bark
+  # cria um objeto
+  d = Cachorro.new('Labrador', 'Benzy')
+  d.late
+  d.late_alto
   d.display
 <% end -%>
 
-Here's another example of adding a method to the String class. The program p032mystring.rb illustrates the same.
+Aqui está outro exemplo de se adicionar um método para a classe **String**. O programa **p032mystring.rb** ilustra o mesmo. Veja que o método que adicionamos não faz nada de novo, apenas chama o método **size**. Em um cenário real você adicionaria uma funcionalidade nova a String.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   class String
-    def writesize
+    def escreve_tamanho
       self.size
     end
   end
-  size_writer = "Tell me my size!"
-  puts size_writer.writesize
+  escritor_de_tamanho = "Conte-me meu tamanho!"
+  puts escritor_de_tamanho.escreve_tamanho
 <% end -%>
 
-(You can confirm the output to the above programs yourself).
+(Você pode conferir saída para os programas acima por conta própria).
 
 <div class='box'>
-If you're writing a new method that conceptually belongs in the original class, you can reopen the class and append your method to the class definition. You should only do this if your method is generally useful, and you're sure it won't conflict with a method defined by some library you include in the future. If your method isn't generally useful, or you don't want to take the risk of modifying a class after its initial creation, create a subclass of the original class. The subclass can override its parent's methods, or add new ones. This is safer because the original class, and any code that depended on it, is unaffected.
+Se você está escrevendo um novo método que conceitualmente pertence a classe original, você pode reabrir a classe e adicionar seu método a definição da mesma. Você deve apenas fazer isso se seu método tem utilidade geneérica e você tem certeza que ele não entrará em conflito com um outro método definido por uma biblioteca que você pode incluir no futuro. Se o seu método não tem utilidade genérica, ou você não quer correr o risco de modificar uma classe após sua criação, crie uma subclasse da classe original. A subclasse pode sobrescrever seus métodos pais, ou adicionar novos. Isso é mais seguro porque a classe original e, qualquer código que dependa dela, não serão afetados.
 </div>
 
