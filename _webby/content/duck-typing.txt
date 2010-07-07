@@ -26,7 +26,7 @@ Considere o seguinte exemplo.
 
 O exemplo acima é o exemplo mais simples da filosofia Ruby de Duck Typing: se um objeto faz "quack" como um pato (ou age como uma string), basta ir em frente e tratá-lo como um pato (ou uma string).  Sempre que possível, você deve tratar objetos de acordo com os métodos que ele possui, ao invés, de definir as classes a partir do que eles herdam ou módulos que incluem.
 
-Agora, considere as três seguintes classes - Pato, Ganso e PatoDonald.  Programa p036duck.rb
+Agora, considere as três seguintes classes - Pato, Ganso e PatoDonald.  Programa *p036duck.rb*
 
 h2. Código
 
@@ -73,7 +73,7 @@ h2. Código
   puts faz_nadar(Ganso.new)
 <% end -%>
 
-Se você consultar o código abaixo::
+Se você consultar o código abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   def faz_quack(pato)
