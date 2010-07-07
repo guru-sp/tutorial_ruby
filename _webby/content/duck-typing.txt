@@ -93,4 +93,4 @@ Um método que disse a um Pato para fazer quack funciona quando recebe um PatoDo
   puts faz_nadar(Ganso.new)
 <% end -%>
 
-Um método que diz para um Pato nadar quando recebe um ganso, funciona.
+Um método que diz para um Pato nadar quando recebe um Ganso, funciona.
