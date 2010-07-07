@@ -83,7 +83,7 @@ Se você consultar o código abaixo:
   puts faz_quack(PatoDonald.new)
 <% end -%>
 
-Um método que disse a um Pato para fazer quack funciona quando recebe um PatoDonald, graças ao Duck Typing. Da mesma forma no seguinte código:
+Um método que disse a um Pato para fazer quack funciona quando recebe um PatoDonald, graças ao Duck Typing. O mesmo pode ser observado no seguinte código:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   def faz_nadar(pato)
