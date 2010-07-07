@@ -50,7 +50,8 @@
 <span class="no">13</span>   puts <span class="pc">self</span>.class
 <span class="no">14</span>   puts <span class="pc">self</span>
 </pre>
-</div><p>Perceba que self.class se refere a <b>Object</b> e self se refere a um objeto chamado main da classe <b>Object</b>.</p>
+</div>
+<p>Perceba que self.class se refere a <b>Object</b> e self se refere a um objeto chamado main da classe <b>Object</b>.</p>
 <p>Mais um exemplo é o programa &#8211; <b>p031xdognext.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   require <span class="s"><span class="dl">'</span><span class="k">p029dog</span><span class="dl">'</span></span>
@@ -66,7 +67,8 @@
 <span class="no">11</span>   d.late_alto
 <span class="no">12</span>   d.display
 </pre>
-</div><p>Aqui está outro exemplo de se adicionar um método para a classe <b>String</b>. O programa <b>p032mystring.rb</b> ilustra o mesmo. Veja que o método que adicionamos não faz nada de novo, apenas chama o método <b>size</b>. Em um cenário real você adicionaria uma funcionalidade nova a String.</p>
+</div>
+<p>Aqui está outro exemplo de se adicionar um método para a classe <b>String</b>. O programa <b>p032mystring.rb</b> ilustra o mesmo. Veja que o método que adicionamos não faz nada de novo, apenas chama o método <b>size</b>. Em um cenário real você adicionaria uma funcionalidade nova a String.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">class</span> <span class="cl">String</span>
 <span class="no">2</span>     <span class="r">def</span> <span class="fu">escreve_tamanho</span>
@@ -76,7 +78,8 @@
 <span class="no">6</span>   escritor_de_tamanho = <span class="s"><span class="dl">&quot;</span><span class="k">Conte-me meu tamanho!</span><span class="dl">&quot;</span></span>
 <span class="no">7</span>   puts escritor_de_tamanho.escreve_tamanho
 </pre>
-</div><p>(Você pode conferir saída para os programas acima por conta própria).</p>
+</div>
+<p>(Você pode conferir saída para os programas acima por conta própria).</p>
 <div class='box'>
 <p>Se você está escrevendo um novo método que conceitualmente pertence a classe original, você pode reabrir a classe e adicionar seu método a definição da mesma. Você deve apenas fazer isso se seu método tem utilidade geneérica e você tem certeza que ele não entrará em conflito com um outro método definido por uma biblioteca que você pode incluir no futuro. Se o seu método não tem utilidade genérica, ou você não quer correr o risco de modificar uma classe após sua criação, crie uma subclasse da classe original. A subclasse pode sobrescrever seus métodos pais, ou adicionar novos. Isso é mais seguro porque a classe original e, qualquer código que dependa dela, não serão afetados.</p>
 </div>
