@@ -30,66 +30,65 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">Logging com Ruby</p>
-<p>(a ser traduzido)</p>
-<p>The Logger  class in the Ruby standard library, helps write log messages to a file or stream. It supports time- or size-based rolling of log files. Messages can be assigned severities, and only those messages at or above the logger&#8217;s current reporting level will be logged.</p>
-<p>When you write code, you simply assume that all the messages will be logged. At runtime, you can get a more or a less verbose log by changing the log level. A production application usually has a log level of Logger::INFO or Logger::WARN. From least to most severe, the instance methods are Logger.debug, Logger.info, Logger.warn, Logger.error, and Logger.fatal.</p>
-<p>The DEBUG log level is useful for step-by-step diagnostics of a complex task. The ERROR level is often used when handling exceptions: if the program can&#8217;t solve a problem, it logs the exception rather than crash and expects a human administrator to deal with it. The FATAL level should only be used when the program cannot recover from a problem, and is about to crash or exit.</p>
-<p>If your log is being stored in a file, you can have Logger rotate or replace the log file when it gets too big, or once a certain amount of time has elapsed:</p>
+<p>A classe <b>Logger</b> da biblioteca padrão do Ruby ajuda a escrever mensagens de log para um arquivo ou para um stream de dados. Ela suporta rolagem dos arquivos de log por tempo ou baseada em tamanho. Às mensagens podem ser associados níveis de gravidade e apenas as mensagens em um determinado nivel ou acima do nível atual do logger serão armazenadas, isto é, &#8220;logadas&#8221;.</p>
+<p>Quando você escreve um código, você simplesmente assume que todoas as mensagens serão logadas. Em tempo de execução, você pode obter um log mais ou menos verboso mudando o nível do log. Uma aplicação em produção geralmente tem um nível de log Logger:INFO ou Logger:WARN. Do menos ao mais severo, os métodos são <b>Logger.debug</b>, <b>Logger.warn</b>, <b>Logger.error</b> e <b>Logger.fatal</b>.</p>
+<p>O nível de log DEBUG é útil para diagnosticar uma tarefa passo a passo. O nível ERROR é geralmente usado quando se lida com o tratamento de exceções: se o programa não consegue resolver um problema, ele loga a exceção ao invés de parar sua execução e esperar que um administrador cuide do problema. O nível FATAL deve apenas ser usado quando um programa não pode se recuperar de algum problema, e esta prestes a travar ou finalizar.</p>
+<p>Se seu log está sendo armazenado em um arquivo, você pode ter o <b>Logger</b> rotacionado ou substituído quando ele se torna muito grande, ou uma vez que uma certa quantidade de tempo passou:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   require <span class="s"><span class="dl">'</span><span class="k">logger</span><span class="dl">'</span></span>
-<span class="no">2</span>   <span class="c"># Keep data for the current month only</span>
-<span class="no">3</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">this_month.log</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">monthly</span><span class="dl">'</span></span>)
-<span class="no">4</span>   <span class="c"># Keep data for today and the past 20 days.</span>
+<span class="no">2</span>   <span class="c"># Mantenha os dados apenas para o mês atual</span>
+<span class="no">3</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">este_mes_.log</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">monthly</span><span class="dl">'</span></span>)
+<span class="no">4</span>   <span class="c"># Mantenha os dados de hoje e para os proximos 20 dias</span>
 <span class="no">5</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">application.log</span><span class="dl">'</span></span>, <span class="i">20</span>, <span class="s"><span class="dl">'</span><span class="k">daily</span><span class="dl">'</span></span>)
-<span class="no">6</span>   <span class="c"># Start the log over whenever the log exceeds 100 megabytes in size.</span>
+<span class="no">6</span>   <span class="c"># Reinicia o logger assim que o arquivo completar 100 megabytes</span>
 <span class="no">7</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">application.log</span><span class="dl">'</span></span>, <span class="i">0</span>, <span class="i">100</span> * <span class="i">1024</span> * <span class="i">1024</span>)
 </pre>
 </div>
-<p>The code below, uses the application&#8217;s logger to print a debugging message, and (at a higher severity) as part of error-handling code.</p>
+<p>O código abaixo, usa o logger da aplicação para imprimir uma mensagem de debugging e, em um nível mais alto de severidade, como parte do código de tratamento de erro.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c">#logex.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">logger</span><span class="dl">'</span></span>
 <span class="no"> 3</span>   <span class="gv">$LOG</span> = <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">log_file.log</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">monthly</span><span class="dl">'</span></span>)
-<span class="no"> 4</span>   <span class="r">def</span> <span class="fu">divide</span>(numerator, denominator)
-<span class="no"> 5</span>     <span class="gv">$LOG</span>.debug(<span class="s"><span class="dl">&quot;</span><span class="k">Numerator: </span><span class="il"><span class="idl">#{</span>numerator<span class="idl">}</span></span><span class="k">, denominator </span><span class="il"><span class="idl">#{</span>denominator<span class="idl">}</span></span><span class="dl">&quot;</span></span>)
+<span class="no"> 4</span>   <span class="r">def</span> <span class="fu">divide</span>(numerador, denominador)
+<span class="no"> 5</span>     <span class="gv">$LOG</span>.debug(<span class="s"><span class="dl">&quot;</span><span class="k">Numerator: </span><span class="il"><span class="idl">#{</span>numerador<span class="idl">}</span></span><span class="k">, denominador </span><span class="il"><span class="idl">#{</span>denominador<span class="idl">}</span></span><span class="dl">&quot;</span></span>)
 <span class="no"> 6</span>     <span class="r">begin</span>
-<span class="no"> 7</span>       result = numerator / denominator
+<span class="no"> 7</span>       result = numerador / denominador
 <span class="no"> 8</span>     <span class="r">rescue</span> <span class="co">Exception</span> =&gt; e
-<span class="no"> 9</span>       <span class="gv">$LOG</span>.error <span class="s"><span class="dl">&quot;</span><span class="k">Error in division!: </span><span class="il"><span class="idl">#{</span>e<span class="idl">}</span></span><span class="dl">&quot;</span></span>
-<span class="no"><strong>10</strong></span>       result = <span class="pc">nil</span>
+<span class="no"> 9</span>       <span class="gv">$LOG</span>.error <span class="s"><span class="dl">&quot;</span><span class="k">Erro na divisão!: </span><span class="il"><span class="idl">#{</span>e<span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no"><strong>10</strong></span>       resultado = <span class="pc">nil</span>
 <span class="no">11</span>     <span class="r">end</span>
-<span class="no">12</span>     <span class="r">return</span> result
+<span class="no">12</span>     <span class="r">return</span> resultado
 <span class="no">13</span>   <span class="r">end</span>
 <span class="no">14</span>   divide(<span class="i">10</span>, <span class="i">2</span>)
 </pre>
 </div>
-<p>The contents of the file log_file.log is:</p>
+<p>O conteúdo do arquivo log_file.log é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   # Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /
-<span class="no">2</span>   D, [2008-03-18T17:09:29.216000 #2020] DEBUG -- : Numerator: 10, denominator 2
+<span class="no">2</span>   D, [2008-03-18T17:09:29.216000 #2020] DEBUG -- : Numerador: 10, denominador 2
 </pre>
 </div>
-<p>Now try to call the method by:</p>
+<p>Agora tente chamar o método assim:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   divide(<span class="i">10</span>, <span class="i">0</span>)
 </pre>
 </div>
-<p>The contents of the file log_file.log is:</p>
+<p>O conteúdo do arquivo log_file.log é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /</span>
-<span class="no">2</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">09</span>:<span class="fl">29.216000</span> <span class="c">#2020] DEBUG -- : Numerator: 10, denominator 2</span>
-<span class="no">3</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] DEBUG -- : Numerator: 10, denominator 0</span>
-<span class="no">4</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] ERROR -- : Error in division!: divided by 0</span>
+<span class="no">2</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">09</span>:<span class="fl">29.216000</span> <span class="c">#2020] DEBUG -- : Numerador: 10, denominador 2</span>
+<span class="no">3</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] DEBUG -- : Numerador: 10, denominador 0</span>
+<span class="no">4</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] ERROR -- : Erro na divisião!: divided by 0</span>
 </pre>
 </div>
-<p>To change the log level, simply assign the appropriate constant to level:</p>
+<p>Para alterar o nível do logo, simplesmente associe a contenste apropriada a <b>level</b>:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="gv">$LOG</span>.level = <span class="co">Logger</span>::<span class="co">ERROR</span>
 </pre>
 </div>
-<p>Now our logger will ignore all log messages except those with severity ERROR or FATAL. The contents of the file log_file.log is:</p>
+<p>Agora nosso logger ignorará todas as mensagens de log exceto as com nível de severidade ERROR ou FATAL. O conteúdo do arquivo log_file.log é:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">15</span>:<span class="fl">59.919000</span> <span class="c">#2624] ERROR -- : Error in division!: divided by 0</span>
+<pre><span class="no">1</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">15</span>:<span class="fl">59.919000</span> <span class="c">#2624] ERROR -- : Erro na divisão!: divided by 0</span>
 </pre>
 </div>
    </div>

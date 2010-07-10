@@ -103,7 +103,7 @@ h3. Parte 6
 ## Exemplo de validação
 # "Logging com Ruby":logging-com-ruby.html
 # A classe Time do Ruby
-# "Resumo 6":sumario-ruby5.html
+# "Resumo 6":sumario-ruby6.html
 
 h3. Parte 7
 # "Duck Typing":duck-typing.html
@@ -112,7 +112,7 @@ h3. Parte 7
 ## Congelando objetos
 ## Frozen? (congelado)
 # "Resumo 7":sumario-ruby7.html
-\
+
 h3. Parte 8
 # "Serialização de objetos":serializacao-de-objetos.html
 # "Módulos / Mixins":modulos-mixins.html

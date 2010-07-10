@@ -31,27 +31,26 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Sumário 6</p>
 <ol>
-	<li>Ruby gives you three levels of protection:
-	<ol>
-		<li>public &#8211; methods can be called by everyone. A class&#8217;s instance methods are public by default.</li>
-		<li>protected &#8211; methods can be invoked only by objects of the defining class and its subclasses.</li>
-		<li>private &#8211; methods cannot be called with an explicit receiver &#8211; the receiver is always self. This means that private methods can be called only in the context of the current object. The initialize method is always private.</li>
-	</ol></li>
-	<li>Access control is determined dynamically, as the program runs, not statically. You will get an access violation only when the code attempts to execute the restricted method.</li>
-	<li>Top-level methods are private instance methods of the Kernel module.</li>
-	<li>attr_reader is reader only; attr_writer is writer only and attr_accessor is both reader and writer.</li>
-	<li>An exception is a special kind of object, an instance of the class Exception or a descendant of that class.</li>
-	<li>The raise method is from the Kernel module. By default, raise creates an exception of the RuntimeError class. To raise an exception of a specific class, you can pass in the class name as an argument to raise.</li>
-	<li>To do exception handling, we enclose the code that could raise an exception in a begin-end block and use one or more rescue clauses to tell Ruby the types of exceptions we want to handle.</li>
-	<li>It is to be noted that the body of a method definition is an implicit begin-end block; the begin is omitted, and the entire body of the method is subject to exception handling, ending with the end of the method.</li>
-	<li>If you write a rescue clause with no parameter list, the parameter defaults to StandardError.</li>
-	<li>If you need the guarantee that some processing is done at the end of a block of code, regardless of whether an exception was raised then the ensure clause can be used. ensure goes after the last rescue clause and contains a chunk of code that will always be executed as the block terminates. The ensure block will always run.</li>
-	<li>By default, the inspect message, which can be sent to any object, formats the object&#8217;s ID and instance variables. It returns a string containing a human-readable representation of object. If not overridden, uses the to_s method to generate the string.</li>
-	<li>The Time class contains Ruby&#8217;s interface to the set of time libraries written in C.</li>
-	<li>Time zero for Ruby is the first second GMT of January 1, 1970.</li>
-	<li>Ruby&#8217;s DateTime class is superior to Time for astronomical and historical applications, but you can use Time for most everyday programs.</li>
+	<li>Ruby oferece três níveis de proteção:
+	<ul>
+		<li><strong>public</strong> &#8211; os métodos podem ser chamados por todos. Por padrão, os métodos instanciados da classe são públicos.</li>
+		<li><strong>protected</strong> &#8211; os métodos podem ser chamados apenas pelos objetos da classe que os definem e suas subclasses.</li>
+		<li><strong>private</strong> &#8211; os métodos não podem ser chamado com um receptor explícito &#8211; o receptor é sempre o <strong>self</strong>. Isto significa que os métodos privados pode ser chamado somente no contexto do objeto atual (não podemos utilizar self.METODO). Uma observação a ser feita, é que o método initialize é sempre privado.</li>
+	</ul></li>
+	<li>O controle de acesso é determinado dinamicamente, quando o programa roda, e não estaticamente. Você receberá uma violação de acesso apenas quando o código tentar executar o método restrito.</li>
+	<li>Os métodos de alto nível são métodos privados de instância do módulo <strong>Kernel</strong>.</li>
+	<li><em>attr_reader</em> é apenas leitor (getter), e o <em>attr_writer</em> apenas escritor (setter), já o <em>attr_accessor</em> é ambos, leitor e escritor.</li>
+	<li>Uma exceção é um tipo especial de objeto, uma instância da classe <strong>Exception</strong>  ou uma descendente dessa classe.</li>
+	<li>O método <strong>raise</strong> é do módulo <strong>Kernel</strong>.  Por padrão, o <strong>raise</strong> cria uma exceção da classe <strong>RuntimeError</strong>.  Para levantar uma exceção de uma classe específica, você pode passar o nome da classe como um parâmetro para o <strong>raise</strong>.</li>
+	<li>Para fazer o controle de exceção, colocamos o código que pode gerar uma exceção em um bloco <strong>begin-end</strong> e usamos uma ou mais cláusulas de um <strong>rescue</strong> para informar ao Ruby os tipos de exceções que queremos manipular.</li>
+	<li>É bom lembrar, que o corpo de uma definição do método é um bloco <strong>begin-end</strong>  implícito; o begin é omitido, e todo o corpo do método está sujeito ao controle de exceção, que termina com o end do método.</li>
+	<li>Se você escreve uma cláusula <strong>rescue</strong> sem passar parâmetros, os parâmetros serão ajustados para o padrão <strong>StandardError</strong>..</li>
+	<li>Se você precisar de alguma garantia de que o processamento é feito no final de um bloco de código, independentemente se uma exceção foi levantada ou não, então a cláusula <strong>ensure</strong> pode ser usada. O <strong>ensure</strong> vai após a última cláusula <strong>rescue</strong>  e contém o pedaço de código que será sempre executado quando o bloco termina. O bloco de <strong>ensure</strong> sempre será executado.</li>
+	<li>Por padrão, a mensagem, que pode ser enviada para qualquer objeto, formata o ID do objeto e as variáveis da instância. Retornando uma string contendo uma representação legível do objeto. Se não for sobrescrito, usa o método to_s para gerar uma string.</li>
+	<li>A classe Tempo contém a interface do Ruby para o conjunto de bibliotecas de tempo escritas em C.</li>
+	<li>Hora zero para o Ruby é o primeiro segundo GMT de 01 de janeiro de 1970.</li>
+	<li>A classe <strong>DateTime</strong> do Ruby é superior a <strong>Time</strong> para aplicações para a área de Astronomia e História, mas você pode usar a <strong>Time</strong> para a maioria das aplicações diárias.</li>
 </ol>
-<li>
    </div>
 
    <div class="column span-5 append-1 last">

@@ -31,57 +31,57 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Classes Abertas em Ruby</p>
 <div class='box'>
-In Ruby, classes are never closed: you can always add methods to an existing class. This applies to the classes you write as well as the standard, built-in classes. All you have to do is open up a class definition for an existing class, and the new contents you specify will be added to whatever&#8217;s there.
+<p>No Ruby as classes nunca são fechadas: você pode sempre adicionar métodos a uma classe existente. Isso se aplica para classes que você escreve assim como para as classes padrões que vem com a linguagem. Tudo o que você tem que fazer é abrir a definição de uma classe existente e então o conteúdo será adicionado a mesma.</p>
 </div>
-<p>Now to the program p031motorcycletest.rb in the last topic, add the method dispAttr</p>
+<p>Veja o programa <b>p031motorcycletest.rb</b> do último tópico, e adicione o método mostraAttr</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   require <span class="s"><span class="dl">'</span><span class="k">p030motorcycle</span><span class="dl">'</span></span>
-<span class="no"> 2</span>   m = <span class="co">MotorCycle</span>.new(<span class="s"><span class="dl">'</span><span class="k">Yamaha</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">red</span><span class="dl">'</span></span>)
-<span class="no"> 3</span>   m.startEngine
+<span class="no"> 2</span>   m = <span class="co">MotoCicleta</span>.new(<span class="s"><span class="dl">'</span><span class="k">Yamaha</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">vermelha</span><span class="dl">'</span></span>)
+<span class="no"> 3</span>   m.ligaMotor
 <span class="no"> 4</span> 
-<span class="no"> 5</span>   <span class="r">class</span> <span class="cl">MotorCycle</span>
-<span class="no"> 6</span>     <span class="r">def</span> <span class="fu">dispAttr</span>
-<span class="no"> 7</span>       puts <span class="s"><span class="dl">'</span><span class="k">Color of MotorCycle is </span><span class="dl">'</span></span> + <span class="iv">@color</span>
-<span class="no"> 8</span>       puts <span class="s"><span class="dl">'</span><span class="k">Make  of MotorCycle is </span><span class="dl">'</span></span> + <span class="iv">@make</span>
+<span class="no"> 5</span>   <span class="r">class</span> <span class="cl">MotoCicleta</span>
+<span class="no"> 6</span>     <span class="r">def</span> <span class="fu">mostraAttr</span>
+<span class="no"> 7</span>       puts <span class="s"><span class="dl">'</span><span class="k">A cor da Motocicleta é </span><span class="dl">'</span></span> + <span class="iv">@cor</span>
+<span class="no"> 8</span>       puts <span class="s"><span class="dl">'</span><span class="k">O fabricante  da Motocicleta é </span><span class="dl">'</span></span> + <span class="iv">@fabricante</span>
 <span class="no"> 9</span>     <span class="r">end</span>
 <span class="no"><strong>10</strong></span>   <span class="r">end</span>
-<span class="no">11</span>   m.dispAttr
-<span class="no">12</span>   m.startEngine
+<span class="no">11</span>   m.mostraAttr
+<span class="no">12</span>   m.ligaMotor
 <span class="no">13</span>   puts <span class="pc">self</span>.class
 <span class="no">14</span>   puts <span class="pc">self</span>
 </pre>
 </div>
-<p>Please note that self.class refers to Object and self refers to an object called main of class Object.</p>
-<p>One more example is program &#8211; p031xdognext.rb</p>
+<p>Perceba que self.class se refere a <b>Object</b> e self se refere a um objeto chamado main da classe <b>Object</b>.</p>
+<p>Mais um exemplo é o programa &#8211; <b>p031xdognext.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   require <span class="s"><span class="dl">'</span><span class="k">p029dog</span><span class="dl">'</span></span>
-<span class="no"> 2</span>   <span class="c"># define class Dog</span>
-<span class="no"> 3</span>   <span class="r">class</span> <span class="cl">Dog</span>
-<span class="no"> 4</span>     <span class="r">def</span> <span class="fu">big_bark</span>
-<span class="no"> 5</span>       puts <span class="s"><span class="dl">'</span><span class="k">Woof! Woof!</span><span class="dl">'</span></span>
+<span class="no"> 2</span>   <span class="c"># definea a classe Cachorro</span>
+<span class="no"> 3</span>   <span class="r">class</span> <span class="cl">Cachorro</span>
+<span class="no"> 4</span>     <span class="r">def</span> <span class="fu">late_alto</span>
+<span class="no"> 5</span>       puts <span class="s"><span class="dl">'</span><span class="k">AU! AU!</span><span class="dl">'</span></span>
 <span class="no"> 6</span>     <span class="r">end</span>
 <span class="no"> 7</span>   <span class="r">end</span>
-<span class="no"> 8</span>   <span class="c"># make an object</span>
-<span class="no"> 9</span>   d = <span class="co">Dog</span>.new(<span class="s"><span class="dl">'</span><span class="k">Labrador</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
-<span class="no"><strong>10</strong></span>   d.bark
-<span class="no">11</span>   d.big_bark
+<span class="no"> 8</span>   <span class="c"># cria um objeto</span>
+<span class="no"> 9</span>   d = <span class="co">Cachorro</span>.new(<span class="s"><span class="dl">'</span><span class="k">Labrador</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
+<span class="no"><strong>10</strong></span>   d.late
+<span class="no">11</span>   d.late_alto
 <span class="no">12</span>   d.display
 </pre>
 </div>
-<p>Here&#8217;s another example of adding a method to the String class. The program p032mystring.rb illustrates the same.</p>
+<p>Aqui está outro exemplo de se adicionar um método para a classe <b>String</b>. O programa <b>p032mystring.rb</b> ilustra o mesmo. Veja que o método que adicionamos não faz nada de novo, apenas chama o método <b>size</b>. Em um cenário real você adicionaria uma funcionalidade nova a String.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">class</span> <span class="cl">String</span>
-<span class="no">2</span>     <span class="r">def</span> <span class="fu">writesize</span>
+<span class="no">2</span>     <span class="r">def</span> <span class="fu">escreve_tamanho</span>
 <span class="no">3</span>       <span class="pc">self</span>.size
 <span class="no">4</span>     <span class="r">end</span>
 <span class="no">5</span>   <span class="r">end</span>
-<span class="no">6</span>   size_writer = <span class="s"><span class="dl">&quot;</span><span class="k">Tell me my size!</span><span class="dl">&quot;</span></span>
-<span class="no">7</span>   puts size_writer.writesize
+<span class="no">6</span>   escritor_de_tamanho = <span class="s"><span class="dl">&quot;</span><span class="k">Conte-me meu tamanho!</span><span class="dl">&quot;</span></span>
+<span class="no">7</span>   puts escritor_de_tamanho.escreve_tamanho
 </pre>
 </div>
-<p>(You can confirm the output to the above programs yourself).</p>
+<p>(Você pode conferir saída para os programas acima por conta própria).</p>
 <div class='box'>
-<p>If you&#8217;re writing a new method that conceptually belongs in the original class, you can reopen the class and append your method to the class definition. You should only do this if your method is generally useful, and you&#8217;re sure it won&#8217;t conflict with a method defined by some library you include in the future. If your method isn&#8217;t generally useful, or you don&#8217;t want to take the risk of modifying a class after its initial creation, create a subclass of the original class. The subclass can override its parent&#8217;s methods, or add new ones. This is safer because the original class, and any code that depended on it, is unaffected.</p>
+<p>Se você está escrevendo um novo método que conceitualmente pertence a classe original, você pode reabrir a classe e adicionar seu método a definição da mesma. Você deve apenas fazer isso se seu método tem utilidade geneérica e você tem certeza que ele não entrará em conflito com um outro método definido por uma biblioteca que você pode incluir no futuro. Se o seu método não tem utilidade genérica, ou você não quer correr o risco de modificar uma classe após sua criação, crie uma subclasse da classe original. A subclasse pode sobrescrever seus métodos pais, ou adicionar novos. Isso é mais seguro porque a classe original e, qualquer código que dependa dela, não serão afetados.</p>
 </div>
    </div>
 
