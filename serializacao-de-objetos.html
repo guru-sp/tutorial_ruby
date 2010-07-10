@@ -30,50 +30,50 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">Serialização de Objetos</p>
-<p>Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling.</p>
-<p>We will write a basic class p051gamecharacters.rb just for testing marshalling.</p>
+<p>A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling.</p>
+<p>Escreveremos uma classe básica (<b>p051gamecharacters.rb</b>) apenas para testar o marshalling.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p051gamecharacters.rb</span>
-<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">GameCharacter</span>
-<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>(power, type, weapons)
-<span class="no"> 4</span>       <span class="iv">@power</span> = power
-<span class="no"> 5</span>       <span class="iv">@type</span> = type
-<span class="no"> 6</span>       <span class="iv">@weapons</span> = weapons
+<span class="no"> 2</span>   <span class="r">class</span> <span class="cl">PersonagemDoJogo</span>
+<span class="no"> 3</span>     <span class="r">def</span> <span class="fu">initialize</span>(poder, tipo, armas)
+<span class="no"> 4</span>       <span class="iv">@poder</span> = poder
+<span class="no"> 5</span>       <span class="iv">@tipo</span> = tipo
+<span class="no"> 6</span>       <span class="iv">@armas</span> = armas
 <span class="no"> 7</span>     <span class="r">end</span>
-<span class="no"> 8</span>     attr_reader <span class="sy">:power</span>, <span class="sy">:type</span>, <span class="sy">:weapons</span>
+<span class="no"> 8</span>     attr_reader <span class="sy">:poder</span>, <span class="sy">:tipo</span>, <span class="sy">:armas</span>
 <span class="no"> 9</span>   <span class="r">end</span>
 </pre>
 </div>
-<p>The program p052dumpgc.rb creates an object of the above class and then uses Marshal.dump to save a serialized version of it to the disk.</p>
+<p>O programa <b>p051gamecharacters.rb</b> cria um objeto da classe acima e então usa <b>Marshal.dump</b> para salvar a versão serializada dele no disco.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p052dumpgc.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>
-<span class="no"> 3</span>   gc = <span class="co">GameCharacter</span>.new(<span class="i">120</span>, <span class="s"><span class="dl">'</span><span class="k">Magician</span><span class="dl">'</span></span>, [<span class="s"><span class="dl">'</span><span class="k">spells</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">invisibility</span><span class="dl">'</span></span>])
-<span class="no"> 4</span>   puts gc.power.to_s + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + gc.type + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
-<span class="no"> 5</span>   gc.weapons.each <span class="r">do</span> |w|
+<span class="no"> 3</span>   gc =  <span class="co">PersonagemDoJogo</span>.new(<span class="i">120</span>, <span class="s"><span class="dl">'</span><span class="k">Mago</span><span class="dl">'</span></span>, [magias, <span class="s"><span class="dl">'</span><span class="k">invisibilidade</span><span class="dl">'</span></span>])
+<span class="no"> 4</span>   puts gc.poder.to_s + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + gc.tipo + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
+<span class="no"> 5</span>   gc.armas.each <span class="r">do</span> |w|
 <span class="no"> 6</span>     puts w + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
 <span class="no"> 7</span>   <span class="r">end</span>
 <span class="no"> 8</span> 
-<span class="no"> 9</span>   <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">game</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">w+</span><span class="dl">'</span></span>) <span class="r">do</span> |f|
+<span class="no"> 9</span>   <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">jogo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">w+</span><span class="dl">'</span></span>) <span class="r">do</span> |f|
 <span class="no"><strong>10</strong></span>     <span class="co">Marshal</span>.dump(gc, f)
 <span class="no">11</span>   <span class="r">end</span>
 </pre>
 </div>
-<p>The program p053loadgc.rb uses Marshal.load to read it in.</p>
+<p>O programa <b>p053loadgc.rb</b> usa <b>Marshal.load</b> para lê-lo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p053loadgc.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>
-<span class="no"> 3</span>   <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">game</span><span class="dl">'</span></span>) <span class="r">do</span> |f|
+<span class="no"> 3</span>   <span class="co">File</span>.open(<span class="s"><span class="dl">'</span><span class="k">joho</span><span class="dl">'</span></span>) <span class="r">do</span> |f|
 <span class="no"> 4</span>     <span class="iv">@gc</span> = <span class="co">Marshal</span>.load(f)
 <span class="no"> 5</span>   <span class="r">end</span>
 <span class="no"> 6</span> 
-<span class="no"> 7</span>   puts <span class="iv">@gc</span>.power.to_s + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + <span class="iv">@gc</span>.type + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
-<span class="no"> 8</span>   <span class="iv">@gc</span>.weapons.each <span class="r">do</span> |w|
+<span class="no"> 7</span>   puts <span class="iv">@gc</span>.poder.to_s + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + <span class="iv">@gc</span>.tipo + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
+<span class="no"> 8</span>   <span class="iv">@gc</span>.armas.each <span class="r">do</span> |w|
 <span class="no"> 9</span>     puts w + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
 <span class="no"><strong>10</strong></span>   <span class="r">end</span>
 </pre>
 </div>
-<p>Marshal only serializes data structures. It can&#8217;t serialize Ruby code (like Proc objects), or resources allocated by other processes (like file handles or database connections). Marshal just gives you an error when you try to serialize a file</p>
+<p><b>Marshal</b> apenas serializa estruturas de dados. Ele não pode serializar código Ruby (como objetos do tipo Proc), ou recursos alocados por outros processos (como tratadores de arquivo ou conexões com bancos de dados). <b>Marshal</b> apenas lhe dará um erro quando tentar serializar um arquivo.</p>
    </div>
 
    <div class="column span-5 append-1 last">

@@ -64,6 +64,6 @@ Aqui está outro exemplo de se adicionar um método para a classe **String**. O 
 (Você pode conferir saída para os programas acima por conta própria).
 
 <div class='box'>
-Se você está escrevendo um novo método que conceitualmente pertence a classe original, você pode reabrir a classe e adicionar seu método a definição da mesma. Você deve apenas fazer isso se seu método tem utilidade geneérica e você tem certeza que ele não entrará em conflito com um outro método definido por uma biblioteca que você pode incluir no futuro. Se o seu método não tem utilidade genérica, ou você não quer correr o risco de modificar uma classe após sua criação, crie uma subclasse da classe original. A subclasse pode sobrescrever seus métodos pais, ou adicionar novos. Isso é mais seguro porque a classe original e, qualquer código que dependa dela, não serão afetados.
+Se você está escrevendo um novo método que conceitualmente pertence a classe original, você pode reabrir a classe e adicionar seu método a definição da mesma. Você deve apenas fazer isso se seu método tem utilidade genérica e você tem certeza que ele não entrará em conflito com um outro método definido por uma biblioteca que você pode incluir no futuro. Se o seu método não tem utilidade genérica, ou você não quer correr o risco de modificar uma classe após sua criação, crie uma subclasse da classe original. A subclasse pode sobrescrever seus métodos pais, ou adicionar novos. Isso é mais seguro porque a classe original e, qualquer código que dependa dela, não serão afetados.
 </div>
 

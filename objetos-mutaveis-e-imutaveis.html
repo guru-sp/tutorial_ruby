@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>objetos mutaveis e imutaveis</title>
+   <title>Objetos mutáveis e imutáveis</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -29,60 +29,61 @@
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">objetos mutaveis e imutaveis</p>
-<p>Mutable objects are objects whose state can change. Immutable objects are objects whose state never changes after creation.</p>
-<p>Immutable objects have many desirable properties:</p>
+      <p class="title">Objetos mutáveis e imutáveis</p>
+<p>Objetos mutáveis são objetos cujo estado pode mudar. Objetos imutáveis são objetos cujo estado nunca se altera após sua criação.</p>
+<p>Objetos imutáveis têm muitas propriedades desejáveis:</p>
 <ul>
-	<li>Immutable objects are thread-safe. Threads cannot corrupt what they cannot change.</li>
-	<li>Immutable objects make it easier to implement encapsulation. If part of an object&#8217;s state is stored in an immutable object, then accessor methods can return that object to outside callers, without fear that those callers can change the object&#8217;s state.</li>
-	<li>Immutable objects make good hash keys, since their hash codes cannot change.</li>
+	<li>Objetos imutáveis são seguros em relação a threads (<i>thread-safe</i>). Threads não podem corromper aquilo que não podem alterar.</li>
+	<li>Objetos imutáveis tornam mais simples implementar encasulamento. Se parte do estado de um objeto é armazenado e um objeto imutável, então os métodos assessores podem retornar esse objeto para chamadores externos sem se preocupar se estes chamadores podem mudar o estado do objeto.</li>
+	<li>Objetos imutáveis são bons para se usar como chaves hash, visto que seu código hash não pode ser alterado.</li>
 </ul>
-<p>In Ruby, Mutability is a property of an instance, not of an entire class. Any instance can become immutable by calling freeze.</p>
-<h2>Freezing Objects</h2>
-<p>The freeze method in class Object prevents you from changing an object, effectively turning an object into a constant. After we freeze an object, an attempt to modify it results in TypeError. The following program p050xfreeze.rb illustrates this:</p>
+<p>No Ruby, a mutabilidade é uma propriedade de uma instância, não de uma classe completa. Qualquer instância pode se tornar imutável chamando o método <b>freeze</b> (congelar).</p>
+<h2>Congelando Objetos</h2>
+<p>O método <b>freeze</b> na classe <b>Objetct</b> previne você de alterar um objeto, efetivamente transformando um objeto em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resulta em um erro <b>TypeError</b>. O programa seguinte <b>p050xfreeze.rb</b> ilustra isso:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">A simple string. </span><span class="dl">'</span></span>
+<pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">Uma string simples. </span><span class="dl">'</span></span>
 <span class="no">2</span>   str.freeze
 <span class="no">3</span>   <span class="r">begin</span>
-<span class="no">4</span>     str &lt;&lt; <span class="s"><span class="dl">'</span><span class="k">An attempt to modify.</span><span class="dl">'</span></span>
+<span class="no">4</span>     str &lt;&lt; <span class="s"><span class="dl">'</span><span class="k">Uma tentativa de se modificar.</span><span class="dl">'</span></span>
 <span class="no">5</span>   <span class="r">rescue</span> =&gt; err
 <span class="no">6</span>     puts <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span>err.class<span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span>err<span class="idl">}</span></span><span class="dl">&quot;</span></span>
 <span class="no">7</span>   <span class="r">end</span>
-<span class="no">8</span>   <span class="c"># The output is - TypeError can't modify frozen string</span>
+<span class="no">8</span>   <span class="c"># A saída é - TypeError can't modify frozen string</span>
 </pre>
 </div>
-<p>However, freeze operates on an object reference, not on a variable. This means that any operation resulting in a new object will work. This is illustrated by the following example:</p>
+<p>Entretanto, <b>freeze</b> opera na referência de um objeto, não em uma variável. Isso significa que qualquer operação resultando em um novo objeto funcionará. Isso pode ser verificado pelo seguinte exemplo:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">Original string - </span><span class="dl">'</span></span>
+<pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">String original - </span><span class="dl">'</span></span>
 <span class="no">2</span>   str.freeze
-<span class="no">3</span>   str += <span class="s"><span class="dl">'</span><span class="k">attachment</span><span class="dl">'</span></span>
+<span class="no">3</span>   str += <span class="s"><span class="dl">'</span><span class="k">anexo</span><span class="dl">'</span></span>
 <span class="no">4</span>   puts str
-<span class="no">5</span>   <span class="c"># Output is - Original string - attachment</span>
+<span class="no">5</span>   <span class="c"># A Saída é - String original - anexo</span>
 </pre>
 </div>
-<p>The expression str + &#8216;attachment&#8217; is evaluated to a new object, which is then assigned to str. The object is not changed, but the variable str now refers to a new object.</p>
-<h2>frozen?</h2>
-<p>A method frozen? tells you whether an object is frozen or not. Let&#8217;s take an example here:</p>
+<p>A expressão str + &#8216;anexo&#8217; é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objteo.</p>
+<h2>frozen? (congelado?)</h2>
+<p>O método <b>frozen?</b> lhe diz se um objeto está congelado ou não. Vamos ver um exemplo:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   a = b = <span class="s"><span class="dl">'</span><span class="k">Original String</span><span class="dl">'</span></span>
+<pre><span class="no"> 1</span>   a = b = <span class="s"><span class="dl">'</span><span class="k">String Original</span><span class="dl">'</span></span>
 <span class="no"> 2</span>   b.freeze
 <span class="no"> 3</span>   puts a.frozen? <span class="c"># true</span>
 <span class="no"> 4</span>   puts b.frozen? <span class="c"># true</span>
-<span class="no"> 5</span>   a = <span class="s"><span class="dl">'</span><span class="k">New String</span><span class="dl">'</span></span>
+<span class="no"> 5</span>   a = <span class="s"><span class="dl">'</span><span class="k">Nova String</span><span class="dl">'</span></span>
 <span class="no"> 6</span>   puts a
 <span class="no"> 7</span>   puts b
 <span class="no"> 8</span>   puts a.frozen? <span class="c"># false</span>
 <span class="no"> 9</span>   puts b.frozen? <span class="c"># true</span>
 </pre>
 </div>
-<p>Let us understand what we are doing here &#8211; a and b are two variables both of which are pointing to a string object &#8211; Original String. We then freeze the object Original String. Hence both a and b are now pointing to the frozen object Original String. This is verified by the statements puts a.frozen? and puts b.frozen?. Next, we create a new string object New String and make variable a point to this new object New String. Variable b is still pointing to the frozen object while a is not. This verified by the last 2 statements of the program.</p>
-<p>Usage:<br />
-Ruby sometimes copies objects and freezes the copies. When you use a string as a hash key, Ruby actually copies the string, freezes the copy, and uses the copy as the hash key: that way, if the original string changes later on, the hash key isn&#8217;t affected.</p>
-<p>Ruby&#8217;s internal file operations work from a frozen copy of a filename instead of using the filename directly. If another thread modifies the original filename in the middle of an operation that&#8217;s supposed to be atomic, there&#8217;s no problem: Ruby wasn&#8217;t relying on the original filename anyway. You can adopt this copy-and-freeze pattern in multi-threaded code to prevent a data structure you&#8217;re working on from being changed by another thread.</p>
-<p>Another common programmer-level use of this feature is to freeze a class in order to prevent future modifications to it.</p>
-<p>Note: Whenever an object in Ruby has no reference to it, then that object is marked for removal and the garbage collector will remove that object based on its algorithm. There is no way to access an un-referenced object.</p>
-<h2>Summary</h2>
-<p>I have listed down all the important points you need to remember after you have completed the following topics: Duck Typing, Syntactic Sugar, Mutable and Immutable Objects.</p>
+<p>Vamos entender o que estamos fazendo aqui &#8211; a e b são duas variáveis que apontam para um objeto do tipo string &#8211; <i>String Original</i>.<br />
+Nós então congelamos o objeto <i>String Original</i>. Portanto, tanto a quanto b agora apontam para o objeto congelado <i>String Original</i>. Isto é verificado pelas declarações puts a.frozen? e puts b.frozen?. Em seguida, criamos um novo objeto string <i>Nova String</i> e fazemos a variável a apontar para esse novo objeto. A variável b ainda aponta para o objeto congelado e a não mais. Isto é verificado pelas duas últimas declarações do programa.</p>
+<p><b>Uso</b>:<br />
+O Ruby às vezes copia objetos e congela as cópias. Quando você usa uma string como chave hash, o Ruby na verdade copia a string, congela a cópia e usa a cópia como chave hash: desse modo, se a string original se alterar mais tarde, a chave hash não é afetada.</p>
+<p>As operações internas de arquivos do Ruby trabalham com uma cópia congelada do nome do arquivo ao invés de usar o nome do arquivo diretamente. Se outra thread altera o nome original do arquivo no meio de uma operação que deveria ser atômica, não há problema: o Ruby não estava usando o nome do arquivo original. Você pode adotar esse padrão copia-e-congela em código com suporte multi-thread para prevenir que uma estrutura de dados com que você esteja trabalhando seja alterada por outra thread.</p>
+<p>Outro uso como no nível do programador dessa funcionalidade é congelar uma classe para prevenir modificações futuras a mesma.</p>
+<p><b>Nota</b>: Sempre que um objeto no Ruby não tem referência a ele, então o objeto será marcado para remoção e o coletor de lixo irá remover esse objeto baseado em seu algoritmo. Não há como acessar um objeto sem referência.</p>
+<h2>Sumário</h2>
+<p>Listei todos os <a href="sumario-ruby7.html">pontos importantes</a> para você se lembrar após ter completado os seguintes tópicos: <a href="duck-typing.html">Duck Typing</a>, <a href="acucares-sintaticos-do-ruby.html">Açúcares sintáticos</a> e Objetos Mutáveis e Imutáveis.</p>
    </div>
 
    <div class="column span-5 append-1 last">

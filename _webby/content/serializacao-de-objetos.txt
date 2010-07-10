@@ -7,51 +7,51 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Java features the ability to serialize objects, letting you store them somewhere and reconstitute them when needed. Ruby calls this kind of serialization marshaling.
+A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling.
 
-We will write a basic class p051gamecharacters.rb just for testing marshalling.
+Escreveremos uma classe básica (**p051gamecharacters.rb**) apenas para testar o marshalling.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p051gamecharacters.rb
-  class GameCharacter
-    def initialize(power, type, weapons)
-      @power = power
-      @type = type
-      @weapons = weapons
+  class PersonagemDoJogo
+    def initialize(poder, tipo, armas)
+      @poder = poder
+      @tipo = tipo
+      @armas = armas
     end
-    attr_reader :power, :type, :weapons
+    attr_reader :poder, :tipo, :armas
   end
 <% end -%>
 
-The program p052dumpgc.rb creates an object of the above class and then uses Marshal.dump to save a serialized version of it to the disk.
+O programa **p051gamecharacters.rb** cria um objeto da classe acima e então usa **Marshal.dump** para salvar a versão serializada dele no disco.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p052dumpgc.rb
   require 'p051gamecharacters'
-  gc = GameCharacter.new(120, 'Magician', ['spells', 'invisibility'])
-  puts gc.power.to_s + ' ' + gc.type + ' '
-  gc.weapons.each do |w|
+  gc =  PersonagemDoJogo.new(120, 'Mago', [magias, 'invisibilidade'])
+  puts gc.poder.to_s + ' ' + gc.tipo + ' '
+  gc.armas.each do |w|
     puts w + ' '
   end
 
-  File.open('game', 'w+') do |f|
+  File.open('jogo', 'w+') do |f|
     Marshal.dump(gc, f)
   end
 <% end -%>
 
-The program p053loadgc.rb uses Marshal.load to read it in.
+O programa **p053loadgc.rb** usa **Marshal.load** para lê-lo.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p053loadgc.rb
   require 'p051gamecharacters'
-  File.open('game') do |f|
+  File.open('joho') do |f|
     @gc = Marshal.load(f)
   end
 
-  puts @gc.power.to_s + ' ' + @gc.type + ' '
-  @gc.weapons.each do |w|
+  puts @gc.poder.to_s + ' ' + @gc.tipo + ' '
+  @gc.armas.each do |w|
     puts w + ' '
   end
 <% end -%>
 
-Marshal only serializes data structures. It can't serialize Ruby code (like Proc objects), or resources allocated by other processes (like file handles or database connections). Marshal just gives you an error when you try to serialize a file
+**Marshal** apenas serializa estruturas de dados. Ele não pode serializar código Ruby (como objetos do tipo Proc), ou recursos alocados por outros processos (como tratadores de arquivo ou conexões com bancos de dados). **Marshal** apenas lhe dará um erro quando tentar serializar um arquivo.
