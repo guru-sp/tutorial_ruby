@@ -55,8 +55,7 @@
 <span class="no">14</span>   <span class="c">#ca.m2</span>
 <span class="no">15</span>   <span class="c">#ca.m3</span>
 </pre>
-</div>
-<p>Se você remover os comentários das duas últimas declarações no programa acima, você obterá um erro de violação de acesso (access violation runtime error)</p>
+</div><p>Se você remover os comentários das duas últimas declarações no programa acima, você obterá um erro de violação de acesso (access violation runtime error)</p>
 <p>Alternativamente, você pode configurar os níveis de acesso de métodos listando-os como argumentos para as funções de acesso de controle.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">class</span> <span class="cl">AcessoClasse</span>
@@ -68,8 +67,7 @@
 <span class="no">7</span>   <span class="r">end</span>
 <span class="no">8</span> 
 </pre>
-</div>
-<p>Aqui está um exemplo para o controle de acesso protegido (<b>p047zclassaccess.rb</b>):</p>
+</div><p>Aqui está um exemplo para o controle de acesso protegido (<b>p047zclassaccess.rb</b>):</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p047zclassaccess.rb</span>
 <span class="no"> 2</span>   <span class="r">class</span> <span class="cl">Pessoa</span>
@@ -94,15 +92,13 @@
 <span class="no">21</span>   puts chris.compara_idade(marcos)
 <span class="no">22</span>   <span class="c">#puts chris.idade</span>
 </pre>
-</div>
-<p>A saída é</p>
+</div><p>A saída é</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p047zclassaccess.rb
 <span class="no">2</span>   A idade do outro objeto é maior.
 <span class="no">3</span>   &gt;Exit code: 0
 </pre>
-</div>
-<p>No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa pergunta ao outro objeto (marcos) para executar seu método idade. Portanto, age não pode ser privado.</p>
+</div><p>No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa pergunta ao outro objeto (marcos) para executar seu método idade. Portanto, age não pode ser privado.</p>
 <p>É aí que entra o nível de proteção protected. Com idade protegida ao invés de privada, chris pode perguntar a marcos para executar idade, porque chris e marcos são ambos instâncias da mesma classe. Mas se você tentar chamar o método idade de um objeto Pessoa quando <b>self</b> é qualquer outra coisa que não um objeto do tipo Pessoa, o método falhará.</p>
 <p>Um método protegido é então como um método privado, mas com uma exceção para casos em que a classe de <b>self</b> (chris) e a classe do objeto tendo o método chamado em si (marcos) são a mesma.</p>
 <p>Atente-se que, se você remover o comentário da última declaração do programa, isso é, quando você usa idade diretamente, o Ruby lança uma exceção.</p>
@@ -154,8 +150,7 @@
 <span class="no">35</span>   puts musica.nome
 <span class="no">36</span>   puts musica.artista
 </pre>
-</div>
-<h3>Variáveis de instância são herdadas por uma subclasse?</h3>
+</div><h3>Variáveis de instância são herdadas por uma subclasse?</h3>
 <p>David Black, o autor do livro Ruby for Rails, tem isso a dizer: Variáveis de instância são por objeto, não por classe, e elas não são herdadas. Mas se um método usa uma, e esse método está disponível para suas subclasses, então ele ainda usará a variável &#8212; mas &#8220;a variável&#8221; no sentido de uma por objeto. Veja o seguinte programa &#8211; <b>p049instvarinherit.rb</b>:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p049instvarinherit.rb</span>
@@ -179,15 +174,13 @@
 <span class="no">19</span>   d.aumenta_n
 <span class="no"><strong>20</strong></span>   d.mostra_n
 </pre>
-</div>
-<p>The output is:</p>
+</div><p>The output is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p049instvarinherit.rb
 <span class="no">2</span>   n eh 2000
 <span class="no">3</span>   &gt;Exit code: 0
 </pre>
-</div>
-<p>O @n nos métodos de D é o mesmo (para cada instância) que o @n em C.</p>
+</div><p>O @n nos métodos de D é o mesmo (para cada instância) que o @n em C.</p>
 <div class='box'>
 <p>Todos os objetos Ruby tem um conjunto de variáveis de instância. Estas não são definidas pela classe do objeto &#8211; elas são simplesmente criadas quando um valor é associado a elas. Pelo fato de variáveis de instância não serem definidas por uma classe, elas não são relacionadas aos mecanismos de subclasses e herança.</p>
 </div>
@@ -196,29 +189,25 @@
 <div class="CodeRay">
 <pre><span class="no">1</span>   puts <span class="pc">self</span>
 </pre>
-</div>
-<p>Ele responde:</p>
+</div><p>Ele responde:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   main
 </pre>
-</div>
-<p>O objeto main é o objeto atual assim que seu programa inicia.</p>
+</div><p>O objeto main é o objeto atual assim que seu programa inicia.</p>
 <p>Suponhamos que você defina um método no nível mais alto:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">fala</span>
 <span class="no">2</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Ola</span><span class="dl">&quot;</span></span>
 <span class="no">3</span>   <span class="r">end</span>
 </pre>
-</div>
-<p>A quem, ou o que, o método pertence? Ele não está dentro de um bloco de definição de classe nem de módulo, então ele não parece ser um método de instância de uma classe ou módulo. Ele não está associado a nenhum objeto em particular (como em def obj.fala). O que ele é? Objetos do nível mais alto são métodos de instância privados do módulo Kernel.</p>
+</div><p>A quem, ou o que, o método pertence? Ele não está dentro de um bloco de definição de classe nem de módulo, então ele não parece ser um método de instância de uma classe ou módulo. Ele não está associado a nenhum objeto em particular (como em def obj.fala). O que ele é? Objetos do nível mais alto são métodos de instância privados do módulo Kernel.</p>
 <p>Por serem privados, métodos de alto nível não podem ser chamados com um recebedor explícito (o objeto antes do ponto); você pode apenas chamá-los usando o recebedor ímplicito, self. Isso significa que self precisa ser um objeto em cujo caminho de busca de métodos está o método de alto nível dado. Mas todo caminho de busca de métodos de um objeto inclui o módulo Kernel, porque a classe Objeto incorpora (mixes in) Kernel, e todo objeto de uma classe possui Object como ancestral. Isso significa que você pode sempre chamar qualquer método de nível mais alto, onde quer que você esteja em seu programa.<br />
 Isso também significa que você nunca pode usar um recebedor explícito em um método de nível mais alto.</p>
 <p>Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e mprin, como essa aqui:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ola</span><span class="dl">'</span></span>
 </pre>
-</div>
-<p>puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode &#8211; de fato, deve &#8211; chamá-los sem um recebedor.</p>
+</div><p>puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode &#8211; de fato, deve &#8211; chamá-los sem um recebedor.</p>
 <p>Falaremos sobre self detalhadamente mais tarde.</p>
    </div>
 

@@ -41,8 +41,7 @@
 <span class="no">6</span> puts h
 <span class="no">7</span> puts h[<span class="i">12</span>]
 </pre>
-</div>
-<p>A saída do código acima é:</p>
+</div><p>A saída do código acima é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p040myhash.rb
 <span class="no">2</span> 4
@@ -52,8 +51,7 @@
 <span class="no">6</span> dodezino
 <span class="no">7</span> &gt;Exit code: 0
 </pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenação do hash é diferente da<br />
 declarada</p>
 </div>
@@ -70,32 +68,27 @@ declarada</p>
 <span class="no">5</span> pessoa[<span class="sy">:sobrenome</span>] = <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>
 <span class="no">6</span> puts pessoa[<span class="sy">:sobrenome</span>] <span class="c"># Talim</span>
 </pre>
-</div>
-<p>Outro exemplo <strong>p0411symbolhash.rb</strong>.</p>
+</div><p>Outro exemplo <strong>p0411symbolhash.rb</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p0411symbolhash.rb</span>
 <span class="no">2</span> h = {<span class="sy">:apelido</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, <span class="sy">:idioma</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, <span class="sy">:sobrenome</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
 <span class="no">3</span> puts h
 </pre>
-</div>
-<p>A saída do exemplo acima é:</p>
+</div><p>A saída do exemplo acima é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> {:apelido=&gt;&quot;GuruIndiano&quot;, :idioma=&gt;&quot;Marata&quot;, :sobrenome=&gt;&quot;Talim&quot;}
 </pre>
-</div>
-<p>Outra maneira de fazer a mesma coisa é mostrada no programa <strong>p0412symbolhash.rb</strong>.</p>
+</div><p>Outra maneira de fazer a mesma coisa é mostrada no programa <strong>p0412symbolhash.rb</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p0412symbolhash.rb</span>
 <span class="no">2</span> h = {apelido: <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, idioma: <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, sobrenome: <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
 <span class="no">3</span> puts h
 </pre>
-</div>
-<p>A saída é:</p>
+</div><p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> {:apelido=&gt;&quot;GuruIndiano&quot;, :idioma=&gt;&quot;Marata&quot;, :sobrenome=&gt;&quot;Talim&quot;}
 </pre>
-</div>
-<p>Ou seja, exatamente o mesmo que ocorreu na execução do programa <b>p0411symbolhash.rb</b>.</p>
+</div><p>Ou seja, exatamente o mesmo que ocorreu na execução do programa <b>p0411symbolhash.rb</b>.</p>
 <div class='box'>
 <p>O último exemplo (<b>p0412symbolhash.rb</b>) não funcionará no Ruby 1.8. Ele utiliza uma sintaxe nova para declarar hashes introduzida no Ruby 1.9.</p>
 </div>

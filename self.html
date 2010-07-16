@@ -36,19 +36,16 @@ Top level context</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   x = <span class="i">1</span>
 </pre>
-</div>
-<p>you have created a top level local variable x. If you type:</p>
+</div><p>you have created a top level local variable x. If you type:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">m</span>
 <span class="no">2</span>   <span class="r">end</span>
 </pre>
-</div>
-<p>you have created a top level method &#8211; an instance method of Object (even though self is not Object). Top-level methods are always private. Ruby provides you with a start-up self at the top level. If you type:</p>
+</div><p>you have created a top level method &#8211; an instance method of Object (even though self is not Object). Top-level methods are always private. Ruby provides you with a start-up self at the top level. If you type:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   puts <span class="pc">self</span>
 </pre>
-</div>
-<p>it displays main &#8211; a special term the default self object uses to refer to itself. The class of the main object is Object.</p>
+</div><p>it displays main &#8211; a special term the default self object uses to refer to itself. The class of the main object is Object.</p>
 <h2>Self inside class and module definitions</h2>
 <p>In a class or module definition, self is the class or module object.</p>
 <div class="CodeRay">
@@ -64,8 +61,7 @@ Top level context</p>
 <span class="no"><strong>10</strong></span>     puts <span class="pc">self</span>
 <span class="no">11</span>   <span class="r">end</span>
 </pre>
-</div>
-<p>The output is:</p>
+</div><p>The output is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself1.rb
 <span class="no">2</span>   Just started class S
@@ -76,8 +72,7 @@ Top level context</p>
 <span class="no">7</span>   S
 <span class="no">8</span>   &gt;Exit code: 0
 </pre>
-</div>
-<h2>Self in instance method definitions</h2>
+</div><h2>Self in instance method definitions</h2>
 <p>At the time the method definition is executed, the most you can say is that self inside this method will be some future object that has access to this method.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p063xself2.rb</span>
@@ -90,16 +85,14 @@ Top level context</p>
 <span class="no"> 8</span>   s = <span class="co">S</span>.new
 <span class="no"> 9</span>   s.m
 </pre>
-</div>
-<p>The output is:</p>
+</div><p>The output is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself2.rb
 <span class="no">2</span>   Class S method m:
 <span class="no">3</span>   #&lt;S:0x2835908&gt;
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div>
-<p>The output #<S:0x2835908> is Ruby&#8217;s way of saying &#8220;an instance of S&#8221;.</p>
+</div><p>The output #<S:0x2835908> is Ruby&#8217;s way of saying &#8220;an instance of S&#8221;.</p>
 <h2>Self in singleton-method and class-method definitions</h2>
 <p>Singleton methods &#8211; those attached to a particular object can be called by only one object. When a singleton method is executed, self is the object that owns the method, as shown below:</p>
 <div class="CodeRay">
@@ -115,8 +108,7 @@ Top level context</p>
 <span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">to be sure it's the same object:</span><span class="dl">&quot;</span></span>
 <span class="no">11</span>   puts obj
 </pre>
-</div>
-<p>The output of the above example is:</p>
+</div><p>The output of the above example is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself3.rb
 <span class="no">2</span>   I am an object: here's self inside a singleton method of mine:
@@ -125,8 +117,7 @@ Top level context</p>
 <span class="no">5</span>   #&lt;Object:0x2835688&gt;
 <span class="no">6</span>   &gt;Exit code: 0
 </pre>
-</div>
-<p>Class methods are defined as singleton methods for class objects. Refer to the following program:</p>
+</div><p>Class methods are defined as singleton methods for class objects. Refer to the following program:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p063xself4.rb</span>
 <span class="no">2</span>   <span class="r">class</span> <span class="cl">S</span>
@@ -137,16 +128,14 @@ Top level context</p>
 <span class="no">7</span>   <span class="r">end</span>
 <span class="no">8</span>   <span class="co">S</span>.x
 </pre>
-</div>
-<p>The output is:</p>
+</div><p>The output is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself4.rb
 <span class="no">2</span>   Class method of class S
 <span class="no">3</span>   S
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div>
-<p>self inside a singleton method (a class method, in this case) is the object whose singleton method it is.</p>
+</div><p>self inside a singleton method (a class method, in this case) is the object whose singleton method it is.</p>
    </div>
 
    <div class="column span-5 append-1 last">

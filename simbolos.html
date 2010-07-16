@@ -45,8 +45,7 @@
 <span class="no">6</span> puts <span class="sy">:symbol</span>.object_id  
 <span class="no">7</span> puts <span class="sy">:symbol</span>.object_id
 </pre>
-</div>
-<p>A saída quando rodei o programa no meu PC foi:</p>
+</div><p>A saída quando rodei o programa no meu PC foi:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p039symbol.rb  
 <span class="no">2</span> 21066960  
@@ -55,8 +54,7 @@
 <span class="no">5</span> 132178  
 <span class="no">6</span> &gt;Exit code: 0  
 </pre>
-</div>
-<p>Então, quando usamos uma string e quando usamos um símbolo?</p>
+</div><p>Então, quando usamos uma string e quando usamos um símbolo?</p>
 <p>Se o conteúdo (a sequência de caracteres) do objeto é importante, use uma string.<br />
 Se a identidade do objeto é importante, use um símbolo.</p>
 <div class='box'>
@@ -77,8 +75,7 @@ Se a identidade do objeto é importante, use um símbolo.</p>
 <span class="no"><strong>10</strong></span> t = <span class="co">Test</span>.new  
 <span class="no">11</span> t.test  
 </pre>
-</div>
-<p>A saída que obtive quando rodei o programa no meu PC foi:</p>
+</div><p>A saída que obtive quando rodei o programa no meu PC foi:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p039xsymbol.rb  
 <span class="no">2</span> 116458  
@@ -86,8 +83,7 @@ Se a identidade do objeto é importante, use um símbolo.</p>
 <span class="no">4</span> 79218  
 <span class="no">5</span> &gt;Exit code: 0
 </pre>
-</div>
-<p>Aqui temos outro exemplo &#8211; p039xysymbol.rb:</p>
+</div><p>Aqui temos outro exemplo &#8211; p039xysymbol.rb:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p039xysymbol.rb  </span>
 <span class="no">2</span> sabe_ruby = <span class="sy">:sim</span>  
@@ -97,15 +93,13 @@ Se a identidade do objeto é importante, use um símbolo.</p>
 <span class="no">6</span>   puts <span class="s"><span class="dl">'</span><span class="k">Aprenda Ruby</span><span class="dl">'</span></span>  
 <span class="no">7</span> <span class="r">end</span>  
 </pre>
-</div>
-<p>A saída é:</p>
+</div><p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p039xysymbol.rb  
 <span class="no">2</span> Voce eh um rubista 
 <span class="no">3</span> &gt;Exit code: 0
 </pre>
-</div>
-<p>No exemplo, <b>:sim</b> é um símbolo. Símbolos não contêm valores ou objetos como as variáveis Ao invés disso, eles são usados como um nome consistente no código. Por exemplo, no código mostrado anteriormente você poderia facilmente substituir o símbolo por<br />
+</div><p>No exemplo, <b>:sim</b> é um símbolo. Símbolos não contêm valores ou objetos como as variáveis Ao invés disso, eles são usados como um nome consistente no código. Por exemplo, no código mostrado anteriormente você poderia facilmente substituir o símbolo por<br />
 uma string como no exemplo <b>p039xyzsymbol.rb</b>:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p039xyzsymbol.rb  </span>
@@ -116,16 +110,14 @@ uma string como no exemplo <b>p039xyzsymbol.rb</b>:</p>
 <span class="no">6</span>   puts <span class="s"><span class="dl">'</span><span class="k">Aprenda Ruby</span><span class="dl">'</span></span>  
 <span class="no">7</span> <span class="r">end</span>  
 </pre>
-</div>
-<p>Isto tem o mesmo resultado, mas não é mais eficiente. Nesse exemplo, cada menção do &#8216;sim&#8217; cria um novo objeto armazenado separadamente em memória, enquanto símbolos são valores com referência única inicializados apenas uma vez. No primeiro exemplo,<br />
+</div><p>Isto tem o mesmo resultado, mas não é mais eficiente. Nesse exemplo, cada menção do &#8216;sim&#8217; cria um novo objeto armazenado separadamente em memória, enquanto símbolos são valores com referência única inicializados apenas uma vez. No primeiro exemplo,<br />
 apenas <b>:sim</b> existe, enquanto no segundo exemplo você têm duas strings &#8216;sim&#8217; e &#8216;sim&#8217; ocupando espaço na memória.</p>
 <p>Podemos também transformar uma string em um símbolo e vice-versa:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">string</span><span class="dl">&quot;</span></span>.to_sym.class <span class="c"># Symbol  </span>
 <span class="no">2</span> puts <span class="sy">:symbol</span>.to_s.class    <span class="c"># String</span>
 </pre>
-</div>
-<p>Símbolos são particularmente úteis quando se cria hashes e você quer distinguir chaves e valores. Veja o tópico <a href="hashes-ruby.html">usando símbolos como chaves hash</a> para exemplos práticos.</p>
+</div><p>Símbolos são particularmente úteis quando se cria hashes e você quer distinguir chaves e valores. Veja o tópico <a href="hashes-ruby.html">usando símbolos como chaves hash</a> para exemplos práticos.</p>
 <div class='box'>
 <p>Fabio Akita, um entusiasta Rails brasileiro, também conhecido na internet como &#8220;AkitaOnRails&#8221;, escreve um <a href="http://rubylearning.com/blog/2007/11/26/akitaonrails-on-ruby-symbols/" title="em inglês">artigo exclusivo sobre símbolos em Ruby</a> para membros do rubylearning.com. Leia o artigo após ter passado por essa lição.</p>
 </div>

@@ -37,13 +37,11 @@ a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (r
 <div class="CodeRay">
 <pre><span class="no">1</span>   load <span class="s"><span class="dl">'</span><span class="k">nome_do_arquivo.rb</span><span class="dl">'</span></span>
 </pre>
-</div>
-<p>O mais comumente usado <b>require</b> carrega o arquivo dado apenas uma vez:</p>
+</div><p>O mais comumente usado <b>require</b> carrega o arquivo dado apenas uma vez:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   require <span class="s"><span class="dl">'</span><span class="k">nome_do_arquivo</span><span class="dl">'</span></span>
 </pre>
-</div>
-<p><b>require</b> lhe dá acesso a muitas extensões e bibliotecas de programação empacotadas com a linguagem de programção Ruby &#8211; além de um número ainda maior de extensões e bibliotecas escritas independentemente por outros programadores e disponibilizadas para uso com o Ruby.</p>
+</div><p><b>require</b> lhe dá acesso a muitas extensões e bibliotecas de programação empacotadas com a linguagem de programção Ruby &#8211; além de um número ainda maior de extensões e bibliotecas escritas independentemente por outros programadores e disponibilizadas para uso com o Ruby.</p>
 <p>Note que quando você escreve <b>require</b>  &#8216;nome_do_arquivo&#8217; e não &#8216;nome_do_arquivo.rb&#8217;. Especificamente, extensões escritas em C são armazenadas em arquivos terminados por .so ou .dll. Para manter o processo transparante &#8211; isso é, para lhe proteger do problema que é saber se uma extensão que você quer usa um arquivo .rb ou ou outro tipo de arquivo &#8211; o método aceita uma palavra e então faz uma busca automática e tenta todos os nomes de arquivo possível até que encontro o arquivo correspondente a extensão que você requisitou.</p>
 <div class='box'>
 <p>require(string) =&gt; true or false</p>
@@ -70,8 +68,7 @@ a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (r
 <span class="no">14</span>     <span class="r">end</span>
 <span class="no">15</span>   <span class="r">end</span>
 </pre>
-</div>
-<p>Escrevemos outro programa <b>p031motorcycletest.rb</b> para testar a classe acima.</p>
+</div><p>Escrevemos outro programa <b>p031motorcycletest.rb</b> para testar a classe acima.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p031motorcycletest.rb</span>
 <span class="no">2</span>   require <span class="s"><span class="dl">'</span><span class="k">p030motorcycle</span><span class="dl">'</span></span>

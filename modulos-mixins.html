@@ -63,8 +63,7 @@
 <span class="no">25</span>   <span class="co">Trig</span>.sin(<span class="co">Trig</span>::<span class="co">PI</span>/<span class="i">4</span>)
 <span class="no">26</span>   <span class="co">Moral</span>.sin(<span class="co">Moral</span>::<span class="co">VERY_BAD</span>)
 </pre>
-</div>
-<ul>
+</div><ul>
 	<li>Second, they allow you to share functionality between classes &#8211; if a class mixes in a module, that module&#8217;s instance methods become available as if they had been defined in the class. They get mixed in. The program p061mixins.rb illustrates this.</li>
 </ul>
 <div class="CodeRay">
@@ -105,8 +104,7 @@
 <span class="no">35</span>   puts ph.who_am_i?
 <span class="no">36</span>   puts et.who_am_i?
 </pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>Observe how we use require or load. require and load take strings as their arguments.</p>
 <p>require &#8216;motorcycle&#8217; or load &#8216;motorcycle.rb&#8217;</p>
 <p>include takes the name of a module, in the form of a constant, as in include Stuff.</p>
@@ -155,8 +153,7 @@ include Enumerable, Comparable</p>
 <span class="no">37</span>   puts <span class="gv">$:</span>
 <span class="no">38</span>   puts <span class="co">Stuff</span>.m(<span class="i">5</span>)     <span class="c"># Stuff class methods not called from D object</span>
 </pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>Remember that you can mix in more than one module in a class. However, a class cannot inherit from more than one class. Class names tend to be nouns, while module names are often adjectives.</p>
 </div>
 <div class='box'>

@@ -42,8 +42,7 @@ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas c
 <span class="no">3</span>   puts (<span class="co">Exception</span>.new.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; true</span>
 <span class="no">4</span>   puts (<span class="i">4</span>.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; false</span>
 </pre>
-</div>
-<p>O exemplo acima é o exemplo mais simples da filosofia Ruby de Duck Typing: se um objeto faz &#8220;quack&#8221; como um pato (ou age como uma string), basta ir em frente e tratá-lo como um pato (ou uma string).  Sempre que possível, você deve tratar objetos de acordo com os métodos que ele possui, ao invés, de definir as classes a partir do que eles herdam ou módulos que incluem.</p>
+</div><p>O exemplo acima é o exemplo mais simples da filosofia Ruby de Duck Typing: se um objeto faz &#8220;quack&#8221; como um pato (ou age como uma string), basta ir em frente e tratá-lo como um pato (ou uma string).  Sempre que possível, você deve tratar objetos de acordo com os métodos que ele possui, ao invés, de definir as classes a partir do que eles herdam ou módulos que incluem.</p>
 <p>Agora, considere as três seguintes classes &#8211; Pato, Ganso e PatoDonald.  Programa <strong>p036duck.rb</strong></p>
 <h2>Código</h2>
 <div class="CodeRay">
@@ -88,8 +87,7 @@ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas c
 <span class="no">39</span>   puts faz_nadar(<span class="co">Pato</span>.new)
 <span class="no"><strong>40</strong></span>   puts faz_nadar(<span class="co">Ganso</span>.new)
 </pre>
-</div>
-<p>Se você consultar o código abaixo:</p>
+</div><p>Se você consultar o código abaixo:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">faz_quack</span>(pato)
 <span class="no">2</span>     pato.quack
@@ -97,8 +95,7 @@ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas c
 <span class="no">4</span>   puts faz_quack(<span class="co">Pato</span>.new)
 <span class="no">5</span>   puts faz_quack(<span class="co">PatoDonald</span>.new)
 </pre>
-</div>
-<p>Um método que disse a um Pato para fazer quack funciona quando recebe um PatoDonald, graças ao Duck Typing. O mesmo pode ser observado no seguinte código:</p>
+</div><p>Um método que disse a um Pato para fazer quack funciona quando recebe um PatoDonald, graças ao Duck Typing. O mesmo pode ser observado no seguinte código:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">faz_nadar</span>(pato)
 <span class="no">2</span>     pato.nadar
@@ -106,8 +103,7 @@ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas c
 <span class="no">4</span>   puts faz_nadar(<span class="co">Pato</span>.new)
 <span class="no">5</span>   puts faz_nadar(<span class="co">Ganso</span>.new)
 </pre>
-</div>
-<p>Um método que diz para um Pato nadar quando recebe um Ganso, funciona.</p>
+</div><p>Um método que diz para um Pato nadar quando recebe um Ganso, funciona.</p>
    </div>
 
    <div class="column span-5 append-1 last">

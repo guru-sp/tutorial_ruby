@@ -43,8 +43,7 @@
 <span class="no"> 8</span>   nd = <span class="co">NewDog</span>.new(<span class="s"><span class="dl">'</span><span class="k">Doberman</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 <span class="no"> 9</span>   puts nd.name
 </pre>
-</div>
-<p>Vamos escrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:</p>
+</div><p>Vamos escrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
@@ -60,20 +59,17 @@
 <span class="no">12</span>   nd.set_name(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 <span class="no">13</span>   puts nd.name
 </pre>
-</div>
-<p>Ruby permite que você defina métodos que terminam com um sinal de igual (=). Vamos substituir set_name com um método chamado name=</p>
+</div><p>Ruby permite que você defina métodos que terminam com um sinal de igual (=). Vamos substituir set_name com um método chamado name=</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">name=</span>(nm)
 <span class="no">2</span>     <span class="iv">@name</span> = nm
 <span class="no">3</span>   <span class="r">end</span>
 </pre>
-</div>
-<p>name= faz exatamente o que set_name faz e apesar do nome do método um pouco estranho, você pode chamá-lo como qualquer outro método:</p>
+</div><p>name= faz exatamente o que set_name faz e apesar do nome do método um pouco estranho, você pode chamá-lo como qualquer outro método:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 </pre>
-</div>
-<p>Exemplo &#8211; p050newdog.rb</p>
+</div><p>Exemplo &#8211; p050newdog.rb</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
@@ -92,19 +88,16 @@
 <span class="no">15</span>   nd.name = <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>
 <span class="no">16</span>   puts nd.name
 </pre>
-</div>
-<p>O sinal de igual da a algo que você conhece como &#8220;atribui um valor a algo&#8221;, assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.</p>
+</div><p>O sinal de igual da a algo que você conhece como &#8220;atribui um valor a algo&#8221;, assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.</p>
 <p>Ruby lhe da um pouco de açucares sintático para chamar métodos setter.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
 </pre>
-</div>
-<p>você tem permissão para fazer isso:</p>
+</div><p>você tem permissão para fazer isso:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name = <span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>
 </pre>
-</div>
-<p>Quando o interpretador vê a mensagem &#8220;name&#8221; seguido de &#8220;=&#8221;, ele automaticamente ignora os espaços antes do sinal de igual e lê a mensagem como única, &#8220;name=&#8221; &#8211; Uma chamada para o método cujo nome é name=, o que nós definimos. Quanto ao lado direito: os parênteses são opcionais para métodos com argumentos simples, sendo assim, você pode colocar apenas &#8216;Benzy&#8217; lá e ele vai ser pego como argumento para o método name=.</p>
+</div><p>Quando o interpretador vê a mensagem &#8220;name&#8221; seguido de &#8220;=&#8221;, ele automaticamente ignora os espaços antes do sinal de igual e lê a mensagem como única, &#8220;name=&#8221; &#8211; Uma chamada para o método cujo nome é name=, o que nós definimos. Quanto ao lado direito: os parênteses são opcionais para métodos com argumentos simples, sendo assim, você pode colocar apenas &#8216;Benzy&#8217; lá e ele vai ser pego como argumento para o método name=.</p>
 <div class='box'>
 <p>NO RAILS: Chamadas de métodos usando sinal de igual são comuns em aplicações Rails.</p>
 </div>

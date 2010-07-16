@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling.
+A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling (empacotamento).
 
 Escreveremos uma classe básica (**p051gamecharacters.rb**) apenas para testar o marshalling.
 

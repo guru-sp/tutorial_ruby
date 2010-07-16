@@ -50,8 +50,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <span class="no">14</span>   rani.respira
 <span class="no">15</span>   rani.fala
 </pre>
-</div>
-<p>Embora não tenhamos especificado como um Gato deve respirar, cada gato herdará este comportamento da classe Mamífero visto que Gato foi definido como uma subclasse de Mamífero (na terminologia de orientação a objetos, a classe menor é a subclasse e a classe maior é a superclasse. A subclasse é às vezes conhecida como classe derivada ou filha e a superclasse como classe pai). Portanto, do ponto de vista do programador, gatos obtêm a a habilidade de respirar de graça; após adicionarmos o método fala, nossos gatos podem respirar e falar.</p>
+</div><p>Embora não tenhamos especificado como um Gato deve respirar, cada gato herdará este comportamento da classe Mamífero visto que Gato foi definido como uma subclasse de Mamífero (na terminologia de orientação a objetos, a classe menor é a subclasse e a classe maior é a superclasse. A subclasse é às vezes conhecida como classe derivada ou filha e a superclasse como classe pai). Portanto, do ponto de vista do programador, gatos obtêm a a habilidade de respirar de graça; após adicionarmos o método fala, nossos gatos podem respirar e falar.</p>
 <p>Existirão situações em que certas propriedades da superclasse não devem ser herdadas por uma subclasse particular. Embora aves em geral saibam como voar, pinguins são uma subclasse de aves que não voam. No exemplo <b>p034bird.rb</b> abaixo, nós sobrescrevemos (override) o método voa na classe Pinguim:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Ave</span>
@@ -73,8 +72,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <span class="no">17</span>   p.limpase
 <span class="no">18</span>   p.voa
 </pre>
-</div>
-<p>Ao invés de definir exaustivamente cada característica de cada nova classe, precisamos apenas adicionar ou redefinir as diferenças entre cada subclasse e de sua superclasse. Esse uso da herança é algumas vezes chamado de programação diferencial. É um dos benfícios da programação orientada a objetos.</p>
+</div><p>Ao invés de definir exaustivamente cada característica de cada nova classe, precisamos apenas adicionar ou redefinir as diferenças entre cada subclasse e de sua superclasse. Esse uso da herança é algumas vezes chamado de programação diferencial. É um dos benfícios da programação orientada a objetos.</p>
 <p>Os dois programas abaixo foram tirados do <a href="http://www.rubyist.net/%7Eslagell/ruby/inheritance.html" title="em inglês">Guia do Usuário Ruby</a></p>
 <p>Então, a <b>herança</b> permite que você cria uma classe que é uma versão refinada ou uma especialização de outra classe. A herança é indicada por &lt;.</p>
 <p>Aqui está outro exemplo, <b>p035inherit.rb</b>:</p>
@@ -111,8 +109,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <span class="no"><strong>30</strong></span>   filho = <span class="co">S</span>.new
 <span class="no">31</span>   filho.gfmethod
 </pre>
-</div>
-<p>Uma classe pode apenas herdar der uma classe de cada vez (isto é, uma classe pode herdar uma classe que herda de outra classe e que, por sua vez, herda de outra classe, mas uma única classe não pode herdar de várias classes ao mesmo tempo).</p>
+</div><p>Uma classe pode apenas herdar der uma classe de cada vez (isto é, uma classe pode herdar uma classe que herda de outra classe e que, por sua vez, herda de outra classe, mas uma única classe não pode herdar de várias classes ao mesmo tempo).</p>
 <div class='box'>
 <p>Existem muitas classes e módulos (mais sobre isso será explicado adiante) que vem com Ruby por padrão. Elas estão disponíveis para todos programas Ruby automaticamente; não é necessário usar o <b>require</b>. Algumas classes inclusas no Ruby são <b>Array</b>, <b>Bignum</b>, <b>Class</b>, <b>Dir</b>, <b>Exception</b>, <b>File</b>, <b>Fixnum</b>, <b>Float</b>, <b>Integer</b>, <b>IO</b>, <b>Module</b>, <b>Numeric</b>, <b>Object</b>, <b>Range</b>, <b>String</b>, <b>Thread</b>, <b>Time</b>. Alguns módulos inclusos são <b>Comparable</b>, <b>Enumerable</b>, <b>GC</b>, <b>Kernel</b>, <b>Math</b>.</p>
 <p>A classe <b>Objeto</b> é a classe pai de todas as classes em Ruby. Seus métodos estão portanto disponíveis para todos os objetos ao menos que sejam explicitamente sobrescritos. No Ruby 1.9, <b>Object</b> não é mais a raiz da hierarquia de classes. Uma nova classe chamada <b>BasicObject</b> tem esse objetivo, e <b>Objeto</b> passa a ser uma subclasse de <b>BasicObject</b>. Esta é uma classe bem simples, com quase nenhum método próprio. Quando você cria uma classe no Ruby 1.9, você ainda extende <b>Object</b> ao menos que você especifique a superclasse, e, a maioria dos programadores, nunca precisará usar ou extender <b>BasicObject</b>.</p>
@@ -143,13 +140,11 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <span class="no">17</span> 
 <span class="no">18</span>   puts <span class="co">Lab</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">Labrador</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">Benzy</span><span class="dl">&quot;</span></span>).to_s
 </pre>
-</div>
-<p>O método <b>to_s</b> na classe Lab referencia a variável @breed da superclasse <b>Cachorro</b>. Esse código funciona como você esperaria:</p>
+</div><p>O método <b>to_s</b> na classe Lab referencia a variável @breed da superclasse <b>Cachorro</b>. Esse código funciona como você esperaria:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>    puts <span class="co">Lab</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">Labrador</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">Benzy</span><span class="dl">&quot;</span></span>).to_s ==&gt; (<span class="co">Labrador</span>, <span class="co">Benzy</span>)
 </pre>
-</div>
-<p>Visto que esse código se comporta como esperado, você pode ousar dizer que todas as variáveis foram herdadas. Mas não é assim que Ruby funciona.</p>
+</div><p>Visto que esse código se comporta como esperado, você pode ousar dizer que todas as variáveis foram herdadas. Mas não é assim que Ruby funciona.</p>
 <p>Todos objetos Ruby tem um conjunto de variáveis de instância. Essas não são definidas pelos objetos da classe &#8211; elas são simplesmente criadas quando um valor é associado as mesmas. Por variáveis de instância não serem definidas por uma classe, elas não tem relação com o mecanismo de herança.</p>
 <p>No código acima, <b>Lab</b> define um método <b>initialize</b> que encadeia ao método <b>initialize</b> de sua superclasse. Isto é, o método <b>super</b> passa o argumento <b>raca</b> para o método <b>initialize</b> da classe pai (<b>Cachorro</b>). O método encadeado atribui um valor para a variável <b>@raca</b>, o que faz essa passe a existir para uma instância particular de Lab.</p>
 <p><b>super</b> é um método especial que invoca um método com mesmo nome do método atual na superclasse da classe em questão.</p>

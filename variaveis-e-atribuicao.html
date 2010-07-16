@@ -35,8 +35,7 @@
 <pre><span class="no">1</span> s = <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
 <span class="no">2</span> x = <span class="i">10</span>
 </pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>Uma bareword é qualquer combinação de letras, números e underscores, e não é qualificada por nenhum símbolo (Referência: <a href="http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html">http://alumnus.caltech.edu/~svhwan/prodScript/avoidBarewords.html</a>). Variáveis locais e barewords parecem similares; elas devem iniciar com underscore (_) ou uma letra minúscula, e elas devem consistir inteiramente de letras, números e underscores. Lembre-se, referências a variáveis locais parecem com invocações de métodos e palavras chaves não podem ser usadas como nomes de variáveis (locais).</p>
 <p>Chamadas a métodos também podem ser barewords, como em meu_metodo. <strong>gets</strong> é uma chamada a um método; assim como <strong>system</strong>. Seja lá onde o Ruby vê uma bareword, ele interpreta-a como uma entre três coisas: (a) Se existe um sinal de igual do lado direito da bareword, ela é uma variável local sofrendo uma atribuição. (b) Ruby tem uma lista interna de palavras chaves e uma bareword pode ser uma delas. &#169; Se uma bareword não é (a) ou (b), ela é assumida como sendo uma chamada a método. Se não existe nenhum método com esse nome, Ruby lança um <strong>NameError</strong>.</p>
 </div>
@@ -75,8 +74,7 @@
 <span class="no">31</span> FIM_STR  
 <span class="no">32</span> puts a
 <span class="no">33</span> </span></span></pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>No exemplo:<br />
 x = &#8220;200.0&#8221;.to_f<br />
 o ponto significa que a mensagem &#8220;to_f&#8221; está sendo enviada para a string &#8220;200.0&#8221;, ou que o método to_f está sendo chamado na string &#8220;200.0&#8221;. A string &#8220;200.0&#8221; é chamada de receptor da mensagem. Assim, quando você vê um ponto nesse contexto, você deveria interpretá-lo como uma mensagem (à direita) sendo enviada para um objeto (à esquerda).</p>

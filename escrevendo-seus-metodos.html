@@ -70,8 +70,7 @@
 <span class="no">32</span> 
 <span class="no">33</span> puts(ola2 <span class="s"><span class="dl">'</span><span class="k">talim</span><span class="dl">'</span></span>)
 </pre>
-</div>
-<p>A saída quando executado no meu PC foi:</p>
+</div><p>A saída quando executado no meu PC foi:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p008meusmetodos.rb
 <span class="no">2</span> Olá
@@ -82,8 +81,7 @@
 <span class="no">7</span> p008meusmetodos.rb:23: warning: parenthesize arguments(s) for future versions
 <span class="no">8</span> &gt;Exit code: 0
 </pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>Quando você executar o programa acima na versão 1.9, o aviso <strong>warning: parenthesize arguments(s) for future version</strong> não é exibido. O Yukihiro Matsumoto (Matz) deixou isso claro pois adicionou o aviso para facilitar futuras reimplementações do parser, mas o plano foi cancelado. Além disso, alguém (esqueci o nome, desculpe) convenceu-o de que argumentos sem parênteses facilitam a implementação de DSLs (linguagens de domínio específico) no Ruby. Então, à partir do 1.9, você pode utilizar argumentos sem parênteses em seus métodos.</p>
 </div>
 <p>O Ruby permite que você especifique valores padrão para os argumentos de um método, ou seja, os valores que serão passados caso o método seja chamado sem um argumento explicito. Você faz isso utilizando o operador de atribuição. Veja o exemplo <strong>p009meusmetodos1.rb</strong></p>
@@ -98,34 +96,29 @@
 <span class="no"> 8</span> puts mtd
 <span class="no"> 9</span> puts mtd(<span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span>)
 </pre>
-</div>
-<p>A saída quando eu executei no meu PC foi:</p>
+</div><p>A saída quando eu executei no meu PC foi:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>  &gt;ruby p009meusmetodos1.rb
 <span class="no">2</span>  <span class="co">Dibya</span>, <span class="co">Shashank</span>, <span class="co">Shashank</span>
 <span class="no">3</span>  ruby, <span class="co">Shashank</span>, <span class="co">Shashank</span>
 <span class="no">4</span>  &gt;<span class="co">Exit</span> code: <span class="i">0</span>
 </pre>
-</div>
-<p>Note que não é possível especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.</p>
+</div><p>Note que não é possível especificar o valor para o segundo parâmetro e utilizar o valor-padrão para o primeiro.</p>
 <p>No programa acima, o operador de interpolação #{&#8230;} teve sua expressão avaliada separadamente e seu resultado foi &#8220;colado&#8221; automaticamente na string. Quando executar essas linhas, você não verá o operador em sua tela, verá apenas o resultado da avaliação da expressão que estava contida no operador.</p>
 <p><strong>Nota</strong>: O nome interpolação refere-se ao processo de inserir o resultado de uma expressão em uma string literal. A forma de fazer isso é colocar sua expressão entre os símbolos #{ e }. O exemplo a seguir demonstra isso:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">100 * 5 = </span><span class="il"><span class="idl">#{</span><span class="i">100</span> * <span class="i">5</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
 </pre>
-</div>
-<p>Isso resulta em:</p>
+</div><p>Isso resulta em:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="i">100</span> * <span class="i">5</span> = <span class="i">500</span>
 </pre>
-</div>
-<p>O trecho #{100 * 5} interpola o resultado de 100 * 5 (500) na string naquela posição em que o operador foi definido, resultando na saída que foi exibida.</p>
+</div><p>O trecho #{100 * 5} interpola o resultado de 100 * 5 (500) na string naquela posição em que o operador foi definido, resultando na saída que foi exibida.</p>
 <p>O exemplo p010aliasmtd.rb mostra-nos algo sobre o método de Aliasing (apelido).</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="r">alias</span> <span class="fu">metodo_novo</span> <span class="fu">metodo_antigo</span>
 </pre>
-</div>
-<p>O trecho acima cria um novo nome para referenciar um método existente. Quando um método é apelidado (aliased), o novo nome aponta para uma cópia do método antigo. Se o método é redefinido em seguida, o apelido continua invocando a implementação original do método.</p>
+</div><p>O trecho acima cria um novo nome para referenciar um método existente. Quando um método é apelidado (aliased), o novo nome aponta para uma cópia do método antigo. Se o método é redefinido em seguida, o apelido continua invocando a implementação original do método.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p010aliasmtd.rb</span>
 <span class="no"> 2</span> <span class="c"># alias metodo_novo metodo_antigo</span>
@@ -145,8 +138,7 @@
 <span class="no">16</span> puts metodo_antigo
 <span class="no">17</span> puts metodo_novo
 </pre>
-</div>
-<p>A saída é:</p>
+</div><p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p010aliasmtd.rb
 <span class="no">2</span> método antigo melhorado

@@ -43,8 +43,7 @@
 <span class="no">6</span>   <span class="c"># Reinicia o logger assim que o arquivo completar 100 megabytes</span>
 <span class="no">7</span>   <span class="co">Logger</span>.new(<span class="s"><span class="dl">'</span><span class="k">application.log</span><span class="dl">'</span></span>, <span class="i">0</span>, <span class="i">100</span> * <span class="i">1024</span> * <span class="i">1024</span>)
 </pre>
-</div>
-<p>O código abaixo, usa o logger da aplicação para imprimir uma mensagem de debugging e, em um nível mais alto de severidade, como parte do código de tratamento de erro.</p>
+</div><p>O código abaixo, usa o logger da aplicação para imprimir uma mensagem de debugging e, em um nível mais alto de severidade, como parte do código de tratamento de erro.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c">#logex.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">logger</span><span class="dl">'</span></span>
@@ -61,32 +60,27 @@
 <span class="no">13</span>   <span class="r">end</span>
 <span class="no">14</span>   divide(<span class="i">10</span>, <span class="i">2</span>)
 </pre>
-</div>
-<p>O conteúdo do arquivo log_file.log é:</p>
+</div><p>O conteúdo do arquivo log_file.log é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   # Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /
 <span class="no">2</span>   D, [2008-03-18T17:09:29.216000 #2020] DEBUG -- : Numerador: 10, denominador 2
 </pre>
-</div>
-<p>Agora tente chamar o método assim:</p>
+</div><p>Agora tente chamar o método assim:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   divide(<span class="i">10</span>, <span class="i">0</span>)
 </pre>
-</div>
-<p>O conteúdo do arquivo log_file.log é:</p>
+</div><p>O conteúdo do arquivo log_file.log é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># Logfile created on Tue Mar 18 17:09:29 +0530 2008 by /</span>
 <span class="no">2</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">09</span>:<span class="fl">29.216000</span> <span class="c">#2020] DEBUG -- : Numerador: 10, denominador 2</span>
 <span class="no">3</span>   <span class="co">D</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] DEBUG -- : Numerador: 10, denominador 0</span>
 <span class="no">4</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] ERROR -- : Erro na divisião!: divided by 0</span>
 </pre>
-</div>
-<p>Para alterar o nível do logo, simplesmente associe a contenste apropriada a <b>level</b>:</p>
+</div><p>Para alterar o nível do logo, simplesmente associe a contenste apropriada a <b>level</b>:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="gv">$LOG</span>.level = <span class="co">Logger</span>::<span class="co">ERROR</span>
 </pre>
-</div>
-<p>Agora nosso logger ignorará todas as mensagens de log exceto as com nível de severidade ERROR ou FATAL. O conteúdo do arquivo log_file.log é:</p>
+</div><p>Agora nosso logger ignorará todas as mensagens de log exceto as com nível de severidade ERROR ou FATAL. O conteúdo do arquivo log_file.log é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">15</span>:<span class="fl">59.919000</span> <span class="c">#2624] ERROR -- : Erro na divisão!: divided by 0</span>
 </pre>

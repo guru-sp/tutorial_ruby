@@ -51,8 +51,7 @@
 <span class="no">17</span> puts <span class="i">10</span> - <span class="i">11</span>
 <span class="no">18</span> puts <span class="fl">1.5</span> / <span class="fl">2.6</span>
 </pre>
-</div>
-<div class='box'>
+</div><div class='box'>
 <p>Inteiros Ruby são objetos da classe <strong>Fixnum</strong> ou <strong>Bignum</strong>. As classes <strong>Fixnum</strong> e <strong>Bignum</strong> representam inteiros de diferentes tamanhos. Ambas as classes descendem de <strong>Integer</strong> (e, sendo assim, de <strong>Numeric</strong>). Os números em ponto flutuantes são objetos da classe <strong>Float</strong>, correspondendo a arquitetura nativa do tipo de dados double. As classes <strong>Complex</strong>, <strong>BigDecimal</strong> e <strong>Rational</strong> não são embutidas no Ruby mas são distribuídas com ele como parte das bibliotecas padrões. Nós falaremos sobre classes em detalhes mais tarde.</p>
 </div>
 <p>A hierarquia das classes (cortesia: <a href="http://www.cs.mun.ca/%7Edonald">Donald Craig</a>) é como  a mostrada na figura abaixo:</p>
@@ -175,8 +174,7 @@
 <span class="no">3</span> puts (<span class="i">5</span> % <span class="i">-3</span>)    <span class="c"># imprime -1  </span>
 <span class="no">4</span> puts (<span class="i">-5</span> % <span class="i">-3</span>)   <span class="c"># imprime -2 </span>
 </pre>
-</div>
-<p>A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.</p>
+</div><p>A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.</p>
 <h2>Diferença entre os operadores or e ||</h2>
 <p>Ambos, <strong>or</strong> e <strong>||</strong>, retornam o primeiro argumento ao menos que este retorne <strong>false</strong>, neste caso avaliam e retornam o segundo argumento. Isto é demonstrado no exemplo seguinte:</p>
 <div class="CodeRay">
@@ -184,8 +182,7 @@
 <span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>  
 <span class="no">3</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span> || <span class="i">2008</span>
 </pre>
-</div>
-<p>A saída é:</p>
+</div><p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby test.rb  
 <span class="no">2</span> <span class="i">2008</span>  
@@ -193,24 +190,20 @@
 <span class="no">4</span> ruby  
 <span class="no">5</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>
 </pre>
-</div>
-<p>A única diferença entre <strong>or</strong> e <strong>||</strong> é sua precedência. <strong>||</strong> tem uma precedência mais alta do que <strong>or</strong>.</p>
+</div><p>A única diferença entre <strong>or</strong> e <strong>||</strong> é sua precedência. <strong>||</strong> tem uma precedência mais alta do que <strong>or</strong>.</p>
 <p>Uma prática comum é usar || para atribuir valor a uma variável somente se nenhum valor foi atribuído a ela. Isso pode ser escrito assim:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="iv">@variavel</span> = <span class="iv">@variavel</span> || <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
 </pre>
-</div>
-<p>ou, mais idiomático, como:</p>
+</div><p>ou, mais idiomático, como:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="iv">@variavel</span> ||= <span class="s"><span class="dl">&quot;</span><span class="k">valor padrão</span><span class="dl">&quot;</span></span>
 </pre>
-</div>
-<p>Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles têm precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:</p>
+</div><p>Uma razão para essas versões alternativas de operadores booleanos é o fato de que eles têm precedência mais baixa do que o operador de atribuição. Isto significa que você pode escrever uma expressão booleana como a seguinte que atribui valores à variáveis até que ele encontre um valor false:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="r">if</span> a = f(x) <span class="r">and</span> b = f(y) <span class="r">and</span> c = f(z) <span class="r">then</span> d = g(a,b,c) <span class="r">end</span>
 </pre>
-</div>
-<p>Esta expressão simplesmente não funcionaria se escrita com <strong>&amp;&amp;</strong> ao invés de <strong>and</strong>.</p>
+</div><p>Esta expressão simplesmente não funcionaria se escrita com <strong>&amp;&amp;</strong> ao invés de <strong>and</strong>.</p>
    </div>
 
    <div class="column span-5 append-1 last">

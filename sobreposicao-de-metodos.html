@@ -48,8 +48,7 @@
 <span class="no">13</span> b = <span class="co">B</span>.new  
 <span class="no">14</span> b.a  
 </pre>
-</div>
-<p>O Método na classe B sobrepôs o método na classe A.</p>
+</div><p>O Método na classe B sobrepôs o método na classe A.</p>
 <h2>Uso do super</h2>
 <p>A forma de se lidar com argumentos <b>super</b>:</p>
 <ul>
@@ -84,8 +83,7 @@
 <span class="no">23</span> puts b.rodas
 <span class="no">24</span> puts b.bancos
 </pre>
-</div>
-<p>A saída:</p>
+</div><p>A saída:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p038bicycle.rb
 <span class="no">2</span>   2
@@ -96,8 +94,7 @@
 <span class="no">7</span>   1
 <span class="no">8</span>   &gt;Exit code: 0
 </pre>
-</div>
-<p>Vamos falar com mais detalhes sobre <b>attr_reader</b> <a href="controle-de-acesso.html">mais tarde</a>.</p>
+</div><p>Vamos falar com mais detalhes sobre <b>attr_reader</b> <a href="controle-de-acesso.html">mais tarde</a>.</p>
 <h2>Redefinindo Métodos</h2>
 <p>(Adaptado do livro de David Black, Ruby for Rails)</p>
 <p>Nada impede que você defina um método duas vezes. Programa <b>p038or.rb</b>:</p>
@@ -112,13 +109,11 @@
 <span class="no"> 8</span> <span class="r">end</span>  
 <span class="no"> 9</span> <span class="co">OR</span>.new.mtd
 </pre>
-</div>
-<p>O que acontece quando chamamos o mtd em uma instancia de OR? Vamos descobrir:</p>
+</div><p>O que acontece quando chamamos o mtd em uma instancia de OR? Vamos descobrir:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="co">OR</span>.new.mtd
 </pre>
-</div>
-<p>O resultado mostrado é a segunda definição do método mtd. A segunda definição é prevalecida: Nós vemos o resultado pela segunda, não pela primeira. Nada impede que você defina um método duas vezes, no entanto, a nova versão tem precedência.</p>
+</div><p>O resultado mostrado é a segunda definição do método mtd. A segunda definição é prevalecida: Nós vemos o resultado pela segunda, não pela primeira. Nada impede que você defina um método duas vezes, no entanto, a nova versão tem precedência.</p>
 <h2>Classe Abstrata</h2>
 <p>Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos “abstratos” indefinidos, que é deixado para as subclasses definir. Por exemplo:</p>
 <div class="CodeRay">
