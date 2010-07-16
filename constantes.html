@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>constantes</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">constantes</p>
+<p>A Ruby constant is like a variable, except that its value is supposed to remain constant for the duration of the program. The Ruby interpreter does not actually enforce the constancy of constants, but it does issue a warning if a program changes the value of a constant (as shown in this trivial example) &#8211; p054constwarn.rb</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p054constwarn.rb</span>
+<span class="no">2</span>   <span class="co">A_CONST</span> = <span class="i">10</span>
+<span class="no">3</span>   <span class="co">A_CONST</span> = <span class="i">20</span>
+</pre>
+</div><p>Produces a warning:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   p054constwarn.rb:3: warning: already initialized constant A_CONST
+</pre>
+</div><p>Lexically, the names of constants look like the names of local variables, except that they begin with a capital letter. By convention, most constants are written in all uppercase with underscores to separate words, LIKE_THIS. Ruby class and module names are also constants, but they are conventionally written using initial capital letters and camel case, LikeThis.</p>
+<p>Note that constants do not exist until a value is actually assigned to them.</p>
+<p>Although constants should not be changed, you can modify the internal states of the objects they reference, as seen in p055constalter.rb</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   <span class="c"># p055constalter.rb</span>
+<span class="no">2</span>   <span class="co">A_CONST</span> = <span class="s"><span class="dl">&quot;</span><span class="k">Doshi</span><span class="dl">&quot;</span></span>
+<span class="no">3</span>   <span class="co">B_CONST</span> = <span class="co">A_CONST</span>
+<span class="no">4</span>   <span class="co">A_CONST</span>[<span class="i">0</span>] = <span class="s"><span class="dl">&quot;</span><span class="k">J</span><span class="dl">&quot;</span></span> <span class="c"># alter string referenced by constant</span>
+<span class="no">5</span>   puts <span class="co">A_CONST</span> <span class="c"># displays Joshi</span>
+<span class="no">6</span>   puts <span class="co">B_CONST</span> <span class="c"># also displays Joshi</span>
+</pre>
+</div><div class='box'>
+<p>IN RAILS: You can find examples of this kind of operation (modify) in the Rails source code, where constants figure prominently and the objects they represent undergo fairly frequent changes.</p>
+</div>
+<p>Note:</p>
+* Constants defined within a class or module may be accessed anywhere within the class or module.
+* Outside the class or module, they may be accessed using the scope operator, :: prefixed by an expression that returns the appropriate class or module.
+* Constants defined outside any class or module may be accessed as it is or by using the scope operator with no prefix.
+* Constants may not be defined in methods.
+* Constants may be added to existing classes and modules from the outside by using the class or module name and the scope operator before the constant name.
+<p>The program p056const.rb shows all of this:</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="co">OUTER_CONST</span> = <span class="i">99</span>
+<span class="no"> 2</span> 
+<span class="no"> 3</span>   <span class="r">class</span> <span class="cl">Const</span>
+<span class="no"> 4</span>       <span class="r">def</span> <span class="fu">get_const</span>
+<span class="no"> 5</span>         <span class="co">CONST</span>
+<span class="no"> 6</span>       <span class="r">end</span>
+<span class="no"> 7</span>       <span class="co">CONST</span> = <span class="co">OUTER_CONST</span> + <span class="i">1</span>
+<span class="no"> 8</span>   <span class="r">end</span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span>   puts <span class="co">Const</span>.new.get_const
+<span class="no">11</span>   puts <span class="co">Const</span>::<span class="co">CONST</span>
+<span class="no">12</span>   puts ::<span class="co">OUTER_CONST</span>
+<span class="no">13</span>   puts <span class="co">Const</span>::<span class="co">NEW_CONST</span> = <span class="i">123</span>
+</pre>
+</div><p>Another elaborate example on own methods in a class is p057mymethods2.rb In this example we shall also see how to write a class method.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   <span class="c"># p057mymethods2.rb</span>
+<span class="no"> 2</span>   <span class="c"># variables and methods start lowercase</span>
+<span class="no"> 3</span>   <span class="gv">$glob</span> = <span class="i">5</span> <span class="c"># global variables start with $</span>
+<span class="no"> 4</span>   <span class="r">class</span> <span class="cl">TestVar</span> <span class="c"># class name constant, start uppercase</span>
+<span class="no"> 5</span>    <span class="cv">@@cla</span> = <span class="i">6</span> <span class="c"># class variables start with @@</span>
+<span class="no"> 6</span>    <span class="co">CONST_VAL</span> = <span class="i">7</span> <span class="c"># constant style, all caps, underscore</span>
+<span class="no"> 7</span>    <span class="r">def</span> <span class="fu">initialize</span>(x) <span class="c"># constructor</span>
+<span class="no"> 8</span>     <span class="iv">@inst</span> = x <span class="c"># instance variables start with @</span>
+<span class="no"> 9</span>     <span class="cv">@@cla</span> += <span class="i">1</span> <span class="c"># each object shares @@cla</span>
+<span class="no"><strong>10</strong></span>    <span class="r">end</span>
+<span class="no">11</span>    <span class="r">def</span> <span class="pc">self</span>.<span class="fu">cla</span> <span class="c"># class method, getter</span>
+<span class="no">12</span>     <span class="cv">@@cla</span>
+<span class="no">13</span>    <span class="r">end</span>
+<span class="no">14</span>    <span class="r">def</span> <span class="pc">self</span>.<span class="fu">cla=</span>(y) <span class="c"># class method, setter, also TestVar.</span>
+<span class="no">15</span>     <span class="cv">@@cla</span> = y
+<span class="no">16</span>    <span class="r">end</span>
+<span class="no">17</span>    <span class="r">def</span> <span class="fu">inst</span> <span class="c"># instance method, getter</span>
+<span class="no">18</span>     <span class="iv">@inst</span>
+<span class="no">19</span>    <span class="r">end</span>
+<span class="no"><strong>20</strong></span>    <span class="r">def</span> <span class="fu">inst=</span>(i) <span class="c"># instance method, setter</span>
+<span class="no">21</span>     <span class="iv">@inst</span> = i
+<span class="no">22</span>    <span class="r">end</span>
+<span class="no">23</span>   <span class="r">end</span>
+<span class="no">24</span>   puts <span class="gv">$glob</span>
+<span class="no">25</span>   test = <span class="co">TestVar</span>.new(<span class="i">3</span>) <span class="c"># calls constructor</span>
+<span class="no">26</span>   puts <span class="co">TestVar</span>.cla <span class="c"># calls getter</span>
+<span class="no">27</span>   puts test.inspect <span class="c"># gives object ID and instance vars</span>
+<span class="no">28</span>   <span class="co">TestVar</span>.cla = <span class="i">4</span> <span class="c"># calls setter</span>
+<span class="no">29</span>   test.inst=<span class="i">8</span> <span class="c"># calls setter</span>
+<span class="no"><strong>30</strong></span>   puts <span class="co">TestVar</span>.cla
+<span class="no">31</span>   puts test.inst <span class="c"># calls getter</span>
+<span class="no">32</span>   other = <span class="co">TestVar</span>.new(<span class="i">17</span>)
+<span class="no">33</span>   puts other.inspect
+<span class="no">34</span>   puts <span class="co">TestVar</span>.cla
+</pre>
+</div><h2>Summary</h2>
+<p>I have listed down all the important points you need to remember after you have completed the following topics: Object Serialization, Modules/Mixins, Self, Constants.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

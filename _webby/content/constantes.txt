@@ -1,0 +1,114 @@
+---
+title: constantes
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+A Ruby constant is like a variable, except that its value is supposed to remain constant for the duration of the program. The Ruby interpreter does not actually enforce the constancy of constants, but it does issue a warning if a program changes the value of a constant (as shown in this trivial example) - p054constwarn.rb
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p054constwarn.rb
+  A_CONST = 10
+  A_CONST = 20
+<% end -%>
+
+
+Produces a warning:
+
+<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
+  p054constwarn.rb:3: warning: already initialized constant A_CONST
+<% end -%>
+
+
+Lexically, the names of constants look like the names of local variables, except that they begin with a capital letter. By convention, most constants are written in all uppercase with underscores to separate words, LIKE_THIS. Ruby class and module names are also constants, but they are conventionally written using initial capital letters and camel case, LikeThis.
+
+Note that constants do not exist until a value is actually assigned to them.
+
+Although constants should not be changed, you can modify the internal states of the objects they reference, as seen in p055constalter.rb
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p055constalter.rb
+  A_CONST = "Doshi"
+  B_CONST = A_CONST
+  A_CONST[0] = "J" # alter string referenced by constant
+  puts A_CONST # displays Joshi
+  puts B_CONST # also displays Joshi
+<% end -%>
+
+<div class='box'>
+IN RAILS: You can find examples of this kind of operation (modify) in the Rails source code, where constants figure prominently and the objects they represent undergo fairly frequent changes.
+</div>
+
+Note:
+
+    * Constants defined within a class or module may be accessed anywhere within the class or module.
+    * Outside the class or module, they may be accessed using the scope operator, :: prefixed by an expression that returns the appropriate class or module.
+    * Constants defined outside any class or module may be accessed as it is or by using the scope operator with no prefix.
+    * Constants may not be defined in methods.
+    * Constants may be added to existing classes and modules from the outside by using the class or module name and the scope operator before the constant name.
+
+The program p056const.rb shows all of this:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  OUTER_CONST = 99
+
+  class Const
+      def get_const
+        CONST
+      end
+      CONST = OUTER_CONST + 1
+  end
+
+  puts Const.new.get_const
+  puts Const::CONST
+  puts ::OUTER_CONST
+  puts Const::NEW_CONST = 123
+<% end -%>
+
+
+Another elaborate example on own methods in a class is p057mymethods2.rb In this example we shall also see how to write a class method.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  # p057mymethods2.rb
+  # variables and methods start lowercase
+  $glob = 5 # global variables start with $
+  class TestVar # class name constant, start uppercase
+   @@cla = 6 # class variables start with @@
+   CONST_VAL = 7 # constant style, all caps, underscore
+   def initialize(x) # constructor
+    @inst = x # instance variables start with @
+    @@cla += 1 # each object shares @@cla
+   end
+   def self.cla # class method, getter
+    @@cla
+   end
+   def self.cla=(y) # class method, setter, also TestVar.
+    @@cla = y
+   end
+   def inst # instance method, getter
+    @inst
+   end
+   def inst=(i) # instance method, setter
+    @inst = i
+   end
+  end
+  puts $glob
+  test = TestVar.new(3) # calls constructor
+  puts TestVar.cla # calls getter
+  puts test.inspect # gives object ID and instance vars
+  TestVar.cla = 4 # calls setter
+  test.inst=8 # calls setter
+  puts TestVar.cla
+  puts test.inst # calls getter
+  other = TestVar.new(17)
+  puts other.inspect
+  puts TestVar.cla
+<% end -%>
+
+h2. Summary
+
+I have listed down all the important points you need to remember after you have completed the following topics: Object Serialization, Modules/Mixins, Self, Constants.
+

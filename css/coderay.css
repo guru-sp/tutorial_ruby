@@ -3,7 +3,7 @@
   margin-bottom: 1.3em;
   background-color: #eee;
   border: 1px solid #aaa;
-  font: 1.1em Helvetica,Arial,sans-serif;
+  font: 1.1em "Monaco","Bitstream Vera Sans Mono","Courier New",serif;
   color: #100;
 }
 .CodeRay pre {

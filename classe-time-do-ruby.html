@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>a Classe time do Ruby</title>
+   <meta name="author" content="" />
+
+   <!--- Blueprint CSS Framework -->
+   <link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection">
+   <link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print">
+   <!--[if IE]>
+      <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+   <![endif]-->
+
+   <!-- CodeRay syntax highlighting CSS -->
+   <link rel="stylesheet" href="css/coderay.css" type="text/css" />
+
+   <!-- Homepage CSS -->
+   <link rel="stylesheet" href="css/site.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<div class="container">
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <hr>
+   </div>
+
+   <div class="column span-17 prepend-1 first">
+      <p class="title">a Classe time do Ruby</p>
+<p>A classe <b>Time</b> do Ruby tem uma poderosa função de formatação que pode lhe ajudar a representar horários e datas de diversas formas. A classe time contém uma interface do Ruby para um conjunto de funções de tempo escritas em C. O tempo zero para Ruby é o primeiro segundo GMT de primeiro de janeiro de 1970. A classe <b>DateTime</b> é superior a classe Time para aplicações históricas e astronômicas mas você pode usar <b>Time</b> para a maior parte dos programas do dia-a-dia.</p>
+<p>A função strftime é modelada seguindo a função printf do C. O programa <b>p042time.rb</b> mostra algumas dessas funções.</p>
+<div class="CodeRay">
+<pre><span class="no"> 1</span>   t = <span class="co">Time</span>.now
+<span class="no"> 2</span>   <span class="c"># para objter o dia, mês e ano com o século</span>
+<span class="no"> 3</span>   <span class="c"># também a hora, minuto e segundo</span>
+<span class="no"> 4</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%d/%m/%Y %H:%M:%S</span><span class="dl">&quot;</span></span>)
+<span class="no"> 5</span>   
+<span class="no"> 6</span>   <span class="c"># Você pode usar A e B maiúsculos para obter</span>
+<span class="no"> 7</span>   <span class="c"># o nome completo da semana e mês, respectivamente</span>
+<span class="no"> 8</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%A</span><span class="dl">&quot;</span></span>)
+<span class="no"> 9</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%B</span><span class="dl">&quot;</span></span>)
+<span class="no"><strong>10</strong></span>   
+<span class="no">11</span>   <span class="c"># Você pode usar a e b minúsculos para obter</span>
+<span class="no">12</span>   <span class="c"># o nome abreviado do dia da semana e mês, respectivamente</span>
+<span class="no">13</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%a</span><span class="dl">&quot;</span></span>)
+<span class="no">14</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%b</span><span class="dl">&quot;</span></span>)
+<span class="no">15</span> 
+<span class="no">16</span>   <span class="c"># relógio de 24 horas e nome do fuso-horário da hora</span>
+<span class="no">17</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">at %H:%M %Z</span><span class="dl">&quot;</span></span>)
+</pre>
+</div><p>A saída é:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span>   &gt;ruby p042time.rb
+<span class="no">2</span>   10/09/2006 10:06:31
+<span class="no">3</span>   Sunday
+<span class="no">4</span>   September
+<span class="no">5</span>   Sun
+<span class="no">6</span>   Sep
+<span class="no">7</span>   at 10:06 India Standard Time
+<span class="no">8</span>   &gt;Exit code: 0
+</pre>
+</div><h2>Sumário</h2>
+<p>Listei <a href="sumario-ruby6.html">todos os pontos importantes</a> que você precisa se lembrar após ter completado os seguintes tópicos: Controle de Acesso, Exceções, Logging e classe de tempo do Ruby.</p>
+   </div>
+
+   <div class="column span-5 append-1 last">
+
+      <p><a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP"><img src="images/logo_guru-sp.jpg" title="Logo do GURU-SP" alt="Logo do Guru-SP" /></a></p>
+
+      <div class="box">
+         <p>Este material tem como base o <a href="http://www.rubylearning.com" title="Ruby Learning">tutorial do RubyLearning.com de Satish Talim</a> e foi traduzido por membros do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a> com a permissão do autor.</p>
+        <p class="last">Ajude o RubyLearning participando em algum dos <a href="http://www.rubylearning.org" title="cursos do Ruby Learning">cursos pagos</a> ou <a href="http://pledgie.com/campaigns/415" title="Ajude o Ruby Learning">fazendo uma doação para o projeto</a></p>
+      </div>
+
+      <p class="quiet"><a href="index.html" title="índice">Voltar para o índice</a></p>
+
+      <h5></h5>
+      <p class="incr"></p>
+   </div>
+
+   <div class="column span-22 prepend-1 append-1 first last" id="header">
+     <hr />
+     <p>Tuturial de Ruby do <a href="http://www.guru-sp.org" title="Grupo de Usuários Ruby de SP">GURU-SP</a>. Este site foi criado com <a href="http://webby.rubyforge.org">Webby</a></p>
+   </div>
+
+</div>
+</body>
+</html>

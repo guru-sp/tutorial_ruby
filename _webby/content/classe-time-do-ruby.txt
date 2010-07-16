@@ -1,0 +1,50 @@
+---
+title: a Classe time do Ruby
+created_at: 2009-12-23 14:29:25.387994 -02:00
+filter:
+ - erb
+ - textile
+---
+p(title). <%= h(@page.title) %>
+
+A classe **Time** do Ruby tem uma poderosa função de formatação que pode lhe ajudar a representar horários e datas de diversas formas. A classe time contém uma interface do Ruby para um conjunto de funções de tempo escritas em C. O tempo zero para Ruby é o primeiro segundo GMT de primeiro de janeiro de 1970. A classe **DateTime** é superior a classe Time para aplicações históricas e astronômicas mas você pode usar **Time** para a maior parte dos programas do dia-a-dia.
+
+A função strftime é modelada seguindo a função printf do C. O programa **p042time.rb** mostra algumas dessas funções.
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
+  t = Time.now
+  # para objter o dia, mês e ano com o século
+  # também a hora, minuto e segundo
+  puts t.strftime("%d/%m/%Y %H:%M:%S")
+  
+  # Você pode usar A e B maiúsculos para obter
+  # o nome completo da semana e mês, respectivamente
+  puts t.strftime("%A")
+  puts t.strftime("%B")
+  
+  # Você pode usar a e b minúsculos para obter
+  # o nome abreviado do dia da semana e mês, respectivamente
+  puts t.strftime("%a")
+  puts t.strftime("%b")
+
+  # relógio de 24 horas e nome do fuso-horário da hora
+  puts t.strftime("at %H:%M %Z")
+<% end -%>
+
+A saída é:
+
+<% coderay(:lang => "bash", :line_numbers => "inline") do -%>
+  >ruby p042time.rb
+  10/09/2006 10:06:31
+  Sunday
+  September
+  Sun
+  Sep
+  at 10:06 India Standard Time
+  >Exit code: 0
+<% end -%>
+
+h2. Sumário
+
+Listei "todos os pontos importantes":sumario-ruby6.html que você precisa se lembrar após ter completado os seguintes tópicos: Controle de Acesso, Exceções, Logging e classe de tempo do Ruby.
+

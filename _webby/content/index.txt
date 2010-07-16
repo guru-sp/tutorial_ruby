@@ -9,7 +9,7 @@ p(title). <%= @page.title %>
 
 Este é mais um tutorial de Ruby, idealizado pelos membros do "GURU-SP":http://www.guru-sp.org (Grupo de Usuários Ruby de SP). Apesar de existir uma "grande quantidade de material relacionado a Ruby em língua portuguesa":http://guru-sp.com/index.php/Links espalhados em blogs, livros, screencasts e tutoriais, acreditamos que há espaço para mais um bom tutorial que sirva como referência para aprender algumas particularidades desta linguagem de programação.
 
-Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. É um tutorial introdutório e que não aborda tópicos avançados. Sinta-se a vontade para corrigir erros encontrados, adicionar informações e novos tópicos fazendo um fork do "projeto no github":http://github.com/guru-sp/tutorial_ruby '.
+Nosso tutorial será baseado no material de Satish Talim do "Ruby Learning":http://www.rubylearning.com. Porém pretendemos não nos limitar somente ao conteúdo do Ruby Learning. É um tutorial introdutório e que não aborda tópicos avançados. Sinta-se a vontade para corrigir erros encontrados, adicionar informações e novos tópicos fazendo um fork do "projeto no github":http://github.com/guru-sp/tutorial_ruby.
 
 
 h2. Índice
@@ -102,7 +102,7 @@ h3. Parte 6
 ## Tratando uma exceção
 ## Exemplo de validação
 # "Logging com Ruby":logging-com-ruby.html
-# A classe Time do Ruby
+# "A classe Time do Ruby":classe-time-do-ruby.html
 # "Resumo 6":sumario-ruby6.html
 
 h3. Parte 7
