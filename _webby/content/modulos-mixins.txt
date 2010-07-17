@@ -7,17 +7,17 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Ruby Modules are similar to classes in that they hold a collection of methods, constants, and other module and class definitions. Modules are defined much like classes are, but the module keyword is used in place of the class keyword. Unlike classes, you cannot create objects based on modules nor can you subclass them; instead, you specify that you want the functionality of a particular module to be added to the functionality of a class, or of a specific object. Modules stand alone; there is no "module hierarchy" of inheritance. Modules is a good place to collect all your constants in a central location.
+Módulos Ruby são similares a classes em relação ao fato de que também armazenam uma coleção de métodos, constantes e outras definições de módulos e classes. Módulos são definidos de forma similar as classes, mas a palavra-chave **module** é usada no lugar de **class**. Entretanto, diferente das classes, você não pode criar objetos baseados em módulos nem pode criar módulos que herdam desse módulo; ao invés disso, você especifica qual funcionalidade de um módulo específico você deseja adicionar a uma classe ou a um objeto específico. Módulos permanecem sozinhos; não há hierarquia de módulos ou herança. Módulos são um bom lugar para armazenar constantes em um local centralizado.
 
-Modules serve two purposes:
+Módulos tem dois principais objetivos:
 
-* First they act as namespace, letting you define methods whose names will not clash with those defined elsewhere. The examples p058mytrig.rb, p059mymoral.rb, p060usemodule.rb illustrates this.
+* Primeiro eles agem como namespace, permitindo que você defina métodos cujos nomes não irão colidir com aqueles definidos em outras partes de um programa. Os exemplos **p058mytrig.rb, p059mymoral.rb, p060usemodule.rb** mostram isso.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p058mytrig.rb
   module Trig
     PI = 3.1416
-    # class methods
+    # métodos de classe
     def Trig.sin(x)
       # ...
     end
@@ -42,32 +42,32 @@ Modules serve two purposes:
   Moral.sin(Moral::VERY_BAD)
 <% end -%>
 
-* Second, they allow you to share functionality between classes - if a class mixes in a module, that module's instance methods become available as if they had been defined in the class. They get mixed in. The program p061mixins.rb illustrates this.
+* Em segundo lugar, permitem que você compartilhe funcionalidade entre classes -se uma classe "mistura" (mixes in) um método (isto é, o inclui), todos os métodos de instância do método se tornam disponíveis como se tivesse sido definidos na classe.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p061mixins.rb
   module D
-    def initialize(name)
-      @name =name
+    def initialize(nome)
+      @nome =nome
     end
     def to_s
-      @name
+      @nome
     end
   end
 
   module Debug
     include D
-    # Methods that act as queries are often
-    # named with a trailing ?
-    def who_am_i?
-      "#{self.class.name} (\##{self.object_id}): #{self.to_s}"
+    # Métodos que agem como perguntas
+    # geralmente são nomeados com um ? no final
+    def quem_sou_eu?
+      "#{self.class.nome} (\##{self.object_id}): #{self.to_s}"
     end
   end
 
   class Phonograph
-    # the include statement simply makes a reference to a named module
-    # If that module is in a separate file, use require to drag the file in
-    # before using include
+    # a declaração include apenas faz uma referência para o módulo nomeado
+    # se esse módulo está em um arquivo separado, use require para adicioná-lo
+    # antes de usar o include
     include Debug
     # ...
   end
@@ -79,71 +79,74 @@ Modules serve two purposes:
 
   ph = Phonograph.new("West End Blues")
   et = EightTrack.new("Real Pillow")
-  puts ph.who_am_i?
-  puts et.who_am_i?
+  puts ph.quem_sou_eu?
+  puts et.quem_sou_eu?
 <% end -%>
 
 <div class='box'>
-Observe how we use require or load. require and load take strings as their arguments.
+Observe como usamos require ou load. require e load aceitam strings como argumentos.
 
-require 'motorcycle' or load 'motorcycle.rb'
+require 'motorcycle' ou load 'motorcycle.rb'
 
-include takes the name of a module, in the form of a constant, as in include Stuff.
+include recebe o nme de um módulo, na forma de uma constante, como em include Coisa.
 
-The include method accepts any number of Module objects to mix in:
+O método include aceita qualquer número de módulos para serem inclusos:
+
 include Enumerable, Comparable
 
-Although every class is a module, the include method does not allow a class to be included within another class.
+Embora toda classe seja um módulo, o método include não permite que uma classe seja incluída em outra classe.
 </div>
 
-Some more examples:
+Mais alguns exemplos:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   #  p062stuff.rb
-  #  A module may contain constants, methods and classes.
-  #  No instances
+  #  Um módulo pode conter constantes, métodos e classes.
+  #  Mas não pode conter instâncias
 
-  module Stuff
+  module Coisa
     C = 10
-    def Stuff.m(x)  # prefix with the module name for a class method
+    def Coisa.m(x)  # prefixe com o nome do módulo para um método de classe
       C*x
     end
-    def p(x)        # an instance method, mixin for other classes
+    def p(x)        # um método de instância, um mixin para outras classes
       C + x
     end
     class T
       @t = 2
     end
   end
-  puts Stuff::C     # Stuff namespace
-  puts Stuff.m(3)   # like a class method
-  x = Stuff::T.new
-  # uninitialized constant error, if you try the following
+  puts Coisa::C     # namespace Coisa
+  puts Coisa.m(3)   # como um método de classe
+  x = Coisa::T.new
+  # se você tentar o seguinte terá um erro de constante não inicializada
   # puts C
 
   #------------
 
   # p063stuffusage.rb
-  require 'p062stuff'     # loads Stuff module from Stuff.rb
-                      # $: is a system variable -- contains the path for loads
+  require 'p062stuff'     # carrega o módulo Coisa do arquivo p062stuff.rb
+                      # $: é uma variável de sistema - contém o caminho para carregamento de arquivos
+
   class D
-    include Stuff     # refers to the loaded module
-    puts Stuff.m(4)
+    include Coisa     # se refere ao módulo carregado
+    puts Coisa.m(4)
   end
 
   d = D.new
-  puts d.p(5)         # method p from Stuff
-  puts $:             # array of folders to search for load
-  $: << "c:/"         # add a folder to the load path
+  puts d.p(5)         # método p do módulo Coisa
+  puts $:             # array de diretórios para procurar carregamentos
+  $: << "c:/"         # adicione um diretório ao loadpath
   puts $:
-  puts Stuff.m(5)     # Stuff class methods not called from D object
+  puts Coisa.m(5)     # método de classe Coisa não chamado pelo objeto D
 <% end -%>
 
 <div class='box'>
-Remember that you can mix in more than one module in a class. However, a class cannot inherit from more than one class. Class names tend to be nouns, while module names are often adjectives.
+Lembre-se que você pode incluir mais de um módulo em uma classe. Porém, uma classe não pode herdar de mais de uma classe.
+Nomes de classe geralmente são substantivos, enquanto nomes de módulos costumam ser adjetivos.
 </div>
 
 <div class='box'>
-IN RAILS: The Rails source code makes heavy use of modules, in particular the technique of reopening the definition bodies of both classes and modules.
+NO RAILS: O Código fonte do Rails usa bastante módulos, em particular a técnica de reabrir o corpo de definição tanto de módulos quanto de classes.
 </div>
 

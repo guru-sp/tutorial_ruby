@@ -33,10 +33,10 @@
 <ol>
 	<li>Módulos Ruby são similares a classes em relação ao fato de que também armazenam uma coleção de métodos, constantes e outras definições de módulos e classes. Entretanto, diferente das classes, você não pode criar objetos baseados em módulos; ao invés disso, você especifica qual funcionalidade de um módulo específico você deseja adicionar a uma classe ou a um objeto específico.</li>
 	<li>Módulos tem dois propósitos principais: Primeiro agem como namespace, permitindo que você defina métodos cujos nomes não irão coincidir com outros já definidos. Em segundo lugar, eles permitem que você compartilhe funcionalidade entre classes &#8211; se uma classe inclui um módulo, os métodos de instância do módulo ficam disponíveis como se tivessem sido definidos na classe. Eles são &#8216;misturados&#8217; (mixed in) a classe.</li>
-	<li>Observe como você pode usar <b>require</b> ou <b>load</b>. <b>require</b> ou <b>load</b> rececebem strings como argumentos.</li>
+	<li>Observe como você pode usar <b>require</b> ou <b>load</b>. <b>require</b> ou <b>load</b> recebem strings como argumentos.</li>
 </ol>
-require &#8216;motocicleta&#8217; or load &#8216;motocicleta.rb&#8217;
-include pega o nome de um módula, na forma de uma contante, com por exemplo em <b>include</b> &#8216;Coisa&#8217;.
+require &#8216;motocicleta&#8217; ou load &#8216;motocicleta.rb&#8217;
+include pega o nome de um módulo, na forma de uma contante, com por exemplo em <b>include</b> &#8216;Coisa&#8217;.
 O método include aceita qualquer número de objetos do tipo <b>Module</b> para serem incluídos:
 <b>include</b> Enumerable, Comparable
 Embora cada classe seja um módulo, o método <b>include</b> não permite que uma classe seja incluída dentro de outra classe.

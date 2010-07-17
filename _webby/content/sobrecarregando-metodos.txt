@@ -38,5 +38,5 @@ O programa **p037retangulo.rb**, acima, está incompleto da perpectiva da classe
 
 h2. Sumário
 
-Eu listei todos os **pontos importantes** que você precisa lembrar depois de concluir os seguintes tópicos: **Incluindo outros arquivos**, **Classes abertas em Ruby**, **Herança**, **Sobrescrevendo métodos**, **Sobrecarregando métodos**.
+Eu listei todos os "pontos importantes":sumario-ruby5.html que você precisa lembrar depois de concluir os seguintes tópicos: **Incluindo outros arquivos**, **Classes abertas em Ruby**, **Herança**, **Sobrescrevendo métodos**, **Sobrecarregando métodos**.
 

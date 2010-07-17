@@ -110,7 +110,7 @@ No Ruby, **initialize** (inicializar) é um método ordinário e é herdado como
 </div>
 
 <div class='box'>
-**No Rails:** A Herança é uma das técnicas chave usadas na organização do projeto da programação e do framework.
+NO RAILS: A Herança é uma das técnicas chave usadas na organização do projeto da programação e do framework.
 </div>
 
 h2. Herança e Variáveis de Instância

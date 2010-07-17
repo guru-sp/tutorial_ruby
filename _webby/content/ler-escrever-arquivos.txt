@@ -62,7 +62,7 @@ h2. Acesso Aleatório
 puts 'Ola EUA'
 <% end %>
 
-Agora precisamos mostrar o conteúdo do arquivo a partir da palavra EUA. Aqui está como - programa p028xrandom.rb:
+Agora precisamos mostrar o conteúdo do arquivo a partir da palavra EUA. Aqui está como - programa **p028xrandom.rb**:
   
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p028xrandom.rb  
@@ -79,13 +79,17 @@ print f.readline
 f.close
 <% end %>
 
+
 A saída é:
+
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
 >ruby p028xrandom.rb  
 EUA'  
 >Exit code: 0
 <% end %>
+
+
 
 O Ruby suporta a ideia de um apontador para um arquivo. O apontador para um arquivo indica a posição atual no arquivo. O método **File.new** abri o arquivo 'hellousa.rb' no modo somente leitura (modo padrão), retorna um novo objeto **File** e o ponteiro para o arquivo é posicionado no início do mesmo. No programa acima, a próxima instrução é f.seek(10, IO:SEEK_SET). O método **seek** da classe "**IO**":http://www.ruby-doc.org/ruby-1.9/classes/IO.html, move o ponteiro do arquivo para uma distância dada por um número inteiro (o primeiro parâmetro do método *seek*) no stream de acordo com o valor do segundo parâmetro no método **seek**.
 

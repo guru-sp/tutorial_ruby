@@ -7,15 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Um **Array** (arranjo) é apenas uma lista de itens em ordem (como mangas, maçãs e laranjas). Cada posição na lista atua como
-uma variável: você pode ver para qual objeto uma determinada posição aponta para, e você pode fazer ela apontar para um
-objeto diferente. Você pode fazer um array usando colchetes. Em Ruby, o primeiro valor em um array tem o índice 0. Os
-métodos **size** e **length** retornam o número de elementos no array. O último elemento de um array está no índice **size-1**.
-Valores negativos de índice são contados a partir do final do array, de modo que o último elemento de um array pode ser
-acessado com um índice -1. Se você tentar ler um elemento além do final do array (com um índice >= **size**) ou antes do
-início do array (com índice < -size), o Ruby simplesmente retornará nil (nulo) e não lançará uma exceção. Os arrays em
-Ruby são mutáveis - arrays são redimensionados dinamicamente; você pode acrescentar elementos a eles e eles crescem o
-necessário. Vamos olhar para o seguinte exemplo **p018arrays.rb**. Por favor, siga pelo programa com atenção.
+Um **Array** (arranjo) é apenas uma lista de itens em ordem (como mangas, maçãs e laranjas). Cada posição na lista atua como uma variável: você pode ver para qual objeto uma determinada posição aponta para, e você pode fazer ela apontar para um objeto diferente. Você pode fazer um array usando colchetes. Em Ruby, o primeiro valor em um array tem o índice 0. Os métodos **size** e **length** retornam o número de elementos no array. O último elemento de um array está no índice **size-1**. Valores negativos de índice são contados a partir do final do array, de modo que o último elemento de um array pode ser acessado com um índice -1. Se você tentar ler um elemento além do final do array (com um índice >= **size**) ou antes do início do array (com índice < -size), o Ruby simplesmente retornará nil (nulo) e não lançará uma exceção. Os arrays em Ruby são mutáveis - arrays são redimensionados dinamicamente; você pode acrescentar elementos a eles e eles crescem o necessário. Vamos olhar para o seguinte exemplo **p018arrays.rb**. Por favor, siga pelo programa com atenção.
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
@@ -88,15 +80,11 @@ linguas.each do |lang|
 end  
 <% end %>
 
-O método **each** (para qualquer objeto) permite-nos fazer algo (o que quisermos) para cada (each) objeto para o qual o
-array aponta. No exemplo, somos capazes de iterar sobre o array sem usar nenhum número. Aqui estão algumas coisas para
-se lembrar:
+O método **each** (para qualquer objeto) permite-nos fazer algo (o que quisermos) para cada (each) objeto para o qual o array aponta. No exemplo, somos capazes de iterar sobre o array sem usar nenhum número. Aqui estão algumas coisas para se lembrar:
 
-* A variável lang dentro das "traves" (barras verticais) se refere a cada item no array a medida que ele é iterado no
-loop. Você pode dar a esta variável o nome que quiser, mas escolha um nome especial.
+* A variável lang dentro das "traves" (barras verticais) se refere a cada item no array a medida que ele é iterado no loop. Você pode dar a esta variável o nome que quiser, mas escolha um nome especial.
 
-* O **do** e o **end** identificam um bloco de código que será executado para cada item. Blocos são usados extensivamente em
-Ruby.
+* O **do** e o **end** identificam um bloco de código que será executado para cada item. Blocos são usados extensivamente em Ruby.
 
 
 Aqui está um exemplo interessante de um método que retorna um array. Exemplo **p019mtdarry.rb**.
@@ -136,7 +124,7 @@ O método **times** da classe **Integer** (inteiro) itera o bloco n vezes, passa
 
 h2. Atribuição paralela
 
-Para explicar ussi, usaremos os termos lvalue (valor á esquerda) e rvalue (valor à direita).
+Para explicar isso, usaremos os termos lvalue (valor á esquerda) e rvalue (valor à direita).
 Um lvalue é algo que pode aparecer por si mesmo no lado esquerdo de uma atribuição (uma variável, constante ou método que seta algum atributo). Um rvalue é algo que pode aparecer por si só no lado direito. Ruby permite que você tenha uma lista de rvalues separados por vírgula. Uma vez que o Ruby vê mais que um rvalue em uma atribuição, as regras de atribuição paralela entram em cena. Em primeiro lugar, todos os rvalues são avaliados, da esquerda para a direita e então coletados em um array (ao menos que eles já sejam um array). Este array será o evento valor retornado pela atribuição como um todo. Em seguida, o lado a esquerda é inspecionado. Se ele contém um único elemento, o array é associado a esse elemento.
 
 
@@ -156,10 +144,7 @@ c, = 1, 2, 3, 4 # => c == 1
 
 h2. Variáveis de ambiente
 
-Uma variável de ambiente é um link entre nosso programa e o mundo externo. Uma variável de ambiente é essencialmente um
-rótulo que se refere a um pedaço de texto; e pode ser usada para armazenar informações de configurações como caminhos,
-nomes de usuário e assim por diante. Você pode acessar variáveis de ambiente do sistema operacional usando a variável
-predefinada ENV.
+Uma variável de ambiente é um link entre nosso programa e o mundo externo. Uma variável de ambiente é essencialmente um rótulo que se refere a um pedaço de texto; e pode ser usada para armazenar informações de configurações como caminhos, nomes de usuário e assim por diante. Você pode acessar variáveis de ambiente do sistema operacional usando a variável predefinida ENV.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 ENV.each {|k,v| puts "#{k}: #{v}"}
@@ -167,10 +152,10 @@ ENV.each {|k,v| puts "#{k}: #{v}"}
 
 
 Ruby seta ENV para as variáveis do ambiente. Após isso, a iteração procede com each. Desta vez o bloco recebe dois parâmetros:
-k (chave) e v (valor). BLocos são um mecanismo completamente geral e podem receber qualquer número de argumentos.
+k (chave) e v (valor). Blocos são um mecanismo completamente geral e podem receber qualquer número de argumentos.
 
-Os valores de algumas variávels de ambiente são lidos pelo Ruby quando ele inicializa. Essas variáveis modificam o comportamento
-do intepretador, como mostrado na tabela abaixo.
+Os valores de algumas variáveis de ambiente são lidos pelo Ruby quando ele inicializa. Essas variáveis modificam o comportamento
+do interpretador, como mostrado na tabela abaixo.
 
 
 | **Nome da variável** | **Descrição** |
@@ -189,11 +174,7 @@ ou COMPSPEC|
 | RUBY_TK_DLL          | sobrescreve o nome padrão para a bibliota compartilhada ou DLL do Tk tanto essa variável como a do TCL precisando ser setadas para se usar uma das duas bibliotecas|
 
 
-Um programa Ruby pode escrever no objeto ENV. Na maioria dos sistemas isso muda os valores das variáveis de ambiente
-correspondentes. Entretanto, essa mudança é local para o processo que a faz e para qualquer processo filho criado. Um
-subprocesso altera uma variável de ambiente e essa mudança é herdada por um processo que é iniciado pelo primeiro. Entretanto,
-a mudança não é visível para o pai original (isso apenas serve para provar que os pais realmente nunca sabem o que seus filhos
-estão fazendo).
+Um programa Ruby pode escrever no objeto ENV. Na maioria dos sistemas isso muda os valores das variáveis de ambiente correspondentes. Entretanto, essa mudança é local para o processo que a faz e para qualquer processo filho criado. Um subprocesso altera uma variável de ambiente e essa mudança é herdada por um processo que é iniciado pelo primeiro. Entretanto, a mudança não é visível para o pai original (isso apenas serve para provar que os pais realmente nunca sabem o que seus filhos estão fazendo).
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 ENV["course"] = "FORPC101"  
@@ -203,10 +184,9 @@ puts "#{ENV['course']}"
 
 h2.Argumentos de linha de comando
 
-Se você está iniciando um programa da linha de comando, você pode adicionar parâmetros no final do commando e estes serão processados pelo programa.
+Se você está iniciando um programa da linha de comando, você pode adicionar parâmetros no final do comando e estes serão processados pelo programa.
 
-Você pode fazer o mesmo com sua aplicação Ruby. O Ruby automaticamente coloca qualquer parâmetro que são adicionados à linha de comando quando você executa seu programa Ruby em
-um array especial chamado ARGV. Se seu programa é:
+Você pode fazer o mesmo com sua aplicação Ruby. O Ruby automaticamente coloca qualquer parâmetro que são adicionados à linha de comando quando você executa seu programa Ruby em um array especial chamado ARGV. Se seu programa é:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 f = ARGV[0]  
@@ -224,11 +204,9 @@ E o programa deve mostrar 23 como saída.
 
 h2.Biblioteca GetoptLong
 
-A Classe **GetoptLong** suparta o parsing de opções de linha de comando. As opções podem ter
-um sinal de menos (-) seguido por um único caractere ou dois sinais de menos (--) seguidos por
-um nome (uma opção longa).
-As opções podem ser dadas em qualquer ordem. Uma única opção interna pode ter múltiplas representações externas. Por exemplo, a opção para controlar a saída verbosa pode ser tanto -v, --verbose ou -details. Algumas opções podem também receber um valor associado. Cada opção
-interna é passada a **GetoptLong** como um array, contendo strings representando as formas externas e uma flag. A flag especifica como **GetoptLong** é associada ao argumento com a opção (NO_ARGUMENT, REQUIRED_ARGUMENT, or OPTIONAL_ARGUMENT).
+A Classe **GetoptLong** suporta o parsing de opções de linha de comando. As opções podem ter um sinal de menos (-) seguido por um único caractere ou dois sinais de menos (--) seguidos por um nome (uma opção longa).
+
+As opções podem ser dadas em qualquer ordem. Uma única opção interna pode ter múltiplas representações externas. Por exemplo, a opção para controlar a saída verbosa pode ser tanto -v, --verbose ou -details. Algumas opções podem também receber um valor associado. Cada opção interna é passada a **GetoptLong** como um array, contendo strings representando as formas externas e uma flag. A flag especifica como **GetoptLong** é associada ao argumento com a opção (NO_ARGUMENT, REQUIRED_ARGUMENT, or OPTIONAL_ARGUMENT).
 
 
 Suponha que eu queira chamar um programa Ruby assim:
@@ -274,8 +252,7 @@ opts.each do |opt, arg|
 end  
 <% end %>
 
-**require** te dá acesso as muitas extensões e bibliotecas de programação que vem com a linguagem Ruby - além de um número maior ainda de extensões e bibliotecas escritas independentemente por
-outros programadores e tornadas disponíveis para se usar com Ruby. Nós estudaremos o require em mais detalhas mais tarde. Além disso, mais tarde, deveremos estudar como acessar constantes usando ::
+**require** te dá acesso as muitas extensões e bibliotecas de programação que vem com a linguagem Ruby - além de um número maior ainda de extensões e bibliotecas escritas independentemente por outros programadores e tornadas disponíveis para se usar com Ruby. Nós estudaremos o require em mais detalhas mais tarde. Além disso, mais tarde, deveremos estudar como acessar constantes usando ::
 
 **Como converto objetos em um Array?** Se você quer empacotar objetos em um **Array**, você pode usar um método especial Array do módulo **Kernel** (que começa com letra maiúscula e se parece com uma classe). Esse método especial converte seus argumentos em um array. Por exemplo:
 
@@ -293,7 +270,7 @@ print Array(str) # ["ola\nmundo"]
 <% end %>
 
 
-**Quais são os ancenstrais de Array?** Rode o segunte programa para descobrir:
+**Quais são os ancestrais de Array?** Rode o segunte programa para descobrir:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 a = [1,2,3,4]  
