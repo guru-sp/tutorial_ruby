@@ -117,7 +117,7 @@ h3. Parte 8
 # "Serialização de objetos":serializacao-de-objetos.html
 # "Módulos / Mixins":modulos-mixins.html
 # "Self":self.html
-## Contexto do nível mais alto
+## Contexto do nível superior
 ## Self dentro de definições de classes e módulos
 ## Self na definição de métodos de instância
 ## Self na definição de métodos singleton e métodos de classe

@@ -30,99 +30,99 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">self</p>
-<p>At every point when your program is running, there is one and only one self &#8211; the current or default object accessible to you in your program. You can tell which object self  represents by following a small set of rules.<br />
-Top level context</p>
-<p>The top level context is before you have entered any other context, such as a class definition. Therefore the term top level refers to program code written outside of a class or module. If you open a new text file and type:</p>
+<p>Em cada ponto em que seu programa está rodando, há um único objeto self  &#8211; o objeto atual ou padrão acessível para você em seu programa. Você pode dizer qual objeto self representa seguindo um pequeno conjunto de regras.</p>
+<h2>Contexto de nível superior</h2>
+<p>O contexto de nível superior é aquele que ocorre antes de você entrar em qualquer outro contexto, como uma definição de classe. Então o termo nível superior se refere ao código escrito externamente a uma classe ou módulo. Se você abrir um novo arquivo de texto e digitar:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   x = <span class="i">1</span>
 </pre>
-</div><p>you have created a top level local variable x. If you type:</p>
+</div><p>Você criou uma variável local de nível superior. Se você digitar:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">m</span>
 <span class="no">2</span>   <span class="r">end</span>
 </pre>
-</div><p>you have created a top level method &#8211; an instance method of Object (even though self is not Object). Top-level methods are always private. Ruby provides you with a start-up self at the top level. If you type:</p>
+</div><p>Você terá criado um método de nível superior &#8211; um método de instância de Object (embora self não seja um Object). Métodos de nível superior são sempre privados. O Ruby lhe provê um self inicial no nível mais alto. Se digitar:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   puts <span class="pc">self</span>
 </pre>
-</div><p>it displays main &#8211; a special term the default self object uses to refer to itself. The class of the main object is Object.</p>
-<h2>Self inside class and module definitions</h2>
-<p>In a class or module definition, self is the class or module object.</p>
+</div><p>Ele mostrará main (principal) &#8211; um termo especial que o objeto self usa para referir-se a si mesmo. A classe do objeto main é Object.</p>
+<h2>Self dentro de definições de classes e módulos</h2>
+<p>Em uma definição de classe ou módulo, self é o objeto da classe ou do módulo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p063xself1.rb</span>
 <span class="no"> 2</span>   <span class="r">class</span> <span class="cl">S</span>
-<span class="no"> 3</span>     puts <span class="s"><span class="dl">'</span><span class="k">Just started class S</span><span class="dl">'</span></span>
+<span class="no"> 3</span>     puts <span class="s"><span class="dl">'</span><span class="k">Acabei de começar a classe S</span><span class="dl">'</span></span>
 <span class="no"> 4</span>     puts <span class="pc">self</span>
 <span class="no"> 5</span>     <span class="r">module</span> <span class="cl">M</span>
-<span class="no"> 6</span>       puts <span class="s"><span class="dl">'</span><span class="k">Nested module S::M</span><span class="dl">'</span></span>
+<span class="no"> 6</span>       puts <span class="s"><span class="dl">'</span><span class="k">Módulo aninhado S::M</span><span class="dl">'</span></span>
 <span class="no"> 7</span>       puts <span class="pc">self</span>
 <span class="no"> 8</span>     <span class="r">end</span>
-<span class="no"> 9</span>     puts <span class="s"><span class="dl">'</span><span class="k">Back in the outer level of S</span><span class="dl">'</span></span>
+<span class="no"> 9</span>     puts <span class="s"><span class="dl">'</span><span class="k">De volta ao nível externo de S</span><span class="dl">'</span></span>
 <span class="no"><strong>10</strong></span>     puts <span class="pc">self</span>
 <span class="no">11</span>   <span class="r">end</span>
 </pre>
-</div><p>The output is:</p>
+</div><p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself1.rb
-<span class="no">2</span>   Just started class S
+<span class="no">2</span>   Acabei de começar a classe S
 <span class="no">3</span>   S
-<span class="no">4</span>   Nested module S::M
+<span class="no">4</span>   Módulo aninhado S::M
 <span class="no">5</span>   S::M
-<span class="no">6</span>   Back in the outer level of S
+<span class="no">6</span>   De volta ao nível externo de S
 <span class="no">7</span>   S
 <span class="no">8</span>   &gt;Exit code: 0
 </pre>
-</div><h2>Self in instance method definitions</h2>
-<p>At the time the method definition is executed, the most you can say is that self inside this method will be some future object that has access to this method.</p>
+</div><h2>Self na definição de métodos de instância</h2>
+<p>Quando a definição de um método é executada, o máximo que você pode dizer é que self dentro deste método será algum objeto futuro que tem acesso ao mesmo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p063xself2.rb</span>
 <span class="no"> 2</span>   <span class="r">class</span> <span class="cl">S</span>
 <span class="no"> 3</span>     <span class="r">def</span> <span class="fu">m</span>
-<span class="no"> 4</span>       puts <span class="s"><span class="dl">'</span><span class="k">Class S method m:</span><span class="dl">'</span></span>
+<span class="no"> 4</span>       puts <span class="s"><span class="dl">'</span><span class="k">Classe S método m:</span><span class="dl">'</span></span>
 <span class="no"> 5</span>       puts <span class="pc">self</span>
 <span class="no"> 6</span>     <span class="r">end</span>
 <span class="no"> 7</span>   <span class="r">end</span>
 <span class="no"> 8</span>   s = <span class="co">S</span>.new
 <span class="no"> 9</span>   s.m
 </pre>
-</div><p>The output is:</p>
+</div><p>A saída será:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself2.rb
-<span class="no">2</span>   Class S method m:
+<span class="no">2</span>   Classe S método m:
 <span class="no">3</span>   #&lt;S:0x2835908&gt;
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div><p>The output #<S:0x2835908> is Ruby&#8217;s way of saying &#8220;an instance of S&#8221;.</p>
-<h2>Self in singleton-method and class-method definitions</h2>
-<p>Singleton methods &#8211; those attached to a particular object can be called by only one object. When a singleton method is executed, self is the object that owns the method, as shown below:</p>
+</div><p>A saída #<S:0x2835908> é o jeito do Ruby de dizar &#8220;uma instância de S&#8221;.</p>
+<h2>Self em um método singleton e em definições de métodos de classe</h2>
+<p>Métodos singleton &#8211; aqueles que estão associados a um objeto e que podem ser chamados apenas por esse objeto. Quando um método singleton é executado, self é o objeto que é o dono do método, como mostrado abaixo:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p063xself3.rb</span>
 <span class="no"> 2</span>   obj = <span class="co">Object</span>.new
 <span class="no"> 3</span>   <span class="r">def</span> obj.show
-<span class="no"> 4</span>     print <span class="s"><span class="dl">'</span><span class="k">I am an object: </span><span class="dl">'</span></span>
-<span class="no"> 5</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">here's self inside a singleton method of mine:</span><span class="dl">&quot;</span></span>
+<span class="no"> 4</span>     print <span class="s"><span class="dl">'</span><span class="k">Sou um objeto: </span><span class="dl">'</span></span>
+<span class="no"> 5</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">aqui self está dentro de um método singleton que me pertence:</span><span class="dl">&quot;</span></span>
 <span class="no"> 6</span>     puts <span class="pc">self</span>
 <span class="no"> 7</span>   <span class="r">end</span>
 <span class="no"> 8</span>   obj.show
-<span class="no"> 9</span>   print <span class="s"><span class="dl">'</span><span class="k">And inspecting obj from outside, </span><span class="dl">'</span></span>
-<span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">to be sure it's the same object:</span><span class="dl">&quot;</span></span>
+<span class="no"> 9</span>   print <span class="s"><span class="dl">'</span><span class="k">E inspecionando o objeto por fora, </span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">para ter certeza que é o mesmo objeto:</span><span class="dl">&quot;</span></span>
 <span class="no">11</span>   puts obj
 </pre>
-</div><p>The output of the above example is:</p>
+</div><p>A saída do exemplo acima é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself3.rb
-<span class="no">2</span>   I am an object: here's self inside a singleton method of mine:
+<span class="no">2</span>   Sou um objeto: aqui self está dentro de um método singleton que me pertence:
 <span class="no">3</span>   #&lt;Object:0x2835688&gt;
-<span class="no">4</span>   And inspecting obj from outside, to be sure it's the same object:
+<span class="no">4</span>   E inspecionando o objeto por fora, para ter certeza que é o mesmo objeto:
 <span class="no">5</span>   #&lt;Object:0x2835688&gt;
 <span class="no">6</span>   &gt;Exit code: 0
 </pre>
-</div><p>Class methods are defined as singleton methods for class objects. Refer to the following program:</p>
+</div><p>Métodos de classe são definidos como métodos singleton para objetos do tipo classe. Veja o seguinte programa:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p063xself4.rb</span>
 <span class="no">2</span>   <span class="r">class</span> <span class="cl">S</span>
 <span class="no">3</span>     <span class="r">def</span> <span class="co">S</span>.x
-<span class="no">4</span>       puts <span class="s"><span class="dl">&quot;</span><span class="k">Class method of class S</span><span class="dl">&quot;</span></span>
+<span class="no">4</span>       puts <span class="s"><span class="dl">&quot;</span><span class="k">Método de classe da classe S</span><span class="dl">&quot;</span></span>
 <span class="no">5</span>       puts <span class="pc">self</span>
 <span class="no">6</span>     <span class="r">end</span>
 <span class="no">7</span>   <span class="r">end</span>
@@ -131,11 +131,11 @@ Top level context</p>
 </div><p>The output is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself4.rb
-<span class="no">2</span>   Class method of class S
+<span class="no">2</span>   Método de classe da classe S
 <span class="no">3</span>   S
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div><p>self inside a singleton method (a class method, in this case) is the object whose singleton method it is.</p>
+</div><p>self dentro de um método singleton (um método de classe, nesse caso) é o objeto que possui o método singleton.</p>
    </div>
 
    <div class="column span-5 append-1 last">

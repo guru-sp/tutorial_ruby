@@ -1,5 +1,5 @@
 ---
-title: constantes
+title: Constantes
 created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
  - erb
@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-A Ruby constant is like a variable, except that its value is supposed to remain constant for the duration of the program. The Ruby interpreter does not actually enforce the constancy of constants, but it does issue a warning if a program changes the value of a constant (as shown in this trivial example) - p054constwarn.rb
+Uma constante Ruby é como uma variável, exceto que seu valor supostamente deve se manter constante enquanto o programa durar. O interpretador Ruby na verdade não força a constância de constantes, mas ele avisa caso um programa altere o valor de uma constante, como mostrado nesse exemplo trivial - **p054constwarn.rb**
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p054constwarn.rb
@@ -16,99 +16,97 @@ A Ruby constant is like a variable, except that its value is supposed to remain 
 <% end -%>
 
 
-Produces a warning:
+Produz um aviso (warning):
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
-  p054constwarn.rb:3: warning: already initialized constant A_CONST
+  p054constwarn.rb:3: warning: already initialized constant A_CONST 
+  # aviso: a constante A_CONST já foi inicializada
 <% end -%>
 
+Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores (_) são usados para separar palavras, ASSIM_POR_EXEMPLO. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.
 
-Lexically, the names of constants look like the names of local variables, except that they begin with a capital letter. By convention, most constants are written in all uppercase with underscores to separate words, LIKE_THIS. Ruby class and module names are also constants, but they are conventionally written using initial capital letters and camel case, LikeThis.
+Perceba que constantes não existem até que um valor seja associado as mesmas.
 
-Note that constants do not exist until a value is actually assigned to them.
-
-Although constants should not be changed, you can modify the internal states of the objects they reference, as seen in p055constalter.rb
+Embora constantes não devam ser alteradas, você pode modificar o estado interno dos objetos que as referenciam, como visto no exemplo **p055constalter.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p055constalter.rb
   A_CONST = "Doshi"
   B_CONST = A_CONST
-  A_CONST[0] = "J" # alter string referenced by constant
-  puts A_CONST # displays Joshi
-  puts B_CONST # also displays Joshi
+  A_CONST[0] = "J" # altera a string referenciada pela constante
+  puts A_CONST # mostra Joshi
+  puts B_CONST # também mostra Joshi
 <% end -%>
 
 <div class='box'>
-IN RAILS: You can find examples of this kind of operation (modify) in the Rails source code, where constants figure prominently and the objects they represent undergo fairly frequent changes.
+NO RAILS: Você pode encontrar exemplos desse tipo de operação (modificação) no código fonte do Rails, onde constantes aparecem prominenetemente e os objetos que elas representam passam por mudanças com certa frequência.
 </div>
 
-Note:
+Observe:
+* Constantes definidas dento de uma classe ou módulo podem ser acessadas em qualquer lugar dentro da classe ou módulo
+* Fora da classe ou módulo, elas podem ser acessadas usando o operador de escopo :: , prefixado por uma expressão que retorna o módulo ou classe associado (Classe::CONSTANTE)
+* Constantes definidas fora de qualquer classe ou módulo podem ser acessadas normalmente ou usando o operador de escopo sem nenhum prefixo.
+* Constantes não podem ser definidas em métodos.
+* Constantes podem ser adicionadas para classes e módulos existentes externamente usando o nome da classe e do módulo e o operador de escopo antes do nome da variável.
 
-    * Constants defined within a class or module may be accessed anywhere within the class or module.
-    * Outside the class or module, they may be accessed using the scope operator, :: prefixed by an expression that returns the appropriate class or module.
-    * Constants defined outside any class or module may be accessed as it is or by using the scope operator with no prefix.
-    * Constants may not be defined in methods.
-    * Constants may be added to existing classes and modules from the outside by using the class or module name and the scope operator before the constant name.
-
-The program p056const.rb shows all of this:
+O programa **p056const.rb** mostra tudo isso:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  OUTER_CONST = 99
+  CONSTANTE_EXTERNA = 99
 
-  class Const
-      def get_const
-        CONST
+  class Constante
+      def pega_constante
+        CONSTANTE
       end
-      CONST = OUTER_CONST + 1
+      CONSTANTE = CONSTANTE_EXTERNA + 1
   end
 
-  puts Const.new.get_const
-  puts Const::CONST
-  puts ::OUTER_CONST
-  puts Const::NEW_CONST = 123
+  puts Constante.new.pega_constante
+  puts Constante::CONSTANTE
+  puts ::CONSTANTE_EXTERNA
+  puts Const::NOVA_CONSTANTE = 123
 <% end -%>
 
-
-Another elaborate example on own methods in a class is p057mymethods2.rb In this example we shall also see how to write a class method.
+Outro exemplo elbaroda sobre métodos de uma classe é o **p057mymethods2.rb**. Nesse exemplo nós também vemos como escrever um método de classe.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p057mymethods2.rb
-  # variables and methods start lowercase
-  $glob = 5 # global variables start with $
-  class TestVar # class name constant, start uppercase
-   @@cla = 6 # class variables start with @@
-   CONST_VAL = 7 # constant style, all caps, underscore
-   def initialize(x) # constructor
-    @inst = x # instance variables start with @
-    @@cla += 1 # each object shares @@cla
+  # variávais e métodos começam com letra minúscula
+  $glob = 5 # variáveis globais começam com $
+  class TestVar # nome de classe é constante, começa com maiúscula
+   @@cla = 6 # variáveis de classe começam com @@
+   CONST_VAL = 7 # estilo de constante, caixa alta, underscore
+   def initialize(x) # construtor
+    @inst = x # variáveis de instância começam com @
+    @@cla += 1 # cada objeto compartilha @@cla
    end
-   def self.cla # class method, getter
+   def self.cla # método de classe, getter
     @@cla
    end
-   def self.cla=(y) # class method, setter, also TestVar.
+   def self.cla=(y) # método de classe, setter, também TestVar.
     @@cla = y
    end
-   def inst # instance method, getter
+   def inst # método de instância, getter
     @inst
    end
-   def inst=(i) # instance method, setter
+   def inst=(i) # método de instância, setter
     @inst = i
    end
   end
   puts $glob
-  test = TestVar.new(3) # calls constructor
-  puts TestVar.cla # calls getter
-  puts test.inspect # gives object ID and instance vars
-  TestVar.cla = 4 # calls setter
-  test.inst=8 # calls setter
+  test = TestVar.new(3) # chama construtor
+  puts TestVar.cla # chma getter
+  puts test.inspect # dá o ID do objeto e variáveis de instância
+  TestVar.cla = 4 # chama setter
+  test.inst=8 # chama setter
   puts TestVar.cla
-  puts test.inst # calls getter
+  puts test.inst # chama getter
   other = TestVar.new(17)
   puts other.inspect
   puts TestVar.cla
 <% end -%>
 
-h2. Summary
+h2. Sumário
 
-I have listed down all the important points you need to remember after you have completed the following topics: Object Serialization, Modules/Mixins, Self, Constants.
+Listei todos os "pontos importantes":sumario-ruby8.html que você precisa se lembrar após ter completado os seguintes tópics: Serialização de Objetos, Módulos/Mixins, Self e Constantes.
 

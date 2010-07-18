@@ -7,75 +7,73 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-At every point when your program is running, there is one and only one self - the current or default object accessible to you in your program. You can tell which object self  represents by following a small set of rules.
-Top level context
+Em cada ponto em que seu programa está rodando, há um único objeto self  - o objeto atual ou padrão acessível para você em seu programa. Você pode dizer qual objeto self representa seguindo um pequeno conjunto de regras.
 
-The top level context is before you have entered any other context, such as a class definition. Therefore the term top level refers to program code written outside of a class or module. If you open a new text file and type:
+h2. Contexto de nível superior
+
+O contexto de nível superior é aquele que ocorre antes de você entrar em qualquer outro contexto, como uma definição de classe. Então o termo nível superior se refere ao código escrito externamente a uma classe ou módulo. Se você abrir um novo arquivo de texto e digitar:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   x = 1
 <% end -%>
 
-
-you have created a top level local variable x. If you type:
+Você criou uma variável local de nível superior. Se você digitar:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   def m
   end
 <% end -%>
 
-
-you have created a top level method - an instance method of Object (even though self is not Object). Top-level methods are always private. Ruby provides you with a start-up self at the top level. If you type:
+Você terá criado um método de nível superior - um método de instância de Object (embora self não seja um Object). Métodos de nível superior são sempre privados. O Ruby lhe provê um self inicial no nível mais alto. Se digitar:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   puts self
 <% end -%>
 
+Ele mostrará main (principal) - um termo especial que o objeto self usa para referir-se a si mesmo. A classe do objeto main é Object.
 
-it displays main - a special term the default self object uses to refer to itself. The class of the main object is Object.
+h2. Self dentro de definições de classes e módulos
 
-h2. Self inside class and module definitions
-
-In a class or module definition, self is the class or module object.
+Em uma definição de classe ou módulo, self é o objeto da classe ou do módulo.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p063xself1.rb
   class S
-    puts 'Just started class S'
+    puts 'Acabei de começar a classe S'
     puts self
     module M
-      puts 'Nested module S::M'
+      puts 'Módulo aninhado S::M'
       puts self
     end
-    puts 'Back in the outer level of S'
+    puts 'De volta ao nível externo de S'
     puts self
   end
 <% end -%>
 
 
-The output is:
+A saída é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p063xself1.rb
-  Just started class S
+  Acabei de começar a classe S
   S
-  Nested module S::M
+  Módulo aninhado S::M
   S::M
-  Back in the outer level of S
+  De volta ao nível externo de S
   S
   >Exit code: 0
 <% end -%>
 
 
-h2. Self in instance method definitions
+h2. Self na definição de métodos de instância
 
-At the time the method definition is executed, the most you can say is that self inside this method will be some future object that has access to this method.
+Quando a definição de um método é executada, o máximo que você pode dizer é que self dentro deste método será algum objeto futuro que tem acesso ao mesmo.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p063xself2.rb
   class S
     def m
-      puts 'Class S method m:'
+      puts 'Classe S método m:'
       puts self
     end
   end
@@ -84,57 +82,58 @@ At the time the method definition is executed, the most you can say is that self
 <% end -%>
 
 
-The output is:
+A saída será:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p063xself2.rb
-  Class S method m:
+  Classe S método m:
   #<S:0x2835908>
   >Exit code: 0
 <% end -%>
 
 
-The output #<S:0x2835908> is Ruby's way of saying "an instance of S".
+A saída #<S:0x2835908> é o jeito do Ruby de dizar "uma instância de S".
 
 
-h2. Self in singleton-method and class-method definitions
+h2. Self em um método singleton e em definições de métodos de classe
 
-Singleton methods - those attached to a particular object can be called by only one object. When a singleton method is executed, self is the object that owns the method, as shown below:
+Métodos singleton - aqueles que estão associados a um objeto e que podem ser chamados apenas por esse objeto. Quando um método singleton é executado, self é o objeto que é o dono do método, como mostrado abaixo:
+
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p063xself3.rb
   obj = Object.new
   def obj.show
-    print 'I am an object: '
-    puts "here's self inside a singleton method of mine:"
+    print 'Sou um objeto: '
+    puts "aqui self está dentro de um método singleton que me pertence:"
     puts self
   end
   obj.show
-  print 'And inspecting obj from outside, '
-  puts "to be sure it's the same object:"
+  print 'E inspecionando o objeto por fora, '
+  puts "para ter certeza que é o mesmo objeto:"
   puts obj
 <% end -%>
 
 
-The output of the above example is:
+A saída do exemplo acima é: 
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p063xself3.rb
-  I am an object: here's self inside a singleton method of mine:
+  Sou um objeto: aqui self está dentro de um método singleton que me pertence:
   #<Object:0x2835688>
-  And inspecting obj from outside, to be sure it's the same object:
+  E inspecionando o objeto por fora, para ter certeza que é o mesmo objeto:
   #<Object:0x2835688>
   >Exit code: 0
 <% end -%>
 
 
-Class methods are defined as singleton methods for class objects. Refer to the following program:
+Métodos de classe são definidos como métodos singleton para objetos do tipo classe. Veja o seguinte programa:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p063xself4.rb
   class S
     def S.x
-      puts "Class method of class S"
+      puts "Método de classe da classe S"
       puts self
     end
   end
@@ -146,10 +145,9 @@ The output is:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p063xself4.rb
-  Class method of class S
+  Método de classe da classe S
   S
   >Exit code: 0
 <% end -%>
 
-self inside a singleton method (a class method, in this case) is the object whose singleton method it is.
-
+self dentro de um método singleton (um método de classe, nesse caso) é o objeto que possui o método singleton.
