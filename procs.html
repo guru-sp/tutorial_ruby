@@ -34,7 +34,8 @@
 <div class="CodeRay">
 <pre><span class="no">1</span> prc = lambda {<span class="s"><span class="dl">&quot;</span><span class="k">hello</span><span class="dl">&quot;</span></span>}
 </pre>
-</div><p>Objetos <strong>Proc</strong> são blocos de código que são vinculados a um grupo de variáveis locais. A classe <strong>Proc</strong> tem uma chamada de método que invoca o bloco. O programa <strong>p024proccall.rb</strong> ilustra isso.</p>
+</div>
+<p>Objetos <strong>Proc</strong> são blocos de código que são vinculados a um grupo de variáveis locais. A classe <strong>Proc</strong> tem uma chamada de método que invoca o bloco. O programa <strong>p024proccall.rb</strong> ilustra isso.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># Blocos não são objetos</span>
 <span class="no"> 2</span> <span class="c"># eles podem ser convertidos em objetos da classe Proc,</span>
@@ -49,20 +50,23 @@
 <span class="no">11</span> <span class="r">end</span>
 <span class="no">12</span> brinde.call
 </pre>
-</div><p>A saída deste código é:</p>
+</div>
+<p>A saída deste código é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p024proccall.rb
 <span class="no">2</span> Olá
 <span class="no">3</span> Viva
 <span class="no">4</span> &gt;Exit code: 0
 </pre>
-</div><p>Se você chamar o método <em>class</em> do objeto prc, você verá que ele pertence a classe <strong>Proc</strong>, como podemos ver no exemplo abaixo:</p>
+</div>
+<p>Se você chamar o método <em>class</em> do objeto prc, você verá que ele pertence a classe <strong>Proc</strong>, como podemos ver no exemplo abaixo:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> prc = lambda {puts <span class="s"><span class="dl">'</span><span class="k">Hello</span><span class="dl">'</span></span>}
 <span class="no">2</span> puts prc.class
 <span class="no">3</span> <span class="c">#a saída será Proc</span>
 </pre>
-</div><p>Lembre-se que você não pode passar métodos dentro de outros métodos (mas você pode passar procs dentro dos métodos), e métodos não podem retornar outros métodos (mas eles podem retornar procs).</p>
+</div>
+<p>Lembre-se que você não pode passar métodos dentro de outros métodos (mas você pode passar procs dentro dos métodos), e métodos não podem retornar outros métodos (mas eles podem retornar procs).</p>
 <p>O próximo exemplo mostra como <em>os métodos podem usar procs</em>. Exemplo <strong>p025mtdproc.rb</strong></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c">=begin
@@ -83,7 +87,8 @@
 <span class="no">16</span> 
 <span class="no">17</span> algum_metodo fale
 </pre>
-</div><p>A saída do exemplo será:</p>
+</div>
+<p>A saída do exemplo será:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p025mtdproc.rb
 <span class="no">2</span> Início do método
@@ -91,13 +96,15 @@
 <span class="no">4</span> Fim do método
 <span class="no">5</span> &gt;Exit code: 0
 </pre>
-</div><p>Aqui está outro exemplo da passagem de argumentos usando <strong>lambda</strong>.</p>
+</div>
+<p>Aqui está outro exemplo da passagem de argumentos usando <strong>lambda</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> umBloco = lambda { |x| puts x }
 <span class="no">2</span> umBloco.call <span class="s"><span class="dl">'</span><span class="k">Olá Mundo!</span><span class="dl">'</span></span>
 <span class="no">3</span> <span class="c"># a saída será: Olá Mundo!</span>
 </pre>
-</div><div class='box'>
+</div>
+<div class='box'>
 <p><strong>Fabio Akita</strong>, grande entusiasta do Rails e Ruby, também conhecido online como &#8220;AkitaOnRails&#8221;, escreveu um excelente artigo sobre <a href="http://rubylearning.com/blog/2007/11/30/akitaonrails-on-anatomy-of-ruby-blocksclosures/" title="em inglês">Closures/Blocos em Ruby</a> para os membros do <em>rubylearning.com</em>, que também foi publicado em português no seu <a href="http://akitaonrails.com/2007/11/30/anatomia-de-ruby-blocks-closures">blog</a>. Se você quiser saber mais sobre blocos em Ruby, esse artigo poderá te ajudar em muito.</p>
 <p>Outro artigo recomendado é o do <a href="http://blog.areacriacoes.com.br/2008/9/22/blocos">Daniel Lopes</a>, que explica de uma forma bem didática o conceito e uso de blocos.</p>
 </div>

@@ -34,7 +34,7 @@
 <h2>Variáveis</h2>
 <p>Variáveis no Ruby podem conter dados de qualquer tipo. Você pode usar variáveis em seus programas Ruby sem qualquer declaração. O nome de uma variável por si só denota seu escopo (local, global, instância, etc).</p>
 <ul>
-	<li>O nome de uma variável <strong>local</strong> (declarada dentro de um objeto) consiste de uma letra minúscula (ou um underscore) seguido por caracteres de nome (azul, <em>z, bater</em>e_correr).</li>
+	<li>O nome de uma variável <strong>local</strong> (declarada dentro de um objeto) consiste de uma letra minúscula (ou um underscore) seguido por caracteres de nome (azul, <em>z, bater_e</em>correr).</li>
 	<li>O nome de uma variável de <strong>instância</strong> (declarada dentro de um objeto sempre pertence a qualquer que seja o objeto que <strong>self</strong> se refira) começa com uma arroba (&#8220;@&#8221;) seguida por um nome (@assinatura, @_, @Contador).</li>
 	<li>O nome de uma variável de <strong>classe</strong> (declarada dentro de uma classe) começa com duas arrobas (&#8220;@@&#8221;) seguidas de um nome (<code>@assinatura, @</code>_, @@Contador). Uma variável de classe é compartilhada por todos os objetos de uma classe. Somente uma cópia de uma variável de classe particular existe para uma dada classe. Variáveis de classe usadas no nível mais alto são definidas em <strong>Object</strong> e se comportam como variáveis globais. Essas são raramente utilizadas em programas Ruby.</li>
 	<li>Variáveis <strong>globais</strong> começam com um símbolo de dólar (&#8220;$&#8221;) seguido por caracteres de nome. O nome de uma variável global também pode ser formado usando &#8220;$-&#8221; seguido por qualquer caractere único ($contador, $CONTADOR, $-x). O Ruby define uma série de variáveis globais que incluem outros caracteres de pontuação, como $_ e $-K.</li>
@@ -55,18 +55,21 @@
 <span class="no">7</span> <span class="c"># Em Ruby, tudo o que você manipula é um objeto  </span>
 <span class="no">8</span> <span class="s"><span class="dl">'</span><span class="k">Eu amo Ruby</span><span class="dl">'</span></span>.length  
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <p>Os tipos básicos no Ruby são <strong>Numeric</strong> (subtipos: <strong>Fixnum</strong>, <strong>Integer</strong> e <strong>Float</strong>), <strong>String</strong>, <strong>Array</strong>, <strong>Hash</strong>, <strong>Object</strong>, <strong>Symbol</strong>, <strong>Range</strong> e <strong>RegExp</strong>.</p>
 <p>Em eu computador, o código:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="co">Float</span>::<span class="co">DIG</span>
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <p>imprime 15. E:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="co">Float</span>::<span class="co">MAX</span>
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <p>imprime 1.79769313486232e+308</p>
 <p>Vamos dar uma olhada no exemplo de Peter Cooper em seu livro <em>Beginning Ruby</em>:</p>
 <div class="CodeRay">
@@ -76,7 +79,8 @@
 <span class="no">4</span>   arroz_no_quadrado *= <span class="i">2</span>
 <span class="no">5</span> <span class="r">end</span>
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <p>Pelo quadrado 64 você estará colocando alguns trilhões de grãos de arroz em cada quadrado!</p>
 <p>Isto prova que o Ruby é apto a lidar com números extremamente grandes e, diferente de outras linguagens de programação, não há limites inconvenientes. O Ruby faz isso com diferentes classes, uma chamada <strong>Fixnum</strong> (padrão) que representa pequenos números facilmente gerenciáveis, e outra, acertadamente chamada de <strong>Bignum</strong>, que representa números grandes que o Ruby precisa gerenciar internamente. O Ruby irá manipular a Bignums e a Fixnums para você, e você pode realizar cálculos aritméticos e outras operações sem nenhum problema. Os resultados podem variar dependendo da arquitetura do sistema, mas essas mudanças são manuseadas pelo Ruby internamente, não é preciso se preocupar.</p>
 <p>O Ruby não requer que você use <a href="http://en.wikipedia.org/wiki/Primitive_type">primitivos</a> (<a href="http://en.wikipedia.org/wiki/Data_type">data types</a>) quando está manipulando dados desses tipos &#8211; se se parece com um inteiro, provavelmente é um inteiro; se se parece com uma string, provavelmente é uma string. A classe <strong>Object</strong> tem um método chamado <strong>class</strong> que retorna a classe de um objeto, por exemplo:</p>
@@ -84,7 +88,8 @@
 <pre><span class="no">1</span> s = <span class="s"><span class="dl">'</span><span class="k">olá</span><span class="dl">'</span></span>
 <span class="no">2</span> s.class     <span class="c"># String</span>
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <p>Outro exemplo (não se preocupe se você não entender o código agora):</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">'</span><span class="k">Eu estou na classe = </span><span class="dl">'</span></span> + <span class="pc">self</span>.class.to_s
@@ -92,7 +97,8 @@
 <span class="no">3</span> print <span class="s"><span class="dl">'</span><span class="k">Os métodos do objeto são = </span><span class="dl">'</span></span>
 <span class="no">4</span> puts <span class="pc">self</span>.private_methods.sort
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
 <p>Nós iremos falar sobre <a href="self.html">self</a> mais tarde. <strong>private_methods</strong> é um método da classe <strong>Object</strong> e <strong>sort</strong> é um método da classe <strong>Array</strong>.</p>
 <p>Em Ruby, tudo o que você manipula é um objeto, e o resultado dessa manipulação também são objetos. Não existem primitivos ou data-types.</p>
 <div class="CodeRay">

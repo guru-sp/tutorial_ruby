@@ -51,7 +51,8 @@
 <span class="no">16</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Posso ter múltiplas declarações aqui</span><span class="dl">&quot;</span></span>   
 <span class="no">17</span> <span class="r">end</span>
 </pre>
-</div><p>Um exemplo do uso do elsif está no programa p015elsifex.rb como mostrado abaixo:</p>
+</div>
+<p>Um exemplo do uso do elsif está no programa p015elsifex.rb como mostrado abaixo:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p015elsifex.rb   </span>
 <span class="no"> 2</span> <span class="c"># exemplo elseif  </span>
@@ -93,7 +94,8 @@
 <span class="no">38</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>   
 <span class="no">39</span> <span class="r">end</span>
 </pre>
-</div><p>Alguns operadores condicionais comuns são: ==, !=, &gt;=, &lt;=, &gt;, &lt;</p>
+</div>
+<p>Alguns operadores condicionais comuns são: ==, !=, &gt;=, &lt;=, &gt;, &lt;</p>
 <p>O <strong>unless</strong> (ao menos), como uma declaração ou modificador, é o oposto do <strong>if</strong>: ele executa o código somente se uma<br />
 expressão associada é interpretada como nil ou falso. O construtor ruby <strong>unless</strong> começa com <strong>unless</strong> e termina com <strong>end</strong>.<br />
 O corpo é o texto entre ambos.</p>
@@ -103,7 +105,8 @@ O corpo é o texto entre ambos.</p>
 <span class="no">3</span>   exit   
 <span class="no">4</span> <span class="r">end</span>
 </pre>
-</div><p>No programa acima, o corpo é executado ao menos que o número de elementos no array seja igual a 2 (o que significa que ambos<br />
+</div>
+<p>No programa acima, o corpo é executado ao menos que o número de elementos no array seja igual a 2 (o que significa que ambos<br />
 os argumentos foram dados). O método Kernel.exit termina seu programa, retornando um valor de estado para o sistema operacional.</p>
 <p>Loops como o <strong>while</strong> também estão disponíveis. O exemplo abaixo ilustra o uso do while.</p>
 <div class="CodeRay">
@@ -114,7 +117,8 @@ os argumentos foram dados). O método Kernel.exit termina seu programa, retornan
 <span class="no">5</span>   var += <span class="i">1</span>   
 <span class="no">6</span> <span class="r">end</span>   
 </pre>
-</div><h3>O condicional ?: (ou operador ternário)</h3>
+</div>
+<h3>O condicional ?: (ou operador ternário)</h3>
 <p>Como uma alternativa concisa aos operadores if/else podemos usar o operador condicional ou ternário <strong>?:</strong>. É o único operador ternário (com três operandos) no Ruby. Ele tem a seguinte estrutura básica:<br />
 (condição) ? (resultado se a condição é verdadeira) : (resultado se a condição é falsa)</p>
 <p>O primeiro operando aparece antes do ponto de interrogação. O segundo operando aparece entre o interrogação e os dois pontos. E o terceiro operando aparece depois dos dois pontos. O ponto de interrogação deve aparecer na mesma linha que o primeiro e o segundo argumentos e os dois pontos devem aparecer na mesma linha que o segundo argumento. O operador <strong>?:</strong> sempre avalia seu primeiro operando (a condição). Se a condição é qualquer coisa diferente de false ou nil, o valor da expressão é o valor do segundo operando. Caso contrário, se o primeiro operando for false ou nil, então o valor da expressão é o valor do terceiro operando. O operador <strong>?:</strong> age como uma declaração if/then/else compacta.<br />
@@ -125,19 +129,22 @@ Vamos ver um exemplo:</p>
 <span class="no">3</span> <span class="c"># terá como saída adolescente </span>
 <span class="no">4</span> puts (<span class="i">14</span>...<span class="i">20</span>).include?(idade) ? <span class="s"><span class="dl">&quot;</span><span class="k">adolescente</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">não é adolescente</span><span class="dl">&quot;</span></span>   
 </pre>
-</div><p>O operador ternário pode ser útil também para atribuições condicionais:</p>
+</div>
+<p>O operador ternário pode ser útil também para atribuições condicionais:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> idade = <span class="i">23</span>   
 <span class="no">2</span> pessoa = (<span class="i">14</span>...<span class="i">20</span>).include?(idade) ? <span class="s"><span class="dl">&quot;</span><span class="k">adolescente</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">não é adolescente</span><span class="dl">&quot;</span></span>    
 <span class="no">3</span> puts pessoa <span class="c"># =&gt; &quot;não é adolescente&quot;  </span>
 </pre>
-</div><h3>Modificadores de instrução</h3>
+</div>
+<h3>Modificadores de instrução</h3>
 <p>Os modificadores de instrução do Ruby representam um atalho útil no caso em que o corpo de uma instrução <strong>if</strong> ou <strong>while</strong> é uma única<br />
 expressão. Apenas escreva a expressão, seguida por <strong>if</strong> ou <strong>while</strong> e então a condição. Aqui, por exemplo, temos uma simples instrução if.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Os registros pararao agora</span><span class="dl">&quot;</span></span> <span class="r">if</span> participantes &gt; <span class="i">2500</span>   
 </pre>
-</div><h3>Expressões case</h3>
+</div>
+<h3>Expressões case</h3>
 <p>Esta forma é bastante próxima a uma série de instruções <strong>if</strong>: ela permite que você liste uma série de condições e execute uma instrução correspondente a primeira que for verdadeira. Por exemplo, anos bissextos devem ser divisíveis por 400, ou divisíveis por 4 e não por 100. Além disso, lembre-se que o case retorna o valor da última expressão executada.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> ano = <span class="i">2000</span>   
@@ -149,7 +156,8 @@ expressão. Apenas escreva a expressão, seguida por <strong>if</strong> ou <str
 <span class="no">7</span> puts bissexto  
 <span class="no">8</span> <span class="c"># a saida é: true   </span>
 </pre>
-</div><h3>nil é um objeto</h3>
+</div>
+<h3>nil é um objeto</h3>
 <p>No Ruby, <strong>nil</strong> (que representa &#8220;nulo&#8221;) é um objeto real. Você pode chamar métodos no <strong>nil</strong>, assim como em qualquer outro objeto. Você pode adicionar métodos ao <strong>nil</strong>, assim como faz para outros objetos.</p>
 <p><strong>nil</strong> e <strong>false</strong> são interpretados como <strong>false</strong> (falso), todo o restante (incluindo true e 0) são <strong>true</strong> (verdadeiro).</p>
 <h3>A diferença entre FALSE e NIL</h3>
@@ -167,7 +175,8 @@ Ambos têm valor falso mas são objetos diferentes e lembre-se que tudo em Ruby 
 <span class="no"> 9</span> puts <span class="pc">false</span>.class <span class="c"># FalseClass</span>
 <span class="no"><strong>10</strong></span> puts <span class="pc">false</span>.object_id <span class="c"># 0</span>
 </pre>
-</div><p>&nbsp;</p>
+</div>
+<p>&nbsp;</p>
    </div>
 
    <div class="column span-5 append-1 last">

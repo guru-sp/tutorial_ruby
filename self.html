@@ -36,16 +36,19 @@
 <div class="CodeRay">
 <pre><span class="no">1</span>   x = <span class="i">1</span>
 </pre>
-</div><p>Você criou uma variável local de nível superior. Se você digitar:</p>
+</div>
+<p>Você criou uma variável local de nível superior. Se você digitar:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">def</span> <span class="fu">m</span>
 <span class="no">2</span>   <span class="r">end</span>
 </pre>
-</div><p>Você terá criado um método de nível superior &#8211; um método de instância de Object (embora self não seja um Object). Métodos de nível superior são sempre privados. O Ruby lhe provê um self inicial no nível mais alto. Se digitar:</p>
+</div>
+<p>Você terá criado um método de nível superior &#8211; um método de instância de Object (embora self não seja um Object). Métodos de nível superior são sempre privados. O Ruby lhe provê um self inicial no nível mais alto. Se digitar:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   puts <span class="pc">self</span>
 </pre>
-</div><p>Ele mostrará main (principal) &#8211; um termo especial que o objeto self usa para referir-se a si mesmo. A classe do objeto main é Object.</p>
+</div>
+<p>Ele mostrará main (principal) &#8211; um termo especial que o objeto self usa para referir-se a si mesmo. A classe do objeto main é Object.</p>
 <h2>Self dentro de definições de classes e módulos</h2>
 <p>Em uma definição de classe ou módulo, self é o objeto da classe ou do módulo.</p>
 <div class="CodeRay">
@@ -61,7 +64,8 @@
 <span class="no"><strong>10</strong></span>     puts <span class="pc">self</span>
 <span class="no">11</span>   <span class="r">end</span>
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself1.rb
 <span class="no">2</span>   Acabei de começar a classe S
@@ -72,7 +76,8 @@
 <span class="no">7</span>   S
 <span class="no">8</span>   &gt;Exit code: 0
 </pre>
-</div><h2>Self na definição de métodos de instância</h2>
+</div>
+<h2>Self na definição de métodos de instância</h2>
 <p>Quando a definição de um método é executada, o máximo que você pode dizer é que self dentro deste método será algum objeto futuro que tem acesso ao mesmo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p063xself2.rb</span>
@@ -85,14 +90,16 @@
 <span class="no"> 8</span>   s = <span class="co">S</span>.new
 <span class="no"> 9</span>   s.m
 </pre>
-</div><p>A saída será:</p>
+</div>
+<p>A saída será:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself2.rb
 <span class="no">2</span>   Classe S método m:
 <span class="no">3</span>   #&lt;S:0x2835908&gt;
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div><p>A saída #<S:0x2835908> é o jeito do Ruby de dizar &#8220;uma instância de S&#8221;.</p>
+</div>
+<p>A saída #<S:0x2835908> é o jeito do Ruby de dizar &#8220;uma instância de S&#8221;.</p>
 <h2>Self em um método singleton e em definições de métodos de classe</h2>
 <p>Métodos singleton &#8211; aqueles que estão associados a um objeto e que podem ser chamados apenas por esse objeto. Quando um método singleton é executado, self é o objeto que é o dono do método, como mostrado abaixo:</p>
 <div class="CodeRay">
@@ -108,7 +115,8 @@
 <span class="no"><strong>10</strong></span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">para ter certeza que é o mesmo objeto:</span><span class="dl">&quot;</span></span>
 <span class="no">11</span>   puts obj
 </pre>
-</div><p>A saída do exemplo acima é:</p>
+</div>
+<p>A saída do exemplo acima é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself3.rb
 <span class="no">2</span>   Sou um objeto: aqui self está dentro de um método singleton que me pertence:
@@ -117,7 +125,8 @@
 <span class="no">5</span>   #&lt;Object:0x2835688&gt;
 <span class="no">6</span>   &gt;Exit code: 0
 </pre>
-</div><p>Métodos de classe são definidos como métodos singleton para objetos do tipo classe. Veja o seguinte programa:</p>
+</div>
+<p>Métodos de classe são definidos como métodos singleton para objetos do tipo classe. Veja o seguinte programa:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p063xself4.rb</span>
 <span class="no">2</span>   <span class="r">class</span> <span class="cl">S</span>
@@ -128,14 +137,16 @@
 <span class="no">7</span>   <span class="r">end</span>
 <span class="no">8</span>   <span class="co">S</span>.x
 </pre>
-</div><p>The output is:</p>
+</div>
+<p>The output is:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p063xself4.rb
 <span class="no">2</span>   Método de classe da classe S
 <span class="no">3</span>   S
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div><p>self dentro de um método singleton (um método de classe, nesse caso) é o objeto que possui o método singleton.</p>
+</div>
+<p>self dentro de um método singleton (um método de classe, nesse caso) é o objeto que possui o método singleton.</p>
    </div>
 
    <div class="column span-5 append-1 last">

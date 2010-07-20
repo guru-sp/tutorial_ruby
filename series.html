@@ -34,7 +34,8 @@
 <div class="CodeRay">
 <pre><span class="no">1</span> (<span class="i">1</span>..<span class="i">10</span>).to_a -&gt; [<span class="i">1</span>, <span class="i">2</span>, <span class="i">3</span>, <span class="i">4</span>, <span class="i">5</span>, <span class="i">6</span>, <span class="i">7</span>, <span class="i">8</span>, <span class="i">9</span>, <span class="i">10</span>]
 </pre>
-</div><p>Séries implementam métodos que permitem que você itere sobre elas e teste seus conteúdos de diversas maneiras.</p>
+</div>
+<p>Séries implementam métodos que permitem que você itere sobre elas e teste seus conteúdos de diversas maneiras.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p021ranges.rb  </span>
 <span class="no"> 2</span> <span class="c">=begin
@@ -52,7 +53,8 @@
 <span class="no">14</span> puts digitos.max                  <span class="c"># 9  </span>
 <span class="no">15</span> puts digitos.reject {|i| i &lt; <span class="i">5</span> }  <span class="c"># [5, 6, 7, 8, 9]</span>
 </pre>
-</div><p>Outro uso do versátil Range é para testar um intervalo: verificar se algum valor está dentro do intervalo representado pela série. Fazemos isso usando o operador de igualdade ===.</p>
+</div>
+<p>Outro uso do versátil Range é para testar um intervalo: verificar se algum valor está dentro do intervalo representado pela série. Fazemos isso usando o operador de igualdade ===.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> (<span class="i">1</span>..<span class="i">10</span>) === <span class="i">5</span>       -&gt; <span class="pc">true</span>  
 <span class="no">2</span> (<span class="i">1</span>..<span class="i">10</span>) === <span class="i">15</span>      -&gt; <span class="pc">false</span>  

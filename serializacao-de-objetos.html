@@ -43,7 +43,8 @@
 <span class="no"> 8</span>     attr_reader <span class="sy">:poder</span>, <span class="sy">:tipo</span>, <span class="sy">:armas</span>
 <span class="no"> 9</span>   <span class="r">end</span>
 </pre>
-</div><p>O programa <b>p051gamecharacters.rb</b> cria um objeto da classe acima e então usa <b>Marshal.dump</b> para salvar a versão serializada dele no disco.</p>
+</div>
+<p>O programa <b>p051gamecharacters.rb</b> cria um objeto da classe acima e então usa <b>Marshal.dump</b> para salvar a versão serializada dele no disco.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p052dumpgc.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>
@@ -57,7 +58,8 @@
 <span class="no"><strong>10</strong></span>     <span class="co">Marshal</span>.dump(gc, f)
 <span class="no">11</span>   <span class="r">end</span>
 </pre>
-</div><p>O programa <b>p053loadgc.rb</b> usa <b>Marshal.load</b> para lê-lo.</p>
+</div>
+<p>O programa <b>p053loadgc.rb</b> usa <b>Marshal.load</b> para lê-lo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p053loadgc.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>
@@ -70,7 +72,8 @@
 <span class="no"> 9</span>     puts w + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span>
 <span class="no"><strong>10</strong></span>   <span class="r">end</span>
 </pre>
-</div><p><b>Marshal</b> apenas serializa estruturas de dados. Ele não pode serializar código Ruby (como objetos do tipo Proc), ou recursos alocados por outros processos (como tratadores de arquivo ou conexões com bancos de dados). <b>Marshal</b> apenas lhe dará um erro quando tentar serializar um arquivo.</p>
+</div>
+<p><b>Marshal</b> apenas serializa estruturas de dados. Ele não pode serializar código Ruby (como objetos do tipo Proc), ou recursos alocados por outros processos (como tratadores de arquivo ou conexões com bancos de dados). <b>Marshal</b> apenas lhe dará um erro quando tentar serializar um arquivo.</p>
    </div>
 
    <div class="column span-5 append-1 last">

@@ -50,7 +50,8 @@
 <span class="no">7</span>   <span class="r">end</span>
 <span class="no">8</span>   <span class="c"># A saída é - TypeError can't modify frozen string</span>
 </pre>
-</div><p>Entretanto, <b>freeze</b> opera na referência de um objeto, não em uma variável. Isso significa que qualquer operação resultando em um novo objeto funcionará. Isso pode ser verificado pelo seguinte exemplo:</p>
+</div>
+<p>Entretanto, <b>freeze</b> opera na referência de um objeto, não em uma variável. Isso significa que qualquer operação resultando em um novo objeto funcionará. Isso pode ser verificado pelo seguinte exemplo:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">String original - </span><span class="dl">'</span></span>
 <span class="no">2</span>   str.freeze
@@ -58,7 +59,8 @@
 <span class="no">4</span>   puts str
 <span class="no">5</span>   <span class="c"># A Saída é - String original - anexo</span>
 </pre>
-</div><p>A expressão str + &#8216;anexo&#8217; é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objteo.</p>
+</div>
+<p>A expressão str + &#8216;anexo&#8217; é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objteo.</p>
 <h2>frozen? (congelado?)</h2>
 <p>O método <b>frozen?</b> lhe diz se um objeto está congelado ou não. Vamos ver um exemplo:</p>
 <div class="CodeRay">
@@ -72,7 +74,8 @@
 <span class="no"> 8</span>   puts a.frozen? <span class="c"># false</span>
 <span class="no"> 9</span>   puts b.frozen? <span class="c"># true</span>
 </pre>
-</div><p>Vamos entender o que estamos fazendo aqui &#8211; a e b são duas variáveis que apontam para um objeto do tipo string &#8211; <i>String Original</i>.<br />
+</div>
+<p>Vamos entender o que estamos fazendo aqui &#8211; a e b são duas variáveis que apontam para um objeto do tipo string &#8211; <i>String Original</i>.<br />
 Nós então congelamos o objeto <i>String Original</i>. Portanto, tanto a quanto b agora apontam para o objeto congelado <i>String Original</i>. Isto é verificado pelas declarações puts a.frozen? e puts b.frozen?. Em seguida, criamos um novo objeto string <i>Nova String</i> e fazemos a variável a apontar para esse novo objeto. A variável b ainda aponta para o objeto congelado e a não mais. Isto é verificado pelas duas últimas declarações do programa.</p>
 <p><b>Uso</b>:<br />
 O Ruby às vezes copia objetos e congela as cópias. Quando você usa uma string como chave hash, o Ruby na verdade copia a string, congela a cópia e usa a cópia como chave hash: desse modo, se a string original se alterar mais tarde, a chave hash não é afetada.</p>

@@ -108,7 +108,8 @@
 <span class="no">61</span> <span class="c"># Então o objeto Cachorro é abandonado e elegível para ser</span>
 <span class="no">62</span> <span class="c"># coletado para o lixo (GC)</span>
 </pre>
-</div><p>A saída é esta:</p>
+</div>
+<p>A saída é esta:</p>
 <div class="CodeRay">
 <pre>&gt;ruby p029dog.rb
 <span class="co">The</span> id of obj is <span class="i">22982920</span>.
@@ -118,7 +119,8 @@
 <span class="co">Sou</span> da raca <span class="co">Labrador</span> e meu nome eh <span class="co">Benzy</span>.
 &gt;<span class="co">Exit</span> code: <span class="i">0</span>
 </pre>
-</div><p>O método new é usado para criar um objeto da classe Cachorro. Objetos são criados na pilha (heap). A variável d é conhecida como variável de referência. Isso quer dizer que ela não contém o objeto. Contém somente alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para &#8220;dizer&#8221; ao objeto: &#8220;use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método).&#8221; Por exemplo:<br />
+</div>
+<p>O método new é usado para criar um objeto da classe Cachorro. Objetos são criados na pilha (heap). A variável d é conhecida como variável de referência. Isso quer dizer que ela não contém o objeto. Contém somente alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para &#8220;dizer&#8221; ao objeto: &#8220;use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método).&#8221; Por exemplo:<br />
 <b>d.late</b></p>
 <div class='box'>
 <p><b>No framework Rails:</b><br />
@@ -128,12 +130,14 @@ Se estivermos escrevendo uma aplicação em Rails em que uma das entidades do mo
 <div class="CodeRay">
 <pre><span class="no">1</span> puts d.methods.sort
 </pre>
-</div><p>O resultado é uma lista com todas as mensagens (métodos) que este novo e recém-criado método possui. Entre todos estes muitos métodos, os métodos <b>object_id</b> e <b>respond_to?</b> são importantes.</p>
+</div>
+<p>O resultado é uma lista com todas as mensagens (métodos) que este novo e recém-criado método possui. Entre todos estes muitos métodos, os métodos <b>object_id</b> e <b>respond_to?</b> são importantes.</p>
 <p>Todo objeto em Ruby possui um identificador numérico único associado a ele. Podemos ver este identificado pedindo para o objeto mostrar seu identificador (via método <b>object_id</b>):</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">O id do objeto é </span><span class="il"><span class="idl">#{</span>d.object_id<span class="idl">}</span></span><span class="k">.</span><span class="dl">&quot;</span></span>
 </pre>
-</div><p>Podemos determinar antecipadamente (antes de perguntarmos alguma coisa para o objeto) se o objeto sabe como responder a mensagem que pretendemos enviar. Fazemos isso utilizando o método <b>respond_to?</b>. Esse método existe em todos os objetos; podemos questionar qualquer objeto para verificar se ele responde alguma mensagem. O método <b>respond_to?</b> normalmente aparece em conjunto com um teste lógico condicional (if).</p>
+</div>
+<p>Podemos determinar antecipadamente (antes de perguntarmos alguma coisa para o objeto) se o objeto sabe como responder a mensagem que pretendemos enviar. Fazemos isso utilizando o método <b>respond_to?</b>. Esse método existe em todos os objetos; podemos questionar qualquer objeto para verificar se ele responde alguma mensagem. O método <b>respond_to?</b> normalmente aparece em conjunto com um teste lógico condicional (if).</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="r">if</span> d.respond_to?(<span class="s"><span class="dl">&quot;</span><span class="k">fala</span><span class="dl">&quot;</span></span>)
 <span class="no">2</span>   d.fala
@@ -141,29 +145,34 @@ Se estivermos escrevendo uma aplicação em Rails em que uma das entidades do mo
 <span class="no">4</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Desculpe, o objeto nao entende a mensagem 'fala'.</span><span class="dl">&quot;</span></span>
 <span class="no">5</span> <span class="r">end</span>
 </pre>
-</div><p>As seguintes instruções:</p>
+</div>
+<p>As seguintes instruções:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> d1 = d
 <span class="no">2</span> d1.display
 </pre>
-</div><p>fazem com que d e d1 apontem para o mesmo objeto.</p>
+</div>
+<p>fazem com que d e d1 apontem para o mesmo objeto.</p>
 <p>Podemos perguntar para qualquer objeto de qual classe ele é membro utilizando o método <b>Object.class</b>. No programa acima, se escrevermos as seguintes instruções:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> d = <span class="co">Cachorro</span>.new(<span class="s"><span class="dl">'</span><span class="k">Pastor</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Lassie</span><span class="dl">'</span></span>)
 <span class="no">2</span> puts d.class.to_s
 </pre>
-</div><p>O resultado será:</p>
+</div>
+<p>O resultado será:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p029dog.rb
 <span class="no">2</span> <span class="co">Cachorro</span>
 <span class="no">3</span> &gt;<span class="co">Exit</span> code: <span class="i">0</span>
 </pre>
-</div><p>O método <b>instance_of?</b> retorna verdadeiro (true) se um objeto é instância de dada classe, como no exemplo abaixo:</p>
+</div>
+<p>O método <b>instance_of?</b> retorna verdadeiro (true) se um objeto é instância de dada classe, como no exemplo abaixo:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> num = <span class="i">10</span>
 <span class="no">2</span> puts(num.instance_of? <span class="co">Fixnum</span>) <span class="c"># saída true</span>
 </pre>
-</div><h2>Construtores Literais</h2>
+</div>
+<h2>Construtores Literais</h2>
 <p>Isso significa que podemos utilizar uma notação especial, ao invés de chamar <b>new</b>, para criar um novo objeto de determinada classe. As classes com construtores literais são demonstradas abaixo. Quando usamos algum desses construtores literais, fazemos que um novo objeto passe a existir.</p>
 <b>Exemplos:</b><p>String &#8211; &#8216;hello&#8217; or &#8220;hello&#8221;<br />
 Symbol &#8211; :symbol or :&#8220;hello wrold&#8221;<br />

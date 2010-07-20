@@ -36,12 +36,14 @@
 <span class="no">2</span>   <span class="co">A_CONST</span> = <span class="i">10</span>
 <span class="no">3</span>   <span class="co">A_CONST</span> = <span class="i">20</span>
 </pre>
-</div><p>Produz um aviso (warning):</p>
+</div>
+<p>Produz um aviso (warning):</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   p054constwarn.rb:3: warning: already initialized constant A_CONST 
 <span class="no">2</span>   # aviso: a constante A_CONST já foi inicializada
 </pre>
-</div><p>Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores (<em>) são usados para separar palavras, ASSIM</em>POR_EXEMPLO. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.</p>
+</div>
+<p>Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores (<em>) são usados para separar palavras, ASSIM_POR</em>EXEMPLO. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.</p>
 <p>Perceba que constantes não existem até que um valor seja associado as mesmas.</p>
 <p>Embora constantes não devam ser alteradas, você pode modificar o estado interno dos objetos que as referenciam, como visto no exemplo <b>p055constalter.rb</b>:</p>
 <div class="CodeRay">
@@ -52,7 +54,8 @@
 <span class="no">5</span>   puts <span class="co">A_CONST</span> <span class="c"># mostra Joshi</span>
 <span class="no">6</span>   puts <span class="co">B_CONST</span> <span class="c"># também mostra Joshi</span>
 </pre>
-</div><div class='box'>
+</div>
+<div class='box'>
 <p>NO RAILS: Você pode encontrar exemplos desse tipo de operação (modificação) no código fonte do Rails, onde constantes aparecem prominenetemente e os objetos que elas representam passam por mudanças com certa frequência.</p>
 </div>
 <p>Observe:</p>
@@ -79,7 +82,8 @@
 <span class="no">12</span>   puts ::<span class="co">CONSTANTE_EXTERNA</span>
 <span class="no">13</span>   puts <span class="co">Const</span>::<span class="co">NOVA_CONSTANTE</span> = <span class="i">123</span>
 </pre>
-</div><p>Outro exemplo elbaroda sobre métodos de uma classe é o <b>p057mymethods2.rb</b>. Nesse exemplo nós também vemos como escrever um método de classe.</p>
+</div>
+<p>Outro exemplo elbaroda sobre métodos de uma classe é o <b>p057mymethods2.rb</b>. Nesse exemplo nós também vemos como escrever um método de classe.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p057mymethods2.rb</span>
 <span class="no"> 2</span>   <span class="c"># variávais e métodos começam com letra minúscula</span>
@@ -116,7 +120,8 @@
 <span class="no">33</span>   puts other.inspect
 <span class="no">34</span>   puts <span class="co">TestVar</span>.cla
 </pre>
-</div><h2>Sumário</h2>
+</div>
+<h2>Sumário</h2>
 <p>Listei todos os <a href="sumario-ruby8.html">pontos importantes</a> que você precisa se lembrar após ter completado os seguintes tópics: Serialização de Objetos, Módulos/Mixins, Self e Constantes.</p>
    </div>
 

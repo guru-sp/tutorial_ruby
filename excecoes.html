@@ -46,7 +46,8 @@
 <span class="no">6</span>   <span class="r">end</span>
 <span class="no">7</span>   levanta_excecao
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p043raise.rb
 <span class="no">2</span>   Estou antes do raise.
@@ -54,7 +55,8 @@
 <span class="no">4</span>       from p043raise.rb:7
 <span class="no">5</span>   &gt;Exit code: 1
 </pre>
-</div><p>O método <b>raise</b> é do módulo Kernel. Por padrão, <b>raise</b> cria uma exceção da classe <b>RuntimeError</b>. Para levantar a exceção de uma classe específica, você pode passar o nome da classe como argumento para <b>raise</b>. Refira-se ao programa <b>p044inverse.rb</b></p>
+</div>
+<p>O método <b>raise</b> é do módulo Kernel. Por padrão, <b>raise</b> cria uma exceção da classe <b>RuntimeError</b>. Para levantar a exceção de uma classe específica, você pode passar o nome da classe como argumento para <b>raise</b>. Refira-se ao programa <b>p044inverse.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p044inverse.rb</span>
 <span class="no">2</span>   <span class="r">def</span> <span class="fu">inverte</span>(x)
@@ -64,7 +66,8 @@
 <span class="no">6</span>   puts inverte(<span class="i">2</span>)
 <span class="no">7</span>   puts inverte(<span class="s"><span class="dl">'</span><span class="k">não é um número</span><span class="dl">'</span></span>)
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p044inverse.rb
 <span class="no">2</span>   0.5
@@ -72,13 +75,15 @@
 <span class="no">4</span>       from p044inverse.rb:7
 <span class="no">5</span>   &gt;Exit code: 1
 </pre>
-</div><p>Lembre-se, métodos que agem como perguntas são geralmente nomeados com um sinal de interrogação no final. <b>is_a?</b> é um método na classe Objeto e retorna verdadeiro ou falso. O modificador <b>unless</b> quando colocado no final de uma expressão significa executa a expressão antecedente ao menos que a condição seja verdadeira (ou seja, somente se ele não for verdadeira).</p>
+</div>
+<p>Lembre-se, métodos que agem como perguntas são geralmente nomeados com um sinal de interrogação no final. <b>is_a?</b> é um método na classe Objeto e retorna verdadeiro ou falso. O modificador <b>unless</b> quando colocado no final de uma expressão significa executa a expressão antecedente ao menos que a condição seja verdadeira (ou seja, somente se ele não for verdadeira).</p>
 <p>Definindo novas classes de exceção: Para ser ainda mais específicio sobre um erro, você pode definir sua própria subclasse de exceção:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="r">class</span> <span class="cl">NotInvertibleError</span> &lt; <span class="co">StandardError</span>
 <span class="no">2</span>   <span class="r">end</span>
 </pre>
-</div><h2>Tratando uma Exceção</h2>
+</div>
+<h2>Tratando uma Exceção</h2>
 <p>Para fazer o tratamento da exceção, nós colocamos o código que pode lançar uma exceção dentro de um  bloco <b>begin-end</b> e usamos uma ou mais cláusulas <b>rescue</b> pra contar ao RUby os tipos de exceção que queremos tratar. É importante notar que o corpo de definição de um método é um bloco <b>begin-end</b> implícito; o <b>begin</b> é omitido, e todo o corpo do método está sujeito ao tratamento de exceção, terminando com o <b>end</b> do método.</p>
 <p>O programa p**045handexcp.rb** ilustra isso:</p>
 <div class="CodeRay">
@@ -95,7 +100,8 @@
 <span class="no">11</span>   <span class="r">end</span>
 <span class="no">12</span>   levanta_e_resgata
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p045handexcp.rb
 <span class="no">2</span>   Estou antes do raise.
@@ -103,7 +109,8 @@
 <span class="no">4</span>   Estou depois do bloco begin.
 <span class="no">5</span>   &gt;Exit code: 0
 </pre>
-</div><p>Observe que o o código interrompido pela exceção nunca é executado. Uma vez que a exceção é tratada, a execução continua imediatamente depois do bloco begin que a a gerou.</p>
+</div>
+<p>Observe que o o código interrompido pela exceção nunca é executado. Uma vez que a exceção é tratada, a execução continua imediatamente depois do bloco begin que a a gerou.</p>
 <p>Se você escreve uma cláusula <b>rescue</b> sem nenhum parâmetro, o parâmetro será ajustado por padrão para <b>StandardError</b>. cada cláusula <b>rescue</b> pode especificar múltiplas exceções para serem capturadas. No fim de cada comando <b>rescue</b> pode também ser expressões arbitrárias (incluindo chamadas a métodos) que retornam uma classe do tipo <b>Exception</b>. Se usarmos <b>raise</b> sem parâmetros, ele relançará a exceção.</p>
 <p>Você pode empilhar cláusulas de <b>rescue</b> em um bloco begin/rescue. Exceções não tratadas por uma cláusula rescue serão passadas para a próxima:</p>
 <div class="CodeRay">
@@ -117,7 +124,8 @@
 <span class="no"> 8</span>     <span class="c"># outras exceções</span>
 <span class="no"> 9</span>   <span class="r">end</span>
 </pre>
-</div><p>Para cada cláusula <b>rescue</b> no bloco <b>begin</b>, o Ruby irá comparar a exceção levantada conta cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo do última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula <b>else</b> é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.</p>
+</div>
+<p>Para cada cláusula <b>rescue</b> no bloco <b>begin</b>, o Ruby irá comparar a exceção levantada conta cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo do última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula <b>else</b> é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.</p>
 <p>Se você quer verificar uma exceção resgatada (em que se usou o rescue). você pode mapear o objeto <b>Exception</b> para uma variável com uma cláusula rescue, como mostrado no programa <b>p046excpvar.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p046excpvar.rb</span>
@@ -128,14 +136,16 @@
 <span class="no">6</span>     puts e.backtrace.inspect
 <span class="no">7</span>   <span class="r">end</span>
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   &gt;ruby p046excpvar.rb
 <span class="no">2</span>   Uma exceção para teste.
 <span class="no">3</span>   [&quot;p046excpvar.rb:3&quot;]
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
-</div><p>A classe <b>Exception</b> define dois métodos que retornam detalhes a respeito da exceção. O método <b>message</b> retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é <b>backtrace</b>. Este método retorna um array de string que representam a pilha de chamada no ponto em que a exceção foi lançada.</p>
+</div>
+<p>A classe <b>Exception</b> define dois métodos que retornam detalhes a respeito da exceção. O método <b>message</b> retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é <b>backtrace</b>. Este método retorna um array de string que representam a pilha de chamada no ponto em que a exceção foi lançada.</p>
 <p>Se você precisa de garantia de que algum processamento foi feito no final de um bloco de código, não considerando se uma exceção foi lançada então a cláusula <b>ensure</b> (assegurar-se) deve ser usada após o último <b>rescue</b> e deve conter um pedaço de código que será executado a medida que o bloco  termina. O bloco <b>ensure</b> sempre será executado.</p>
 <p>Algumas exceções comuns são:</p>
 <p>RuntimeError (está é a exceção padrão lançada pelo método <b>raise</b>), NoMethodError, NameError, IOError, TypeError e ArgumentError.</p>
@@ -161,7 +171,8 @@
 <span class="no">18</span>     puts msg
 <span class="no">19</span>   <span class="r">end</span>
 </pre>
-</div><div class='box'>
+</div>
+<div class='box'>
 <p>Mensagens de erros impróprias podem prover informações críticas sobre uma aplicação que podem auxiliar ataques a mesma. O problema mais comum ocorre quando mensagens de erro internas como traços de pilha, dumps de bancos de dados e códigos de erro são mostrados ao usuário. Analistas de segurança veem logs e tratamentos de erro como possíveis áreas de risco. É recomendado que as aplicações em produção não usem, por exemplo, uma chamada a <strong>puts e.backtrace.inspect</strong>* ao menos que ela esteja sendo enviada para um log que não é visível para o usuário final.</p>
 </div>
 <h2>Exemplo de validação</h2>
@@ -210,7 +221,8 @@
 <span class="no">41</span>   <span class="co">Name</span>.new(<span class="s"><span class="dl">'</span><span class="k">Kero, estrela internacional do futebol e artista de performance</span><span class="dl">'</span></span>, <span class="pc">nil</span>)
 <span class="no">42</span>   <span class="c"># ArgumentError: Todos precisam ter um sobrenome.</span>
 </pre>
-</div><p>A classe <b>Nome</b> armazenas o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um sobrenome, e o primeiro nome de todas as pessoas deve começar uma letra maiúscula. A classe <b>Nome</b> foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método <b>Nome#initialize</b> acima, chamamos os métodos <b>primeiro=</b> e <b>sobrenome=</b> ao invés de atribuir a @primeiro e @sobrenome. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe <b>Nome</b>. Não podemos apenas dizer <b>primeiro = primeiro</b>, porque <strong>primeiro</strong> é um nome de variável nesse método. Usamos então <strong>self.primeiro</strong> para executar o método <b>primeiro=</b>.</p>
+</div>
+<p>A classe <b>Nome</b> armazenas o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um sobrenome, e o primeiro nome de todas as pessoas deve começar uma letra maiúscula. A classe <b>Nome</b> foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método <b>Nome#initialize</b> acima, chamamos os métodos <b>primeiro=</b> e <b>sobrenome=</b> ao invés de atribuir a @primeiro e @sobrenome. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe <b>Nome</b>. Não podemos apenas dizer <b>primeiro = primeiro</b>, porque <strong>primeiro</strong> é um nome de variável nesse método. Usamos então <strong>self.primeiro</strong> para executar o método <b>primeiro=</b>.</p>
    </div>
 
    <div class="column span-5 append-1 last">

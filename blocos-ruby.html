@@ -38,11 +38,13 @@
 <div class="CodeRay">
 <pre><span class="no">1</span>   saudacao {puts <span class="s"><span class="dl">'</span><span class="k">Olá</span><span class="dl">'</span></span>}  
 </pre>
-</div><p>Se o método tem parâmetros, eles aparecem antes do bloco:</p>
+</div>
+<p>Se o método tem parâmetros, eles aparecem antes do bloco:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   saudacao_verbosa(<span class="s"><span class="dl">&quot;</span><span class="k">PuneRuby</span><span class="dl">&quot;</span></span>) {puts <span class="s"><span class="dl">'</span><span class="k">Olá</span><span class="dl">'</span></span>}  
 </pre>
-</div><p>Um método pode então invocar um bloco associado uma ou mais vezes usando a instrução Ruby <strong>yield</strong>. Deste modo qualquer método que queira ter um bloco como parâmetro pode usar a palavra-chave <strong>yield</strong> para executar o bloco a qualquer hora.</p>
+</div>
+<p>Um método pode então invocar um bloco associado uma ou mais vezes usando a instrução Ruby <strong>yield</strong>. Deste modo qualquer método que queira ter um bloco como parâmetro pode usar a palavra-chave <strong>yield</strong> para executar o bloco a qualquer hora.</p>
 <p>O programa <strong>p022codeblock.rb</strong> ilustra o que acabamos de discutir.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c">=begin  
@@ -60,7 +62,8 @@
 <span class="no">13</span> <span class="c"># Os blocos de código podem aparecer apenas no código adjacente a uma chamada de método</span>
 <span class="no">14</span> chama_bloco {puts <span class="s"><span class="dl">'</span><span class="k">Dentro do bloco</span><span class="dl">'</span></span>}
 </pre>
-</div><p>A saída desse programa é:</p>
+</div>
+<p>A saída desse programa é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> ruby p022codeblock.rb  
 <span class="no">2</span> Início do metodo
@@ -69,11 +72,13 @@
 <span class="no">5</span> Fim do metodo  
 <span class="no">6</span> &gt;Exit code: 0
 </pre>
-</div><p>Se você fornecer um bloco de código quando chamar um método, então dentro desse método, você pode ceder (yield) o controle para esse bloco de código &#8211; suspende a execução do método; executa o código no bloco; e retorna o controle para o corpo do método, logo após a chamada a <strong>yield</strong>. Se nenhum bloco de código foi passado, o Ruby lança uma exceção avisando que nenhum bloco foi dado:</p>
+</div>
+<p>Se você fornecer um bloco de código quando chamar um método, então dentro desse método, você pode ceder (yield) o controle para esse bloco de código &#8211; suspende a execução do método; executa o código no bloco; e retorna o controle para o corpo do método, logo após a chamada a <strong>yield</strong>. Se nenhum bloco de código foi passado, o Ruby lança uma exceção avisando que nenhum bloco foi dado:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> no block given (<span class="co">LocalJumpError</span>)  
 </pre>
-</div><p>Você pode prover parâmetros para a chamada a <strong>yield</strong>: estes serão passados para o bloco. Dentro do bloco, você lista os nomes dos argumentos para receber os parâmetros entre barras verticas (|).</p>
+</div>
+<p>Você pode prover parâmetros para a chamada a <strong>yield</strong>: estes serão passados para o bloco. Dentro do bloco, você lista os nomes dos argumentos para receber os parâmetros entre barras verticas (|).</p>
 <p>O programa p023codeblock2.rb ilustra isso.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># Você pode prover parâmetros a chamada a yield:  </span>
@@ -83,13 +88,15 @@
 <span class="no">5</span> <span class="r">end</span>  
 <span class="no">6</span> chama_bloco {|str, num| puts str + <span class="s"><span class="dl">'</span><span class="k"> </span><span class="dl">'</span></span> + num.to_s}  
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p023codeblock2.rb  
 <span class="no">2</span> ola 99  
 <span class="no">3</span> &gt;Exit code: 0  
 </pre>
-</div><p>Perceba que o código no bloco não é executado até que ele é encontrado pelo interpretador Ruby. Ao invés disso, o Ruby se lembra<br />
+</div>
+<p>Perceba que o código no bloco não é executado até que ele é encontrado pelo interpretador Ruby. Ao invés disso, o Ruby se lembra<br />
 do contexto em que o bloco aparece e então entra no método.</p>
 <p>O valor de returno de um bloco de código (assim como o de um método) é o valor da última expressão avaliada no bloco. Este valor de retorno é disponibilizado dentro do método; ele vem como o valor de retorno do <strong>yield</strong>.</p>
 <p><strong>block_given?</strong> (bloco dado) retornaria verdadeiro caso o <strong>yield</strong> executasse um bloco no contexto atual. Veja o seguinte exemplo:</p>
@@ -105,7 +112,8 @@ do contexto em que o bloco aparece e então entra no método.</p>
 <span class="no"> 9</span> tentar { puts <span class="s"><span class="dl">&quot;</span><span class="k">ola</span><span class="dl">&quot;</span></span> } <span class="c"># =&gt; &quot;ola&quot;  </span>
 <span class="no"><strong>10</strong></span> tentar <span class="r">do</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">hello</span><span class="dl">&quot;</span></span> <span class="r">end</span> <span class="c"># =&gt; &quot;ola&quot;  </span>
 </pre>
-</div><p>h2.Variáveis de bloco</p>
+</div>
+<p>h2.Variáveis de bloco</p>
 <p>Vamos ver o que acontece no exemplo seguinte em que uma variável externa a um bloco é x um um parâmetro do bloco também é x.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> x = <span class="i">10</span>  
@@ -115,7 +123,8 @@ do contexto em que o bloco aparece e então entra no método.</p>
 <span class="no">5</span> 
 <span class="no">6</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">x fora do bloco: </span><span class="il"><span class="idl">#{</span>x<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> x dentro do bloco: 0  
 <span class="no">2</span> x dentro do bloco: 1  
@@ -124,7 +133,8 @@ do contexto em que o bloco aparece e então entra no método.</p>
 <span class="no">5</span> x dentro do bloco: 4  
 <span class="no">6</span> x fora do bloco: 10
 </pre>
-</div><p>Você observará que após a execução do bloco, o x fora do bloco é o x original (10). Portanto, o parâmetro do bloco x é<br />
+</div>
+<p>Você observará que após a execução do bloco, o x fora do bloco é o x original (10). Portanto, o parâmetro do bloco x é<br />
 local a bloco.</p>
 <p>Em seguida, observe o que acontece com x no seguinte exemplo:</p>
 <p>Next observe what happens to x in the following example:</p>
@@ -137,7 +147,8 @@ local a bloco.</p>
 <span class="no">6</span> 
 <span class="no">7</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">x fora do bloco: </span><span class="il"><span class="idl">#{</span>x<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
 </pre>
-</div><p>A saída é:</p>
+</div>
+<p>A saída é:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> x dentro do bloco: 0  
 <span class="no">2</span> x dentro do bloco: 1  
@@ -146,7 +157,8 @@ local a bloco.</p>
 <span class="no">5</span> x dentro do bloco: 4  
 <span class="no">6</span> x fora do bloco: 4 
 </pre>
-</div><p>Como neste caso x não é um parâmetro do bloco, a variável x é a mesma dentro e fora do bloco.</p>
+</div>
+<p>Como neste caso x não é um parâmetro do bloco, a variável x é a mesma dentro e fora do bloco.</p>
 <h2>Resumo</h2>
 <p>Listei todos os <a href="sumario-ruby3.html">pontos importantes</a> que você precisa se lembrar após ter completado os tópicos da parte 3 desse tutorial.</p>
    </div>

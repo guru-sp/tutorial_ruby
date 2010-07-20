@@ -49,21 +49,25 @@
 <span class="no">12</span> 
 <span class="no">13</span> puts diz_boanoite2(<span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>)  
 </pre>
-</div><p>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como um parâmetro, um novo objeto String.</p>
+</div>
+<p>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como um parâmetro, um novo objeto String.</p>
 <p>Como a memória é gerenciada pada Strings no Ruby? Há um pool separado para elas? As Strings são objetos da classe String. Essa classe tem mais de 75 métodos padrões. Se você consultar o &#8220;Guia de Usuário Ruby&#8221;, verá que ele diz que &#8220;não temos que nos preocupar com o espaço ocupado por uma string. Estamos livre de todo o gerenciamento de memória&#8221;.</p>
 <h2>Listando os métodos de uma classe ou objeto</h2>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="co">String</span>.methods.sort
 </pre>
-</div><p>Apresenta uma lista de métodos que o objeto String do tipo Class responde.</p>
+</div>
+<p>Apresenta uma lista de métodos que o objeto String do tipo Class responde.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="co">String</span>.instance_methods.sort
 </pre>
-</div><p>Este método lhe apresenta todas os métodos de instância possuidos por String em ordem alfabética.</p>
+</div>
+<p>Este método lhe apresenta todas os métodos de instância possuidos por String em ordem alfabética.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="co">String</span>.instance_methods(<span class="pc">false</span>).sortt
 </pre>
-</div><p>Com esse método, você pode ver os métodos de instância de uma classe sem os métodos das classes ancestrais.</p>
+</div>
+<p>Com esse método, você pode ver os métodos de instância de uma classe sem os métodos das classes ancestrais.</p>
 <h2>Comparando duas strings para a igualdade</h2>
 <p>As Strings têm diversos métodos para testar a igualdade. O mais comum é o == (duplos sinais de igual). Outro método de instância para testar a igualdade, String.eql?, checa se duas strings tem o conteúdo idêntico. Ele retorna o mesmo resultado que o ==. Um terceiro método de instância, String.equal?, testa se duas strings são o mesmo objeto. O exemplo p013strcmp.rb ilustra isso:</p>
 <div class="CodeRay">
@@ -95,7 +99,8 @@
 <span class="no">26</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings são objetos idênticos</span><span class="dl">'</span></span>  
 <span class="no">27</span> <span class="r">end</span>
 </pre>
-</div><h2>Usando %w</h2>
+</div>
+<h2>Usando %w</h2>
 <p>Às vezes, criar arrays (listas) de palavras pode ser algo doloroso, por todas as aspas e vírgulas. Felizmente, o Ruby tem um atalho: o <strong>%w</strong> faz o que queremos.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> nomes1 = [ <span class="s"><span class="dl">'</span><span class="k">marcelo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">hugo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">william</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">ricardo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">rafael</span><span class="dl">'</span></span> ]  
@@ -110,7 +115,8 @@
 <span class="no"><strong>10</strong></span> <span class="c"># O símbolo :upcase representa uma chamada ao método upcase</span>
 <span class="no">11</span> puts nomes2.map(&amp;<span class="sy">:upcase</span>)  
 </pre>
-</div><p>Você pode ver todos os detalhes da classe String na <a href="http://www.ruby-doc.org/ruby-1.9/classes/String.html" title="em inglês">documentação oficial do Ruby</a>.</p>
+</div>
+<p>Você pode ver todos os detalhes da classe String na <a href="http://www.ruby-doc.org/ruby-1.9/classes/String.html" title="em inglês">documentação oficial do Ruby</a>.</p>
    </div>
 
    <div class="column span-5 append-1 last">
