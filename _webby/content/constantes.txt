@@ -39,7 +39,7 @@ Embora constantes não devam ser alteradas, você pode modificar o estado intern
 <% end -%>
 
 <div class='box'>
-NO RAILS: Você pode encontrar exemplos desse tipo de operação (modificação) no código fonte do Rails, onde constantes aparecem prominenetemente e os objetos que elas representam passam por mudanças com certa frequência.
+NO RAILS: Você pode encontrar exemplos desse tipo de operação (modificação) no código fonte do Rails, onde constantes aparecem prominentemente e os objetos que elas representam passam por mudanças com certa frequência.
 </div>
 
 Observe:
@@ -108,5 +108,5 @@ Outro exemplo elbaroda sobre métodos de uma classe é o **p057mymethods2.rb**. 
 
 h2. Sumário
 
-Listei todos os "pontos importantes":sumario-ruby8.html que você precisa se lembrar após ter completado os seguintes tópics: Serialização de Objetos, Módulos/Mixins, Self e Constantes.
+Listei todos os "pontos importantes":sumario-ruby8.html que você precisa se lembrar após ter completado os seguintes tópicos: Serialização de Objetos, Módulos/Mixins, Self e Constantes.
 
