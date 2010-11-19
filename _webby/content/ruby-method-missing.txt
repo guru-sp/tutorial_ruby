@@ -1,5 +1,5 @@
 ---
-title:      Ruby Method Missing
+title:  Ruby method missing (método faltando)
 created_at: 2009-11-17 14:16:47.913867 -02:00
 filter:
   - erb
@@ -29,3 +29,5 @@ Não há nenhum método chamado qualquer_coisa aqui.
 <% end %>
 
 Você também é responsável por manter a assinatura do *method_missing*. É possível escrever um gancho que captura apenas o nome de um método ausente enquanto ignora seus argumentos e o bloco associado.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

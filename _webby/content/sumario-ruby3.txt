@@ -1,5 +1,5 @@
 ---
-title:      Resumo 3
+title: "Resumo 3"
 created_at: 2009-11-19 15:07:29.489200 -02:00
 filter:
   - erb
@@ -22,3 +22,5 @@ e executa uma instrução correspondente a primeira condição que foi verdadeir
 # O padrão do Ruby é usar chaves para blocos de uma única linha e *do end* para blocos de múltipla linha. Lembre-se que a sintaxe com chaves tem precedência maior que a sintaxe *do end*.
 # Dentro de u mmétodo, você pode chamar um bloco de código Ruby usando a palavra *yield* com um valor.
 # Você pode fornecer parâmetros para a chamada ao *yield*: estes serão passados ao bloco. Dentro do bloco, você lista os argumentos para receber os parâmetros entre barras verticais (|).
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

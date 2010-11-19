@@ -29,7 +29,7 @@ author: agaelebe
 
 <div class="container">
    <div class="column span-22 prepend-1 append-1 first last" id="header">
-     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <h1 class="title"><a href="index.html" alt="voltar para o início">Tutorial de Ruby do GURU-SP</a></h1>
      <hr>
    </div>
 

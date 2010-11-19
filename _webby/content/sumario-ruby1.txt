@@ -1,5 +1,5 @@
 ---
-title:      Sumário Ruby
+title: "Resumo 1"
 created_at: 2009-05-27 20:31:12.243193 -03:00
 filter:
   - erb
@@ -51,3 +51,5 @@ nivel = tamanho = 0
 # Variáveis locais devem começar com letra minúscula ou underscores ( _ ), e devem consistir inteiramente de letras, números e underscores. Exemplos: india, ___usa, alguma_variavel
 # .to_i, .to_f, .to_s são usados para converter para um inteiro, float, string respectivamente.
 # O operador << é usado para adicionar a uma string.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

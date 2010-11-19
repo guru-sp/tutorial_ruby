@@ -108,3 +108,5 @@ Uma das funcionalidades do Java é a capacidade de serializar objetos, o que per
 h2. Sumário
 
 Listei todos os "pontos importantes":sumario-ruby4.html que você precisa saber após ter completado os seguintes tópicos: Arrays, Intervalos, Símbolos, Hashes (Dicionários), Números aleatórios, Lendo/Escrevendo em arquivos de texto.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

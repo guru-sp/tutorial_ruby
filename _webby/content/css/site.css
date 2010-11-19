@@ -10,7 +10,7 @@ color:
   link-hover:         "#000"
   blockquote:         "#666"
   box-bg:             "#e0e0e0"
-  highlight:          "#D82925" #light yellow
+  highlight:          "#D82925"
   quiet:              "#666"
   alt:                "#666"
   box-bg-important:   "#FFF3CF"
@@ -64,7 +64,14 @@ p.title {
   margin-bottom: 0.75em;
 }
 
-#header p.title { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+#header .title { 
+  font-size: 3em; 
+  line-height: 1; 
+  margin: 0.5em 0 0.25em 0; }
+#header a { 
+  text-decoration: none;
+  color: #333;
+} 
 
 .box {
   background: <%= @page.color['box-bg-important'] %>;
@@ -76,6 +83,12 @@ p.title {
 .box p{
   padding: 0;
   margin: 5px 0 5px 0;
+}
+
+.pagination {
+  text-align: right;
+  padding: 5px;
+  margin: 5px;  
 }
 
 /* EOF */

@@ -1,5 +1,5 @@
 ---
-title:      Nomes em Ruby
+title: "Nomes em Ruby"
 created_at: 2009-07-03 23:39:48.265309 -03:00
 filter:
   - erb
@@ -107,3 +107,5 @@ Em Ruby, tudo o que você manipula é um objeto, e o resultado dessa manipulaç�
 5.times { puts "Ratos!\n" } # mais sobre blocos depois
 "Elefantes gostam de amendoins".length
 <% end -%>
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

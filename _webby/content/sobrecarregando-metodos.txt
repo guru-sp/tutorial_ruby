@@ -1,5 +1,5 @@
 ---
-title:      Sobrecarregando métodos em Ruby
+title:      "Sobrecarregando métodos em Ruby"
 created_at: 2010-05-06 21:10:49.600687 -03:00
 filter:
   - erb
@@ -40,3 +40,5 @@ h2. Sumário
 
 Eu listei todos os "pontos importantes":sumario-ruby5.html que você precisa lembrar depois de concluir os seguintes tópicos: **Incluindo outros arquivos**, **Classes abertas em Ruby**, **Herança**, **Sobrescrevendo métodos**, **Sobrecarregando métodos**.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

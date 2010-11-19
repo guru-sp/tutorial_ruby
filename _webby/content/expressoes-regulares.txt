@@ -186,3 +186,5 @@ Leia o "tutorial de expressões regulares do site Regular-Expressions.info (em i
 Uma boa aplicação para testar suas expressões regulares é o "Rubular.com":http://www.rubular.com.
 
 O tópico acima foi adaptado do livro "Ruby for Rails":http://www.manning.com/black/.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

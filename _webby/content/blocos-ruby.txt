@@ -169,3 +169,5 @@ h2. Resumo
 
 Listei todos os "pontos importantes":sumario-ruby3.html que você precisa se lembrar após ter completado os tópicos da parte 3 desse tutorial.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

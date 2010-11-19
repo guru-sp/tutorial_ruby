@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Hashes</title>
+   <title>Hashes (dicionários)</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -24,12 +24,12 @@
 
 <div class="container">
    <div class="column span-22 prepend-1 append-1 first last" id="header">
-     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <h1 class="title"><a href="index.html" alt="voltar para o início">Tutorial de Ruby do GURU-SP</a></h1>
      <hr>
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Hashes</p>
+      <p class="title">Hashes (dicionários)</p>
 <p>Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays a medida que são coleções indexadas de referências a objetos. No entanto, enquanto o o array é indexado por inteiros (semelhante a um índice remissivo), o hash pode ser indexado com objetos de qualquer tipo: strings, expressões regulares e assim por diante. Quando você armazena um valor em um hash, você na verdade fornece dois objetos &#8211; o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como os índices, podem ser objetos de qualquer tipo.</p>
 <p>O exemplo <b>040myhash.rb</b> abaixo cria um hash com literais (strings): uma lista de pares chave =&gt; valor entre</p>
 <div class="CodeRay">
@@ -86,7 +86,7 @@ declarada</p>
 <p>Outra maneira de fazer a mesma coisa é mostrada no programa <strong>p0412symbolhash.rb</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p0412symbolhash.rb</span>
-<span class="no">2</span> h = {apelido: <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, idioma: <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, sobrenome: <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
+<span class="no">2</span> h = {<span class="sy">apelido:</span> <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, <span class="sy">idioma:</span> <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, <span class="sy">sobrenome:</span> <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
 <span class="no">3</span> puts h
 </pre>
 </div>
@@ -99,6 +99,7 @@ declarada</p>
 <div class='box'>
 <p>O último exemplo (<b>p0412symbolhash.rb</b>) não funcionará no Ruby 1.8. Ele utiliza uma sintaxe nova para declarar hashes introduzida no Ruby 1.9.</p>
 </div>
+<div class="pagination"><a href="numeros-aleatorios.html">Números aleatórios &gt;</a></div>
    </div>
 
    <div class="column span-5 append-1 last">

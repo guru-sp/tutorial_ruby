@@ -1,5 +1,5 @@
 ---
-title:      Sumário 6
+title: "Resumo 6"
 created_at: 2010-07-07 20:50:25.387994 -03:00
 filter:
  - erb
@@ -24,3 +24,5 @@ p(title). <%= h(@page.title) %>
 # A classe Tempo contém a interface do Ruby para o conjunto de bibliotecas de tempo escritas em C.
 # Hora zero para o Ruby é o primeiro segundo GMT de 01 de janeiro de 1970.
 # A classe *DateTime* do Ruby é superior a *Time* para aplicações para a área de Astronomia e História, mas você pode usar a *Time* para a maioria das aplicações diárias.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

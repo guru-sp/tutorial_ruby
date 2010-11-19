@@ -80,3 +80,5 @@ Agora nosso logger ignorará todas as mensagens de log exceto as com nível de s
   E, [2008-03-18T17:15:59.919000 #2624] ERROR -- : Erro na divisão!: divided by 0
 <% end -%>
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

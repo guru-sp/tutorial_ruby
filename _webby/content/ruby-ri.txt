@@ -1,5 +1,5 @@
 ---
-title:      A ferramenta Ruby ri
+title:     A ferramente ri do Ruby
 created_at: 2009-10-20 23:19:30.459402 -02:00
 filter:
   - erb
@@ -35,3 +35,5 @@ O ri se encaixa ao RDoc: Ele lhe oferece um jeito de visualizar a informação q
 "http://www.rubyinside.com.br/rdoc-algumas-maneiras-alternativas-de-consultar-documentacao-1469"http://www.rubyinside.com.br/rdoc-algumas-maneiras-alternativas-de-consultar-documentacao-1469
 
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

@@ -1,5 +1,5 @@
 ---
-title:      Resumo 4
+title: "Resumo 4"
 created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
   - erb
@@ -44,3 +44,5 @@ o que quisermos com cada um dos objetos que o array aponta para.
 e o arquivo será automaticamente fechado quando o bloco terminar.
 # Sempre feche um arquivo que você abrir. No caso de um arquivo aberto para escrita, isso é muito importante e pode realmente prevenir uma perda de dados.
 # O método *seek* (procurar) da classe *IO*, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEE_CUR - busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END - busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET - Busca a posição absoluta dada pelo número inteiro do primeiro parâmetro.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

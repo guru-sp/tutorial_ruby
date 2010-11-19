@@ -1,5 +1,5 @@
 ---
-title:      Hashes
+title:      Hashes (dicionários)
 created_at: 2010-03-03 18:40:01.610313 -03:00
 filter:
   - erb
@@ -93,3 +93,5 @@ O último exemplo (**p0412symbolhash.rb**) não funcionará no Ruby 1.8. Ele uti
 
 
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

@@ -1,5 +1,5 @@
 ---
-title:      Variáveis e atribuição
+title:      "Variáveis e atribuição"
 created_at: 2009-05-24 19:29:50.945539 -03:00
 filter:
   - erb
@@ -66,3 +66,5 @@ o ponto significa que a mensagem "to_f" está sendo enviada para a string "200.0
 h2. Sumário
 
 Eu listei todos os "pontos importantes":sumario-ruby1.html que você precisa lembrar depois de ter completado os seguintes tópicos: "Introdução":introducao.html, "Instalação":instalacao.html, "Primeiro programa Ruby":primeiro-programa-ruby.html, "Características":caracteristicas.html, "Números em Ruby":numeros-em-ruby.html, "Diversão com strings":diversao-com-strings.html e "Variáveis e atribuição":variaveis-e-atribuicao.html.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

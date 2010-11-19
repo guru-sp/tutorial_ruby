@@ -1,5 +1,5 @@
 ---
-title:      Meu Primeiro Programa Ruby
+title:      "Primeiro programa Ruby"
 created_at: 2009-05-09 16:21:10.285545 -03:00
 filter:
   - erb
@@ -42,3 +42,5 @@ h2. Observe
 # Ruby é uma linguagem interpretada, então você não precisa recompilar para executar um programa escrito em Ruby
 # Lançamentos do Ruby mesmo com números de sub-versões - 1.6, 1.8, e outros - são estáveis, versões públicas. Entretanto, em 2007 Matz quebrou a convenção e criou a versão 1.9 como uma pública e estável versão do Ruby
 # A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

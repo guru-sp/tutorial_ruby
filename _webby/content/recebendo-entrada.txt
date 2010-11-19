@@ -1,5 +1,5 @@
 ---
-title:      Recebendo Entrada
+title: Recebendo entrada
 created_at: 2009-06-28 14:05:42.935486 -03:00
 filter:
   - erb
@@ -27,3 +27,5 @@ Quando você executar o exemplo acima no _SciTE_, clique no caixa de saída (no 
 *chomp* é um método de string e retorna apenas as strings do que veio do teclado. Você deve ter percebido que *gets* retorna uma string e o caractere '\n' (quebra de linha), enquanto *chomp* remove o '\n'.
 
 <div class='box'>*NO RAILS*: Os dados vêm de muitas fontes. Em uma aplicação típica do Rails, eles vêm do banco de dados. Como um desenvolvedor Rails, você pode se encontrar utilizando relativamente poucas dessas facilidades, porque o Rails faz o tratamento dos dados para você; e seus usuários, quando eles enviam entradas pelo teclado, estarão geralmente digitando em um formulário web.</div>
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

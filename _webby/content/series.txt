@@ -43,3 +43,5 @@ Outro uso do versátil Range é para testar um intervalo: verificar se algum val
 ('a'..'j') === 'c'  -> true  
 ('a'..'j') === 'z'  -> false
 <% end %>
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

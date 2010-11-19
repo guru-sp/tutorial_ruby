@@ -1,5 +1,5 @@
 ---
-title:       Escrevendo seus Métodos em Ruby
+title:       "Escrevendo seus métodos Ruby"
 created_at:  2009-08-26 11:38:00.000000 -03:00
 filter:
   - erb
@@ -156,8 +156,5 @@ método antigo
 <% end -%>
 
 
-
-
-
-
-
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

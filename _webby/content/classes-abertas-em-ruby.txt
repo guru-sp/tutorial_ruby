@@ -1,5 +1,5 @@
 ---
-title:      Classes Abertas em Ruby
+title: "Classes abertas em Ruby"
 created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
  - erb
@@ -67,3 +67,5 @@ Aqui está outro exemplo de se adicionar um método para a classe **String**. O 
 Se você está escrevendo um novo método que conceitualmente pertence a classe original, você pode reabrir a classe e adicionar seu método a definição da mesma. Você deve apenas fazer isso se seu método tem utilidade genérica e você tem certeza que ele não entrará em conflito com um outro método definido por uma biblioteca que você pode incluir no futuro. Se o seu método não tem utilidade genérica, ou você não quer correr o risco de modificar uma classe após sua criação, crie uma subclasse da classe original. A subclasse pode sobrescrever seus métodos pais, ou adicionar novos. Isso é mais seguro porque a classe original e, qualquer código que dependa dela, não serão afetados.
 </div>
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

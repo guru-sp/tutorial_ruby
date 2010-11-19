@@ -110,3 +110,5 @@ h2. Sumário
 
 Listei todos os "pontos importantes":sumario-ruby8.html que você precisa se lembrar após ter completado os seguintes tópicos: Serialização de Objetos, Módulos/Mixins, Self e Constantes.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

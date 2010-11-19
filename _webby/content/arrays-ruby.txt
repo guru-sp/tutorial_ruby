@@ -1,5 +1,5 @@
 ---
-title:      Arrays em Ruby
+title:      Arrays Ruby
 created_at: 2010-02-17 15:06:43.133715 -02:00
 filter:
   - erb
@@ -285,3 +285,5 @@ Você verá:
 
 Você pode ver os "detalhes da classe Array na documentação oficial do Ruby (em inglês)":http://www.ruby-doc.org/ruby-1.9/classes/Array.html.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

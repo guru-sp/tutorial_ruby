@@ -1,5 +1,5 @@
 ---
-title: Sumário 7
+title: "Resumo 7"
 created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
  - erb
@@ -17,3 +17,5 @@ p(title). <%= h(@page.title) %>
 # O método **freeze** na classe Objeto previne que você altere um objeto, efetivamente transformando-o em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resultará num __TypeError__.
 # **freeze** opera na referência de um objeto, não em uma variável. Isso significa que qualquer operações resultando em um novo objeto funcionará.
 # O método *frozen?* lhe diz se um objeto está ou não congelado (é ou não imutável).
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

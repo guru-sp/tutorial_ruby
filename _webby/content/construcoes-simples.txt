@@ -1,5 +1,5 @@
 ---
-title:      Construções Simples
+title:  "Construções simples"
 created_at: 2009-11-11 10:30:21.818957 -02:00
 filter:
   - erb
@@ -179,3 +179,5 @@ puts false.object_id # 0
 <% end -%>
 
 &nbsp;
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

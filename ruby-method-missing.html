@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Ruby Method Missing</title>
+   <title>Ruby method missing (método faltando)</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -24,12 +24,12 @@
 
 <div class="container">
    <div class="column span-22 prepend-1 append-1 first last" id="header">
-     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <h1 class="title"><a href="index.html" alt="voltar para o início">Tutorial de Ruby do GURU-SP</a></h1>
      <hr>
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Ruby Method Missing</p>
+      <p class="title">Ruby method missing (método faltando)</p>
 <p>Quando você envia uma mensagem a um objeto, este executa o primeiro método que ele encontra no <a href="http://phrogz.net/RubyLibs/RubyMethodLookupFlow.pdf">caminho de busca do método</a> (arquivo PDF) com o mesmo nome da mensagem. Se ele falha em encontrar tal método, ele lança uma exceção do tipo <strong>NoMethodError</strong> &#8211; a menos que você tenha fornecido ao objeto um método chamado <strong>method_missing</strong> (método ausente). Ao método <strong>method_missing</strong> é passado o símbolo do método não existente, uma lista de argumentos que foram passados na chamada original e qualquer bloco passado ao método original.</p>
 <p><strong>method_missing</strong> faz parte de uma rede de segurança: Ele lhe fornece um jeito de interceptar mensagens não respondidas e trata-as de maneira elegante. Veja o exemplo <strong>p012zmm.rb</strong> abaixo:</p>
 <div class="CodeRay">
@@ -49,6 +49,7 @@
 </pre>
 </div>
 <p>Você também é responsável por manter a assinatura do <strong>method_missing</strong>. É possível escrever um gancho que captura apenas o nome de um método ausente enquanto ignora seus argumentos e o bloco associado.</p>
+<div class="pagination"><a href="procs.html">Procs em Ruby &gt;</a></div>
    </div>
 
    <div class="column span-5 append-1 last">

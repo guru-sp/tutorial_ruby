@@ -1,5 +1,5 @@
 ---
-title:      Sobreposição de Métodos
+title: "Sobreposição (Overriding) de Métodos"
 created_at: 2010-05-11 09:23:39.261413 -03:00
 filter:
   - erb
@@ -138,3 +138,5 @@ end
 
 ConcreteKlass.new.bemvindo # imprime "Ola Estudantes de Ruby"
 <% end -%>
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

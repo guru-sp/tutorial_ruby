@@ -46,7 +46,14 @@ p.title {
   margin-bottom: 0.75em;
 }
 
-#header p.title { font-size: 3em; line-height: 1; margin-bottom: 0.5em; }
+#header .title { 
+  font-size: 3em; 
+  line-height: 1; 
+  margin: 0.5em 0 0.25em 0; }
+#header a { 
+  text-decoration: none;
+  color: #333;
+} 
 
 .box {
   background: #FFF3CF;
@@ -58,6 +65,12 @@ p.title {
 .box p{
   padding: 0;
   margin: 5px 0 5px 0;
+}
+
+.pagination {
+  text-align: right;
+  padding: 5px;
+  margin: 5px;  
 }
 
 /* EOF */

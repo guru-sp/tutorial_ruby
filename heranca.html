@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Herança em Ruby</title>
+   <title>Herança</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -24,12 +24,12 @@
 
 <div class="container">
    <div class="column span-22 prepend-1 append-1 first last" id="header">
-     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <h1 class="title"><a href="index.html" alt="voltar para o início">Tutorial de Ruby do GURU-SP</a></h1>
      <hr>
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Herança em Ruby</p>
+      <p class="title">Herança</p>
 <p>Herança é uma relação entre duas classes. Sabemos que todos gatos são mamíferos e que todos mamíferos são animais. O benefício da herança é que classes em níveis mais baixos da hierarquia obtêm as características daquelas em um nível mais alto, mas podem também adicionar características específicas a si mesmas. Se todos mamíferos respiram, então todos gatos respiram. No Ruby,<br />
 uma classe pode apenas herdar de uma única outra classe. Outras linguagens suportam herança múltipla, uma funcionalidade que permite que classes herdem características de múltiplas classes, mas Ruby não suporta isso.</p>
 <p>Podemos expressar esse conceito no Ruby como mostrado no programa <b>p033mammal.rb</b> abaixo:</p>
@@ -155,6 +155,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <p><b>super</b> é um método especial que invoca um método com mesmo nome do método atual na superclasse da classe em questão.</p>
 <p>A razão para que às vezes pareça que essas variáveis de instância são herdadas está no fato das variáveis de instância serem criadas pelos primeiros métodos que atribuem valores a elas, e estes métodos são geralmente herdados ou encadeados.</p>
 <p>Visto que as variáveis de instância não tem nada a ver com a herança, segue que uma variável de instância usada por uma subclasse não pode &#8220;ocultar&#8221; uma variável de instância na superclasse. Se uma subclasse usa uma variável de instância com o mesmo nome de uma variável usada em um de seus ancestrais, ela irá sobrescrever o valor da variável de seus ancestrais.</p>
+<div class="pagination"><a href="sobreposicao-de-metodos.html">Sobreposição (Overriding) de Métodos &gt;</a></div>
    </div>
 
    <div class="column span-5 append-1 last">

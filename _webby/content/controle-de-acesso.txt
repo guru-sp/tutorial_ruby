@@ -180,7 +180,7 @@ David Black, o autor do livro Ruby for Rails, tem isso a dizer: Variáveis de in
 <% end -%>
 
 
-The output is:
+A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
   >ruby p049instvarinherit.rb
@@ -237,3 +237,5 @@ puts e print são métodos de instância privados inclusos em Kernal. É por iss
 Falaremos sobre self detalhadamente mais tarde.
 
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

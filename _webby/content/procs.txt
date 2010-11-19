@@ -96,3 +96,5 @@ Outro artigo recomendado é o do "Daniel Lopes":http://blog.areacriacoes.com.br/
 
 </div>
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

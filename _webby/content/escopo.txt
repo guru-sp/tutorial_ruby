@@ -25,3 +25,5 @@ Você pode dizer, olhando um programa Ruby, onde o escopo local começa e termin
 * O nível mais alto (por fora de todas as definições de bloco) tem seu próprio escopo local.
 * Cada definição de bloco de classe ou módulo (class, module) tem seu próprio escopo local, mesmo definições de blocos de classes/módulos aninhadas.
 * Cada definição de bloco de método (def) tem seu próprio escopo local.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

@@ -1,5 +1,5 @@
 ---
-title:      Mais Sobre Strings
+title:      Mais sobre Strings
 created_at: 2009-10-26 20:38:45.704375 -02:00
 filter:
   - erb
@@ -112,3 +112,5 @@ puts nomes2.map(&:upcase)
 <% end -%>
 
 Você pode ver todos os detalhes da classe String na "documentação oficial do Ruby (em inglês)":http://www.ruby-doc.org/ruby-1.9/classes/String.html.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

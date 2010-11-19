@@ -132,3 +132,5 @@ if a = f(x) and b = f(y) and c = f(z) then d = g(a,b,c) end
 
 
 Esta expressão simplesmente não funcionaria se escrita com *&&* ao invés de *and*.
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

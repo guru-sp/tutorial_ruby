@@ -80,3 +80,5 @@ h2. Sumário
 
 Listei todos os "pontos importantes":sumario-ruby7.html para você se lembrar após ter completado os seguintes tópicos: "Duck Typing":duck-typing.html, "Açúcares sintáticos":acucares-sintaticos-do-ruby.html e Objetos Mutáveis e Imutáveis.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

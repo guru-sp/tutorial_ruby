@@ -1,5 +1,5 @@
 ---
-title:      Diversão com strings
+title: Diversão com strings
 created_at: 2009-05-24 13:56:49.734412 -03:00
 filter:
   - erb
@@ -59,3 +59,6 @@ Outro modo de executar um processo separado é utilizando o método *system* de 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 system("tar xzf teste.tgz") # => true
 <% end -%>
+
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

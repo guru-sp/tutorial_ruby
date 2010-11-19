@@ -1,5 +1,5 @@
 ---
-title:      Sumário 8
+title:      "Resumo 8"
 created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
  - erb
@@ -32,3 +32,5 @@ p(title). <%= h(@page.title) %>
 # Embora constantes não devam ser alteradas, você pode modificar o estado interno de objetos referenciados pelas mesmas.
 # Lembre-se das regras para constantes.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

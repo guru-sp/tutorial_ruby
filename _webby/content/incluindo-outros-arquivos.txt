@@ -66,3 +66,5 @@ Escrevemos outro programa **p031motorcycletest.rb** para testar a classe acima.
   m.ligaMotor
 <% end -%>
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

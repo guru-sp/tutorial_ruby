@@ -1,5 +1,5 @@
 ---
-title: a Classe time do Ruby
+title: A classe Time do Ruby
 created_at: 2009-12-23 14:29:25.387994 -02:00
 filter:
  - erb
@@ -48,3 +48,5 @@ h2. Sumário
 
 Listei "todos os pontos importantes":sumario-ruby6.html que você precisa se lembrar após ter completado os seguintes tópicos: Controle de Acesso, Exceções, Logging e classe de tempo do Ruby.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

@@ -1,5 +1,5 @@
 ---
-title:      Números Aleatórios
+title:      Números aleatórios
 created_at: 2010-03-10 12:04:30.370531 -03:00
 filter:
   - erb
@@ -55,3 +55,5 @@ puts frase
 
 O programa acima cria três listas de palavras e então seleciona aleatoriamente uma palavra de cada uma das listas e imprime o resultado.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Serialização de Objetos</title>
+   <title>Serialização de objetos</title>
    <meta name="author" content="" />
 
    <!--- Blueprint CSS Framework -->
@@ -24,12 +24,12 @@
 
 <div class="container">
    <div class="column span-22 prepend-1 append-1 first last" id="header">
-     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <h1 class="title"><a href="index.html" alt="voltar para o início">Tutorial de Ruby do GURU-SP</a></h1>
      <hr>
    </div>
 
    <div class="column span-17 prepend-1 first">
-      <p class="title">Serialização de Objetos</p>
+      <p class="title">Serialização de objetos</p>
 <p>A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling (empacotamento).</p>
 <p>Escreveremos uma classe básica (<b>p051gamecharacters.rb</b>) apenas para testar o marshalling.</p>
 <div class="CodeRay">
@@ -74,6 +74,7 @@
 </pre>
 </div>
 <p><b>Marshal</b> apenas serializa estruturas de dados. Ele não pode serializar código Ruby (como objetos do tipo Proc), ou recursos alocados por outros processos (como tratadores de arquivo ou conexões com bancos de dados). <b>Marshal</b> apenas lhe dará um erro quando tentar serializar um arquivo.</p>
+<div class="pagination"><a href="modulos-mixins.html">Módulos e Mixins &gt;</a></div>
    </div>
 
    <div class="column span-5 append-1 last">

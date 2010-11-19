@@ -24,7 +24,7 @@
 
 <div class="container">
    <div class="column span-22 prepend-1 append-1 first last" id="header">
-     <p class="title">Tutorial de Ruby do GURU-SP</p>
+     <h1 class="title"><a href="index.html" alt="voltar para o início">Tutorial de Ruby do GURU-SP</a></h1>
      <hr>
    </div>
 
@@ -223,6 +223,7 @@
 </pre>
 </div>
 <p>A classe <b>Nome</b> armazenas o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um sobrenome, e o primeiro nome de todas as pessoas deve começar uma letra maiúscula. A classe <b>Nome</b> foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método <b>Nome#initialize</b> acima, chamamos os métodos <b>primeiro=</b> e <b>sobrenome=</b> ao invés de atribuir a @primeiro e @sobrenome. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe <b>Nome</b>. Não podemos apenas dizer <b>primeiro = primeiro</b>, porque <strong>primeiro</strong> é um nome de variável nesse método. Usamos então <strong>self.primeiro</strong> para executar o método <b>primeiro=</b>.</p>
+<div class="pagination"><a href="logging-com-ruby.html">Logging com Ruby &gt;</a></div>
    </div>
 
    <div class="column span-5 append-1 last">

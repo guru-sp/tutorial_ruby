@@ -1,5 +1,5 @@
 ---
-title:      Escrevendo nossa própria classe em Ruby
+title:  Escrevendo sua própria classe
 created_at: 2010-01-16 22:50:12.243193 -03:00
 filter:
   - erb
@@ -220,3 +220,5 @@ Nos textos sobre Ruby, a notação do __caractere #__ (tralha, sustenido, jogo-d
 
 Você aprenderá como criar seus métodos de classe nos próximos capítulos deste tutorial.
 
+<%- page_title, page_url = next_page %>
+<div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
