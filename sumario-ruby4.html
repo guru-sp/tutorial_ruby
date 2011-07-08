@@ -31,21 +31,20 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Resumo 4</p>
 <ol>
-	<li>Um Array é uma lista de itens em ordem. Cada lacuna na lista atua como uma variável: você pode ver a qual objeto uma lacuna aponta para, e você pode fazer ela apontar para um objeto diferente. Você pode criar um array usando colchetes []</li>
+	<li>Um Array é uma lista de itens em ordem. Cada lacuna na lista atua como uma variável: você pode ver a qual objeto uma lacuna aponta, e você pode fazer ela apontar para um objeto diferente. Você pode criar um array usando colchetes []</li>
 	<li>Arrays são indexados por números inteiros e o índice inicia em 0.</li>
-	<li>Você pode acessar um Array além dos seus limites; ele retornará nulo.</li>
+	<li>Você pode acessar um Array além dos seus limites; ele retornará nil.</li>
 	<li>Uma vírgula sobrando na declaração de um array é ignorada (Ex: [1, 2, 3,])</li>
 	<li>Refira-se a <a href="http://ruby-doc.org/core/classes/Array.html">documentação da classe Array</a> para uma lista de métodos.</li>
 	<li>Podemos adicionar novos elementos a um Array existente.</li>
-	<li>O método each (para cada objeto) é um iterador que extrai cada elemento do array. O método each permite que façamos<br />
-o que quisermos com cada um dos objetos que o array aponta para.</li>
+	<li>O método each (para cada objeto) é um iterador que extrai cada elemento do array. O método each permite que façamos o que quisermos com cada um dos objetos que o array aponta.</li>
 	<li>A variável entre as barras verticais, isto é, | | refere-se a cada item no array a medida que ele é iterado no loop. Você pode dar a essa variável o nome que desejar.</li>
 	<li>Sequências tem um ponto de início, de término e um modo de produzir valores sucessivos na sequência. No Ruby, essas sequências são criadas usando os operadores de intervalo <strong>&#8220;..&#8221;</strong> e <strong>&#8220;&#8230;&#8221;</strong>.</li>
 	<li>A forma com os dois pontos cria um intervalo inclusivo, e a forma com três pontos cria um intervalo exclusivo, excluindo o valor mais alto do intervalo.</li>
 	<li>No Ruby, a sequência <strong>1..100000</strong> é armazenada como um objeto do tipo <strong>Range</strong> contendo referências a dois objetos <strong>Fixnum</strong>.</li>
 	<li>O método <strong>.to_a</strong> converte um Range em um <strong>Array</strong>.</li>
 	<li>Outro uso versátil do range é no teste de um intervalo: ver se um valor está dentro do intervalo representado pelo range. Fazemos isso usando <strong>===</strong>, o operador de igualdade de caso.</li>
-	<li>Ranges não estão limitados a inteiros ou números. O início e o fim de um de um intervalo pode ser qualquer objeto Ruby.</li>
+	<li>Ranges não estão limitados a inteiros ou números. O início e o fim de um intervalo pode ser qualquer objeto Ruby.</li>
 	<li>Um símbolo (symbol) parece com um nome de variável mas é prefixado com dois pontos.</li>
 	<li>Você pode pensar em <strong>:id</strong> como significando o nome da variável id, e <strong>id</strong> (sem os dois pontos) como o valor da variável.</li>
 	<li>Símbolos são úteis porque um nome de símbolo se refere ao mesmo objeto ao longo de um programa Ruby.</li>
@@ -63,11 +62,10 @@ o que quisermos com cada um dos objetos que o array aponta para.</li>
 	<li>nil é retornado quando se tenta acessar uma chave que não existe no hash.</li>
 	<li>O método para obter um número escolhido aleatoriamente no Ruby é o rand.</li>
 	<li>Se você chamar rand você obterá um float maior ou igual a 0.0 e menor que 1.0. Se você der a ele um inteiro como parâmetro de entrada (chamando, por exemplo, <strong>rand(5)</strong>), você obterá um inteiro maior ou igual a 0 e menor que 5.</li>
-	<li>O método <strong>File.open</strong> pode abrir um arquivo em modos diferentes como <strong>&#8216;r&#8217;</strong> (somente leitura, iniciando no começo do arquivo (padrão)), <strong>&#8216;r+&#8217;</strong> (Escrita/leitura, inicia no começo do arquivo), <strong>&#8216;w&#8217;</strong> (somente escrita), troca o arquivo existente para o tamanho vazio ou cria um novo arquivo para escrita.</li>
-	<li><strong>File.open</strong> abre um novo arquivo se não há nenhum bloco associado. Se o bloco é dado, ele passará o arquivo como um argumento,<br />
-e o arquivo será automaticamente fechado quando o bloco terminar.</li>
+	<li>O método <strong>File.open</strong> pode abrir um arquivo em modos diferentes como <strong>&#8216;r&#8217;</strong> (somente leitura, iniciando no começo do arquivo (padrão)); <strong>&#8216;r+&#8217;</strong> (Escrita/leitura, inicia no começo do arquivo); <strong>&#8216;w&#8217;</strong> (somente escrita), troca o arquivo existente para o tamanho vazio ou cria um novo arquivo para escrita.</li>
+	<li><strong>File.open</strong> abre um novo arquivo se não há nenhum bloco associado. Se o bloco é dado, ele passará o arquivo como um argumento, e o arquivo será automaticamente fechado quando o bloco terminar.</li>
 	<li>Sempre feche um arquivo que você abrir. No caso de um arquivo aberto para escrita, isso é muito importante e pode realmente prevenir uma perda de dados.</li>
-	<li>O método <strong>seek</strong> (procurar) da classe <strong>IO</strong>, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEE_CUR &#8211; busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END &#8211; busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET &#8211; Busca a posição absoluta dada pelo número inteiro do primeiro parâmetro.</li>
+	<li>O método <strong>seek</strong> (procurar) da classe <strong>IO</strong>, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEEK_CUR &#8211; busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END &#8211; busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET &#8211; Busca a posição absoluta dada pelo número inteiro do primeiro parâmetro.</li>
 </ol>
 <div class="pagination"><a href="expressoes-regulares.html">Expressões Regulares &gt;</a></div>
    </div>

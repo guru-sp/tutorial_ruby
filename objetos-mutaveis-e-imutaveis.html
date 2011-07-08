@@ -34,12 +34,12 @@
 <p>Objetos imutáveis têm muitas propriedades desejáveis:</p>
 <ul>
 	<li>Objetos imutáveis são seguros em relação a threads (<i>thread-safe</i>). Threads não podem corromper aquilo que não podem alterar.</li>
-	<li>Objetos imutáveis tornam mais simples implementar encasulamento. Se parte do estado de um objeto é armazenado e um objeto imutável, então os métodos assessores podem retornar esse objeto para chamadores externos sem se preocupar se estes chamadores podem mudar o estado do objeto.</li>
+	<li>Objetos imutáveis tornam mais simples implementar encapsulamento. Se parte do estado de um objeto é armazenado em um objeto imutável, então os métodos assessores podem retornar esse objeto para chamadores externos sem se preocupar se estes chamadores podem mudar o estado do objeto.</li>
 	<li>Objetos imutáveis são bons para se usar como chaves hash, visto que seu código hash não pode ser alterado.</li>
 </ul>
 <p>No Ruby, a mutabilidade é uma propriedade de uma instância, não de uma classe completa. Qualquer instância pode se tornar imutável chamando o método <b>freeze</b> (congelar).</p>
 <h2>Congelando Objetos</h2>
-<p>O método <b>freeze</b> na classe <b>Objetct</b> previne você de alterar um objeto, efetivamente transformando um objeto em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resulta em um erro <b>TypeError</b>. O programa seguinte <b>p050xfreeze.rb</b> ilustra isso:</p>
+<p>O método <b>freeze</b> na classe <b>Objetct</b> previne você de alterar um objeto, efetivamente transformando um objeto em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resulta em um erro <b>RuntimeError</b>. O programa seguinte <b>p050xfreeze.rb</b> ilustra isso:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   str = <span class="s"><span class="dl">'</span><span class="k">Uma string simples. </span><span class="dl">'</span></span>
 <span class="no">2</span>   str.freeze
@@ -60,7 +60,7 @@
 <span class="no">5</span>   <span class="c"># A Saída é - String original - anexo</span>
 </pre>
 </div>
-<p>A expressão str + &#8216;anexo&#8217; é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objteo.</p>
+<p>A expressão str += &#8216;anexo&#8217; é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objeto.</p>
 <h2>frozen? (congelado?)</h2>
 <p>O método <b>frozen?</b> lhe diz se um objeto está congelado ou não. Vamos ver um exemplo:</p>
 <div class="CodeRay">
@@ -80,7 +80,7 @@ Nós então congelamos o objeto <i>String Original</i>. Portanto, tanto a quanto
 <p><b>Uso</b>:<br />
 O Ruby às vezes copia objetos e congela as cópias. Quando você usa uma string como chave hash, o Ruby na verdade copia a string, congela a cópia e usa a cópia como chave hash: desse modo, se a string original se alterar mais tarde, a chave hash não é afetada.</p>
 <p>As operações internas de arquivos do Ruby trabalham com uma cópia congelada do nome do arquivo ao invés de usar o nome do arquivo diretamente. Se outra thread altera o nome original do arquivo no meio de uma operação que deveria ser atômica, não há problema: o Ruby não estava usando o nome do arquivo original. Você pode adotar esse padrão copia-e-congela em código com suporte multi-thread para prevenir que uma estrutura de dados com que você esteja trabalhando seja alterada por outra thread.</p>
-<p>Outro uso como no nível do programador dessa funcionalidade é congelar uma classe para prevenir modificações futuras a mesma.</p>
+<p>Outro uso comum no nível do programador dessa funcionalidade é congelar uma classe para prevenir modificações futuras a mesma.</p>
 <p><b>Nota</b>: Sempre que um objeto no Ruby não tem referência a ele, então o objeto será marcado para remoção e o coletor de lixo irá remover esse objeto baseado em seu algoritmo. Não há como acessar um objeto sem referência.</p>
 <h2>Sumário</h2>
 <p>Listei todos os <a href="sumario-ruby7.html">pontos importantes</a> para você se lembrar após ter completado os seguintes tópicos: <a href="duck-typing.html">Duck Typing</a>, <a href="acucares-sintaticos-do-ruby.html">Açúcares sintáticos</a> e Objetos Mutáveis e Imutáveis.</p>

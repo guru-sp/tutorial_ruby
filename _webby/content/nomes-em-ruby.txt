@@ -14,52 +14,49 @@ h2. Variáveis
 Variáveis no Ruby podem conter dados de qualquer tipo. Você pode usar variáveis em seus programas Ruby sem qualquer declaração. O nome de uma variável por si só denota seu escopo (local, global, instância, etc).
 
 * O nome de uma variável *local* (declarada dentro de um objeto) consiste de uma letra minúscula (ou um underscore) seguido por caracteres de nome (azul, _z, bater_e_correr).
-* O nome de uma variável de *instância* (declarada dentro de um objeto sempre pertence a qualquer que seja o objeto que *self* se refira) começa com uma arroba ("@") seguida por um nome (@assinatura, @_, @Contador).
-* O nome de uma variável de *classe* (declarada dentro de uma classe) começa com duas arrobas ("@@") seguidas de um nome (@@assinatura, @@_, @@Contador). Uma variável de classe é compartilhada por todos os objetos de uma classe. Somente uma cópia de uma variável de classe particular existe para uma dada classe. Variáveis de classe usadas no nível mais alto são definidas em *Object* e se comportam como variáveis globais. Essas são raramente utilizadas em programas Ruby.
+* O nome de uma variável de *instância* (declarada dentro de um objeto sempre pertence a qualquer que seja o objeto que *self* se refira) começa com uma arroba ("@") seguida por um nome (@assinatura, @_, @contador).
+* O nome de uma variável de *classe* (declarada dentro de uma classe) começa com duas arrobas ("@@") seguidas de um nome (@@assinatura, @@_, @@contador). Uma variável de classe é compartilhada por todos os objetos de uma classe. Somente uma cópia de uma variável de classe particular existe para uma dada classe. Variáveis de classe usadas no nível mais alto são definidas em *Object* e se comportam como variáveis globais. Essas são raramente utilizadas em programas Ruby.
 * Variáveis *globais* começam com um símbolo de dólar ("$") seguido por caracteres de nome. O nome de uma variável global também pode ser formado usando "$-" seguido por qualquer caractere único ($contador, $CONTADOR, $-x). O Ruby define uma série de variáveis globais que incluem outros caracteres de pontuação, como $_ e $-K.
 
 h2. Constantes
 
-O nome de uma *constante* começa com uma letra maiúscula seguida por caracteres de nome. Nomes de classes e módulos so constantes, e seguem a convenção de nomes de contantes. Exemplos: módulo MyMath, PI=3.1416, classe Pessoa.
+O nome de uma *constante* começa com uma letra maiúscula seguida por caracteres de nome. Nomes de classes e módulos são constantes, e seguem a convenção de nomes de contantes. Exemplos: módulo MyMath, PI=3.1416, classe Pessoa.
 
 h2. Nomes de Métodos
 
 Nomes de *métodos* deveriam começar com uma letra minúscula (ou um underscore). "?", "!" e "=" são os únicos caracteres estranhos permitidos como sufixos em nomes de métodos (!, ou 'bang', rotula um método como especificamente perigoso, equivalentemente mais perigoso do que um método com o mesmo nome sem o 'bang'. Veremos mais sobre isso depois em "Métodos 'bang'":metodos-bang.html).
 
-<div class='box'>A convenção do Ruby é que se use underscores para separar palavras em um nome de método ou variável com mais de uma palavra. Para nome de classes, módulos e constantes a convenção é que se use capitalização, preferivelmente do que underscores, para distinguir o início de palavras no nome.</div>
+<div class='box'>A convenção do Ruby é que se use underscores para separar palavras em um nome de método ou variável com mais de uma palavra. Por convenção, a maioria das constantes são escritas com letras maiúsculas e com underscores para separas as palavras, 'DESSE_JEITO'. Os nomes de classes e módulos do Ruby são como as constantes, mas eles são convencionalmente escritos usando capitalização (letras iniciais maiúsculas), 'DesseJeito'.
+É para se notar que uma variável pode, em momentos diferentes, fazer referência a objetos de diferentes tipos. Uma constante do Ruby também faz referência a um objeto. Uma constante é criada na primeira vez que é atribuído um valor a ela (normalmente em uma classe ou em uma definição de módulo; elas não devem ser definidas em um método - veremos mais sobre constantes depois em "Constantes":constantes.html). O Ruby deixa você alterar o valor de uma constante, mas isso irá gerar uma mensagem de aviso.</div>
 
 Um exemplo para demonstrar que o Ruby é dinamicamente tipado - *p007dt.rb*
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p007dt.rb  
-# O Ruby é dinâmico  
+# p007dt.rb
+# O Ruby é dinâmico
 x = 7       # inteiro
 x = "casa"  # string
 x = 7.5     # real
-  
-# Em Ruby, tudo o que você manipula é um objeto  
-'Eu amo Ruby'.length  
+
+# Em Ruby, tudo o que você manipula é um objeto
+'Eu amo Ruby'.length
 <% end -%>
 
 &nbsp;
 
 Os tipos básicos no Ruby são *Numeric* (subtipos: *Fixnum*, *Integer* e *Float*), *String*, *Array*, *Hash*, *Object*, *Symbol*, *Range* e *RegExp*.
 
-Em eu computador, o código:
+Em meu computador, o código:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts Float::DIG
 <% end -%>
-
-&nbsp;
 
 imprime 15. E:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts Float::MAX
 <% end -%>
-
-&nbsp;
 
 imprime 1.79769313486232e+308
 
@@ -73,8 +70,6 @@ arroz_no_quadrado = 1
 end
 <% end -%>
 
-&nbsp;
-
 Pelo quadrado 64 você estará colocando alguns trilhões de grãos de arroz em cada quadrado!
 
 Isto prova que o Ruby é apto a lidar com números extremamente grandes e, diferente de outras linguagens de programação, não há limites inconvenientes. O Ruby faz isso com diferentes classes, uma chamada *Fixnum* (padrão) que representa pequenos números facilmente gerenciáveis, e outra, acertadamente chamada de *Bignum*, que representa números grandes que o Ruby precisa gerenciar internamente. O Ruby irá manipular a Bignums e a Fixnums para você, e você pode realizar cálculos aritméticos e outras operações sem nenhum problema. Os resultados podem variar dependendo da arquitetura do sistema, mas essas mudanças são manuseadas pelo Ruby internamente, não é preciso se preocupar.
@@ -86,8 +81,6 @@ s = 'olá'
 s.class     # String
 <% end -%>
 
-&nbsp;
-
 Outro exemplo (não se preocupe se você não entender o código agora):
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
@@ -96,8 +89,6 @@ puts 'Eu sou um objeto = ' + self.to_s
 print 'Os métodos do objeto são = '
 puts self.private_methods.sort
 <% end -%>
-
-&nbsp;
 
 Nós iremos falar sobre "self":self.html mais tarde. *private_methods* é um método da classe *Object* e *sort* é um método da classe *Array*.
 
@@ -109,3 +100,4 @@ Em Ruby, tudo o que você manipula é um objeto, e o resultado dessa manipulaç�
 <% end -%>
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

@@ -8,51 +8,52 @@ filter:
 p(title). <%= h(@page.title) %>
 
 # Expressões regulares, embora enigmáticas, são uma ferramenta poderosa para se trabalhar com texto. O Ruby possui essa funcionalidade incluída. É usada para casamento de padrões e processamento de texto.
-# Muitas pessoas acham difícil usar expressões regulares, difícil para lê-las, difíceis de se fazer manutenção e , essencialmente, improdutivas.
-# O site rubular.com é uma boa ferramenta para testar suas expressões regulares.
+# Muitas pessoas acham difícil usar expressões regulares, difícil para lê-las, difíceis de se fazer manutenção e, essencialmente, improdutivas.
+# O site "rubular.com":http://rubular.com é uma boa ferramenta para testar suas expressões regulares.
 # Você pode acabar usando apenas uma pequena parte de expressões regulares nas suas aplicações Ruby on Rails.
 # Tornar-se um mago das expressões regulares não é um pré-requisito para usar Rails.
 # É recomendável aprender pelo menos o básico de como as expressões regulares funcionam.
 # Uma expressão regular é simplesmente uma forma de se especificar um padrão de caracteres a serem casados em uma string.
-# No Ruby você geralmente cria uma expressão regular escrevendo um padrão entre barras invertidas (/padrão/). No Ruby as expressões regulares são objetos (do tipo Regexp) e podem ser manipulado como tal. // é uma expressão regular e uma instância da classe Regexp.
+# No Ruby você geralmente cria uma expressão regular escrevendo um padrão entre barras (/padrão/). No Ruby as expressões regulares são objetos (do tipo Regexp) e podem ser manipulados como tal. // é uma expressão regular e uma instância da classe Regexp.
 # Um objeto é uma entidade que serve como recipiente para dados e que também controla o acesso a estes dados. Associado a um objeto está um conjunto de atributos, que são essencialmente não mais que variáveis que pertencem ao objeto. Também associados aos objetos há um conjunto de funções que proveem uma interface para as funcionalidades dos objetos, chamados métodos.
-# Coisas que um objeto sabe sobre si mesmo são chamadas variáveis de instância. Elas representa o estado atual do objeto (os dados - por exemplo, a quantidade e o id do produto) e podem ter valores únicos para cada objeto de um mesmo tipo.
+# Coisas que um objeto sabe sobre si mesmo são chamadas variáveis de instância. Elas representam o estado atual do objeto (os dados - por exemplo, a quantidade e o id do produto) e podem ter valores únicos para cada objeto de um mesmo tipo.
 # As coisas que um objeto pode fazer são chamadas métodos.
 # Um objeto é uma combinação de estado e métodos que usam esse estado.
 # Uma classe é usada para construir um objeto. Uma classe é uma estrutura para um objeto.
 # Mais de 30 classes estão inclusas na hierarquia de classes do Ruby. A hierarquia de classes do próximo tópico é importante.
 # Em Ruby, tudo desde um inteiro até uma string é considerado um objeto. Cada objeto tem métodos que podem ser usados para se fazer várias coisas úteis. Para usar um método, você precisa colocar um ponto depois do objeto e então colocar o nome do método. Alguns métodos como puts e gets estão disponíveis em todo lugar e não precisam ser associados com um objeto em específico. Tecnicamente, estes métodos são providos pelo módulo Kernel do Ruby (mais sobre isso será explicado depois) e são inclusos em todos objetos Ruby (o módulo Kernel é incluso pela classe Objeto, então todos os seus métodos estão disponíveis em qualquer objeto Ruby). Quando você executa uma aplicação Ruby, um objeto chamado main da classe Object é criado automaticamente. Este objeto dá acesso para os métodos de Kernel.
-# Os inteiros em Ruby são objetos das class Fixnum ou Bignum. As classes Bignum e Fixnum representam inteiros de tamanhos diferentes. Ambas classes são Inteiros (e portanto Numeric). Os números em ponto flutuante são objetos da classe Float, correspondem ao tipo de arquitetura nativa double.
+# Os inteiros em Ruby são objetos das classes Fixnum ou Bignum. As classes Bignum e Fixnum representam inteiros de tamanhos diferentes. Ambas classes descendem de Integer (e portanto de Numeric). Os números em ponto flutuante são objetos da classe Float, correspondem ao tipo de arquitetura nativa double.
 # Uma nova classe é tipicamente definida usando: class Nome ... end
 # Classes no Ruby são objetos de primeira classe - cada um é uma instância de class.
 # GUARDE ISSO: "Class é um objeto, e Object é uma classe". Hal Futon
 # Quando uma nova classe é definida, por exemplo, Nome, um objeto do tipo Classe é criado e associado a constante (Nome, neste caso). Quando Nome.new é chamado para criar um novo objeto, o método de classe new em Class é executado por padrão, o que por sua vez invoca allocate para alocar memória para o objeto, antes de finalmente chamar o método initialize do novo objeto. As fases de construção e inicialização de um objeto são separadas e ambas podem ser sobrescritas. A inicialização é feita pelo método de instância initialize enquanto a construção é feita pelo método de classe new. initialize não é um construtor!
 # Objetos são criados na pilha.
-# Na declaração: d = Cachorro.novo('Labrador', 'Benzy') a variável d é conhecida como variável de referência. Ela não armazena o objeto, mas mantém algo equivalente a um ponteiro ou um endereço do objeto. Você utiliza o operador ponto (.) na variável de referência para dizer "use a coisa antes do ponto para obter a coisa após o ponto". Por exemplo: d.late
-# Assim que objeto entra em existência, ele já responde a um número de mensagens (os métodos). Cada objeto "nasce" com certas habilidades inatas. Para ver uma lista dos métodos inatos, você pode chamar o método methods: puts d.methods . O resultado é uma lista de todos as mensagens que já vem embutidas neste novo objeto. Entre estes métodos object_id e respond_to? são dois muito importantes.
-# Todo objeto em Ruby tem um número de identificação único (id) associado com ele e que pode ser encontrado pelo método object_id.
+# Na declaração: d = Cachorro.new('Labrador', 'Benzy') a variável d é conhecida como variável de referência. Ela não armazena o objeto, mas mantém algo equivalente a um ponteiro ou um endereço do objeto. Você utiliza o operador ponto (.) na variável de referência para dizer "use a coisa antes do ponto para obter a coisa após o ponto". Por exemplo: d.late
+# Assim que um objeto passa a existir, ele já responde a um número de mensagens (os métodos). Cada objeto "nasce" com certas habilidades inatas. Para ver uma lista dos métodos inatos, você pode chamar o método methods: puts d.methods . O resultado é uma lista de todos as mensagens que já vem embutidas neste novo objeto. Entre estes métodos object_id e respond_to? são dois muito importantes.
+# Todo objeto em Ruby tem um número de identificação único (id) associado a ele e que pode ser encontrado pelo método object_id.
 # Você pode determinar com antecedência se um objeto sabe como lidar com uma mensagem que você queira enviar para ele usando o método respond_to? (responde_a?).
 # Você pode perguntar para qualquer objeto de qual classe ele é membro usando o método Object.class.
 # instance_of? (instância_de?) retorna true (verdadeiro) se o objeto é uma instância de uma dada classe.
 # 'Construtores' literais significa que você pode usar uma notação especial, ao invés de uma chamada a new para criar um novo objeto dessa classe. Veja o exemplo dado para String. Symbol, Array, Hash, Range e Regexp
 # Coletor de Lixo (GC): A pilha de objetos do Ruby aloca um mínimo de 8 megabytes. O GC do ruby é chamado de mark-and-sweep (marca-e-varre). O estágio de 'marcação' checa se os objetos ainda estão em uso. Se um objeto é uma variável que ainda pode ser usada pelo escopo atual, o objeto (e qualquer objeto dentro dele) é marcado para ser mantido.  Se a variável não é usada faz um bom tempo, o objeto não é marcado. O estágio de "varrer" então libera espaço dos objetos que não foram marcados. O Ruby usa um mecanismo de GC mark-and-sweep conservador. Não há garantia de que um objeto irá passar pelo GC antes que o programa termine.
-# Variáveis são usadas para se manter referências a objetos.
+# Variáveis são usadas para manter referências a objetos.
 # method_missing (metodo_faltando) dá a você um jeito de interceptar mensagens não respondidas e tratá-las.
-# Blocos não são objetos, mas eles podem ser convertidos em objetos da classe Proc. Isso pode ser feito chamando o método lambda
-do módulo Kernel.
-# Lembre-se que você não pode passar métodos dentro de outros métodos (mas você pode passar procs dentro de métodos), e métodos não pode retornar outros métodos (mas pode retornar procs).
-# O método load (carregar) inclui o arquivo de código Ruby referenciado toda vez que é executado.
+# Blocos não são objetos, mas eles podem ser convertidos em objetos da classe Proc. Isso pode ser feito chamando o método lambda do módulo Kernel.
+# Lembre-se que você não pode passar métodos dentro de outros métodos (mas você pode passar procs dentro de métodos), e métodos não pode retornar outros métodos (mas podem retornar procs).
+# O método load (carregar) inclui o arquivo de código Ruby referenciado toda vez que o método é executado.
 # O método require (requerer), usado com maior frequência, carrega qualquer arquivo apenas uma vez.
-# Note que você deve escrever require 'nome_do_arquivo' e não require 'nome_do_arquivo.rb'
+# Note que você deve escrever **require 'nome_do_arquivo'** e não **require 'nome_do_arquivo.rb'**.
 # No Ruby, classes nunca são fechadas: você pode sempre adicionar métodos para uma classe existente. Isso se aplica para as classes que você escreve assim como para as classes padrão inclusas na linguagem. Tudo que você tem que fazer é abrir a definição de uma classe existente e o novo conteúdo que você especificar será adicionado.
-# O benefício da herança etá no fato de que classes em um nível mais baixo da hierarquia obtêm funcionalidades daquelas em um nível mais alto, mas podem também adicionar novas funcionalidades específicas a si mesmas.
+# O benefício da herança está no fato de que classes em um nível mais baixo da hierarquia obtêm funcionalidades daquelas em um nível mais alto, mas podem também adicionar novas funcionalidades específicas a si mesmas.
 # No Ruby uma classe pode somente herdar de uma única outra classe.
-# A classe Objeto é pai de todas as outras classes em Ruby. Portanto, seus métodos estão disponíveis para todos objetos ao menos que sejam explicitamente sobrescritos.
+# A classe **Object** é pai de todas as outras classes no Ruby. Portanto, seus métodos estão disponíveis para todos objetos ao menos que sejam explicitamente sobrescritos.
 # A sobrescrita de métodos permite que uma subclasse forneça uma implementação específica de um método que já foi fornecido por uma de suas superclasses. A implementação da subclasse sobrescreve (substitui) a implementação da superclasse.
 # Nade lhe impede de definir um método duas vezes, embora a versão mais nova tome precedência.
-# Quando você invoca super com nenhum argumento o Ruby envia uma mensagem para o pai do objeto atual, pedindo para que esse invoque um método com o mesmo nome que o método que invocou super. Ele automaticamente passa os argumentos que foram passados para o método da qual foi chamado.
-# Chamado com uma lista de argumentos vazia - super() - ele não envia nenhum argumento para o método da superclasse, mesmo se argumentos foram passados para o método atual.
-# Chamado com argumentos específicos - super(a, b, c) - ele envia exatamente estes argumentos.
-# Uma classe Ruby pode apenas um método com um dado nome.
+# Quando você invoca **super** com nenhum argumento o Ruby envia uma mensagem para o pai do objeto atual, pedindo para que esse invoque um método com o mesmo nome que o método que invocou super. Ele automaticamente passa os argumentos que foram passados para o método do qual foi chamado.
+# Chamado com uma lista de argumentos vazia - **super()** - ele não envia nenhum argumento para o método da superclasse, mesmo se argumentos foram passados para o método atual.
+# Chamado com argumentos específicos - **super(a, b, c)** - ele envia exatamente estes argumentos.
+# Uma classe Ruby pode apenas ter um método com um dado nome.
+
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

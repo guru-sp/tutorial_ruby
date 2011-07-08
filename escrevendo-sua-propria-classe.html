@@ -74,9 +74,9 @@
 <span class="no">27</span>   a visualização). Remova o comentário e execute
 <span class="no">28</span> =end</span>
 <span class="no">29</span> 
-<span class="no"><strong>30</strong></span> <span class="c"># puts d.methods.sort  </span>
+<span class="no"><strong>30</strong></span> <span class="c"># puts d.methods.sort</span>
 <span class="no">31</span> 
-<span class="no">32</span> <span class="c"># Entre todos esses métodos, os métodos object_id </span>
+<span class="no">32</span> <span class="c"># Entre todos esses métodos, os métodos object_id</span>
 <span class="no">33</span> <span class="c"># e respond_to são importantes.</span>
 <span class="no">34</span> <span class="c"># Cada objeto no Ruby tem um id único associado ao mesmo.</span>
 <span class="no">35</span> 
@@ -111,17 +111,16 @@
 </div>
 <p>A saída é esta:</p>
 <div class="CodeRay">
-<pre>&gt;ruby p029dog.rb
-<span class="co">The</span> id of obj is <span class="i">22982920</span>.
-<span class="co">Desculpe</span>, o objeto nao entende a mensagem <span class="s"><span class="dl">'</span><span class="k">fala</span><span class="dl">'</span></span>.
-<span class="co">Au!</span> Au!
-<span class="co">Sou</span> da raca <span class="co">Labrador</span> e meu nome eh <span class="co">Benzy</span>.
-<span class="co">Sou</span> da raca <span class="co">Labrador</span> e meu nome eh <span class="co">Benzy</span>.
-&gt;<span class="co">Exit</span> <span class="sy">code:</span> <span class="i">0</span>
+<pre><span class="no">1</span> &gt;ruby p029dog.rb
+<span class="no">2</span> O id do ocj é 22982920.
+<span class="no">3</span> Desculpe, o objeto nao entende a mensagem 'fala'.
+<span class="no">4</span> Au! Au!
+<span class="no">5</span> Sou da raca Labrador e meu nome eh Benzy.
+<span class="no">6</span> Sou da raca Labrador e meu nome eh Benzy.
+<span class="no">7</span> &gt;Exit code: 0
 </pre>
 </div>
-<p>O método new é usado para criar um objeto da classe Cachorro. Objetos são criados na pilha (heap). A variável d é conhecida como variável de referência. Isso quer dizer que ela não contém o objeto. Contém somente alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para &#8220;dizer&#8221; ao objeto: &#8220;use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método).&#8221; Por exemplo:<br />
-<b>d.late</b></p>
+<p>O método new é usado para criar um objeto da classe Cachorro. Objetos são criados na pilha (heap). A variável d é conhecida como variável de referência. Isso quer dizer que ela não contém o objeto. Contém somente alguma coisa como um ponteiro ou um endereço (de memória) para o objeto. Utilizamos o operador ponto (.) em uma variável de referência para &#8220;dizer&#8221; ao objeto: &#8220;use a coisa antes do ponto (objeto) para fazer a coisa depois do ponto (executar o método).&#8221; Por exemplo: <b>d.late</b></p>
 <div class='box'>
 <p><b>No framework Rails:</b><br />
 Se estivermos escrevendo uma aplicação em Rails em que uma das entidades do modelo seja Cliente, então quando escrevermos o código que fazem as coisas acontecerem &#8211; um cliente acessa a área restrita de um site, atualiza seu número de telefone, adiciona um item em seu carrinho de compras &#8211; em todas essas situações estamos enviando mensagens para os objetos cliente.</p>
@@ -131,7 +130,7 @@ Se estivermos escrevendo uma aplicação em Rails em que uma das entidades do mo
 <pre><span class="no">1</span> puts d.methods.sort
 </pre>
 </div>
-<p>O resultado é uma lista com todas as mensagens (métodos) que este novo e recém-criado método possui. Entre todos estes muitos métodos, os métodos <b>object_id</b> e <b>respond_to?</b> são importantes.</p>
+<p>O resultado é uma lista com todas as mensagens (métodos) que este novo e recém-criado objeto possui. Entre todos estes muitos métodos, os métodos <b>object_id</b> e <b>respond_to?</b> são importantes.</p>
 <p>Todo objeto em Ruby possui um identificador numérico único associado a ele. Podemos ver este identificado pedindo para o objeto mostrar seu identificador (via método <b>object_id</b>):</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">O id do objeto é </span><span class="il"><span class="idl">#{</span>d.object_id<span class="idl">}</span></span><span class="k">.</span><span class="dl">&quot;</span></span>
@@ -163,7 +162,7 @@ Se estivermos escrevendo uma aplicação em Rails em que uma das entidades do mo
 <div class="CodeRay">
 <pre><span class="no">1</span> &gt;ruby p029dog.rb
 <span class="no">2</span> <span class="co">Cachorro</span>
-<span class="no">3</span> &gt;<span class="co">Exit</span> <span class="sy">code:</span> <span class="i">0</span>
+<span class="no">3</span> &gt;<span class="co">Exit</span> <span class="ke">code</span>: <span class="i">0</span>
 </pre>
 </div>
 <p>O método <b>instance_of?</b> retorna verdadeiro (true) se um objeto é instância de dada classe, como no exemplo abaixo:</p>
