@@ -73,18 +73,18 @@ table{border:1px solid black}.
 # Os operadores checados na figura são um tipo de _syntactic sugar_ ("açúcar sintático", mais sobre isso depois) - onde algo parece com um operador mas na verdade é uma chamada a um método.
 </div>
 
-O operador módulo (%) do Ruby comportasse da seguinte forma:
+O operador módulo (%) do Ruby se comporta da seguinte forma:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-puts (5 % 3)     # imprime  2  
-puts (-5 % 3)    # imprime  1  
-puts (5 % -3)    # imprime -1  
-puts (-5 % -3)   # imprime -2 
+puts (5 % 3)     # imprime  2
+puts (-5 % 3)    # imprime  1
+puts (5 % -3)    # imprime -1
+puts (-5 % -3)   # imprime -2
 <% end -%>
 
 
-A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.
+A definição do operador módulo do Ruby é diferente do C e do Java. Em Ruby, a operação -7 % 3 retorna 2. Já em Java e C, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal do segundo operando.
 
 h2. Diferença entre os operadores or e ||
 
@@ -92,8 +92,8 @@ Ambos, *or* e *||*, retornam o primeiro argumento ao menos que este retorne *fal
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-puts nil || 2008  
-puts false || 2008  
+puts nil || 2008
+puts false || 2008
 puts "ruby" || 2008
 <% end -%>
 
@@ -101,10 +101,10 @@ puts "ruby" || 2008
 A saída é:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
->ruby test.rb  
-2008  
-2008  
-ruby  
+>ruby test.rb
+2008
+2008
+ruby
 >Exit code: 0
 <% end -%>
 
@@ -134,3 +134,4 @@ if a = f(x) and b = f(y) and c = f(z) then d = g(a,b,c) end
 Esta expressão simplesmente não funcionaria se escrita com *&&* ao invés de *and*.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

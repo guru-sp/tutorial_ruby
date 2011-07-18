@@ -31,7 +31,7 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Serialização de objetos</p>
 <p>A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling (empacotamento).</p>
-<p>Escreveremos uma classe básica (<b>p051gamecharacters.rb</b>) apenas para testar o marshalling.</p>
+<p>Escreveremos uma classe básica (<b>p051gamecharacters.rb</b>) apenas para testar o marshaling.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p051gamecharacters.rb</span>
 <span class="no"> 2</span>   <span class="r">class</span> <span class="cl">PersonagemDoJogo</span>
@@ -44,7 +44,7 @@
 <span class="no"> 9</span>   <span class="r">end</span>
 </pre>
 </div>
-<p>O programa <b>p051gamecharacters.rb</b> cria um objeto da classe acima e então usa <b>Marshal.dump</b> para salvar a versão serializada dele no disco.</p>
+<p>O programa <b>p052dumpgc.rb</b> cria um objeto da classe acima e então usa <b>Marshal.dump</b> para salvar a versão serializada dele no disco.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p052dumpgc.rb</span>
 <span class="no"> 2</span>   require <span class="s"><span class="dl">'</span><span class="k">p051gamecharacters</span><span class="dl">'</span></span>

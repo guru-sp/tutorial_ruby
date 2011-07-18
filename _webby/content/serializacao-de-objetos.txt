@@ -9,7 +9,7 @@ p(title). <%= h(@page.title) %>
 
 A linguagem Java possui a habilidade de serializar objetos, permitindo que você os armazene em algum lugar e depois os reconstitua quando necessário. O Ruby chama esse tipo de serialização de marshaling (empacotamento).
 
-Escreveremos uma classe básica (**p051gamecharacters.rb**) apenas para testar o marshalling.
+Escreveremos uma classe básica (**p051gamecharacters.rb**) apenas para testar o marshaling.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p051gamecharacters.rb
@@ -23,7 +23,7 @@ Escreveremos uma classe básica (**p051gamecharacters.rb**) apenas para testar o
   end
 <% end -%>
 
-O programa **p051gamecharacters.rb** cria um objeto da classe acima e então usa **Marshal.dump** para salvar a versão serializada dele no disco.
+O programa **p052dumpgc.rb** cria um objeto da classe acima e então usa **Marshal.dump** para salvar a versão serializada dele no disco.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p052dumpgc.rb
@@ -57,3 +57,4 @@ O programa **p053loadgc.rb** usa **Marshal.load** para lê-lo.
 **Marshal** apenas serializa estruturas de dados. Ele não pode serializar código Ruby (como objetos do tipo Proc), ou recursos alocados por outros processos (como tratadores de arquivo ou conexões com bancos de dados). **Marshal** apenas lhe dará um erro quando tentar serializar um arquivo.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

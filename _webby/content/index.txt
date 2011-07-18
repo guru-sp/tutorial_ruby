@@ -83,10 +83,10 @@ h3. Parte 5
 # "Incluindo Outros Arquivos":incluindo-outros-arquivos.html
 # "Classes Abertas em Ruby":classes-abertas-em-ruby.html
 # "Herança":heranca.html
-## Herança e variáveis de classe
+## Herança e variáveis de instância
 # "Sobreposição (Overriding) de Métodos":sobreposicao-de-metodos.html
 ## Uso do super
-## Redefinindo métodos 
+## Redefinindo métodos
 ## Classe abstrata
 # "Sobrecarregando métodos em Ruby":sobrecarregando-metodos.html
 # "Resumo 5":sumario-ruby5.html
@@ -123,3 +123,4 @@ h3. Parte 8
 ## Self na definição de métodos singleton e métodos de classe
 # "Constantes":constantes.html
 # "Resumo 8":sumario-ruby8.html
+

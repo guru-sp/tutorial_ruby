@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Expressões regulares, embora crípticas, são uma poderosa ferramenta para trabalhar com texto. O Ruby possui esta funcionalidade incluída em seu núcleo. Elas são usadas para o casamento de padrões e processamento de texto.
+Expressões regulares, embora críticas, são uma poderosa ferramenta para trabalhar com texto. O Ruby possui esta funcionalidade incluída em seu núcleo. Elas são usadas para o casamento de padrões e processamento de texto.
 
 Muitas pessoas acham que expressões regulares são difíceis de usar, difíceis de ler, de manter e, consequentemente, improdutivas. Você pode acabar usando apenas um pequeno número de expressões regulares em suas aplicações em Ruby e Rails. Não é pré-requisito, para programar em Rails, tornar-se um especialista em Expressões Regulares. Entretanto, é recomendado o aprendizado, ao menos o básico de como as expressões regulares funcionam.
 
@@ -38,7 +38,7 @@ Os possíveis componentes de uma expressão regular incluem os seguintes:
 
 h2. Caracteres literais
 
-Qualquer caractere literal que for adicionado em uma expressão regular casa consigo mesmo na expressão regular.
+Qualquer caractere literal que for adicionado em uma expressão regular casa consigo mesmo na string.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 /a/
@@ -64,7 +64,7 @@ Algumas vezes você irá querer casar qualquer caractere em algum ponto do seu p
 /.ejected/
 <% end -%>
 
-casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere coringa ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condições no casamento de padrões enquanto permite o casamento de múltiplas cadeias de caracteres, usando classes de caracteres.
+casa, ao mesmo tempo, com "dejected" e "rejected". Também casa com "%ejected" e "8jected". O caractere coringa é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condições no casamento de padrões enquanto permite o casamento de múltiplas cadeias de caracteres, usando classes de caracteres.
 
 
 h2. Classes de Caracteres
@@ -91,7 +91,7 @@ Para casar um dígito hexadecimal, você pode usar mais de um intervalo em uma c
 
 Esta classe casa com qualquer caractere de a à f (maiúsculo ou minúsculo) ou qualquer dígito.
 
-Algumas vezes você precisa casar qualquer caratere exceto aqueles que estão em uma lista expecial. Você pode, por exemplo, verificar o primeiro caractere em uma string não é um dígito hexadecimal válido.
+Algumas vezes você precisa casar qualquer caratere exceto aqueles que estão em uma lista especial. Você pode, por exemplo, verificar se o primeiro caractere em uma string não é um dígito hexadecimal válido.
 
 Você cria esse tipo de "busca negativa" negando uma classe de caracteres. Para fazer isso, você coloca um caractere de acento circunflexo (^) no comeco da classe. Aqui está a classe que casa com qualquer caractere exceto aqueles que são digitos hexadecimais válidos:
 
@@ -138,7 +138,7 @@ Toda operação de casamento pode ser bem sucedida ou falhar. Vamos iniciar pelo
 
 Este **nil** funciona como falso ou "sem resposta" quando um casamento de padrão é tratado como um teste verdadeiro/falso.
 
-Diferentemente de **nil**, um objeto **MatchData** retornado por um casamento bem sucedido é tratado como um valor Booleano verdadeiro, que torna simples os teste de casamento/não casamento. Além disso, o objeto **MatchData** retornado armazena os dados do casamento, possibilitando que você possa verificar-los com os métodos apropriados: onde o casamento iniciou (em qual caractere na string), quanto do padrão casou na string, o que foi capturado nos agrupamentos entre parênteses, e outras coisas mais.
+Diferentemente de **nil**, um objeto **MatchData** retornado por um casamento bem sucedido é tratado como um valor Booleano verdadeiro, que torna simples os teste de casamento/não casamento. Além disso, o objeto **MatchData** retornado armazena os dados do casamento, possibilitando que você possa verificá-los com os métodos apropriados: onde o casamento iniciou (em qual caractere na string), quanto do padrão casou na string, o que foi capturado nos agrupamentos entre parênteses, e outras coisas mais.
 
 Para utilizar o objeto **MatchData**, você precisa, primeiramente, armazená-lo. Considere um exemplo em que gostaríamos de extrair um número de telefone de uma string e armazenar suas diferentes partes (código de área, operadora, número) em partes. Exemplo **p064regexp.rb**
 
@@ -164,7 +164,7 @@ print "Captura #1: "
 puts m[1]
 <% end -%>
 
-Neste código, nós usamos o método **string** do objeto **MatchData** (**puts m.string**) para obter toda string em que a operação **match** foi executada. Para obter as partes da string que casaram com nosso padrão, nós adicionamos os índices do objeto **MatchData** a entre colchetes, com o valor 0 no índice (**puts m[0]**). Também usamos o método times (**3.times do |index|**) para iterar exatamente 3 vezes com o bloco de código e imprimir os subcasamentos (as capturas entre parenteses) sucessivamente. Dentro do bloco de código o método chamado **captures** extrai as substrins que casam com a parte do padrão que está entre parênteses. Finalizando, nós exibimos novamente a primeira captura, mas dessa vez utilizamos uma técnica diferente: indexamos o objeto **MatchData** diretamente com colchetes e inteiros positivos, cada inteiro correspondendo a uma captura.
+Neste código, nós usamos o método **string** do objeto **MatchData** (**puts m.string**) para obter toda string em que a operação **match** foi executada. Para obter as partes da string que casaram com nosso padrão, nós adicionamos os índices do objeto **MatchData** entre colchetes, com o valor 0 no índice. Também usamos o método times (**3.times do |index|**) para iterar exatamente 3 vezes com o bloco de código e imprimir os subcasamentos (as capturas entre parenteses) sucessivamente. Dentro do bloco de código o método chamado **captures** extrai as substrings que casam com a parte do padrão que está entre parênteses. Finalizando, nós exibimos novamente a primeira captura, mas dessa vez utilizamos uma técnica diferente: indexamos o objeto **MatchData** diretamente com colchetes e inteiros positivos, cada inteiro correspondendo a uma captura.
 
 Aqui está a saída:
 
@@ -188,3 +188,4 @@ Uma boa aplicação para testar suas expressões regulares é o "Rubular.com":ht
 O tópico acima foi adaptado do livro "Ruby for Rails":http://www.manning.com/black/.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Em cada ponto em que seu programa está rodando, há um único objeto self  - o objeto atual ou padrão acessível para você em seu programa. Você pode dizer qual objeto self representa seguindo um pequeno conjunto de regras.
+Em cada ponto em que seu programa está rodando, há um único self  - o objeto atual ou padrão acessível para você em seu programa. Você pode dizer qual objeto self representa seguindo um pequeno conjunto de regras.
 
 h2. Contexto de nível superior
 
@@ -92,7 +92,7 @@ A saída será:
 <% end -%>
 
 
-A saída #<S:0x2835908> é o jeito do Ruby de dizar "uma instância de S".
+A saída #<S:0x2835908> é o jeito do Ruby de dizer "uma instância de S".
 
 
 h2. Self em um método singleton e em definições de métodos de classe
@@ -115,7 +115,7 @@ Métodos singleton - aqueles que estão associados a um objeto e que podem ser c
 <% end -%>
 
 
-A saída do exemplo acima é: 
+A saída do exemplo acima é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p063xself3.rb
@@ -140,8 +140,7 @@ Métodos de classe são definidos como métodos singleton para objetos do tipo c
   S.x
 <% end -%>
 
-
-The output is:
+A saída é:
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
   >ruby p063xself4.rb
@@ -153,3 +152,4 @@ The output is:
 self dentro de um método singleton (um método de classe, nesse caso) é o objeto que possui o método singleton.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

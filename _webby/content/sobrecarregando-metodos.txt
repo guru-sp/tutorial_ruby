@@ -15,7 +15,7 @@ Aqui está uma classe _Retangulo_ que representa uma forma retangular num plano.
 # O construtor do Retangulo aceita argumento em ambas
 # das seguintes formas:
 #   Retangulo.new([x_superior, y_esquerda], tamanho, largura)
-#   Rectangle.new([x_superior, y_esquerda], [x_inferior, y_direita])
+#   Retangulo.new([x_superior, y_esquerda], [x_inferior, y_direita])
 class Retangulo
   def initialize(*args)
     if args.size < 2  || args.size > 3
@@ -30,11 +30,12 @@ class Retangulo
     end
   end
 end
-Rectangle.new([10, 23], 4, 10)
-Rectangle.new([10, 23], [14, 13])
+
+Retangulo.new([10, 23], 4, 10)
+Retangulo.new([10, 23], [14, 13])
 <% end -%>
 
-O programa **p037retangulo.rb**, acima, está incompleto da perpectiva da classe _Retangulo_, mas é suficiente para demonstrar como é feita a sobrecarga de métodos. Lembre-se, também, que o método **initialize** recebe um número variável de argumentos.
+O programa **p037retangulo.rb**, acima, está incompleto da perspectiva da classe _Retangulo_, mas é suficiente para demonstrar como é feita a sobrecarga de métodos. Lembre-se, também, que o método **initialize** recebe um número variável de argumentos.
 
 h2. Sumário
 
@@ -42,3 +43,4 @@ Eu listei todos os "pontos importantes":sumario-ruby5.html que você precisa lem
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

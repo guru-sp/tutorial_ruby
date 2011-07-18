@@ -8,21 +8,23 @@ filter:
 p(title). <%= h(@page.title) %>
 
 # Ruby oferece três níveis de proteção:
-**  *public* - os métodos podem ser chamados por todos. Por padrão, os métodos instanciados da classe são públicos.
+**  *public* - os métodos podem ser chamados por todos. Por padrão, os métodos instanciados na classe são públicos.
 **  *protected* - os métodos podem ser chamados apenas pelos objetos da classe que os definem e suas subclasses.
-**  *private* - os métodos não podem ser chamado com um receptor explícito - o receptor é sempre o *self*. Isto significa que os métodos privados pode ser chamado somente no contexto do objeto atual (não podemos utilizar self.METODO). Uma observação a ser feita, é que o método initialize é sempre privado.
+**  *private* - os métodos não podem ser chamados com um receptor explícito - o receptor é sempre o *self*. Isto significa que os métodos privados podem ser chamados somente no contexto do objeto atual (não podemos utilizar self.metodo). Uma observação a ser feita, é que o método initialize é sempre privado.
 # O controle de acesso é determinado dinamicamente, quando o programa roda, e não estaticamente. Você receberá uma violação de acesso apenas quando o código tentar executar o método restrito.
 # Os métodos de alto nível são métodos privados de instância do módulo *Kernel*.
 # _attr_reader_ é apenas leitor (getter), e o _attr_writer_ apenas escritor (setter), já o _attr_accessor_ é ambos, leitor e escritor.
 # Uma exceção é um tipo especial de objeto, uma instância da classe *Exception*  ou uma descendente dessa classe.
 # O método *raise* é do módulo *Kernel*.  Por padrão, o *raise* cria uma exceção da classe *RuntimeError*.  Para levantar uma exceção de uma classe específica, você pode passar o nome da classe como um parâmetro para o *raise*.
-# Para fazer o controle de exceção, colocamos o código que pode gerar uma exceção em um bloco *begin-end* e usamos uma ou mais cláusulas de um *rescue* para informar ao Ruby os tipos de exceções que queremos manipular.
-# É bom lembrar, que o corpo de uma definição do método é um bloco *begin-end*  implícito; o begin é omitido, e todo o corpo do método está sujeito ao controle de exceção, que termina com o end do método.
-# Se você escreve uma cláusula *rescue* sem passar parâmetros, os parâmetros serão ajustados para o padrão *StandardError*..
-# Se você precisar de alguma garantia de que o processamento é feito no final de um bloco de código, independentemente se uma exceção foi levantada ou não, então a cláusula *ensure* pode ser usada. O *ensure* vai após a última cláusula *rescue*  e contém o pedaço de código que será sempre executado quando o bloco termina. O bloco de *ensure* sempre será executado.
-# Por padrão, a mensagem, que pode ser enviada para qualquer objeto, formata o ID do objeto e as variáveis da instância. Retornando uma string contendo uma representação legível do objeto. Se não for sobrescrito, usa o método to_s para gerar uma string.
+# Para fazer o controle de exceção, colocamos o código que pode gerar uma exceção em um bloco *begin-end* e usamos uma ou mais cláusulas de *rescue* para informar ao Ruby os tipos de exceções que queremos manipular.
+# É bom lembrar que o corpo de uma definição do método é um bloco *begin-end*  implícito; o begin é omitido, e todo o corpo do método está sujeito ao controle de exceção, que termina com o end do método.
+# Se você escreve uma cláusula *rescue* sem passar parâmetros, os parâmetros serão ajustados para o padrão *StandardError*.
+# Se você precisar de alguma garantia de que algum processamento é feito no final de um bloco de código, independentemente se uma exceção foi levantada ou não, então a cláusula *ensure* pode ser usada. O *ensure* vai após a última cláusula *rescue*  e contém um pedaço de código que será sempre executado quando o bloco termina. O bloco de *ensure* sempre será executado.
+# Por padrão, a mensagem inspect, que pode ser enviada para qualquer objeto, formata o ID do objeto e as variáveis da instância. Retornando uma string contendo uma representação legível do objeto. Se não for sobrescrito, usa o método to_s para gerar a string.
 # A classe Tempo contém a interface do Ruby para o conjunto de bibliotecas de tempo escritas em C.
 # Hora zero para o Ruby é o primeiro segundo GMT de 01 de janeiro de 1970.
-# A classe *DateTime* do Ruby é superior a *Time* para aplicações para a área de Astronomia e História, mas você pode usar a *Time* para a maioria das aplicações diárias.
+# A classe *DateTime* do Ruby é superior a *Time* para aplicações da área de Astronomia e História, mas você pode usar a *Time* para a maioria das aplicações diárias.
+
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

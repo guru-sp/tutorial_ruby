@@ -65,7 +65,7 @@
 </pre>
 </div>
 <ul>
-	<li>Em segundo lugar, permitem que você compartilhe funcionalidade entre classes -se uma classe &#8220;mistura&#8221; (mixes in) um método (isto é, o inclui), todos os métodos de instância do método se tornam disponíveis como se tivesse sido definidos na classe.</li>
+	<li>Em segundo lugar, permitem que você compartilhe funcionalidade entre classes &#8211; se uma classe &#8220;mistura&#8221; (mixes in) um módulo (isto é, o inclui), todos os métodos de instância do módulo se tornam disponíveis como se tivessem sido definidos na classe.</li>
 </ul>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p061mixins.rb</span>
@@ -109,7 +109,7 @@
 <div class='box'>
 <p>Observe como usamos require ou load. require e load aceitam strings como argumentos.</p>
 <p>require &#8216;motorcycle&#8217; ou load &#8216;motorcycle.rb&#8217;</p>
-<p>include recebe o nme de um módulo, na forma de uma constante, como em include Coisa.</p>
+<p>include recebe o nome de um módulo, na forma de uma constante, como em include Coisa.</p>
 <p>O método include aceita qualquer número de módulos para serem inclusos:</p>
 <p>include Enumerable, Comparable</p>
 <p>Embora toda classe seja um módulo, o método include não permite que uma classe seja incluída em outra classe.</p>

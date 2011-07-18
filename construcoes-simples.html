@@ -30,79 +30,77 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">Construções simples</p>
-<p>Vamos explorar algumas construções simples disponíveis no Ruby. O exemplo abaixo <strong>p014constructs.rb</strong> ilustra as construções<br />
-<strong>if</strong> e <strong>else</strong>. Por convenção, <strong>if</strong> e <strong>while</strong> não necessitam de parênteses.</p>
+<p>Vamos explorar algumas construções simples disponíveis no Ruby. O exemplo abaixo <strong>p014constructs.rb</strong> ilustra as construções <strong>if</strong> e <strong>else</strong>. Por convenção, <strong>if</strong> e <strong>while</strong> não necessitam de parênteses.</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># No Ruby nil e false são interpretadas como false (falso),</span>
+<pre><span class="no"> 1</span> <span class="c"># No Ruby nil e false são interpretados como false (falso),</span>
 <span class="no"> 2</span> <span class="c"># todo o restante (incluindo true e 0) siginificam true (verdadeiro)</span>
-<span class="no"> 3</span> <span class="c"># nil é um objeto real  </span>
-<span class="no"> 4</span> <span class="c"># if else end (if, caso contrário, fim)</span>
-<span class="no"> 5</span> var = <span class="i">5</span>   
-<span class="no"> 6</span> <span class="r">if</span> var &gt; <span class="i">4</span>   
-<span class="no"> 7</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">A variável é maior que 4</span><span class="dl">&quot;</span></span>   
-<span class="no"> 8</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Posso ter múltiplas declarações aqui</span><span class="dl">&quot;</span></span>   
-<span class="no"> 9</span>   <span class="r">if</span> var == <span class="i">5</span>   
-<span class="no"><strong>10</strong></span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">É possível ter if else aninhados</span><span class="dl">&quot;</span></span>   
-<span class="no">11</span>   <span class="r">else</span>   
-<span class="no">12</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Muito legal</span><span class="dl">&quot;</span></span>   
-<span class="no">13</span>   <span class="r">end</span>   
-<span class="no">14</span> <span class="r">else</span>   
-<span class="no">15</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">A variável não é maior que 4</span><span class="dl">&quot;</span></span>   
-<span class="no">16</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Posso ter múltiplas declarações aqui</span><span class="dl">&quot;</span></span>   
+<span class="no"> 3</span> <span class="c"># nil é um objeto real</span>
+<span class="no"> 4</span> <span class="c"># if else end (se, caso contrário, fim)</span>
+<span class="no"> 5</span> var = <span class="i">5</span>
+<span class="no"> 6</span> <span class="r">if</span> var &gt; <span class="i">4</span>
+<span class="no"> 7</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">A variável é maior que 4</span><span class="dl">&quot;</span></span>
+<span class="no"> 8</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Posso ter múltiplas declarações aqui</span><span class="dl">&quot;</span></span>
+<span class="no"> 9</span>   <span class="r">if</span> var == <span class="i">5</span>
+<span class="no"><strong>10</strong></span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">É possível ter if else aninhados</span><span class="dl">&quot;</span></span>
+<span class="no">11</span>   <span class="r">else</span>
+<span class="no">12</span>     puts <span class="s"><span class="dl">&quot;</span><span class="k">Muito legal</span><span class="dl">&quot;</span></span>
+<span class="no">13</span>   <span class="r">end</span>
+<span class="no">14</span> <span class="r">else</span>
+<span class="no">15</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">A variável não é maior que 4</span><span class="dl">&quot;</span></span>
+<span class="no">16</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Posso ter múltiplas declarações aqui</span><span class="dl">&quot;</span></span>
 <span class="no">17</span> <span class="r">end</span>
 </pre>
 </div>
 <p>Um exemplo do uso do elsif está no programa p015elsifex.rb como mostrado abaixo:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># p015elsifex.rb   </span>
-<span class="no"> 2</span> <span class="c"># exemplo elseif  </span>
-<span class="no"> 3</span>   
-<span class="no"> 4</span> <span class="c"># Exemplo original  </span>
+<pre><span class="no"> 1</span> <span class="c"># p015elsifex.rb</span>
+<span class="no"> 2</span> <span class="c"># exemplo elseif</span>
+<span class="no"> 3</span> 
+<span class="no"> 4</span> <span class="c"># Exemplo original</span>
 <span class="no"> 5</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá, qual é o seu nome?</span><span class="dl">&quot;</span></span>
-<span class="no"> 6</span> <span class="co">STDOUT</span>.flush   
-<span class="no"> 7</span> nome = gets.chomp   
-<span class="no"> 8</span> puts <span class="s"><span class="dl">'</span><span class="k">Olá, </span><span class="dl">'</span></span> + nome + <span class="s"><span class="dl">'</span><span class="k">.</span><span class="dl">'</span></span>  
-<span class="no"> 9</span>  
-<span class="no"><strong>10</strong></span> <span class="r">if</span> nome == <span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>  
-<span class="no">11</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>  
-<span class="no">12</span> <span class="r">else</span>  
-<span class="no">13</span>     <span class="r">if</span> name == <span class="s"><span class="dl">'</span><span class="k">Sunil</span><span class="dl">'</span></span>  
+<span class="no"> 6</span> <span class="co">STDOUT</span>.flush
+<span class="no"> 7</span> nome = gets.chomp
+<span class="no"> 8</span> puts <span class="s"><span class="dl">'</span><span class="k">Olá, </span><span class="dl">'</span></span> + nome + <span class="s"><span class="dl">'</span><span class="k">.</span><span class="dl">'</span></span>
+<span class="no"> 9</span> 
+<span class="no"><strong>10</strong></span> <span class="r">if</span> nome == <span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>
+<span class="no">11</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>
+<span class="no">12</span> <span class="r">else</span>
+<span class="no">13</span>     <span class="r">if</span> name == <span class="s"><span class="dl">'</span><span class="k">Sunil</span><span class="dl">'</span></span>
 <span class="no">14</span>         puts <span class="s"><span class="dl">'</span><span class="k">Outro nome legal!</span><span class="dl">'</span></span>
-<span class="no">15</span>     <span class="r">end</span>  
-<span class="no">16</span> <span class="r">end</span>  
-<span class="no">17</span>  
-<span class="no">18</span> <span class="c"># Exemplo modificado com elsif  </span>
-<span class="no">19</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá, qual é o seu nome?</span><span class="dl">&quot;</span></span>   
-<span class="no"><strong>20</strong></span> <span class="co">STDOUT</span>.flush   
-<span class="no">21</span> nome = gets.chomp   
-<span class="no">22</span> puts <span class="s"><span class="dl">'</span><span class="k">Hello, </span><span class="dl">'</span></span> + nome + <span class="s"><span class="dl">'</span><span class="k">.</span><span class="dl">'</span></span>   
-<span class="no">23</span>   
-<span class="no">24</span> <span class="r">if</span> nome == <span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>   
-<span class="no">25</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>   
-<span class="no">26</span> <span class="r">elsif</span> nome == <span class="s"><span class="dl">'</span><span class="k">Sunil</span><span class="dl">'</span></span>   
-<span class="no">27</span>         puts <span class="s"><span class="dl">'</span><span class="k">Outro nome legal!</span><span class="dl">'</span></span>   
-<span class="no">28</span> <span class="r">end</span>   
-<span class="no">29</span>   
-<span class="no"><strong>30</strong></span> <span class="c"># Outra modificação   </span>
-<span class="no">31</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá, qual é o seu nome?</span><span class="dl">&quot;</span></span>  
-<span class="no">32</span> <span class="co">STDOUT</span>.flush   
-<span class="no">33</span> nome = gets.chomp   
-<span class="no">34</span> puts <span class="s"><span class="dl">'</span><span class="k">Olá, </span><span class="dl">'</span></span> + nome + <span class="s"><span class="dl">'</span><span class="k">.</span><span class="dl">'</span></span>  
-<span class="no">35</span>  
-<span class="no">36</span> <span class="c"># || é o operador lógico OU </span>
-<span class="no">37</span> <span class="r">if</span> nome == <span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span> || nome == <span class="s"><span class="dl">'</span><span class="k">Sunil</span><span class="dl">'</span></span>  
-<span class="no">38</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>   
+<span class="no">15</span>     <span class="r">end</span>
+<span class="no">16</span> <span class="r">end</span>
+<span class="no">17</span> 
+<span class="no">18</span> <span class="c"># Exemplo modificado com elsif</span>
+<span class="no">19</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá, qual é o seu nome?</span><span class="dl">&quot;</span></span>
+<span class="no"><strong>20</strong></span> <span class="co">STDOUT</span>.flush
+<span class="no">21</span> nome = gets.chomp
+<span class="no">22</span> puts <span class="s"><span class="dl">'</span><span class="k">Hello, </span><span class="dl">'</span></span> + nome + <span class="s"><span class="dl">'</span><span class="k">.</span><span class="dl">'</span></span>
+<span class="no">23</span> 
+<span class="no">24</span> <span class="r">if</span> nome == <span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>
+<span class="no">25</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>
+<span class="no">26</span> <span class="r">elsif</span> nome == <span class="s"><span class="dl">'</span><span class="k">Sunil</span><span class="dl">'</span></span>
+<span class="no">27</span>         puts <span class="s"><span class="dl">'</span><span class="k">Outro nome legal!</span><span class="dl">'</span></span>
+<span class="no">28</span> <span class="r">end</span>
+<span class="no">29</span> 
+<span class="no"><strong>30</strong></span> <span class="c"># Outra modificação</span>
+<span class="no">31</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Olá, qual é o seu nome?</span><span class="dl">&quot;</span></span>
+<span class="no">32</span> <span class="co">STDOUT</span>.flush
+<span class="no">33</span> nome = gets.chomp
+<span class="no">34</span> puts <span class="s"><span class="dl">'</span><span class="k">Olá, </span><span class="dl">'</span></span> + nome + <span class="s"><span class="dl">'</span><span class="k">.</span><span class="dl">'</span></span>
+<span class="no">35</span> 
+<span class="no">36</span> <span class="c"># || é o operador lógico OU</span>
+<span class="no">37</span> <span class="r">if</span> nome == <span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span> || nome == <span class="s"><span class="dl">'</span><span class="k">Sunil</span><span class="dl">'</span></span>
+<span class="no">38</span>     puts <span class="s"><span class="dl">'</span><span class="k">Que nome legal!!</span><span class="dl">'</span></span>
 <span class="no">39</span> <span class="r">end</span>
 </pre>
 </div>
 <p>Alguns operadores condicionais comuns são: ==, !=, &gt;=, &lt;=, &gt;, &lt;</p>
-<p>O <strong>unless</strong> (ao menos), como uma declaração ou modificador, é o oposto do <strong>if</strong>: ele executa o código somente se uma<br />
-expressão associada é interpretada como nil ou falso. O construtor ruby <strong>unless</strong> começa com <strong>unless</strong> e termina com <strong>end</strong>.<br />
+<p>O <strong>unless</strong> (ao menos), como uma declaração ou modificador, é o oposto do <strong>if</strong>: ele executa o código somente se uma expressão associada é interpretada como nil ou falso. O construtor ruby <strong>unless</strong> começa com <strong>unless</strong> e termina com <strong>end</strong>.<br />
 O corpo é o texto entre ambos.</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> <span class="r">unless</span> <span class="pc">ARGV</span>.length == <span class="i">2</span>   
-<span class="no">2</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Uso: programa.rb 23 45</span><span class="dl">&quot;</span></span>   
-<span class="no">3</span>   exit   
+<pre><span class="no">1</span> <span class="r">unless</span> <span class="pc">ARGV</span>.length == <span class="i">2</span>
+<span class="no">2</span>   puts <span class="s"><span class="dl">&quot;</span><span class="k">Uso: programa.rb 23 45</span><span class="dl">&quot;</span></span>
+<span class="no">3</span>   exit
 <span class="no">4</span> <span class="r">end</span>
 </pre>
 </div>
@@ -111,50 +109,53 @@ os argumentos foram dados). O método Kernel.exit termina seu programa, retornan
 <p>Loops como o <strong>while</strong> também estão disponíveis. O exemplo abaixo ilustra o uso do while.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># Loops - imprime números de 0 a 9</span>
-<span class="no">2</span> var = <span class="i">0</span>   
-<span class="no">3</span> <span class="r">while</span> var &lt; <span class="i">10</span>   
-<span class="no">4</span>   puts var.to_s   
-<span class="no">5</span>   var += <span class="i">1</span>   
-<span class="no">6</span> <span class="r">end</span>   
+<span class="no">2</span> var = <span class="i">0</span>
+<span class="no">3</span> <span class="r">while</span> var &lt; <span class="i">10</span>
+<span class="no">4</span>   puts var.to_s
+<span class="no">5</span>   var += <span class="i">1</span>
+<span class="no">6</span> <span class="r">end</span>
 </pre>
 </div>
 <h3>O condicional ?: (ou operador ternário)</h3>
-<p>Como uma alternativa concisa aos operadores if/else podemos usar o operador condicional ou ternário <strong>?:</strong>. É o único operador ternário (com três operandos) no Ruby. Ele tem a seguinte estrutura básica:<br />
-(condição) ? (resultado se a condição é verdadeira) : (resultado se a condição é falsa)</p>
+<p>Como uma alternativa concisa aos operadores if/else podemos usar o operador condicional ou ternário <strong>?:</strong>. É o único operador ternário (com três operandos) no Ruby. Ele tem a seguinte estrutura básica:</p>
+<div class="CodeRay">
+<pre><span class="no">1</span> (condição) ? (resultado se a condição é verdadeira) : (resultado se a condição é falsa)
+</pre>
+</div>
 <p>O primeiro operando aparece antes do ponto de interrogação. O segundo operando aparece entre o interrogação e os dois pontos. E o terceiro operando aparece depois dos dois pontos. O ponto de interrogação deve aparecer na mesma linha que o primeiro e o segundo argumentos e os dois pontos devem aparecer na mesma linha que o segundo argumento. O operador <strong>?:</strong> sempre avalia seu primeiro operando (a condição). Se a condição é qualquer coisa diferente de false ou nil, o valor da expressão é o valor do segundo operando. Caso contrário, se o primeiro operando for false ou nil, então o valor da expressão é o valor do terceiro operando. O operador <strong>?:</strong> age como uma declaração if/then/else compacta.<br />
 Vamos ver um exemplo:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> idade = <span class="i">15</span>   
+<pre><span class="no">1</span> idade = <span class="i">15</span>
 <span class="no">2</span> <span class="c"># Falaremos da classe Range (intervalo) mais tarde</span>
-<span class="no">3</span> <span class="c"># terá como saída adolescente </span>
-<span class="no">4</span> puts (<span class="i">14</span>...<span class="i">20</span>).include?(idade) ? <span class="s"><span class="dl">&quot;</span><span class="k">adolescente</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">não é adolescente</span><span class="dl">&quot;</span></span>   
+<span class="no">3</span> <span class="c"># terá como saída adolescente</span>
+<span class="no">4</span> puts (<span class="i">14</span>...<span class="i">20</span>).include?(idade) ? <span class="s"><span class="dl">&quot;</span><span class="k">adolescente</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">não é adolescente</span><span class="dl">&quot;</span></span>
 </pre>
 </div>
 <p>O operador ternário pode ser útil também para atribuições condicionais:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> idade = <span class="i">23</span>   
-<span class="no">2</span> pessoa = (<span class="i">14</span>...<span class="i">20</span>).include?(idade) ? <span class="s"><span class="dl">&quot;</span><span class="k">adolescente</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">não é adolescente</span><span class="dl">&quot;</span></span>    
-<span class="no">3</span> puts pessoa <span class="c"># =&gt; &quot;não é adolescente&quot;  </span>
+<pre><span class="no">1</span> idade = <span class="i">23</span>
+<span class="no">2</span> pessoa = (<span class="i">14</span>...<span class="i">20</span>).include?(idade) ? <span class="s"><span class="dl">&quot;</span><span class="k">adolescente</span><span class="dl">&quot;</span></span> : <span class="s"><span class="dl">&quot;</span><span class="k">não é adolescente</span><span class="dl">&quot;</span></span>
+<span class="no">3</span> puts pessoa <span class="c"># =&gt; &quot;não é adolescente&quot;</span>
 </pre>
 </div>
 <h3>Modificadores de instrução</h3>
 <p>Os modificadores de instrução do Ruby representam um atalho útil no caso em que o corpo de uma instrução <strong>if</strong> ou <strong>while</strong> é uma única<br />
 expressão. Apenas escreva a expressão, seguida por <strong>if</strong> ou <strong>while</strong> e então a condição. Aqui, por exemplo, temos uma simples instrução if.</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Os registros pararao agora</span><span class="dl">&quot;</span></span> <span class="r">if</span> participantes &gt; <span class="i">2500</span>   
+<pre><span class="no">1</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">Os registros pararao agora</span><span class="dl">&quot;</span></span> <span class="r">if</span> participantes &gt; <span class="i">2500</span>
 </pre>
 </div>
 <h3>Expressões case</h3>
 <p>Esta forma é bastante próxima a uma série de instruções <strong>if</strong>: ela permite que você liste uma série de condições e execute uma instrução correspondente a primeira que for verdadeira. Por exemplo, anos bissextos devem ser divisíveis por 400, ou divisíveis por 4 e não por 100. Além disso, lembre-se que o case retorna o valor da última expressão executada.</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> ano = <span class="i">2000</span>   
-<span class="no">2</span> bissexto = <span class="r">case</span>   
-<span class="no">3</span>        <span class="r">when</span> ano % <span class="i">400</span> == <span class="i">0</span> <span class="r">then</span> <span class="pc">true</span>   
-<span class="no">4</span>        <span class="r">when</span> ano % <span class="i">100</span> == <span class="i">0</span> <span class="r">then</span> <span class="pc">false</span>   
-<span class="no">5</span>        <span class="r">else</span> ano % <span class="i">4</span>   == <span class="i">0</span>   
-<span class="no">6</span>        <span class="r">end</span>   
-<span class="no">7</span> puts bissexto  
-<span class="no">8</span> <span class="c"># a saida é: true   </span>
+<pre><span class="no">1</span> ano = <span class="i">2000</span>
+<span class="no">2</span> bissexto = <span class="r">case</span>
+<span class="no">3</span>        <span class="r">when</span> ano % <span class="i">400</span> == <span class="i">0</span> <span class="r">then</span> <span class="pc">true</span>
+<span class="no">4</span>        <span class="r">when</span> ano % <span class="i">100</span> == <span class="i">0</span> <span class="r">then</span> <span class="pc">false</span>
+<span class="no">5</span>        <span class="r">else</span> ano % <span class="i">4</span>   == <span class="i">0</span>
+<span class="no">6</span>        <span class="r">end</span>
+<span class="no">7</span> puts bissexto
+<span class="no">8</span> <span class="c"># a saida é: true</span>
 </pre>
 </div>
 <h3>nil é um objeto</h3>
@@ -165,11 +166,11 @@ expressão. Apenas escreva a expressão, seguida por <strong>if</strong> ou <str
 Ambos têm valor falso mas são objetos diferentes e lembre-se que tudo em Ruby é um objeto. Veja o seguinte programa:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># Podemos determinar a classe de nosso objeto ou seu ID único de objeto</span>
-<span class="no"> 2</span> <span class="c"># NIL é um sinônimo para nil     </span>
-<span class="no"> 3</span> puts <span class="co">NIL</span>.class <span class="c"># NilClass   </span>
-<span class="no"> 4</span> puts <span class="pc">nil</span>.class <span class="c"># NilClass   </span>
-<span class="no"> 5</span> puts <span class="pc">nil</span>.object_id <span class="c"># 4   </span>
-<span class="no"> 6</span>   
+<span class="no"> 2</span> <span class="c"># NIL é um sinônimo para nil</span>
+<span class="no"> 3</span> puts <span class="co">NIL</span>.class <span class="c"># NilClass</span>
+<span class="no"> 4</span> puts <span class="pc">nil</span>.class <span class="c"># NilClass</span>
+<span class="no"> 5</span> puts <span class="pc">nil</span>.object_id <span class="c"># 4</span>
+<span class="no"> 6</span> 
 <span class="no"> 7</span> <span class="c"># FALSE é um sinônimo para false</span>
 <span class="no"> 8</span> puts <span class="co">FALSE</span>.class <span class="c"># FalseClass</span>
 <span class="no"> 9</span> puts <span class="pc">false</span>.class <span class="c"># FalseClass</span>

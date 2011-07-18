@@ -34,7 +34,7 @@
 <p>Ruby lhe dá três níveis de proteção:</p>
 <ol>
 	<li><b>Métodos públicos (public)</b> podem ser chamados por todos &#8211; nenhum controle de acesso é forçado. Os métodos de instância de uma classe (estes não pertencem a apenas um objeto; ao invés disso cada instância da classe pode chamá-los) são públicos por padrão; qualquer um pode chamá-los. O método <b>initialize</b> é sempre privado.</li>
-	<li><b>Métodos protegidos (protected)</b> podem ser chamados apenas por objetos da classe que os definem e suas subclasses. O aaceso é mantido na família. Entretanto, o uso de <b>protected</b> é limitado.</li>
+	<li><b>Métodos protegidos (protected)</b> podem ser chamados apenas por objetos da classe mesma classe que os definem e suas subclasses. O acesso é mantido na família. Entretanto, o uso de <b>protected</b> é limitado.</li>
 	<li><b>Métodos privados (private)</b> não podem ser chamados com um recebedor explícito &#8211; o recebedor é sempre <b>self</b>. Isso significa que podem ser chamados apenas no contexto do objeto atual; você não pode chamar o método private de outros objetos.</li>
 </ol>
 <p>O controle de acesso é determinado dinamicamente, a medida que o programa executa e não estaticamente. Você terá uma violação de acesso apenas quando o código tenta executar o método restrito. Observemos o programa <b>p047classaccess.rb</b> abaixo:</p>
@@ -102,12 +102,12 @@
 <span class="no">3</span>   &gt;Exit code: 0
 </pre>
 </div>
-<p>No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa pergunta ao outro objeto (marcos) para executar seu método idade. Portanto, age não pode ser privado.</p>
+<p>No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa perguntar ao outro objeto (marcos) para executar seu método idade. Portanto, idade não pode ser privado.</p>
 <p>É aí que entra o nível de proteção protected. Com idade protegida ao invés de privada, chris pode perguntar a marcos para executar idade, porque chris e marcos são ambos instâncias da mesma classe. Mas se você tentar chamar o método idade de um objeto Pessoa quando <b>self</b> é qualquer outra coisa que não um objeto do tipo Pessoa, o método falhará.</p>
 <p>Um método protegido é então como um método privado, mas com uma exceção para casos em que a classe de <b>self</b> (chris) e a classe do objeto tendo o método chamado em si (marcos) são a mesma.</p>
 <p>Atente-se que, se você remover o comentário da última declaração do programa, isso é, quando você usa idade diretamente, o Ruby lança uma exceção.</p>
 <div class='box'>
-<p>No Ruby, <b>público</b>, <b>privado</b> e <b>protegido</b> se aplicam apenas a métodos. Instâncias e variáveis de classe são encapsuladas e efetivamente privadas e constantes são efetivamente públicas. Não há nenhum modo de fazer uma variável de instância acessível de fora de uma classe (exceto quando se usando um método acessor). E não há como definir uma constante que seja inacessível para uso externo.</p>
+<p>No Ruby, <b>público</b>, <b>privado</b> e <b>protegido</b> se aplicam apenas a métodos. Instâncias e variáveis de classe são encapsuladas e efetivamente privadas e constantes são efetivamente públicas. Não há nenhum modo de fazer uma variável de instância acessível de fora de uma classe (exceto quando se usa um método acessor). E não há como definir uma constante que seja inacessível para uso externo.</p>
 </div>
 <h2>Sobrepondo métodos privados</h2>
 <p>Métodos privados não podem ser chamados de fora da classe que os defina. Mas eles são herdados por subclasses. Isto significa que estas subclasses podem chamá-los e podem sobrepô-los.</p>
@@ -213,12 +213,12 @@
 <p>A quem, ou o que, o método pertence? Ele não está dentro de um bloco de definição de classe nem de módulo, então ele não parece ser um método de instância de uma classe ou módulo. Ele não está associado a nenhum objeto em particular (como em def obj.fala). O que ele é? Objetos do nível mais alto são métodos de instância privados do módulo Kernel.</p>
 <p>Por serem privados, métodos de alto nível não podem ser chamados com um recebedor explícito (o objeto antes do ponto); você pode apenas chamá-los usando o recebedor ímplicito, self. Isso significa que self precisa ser um objeto em cujo caminho de busca de métodos está o método de alto nível dado. Mas todo caminho de busca de métodos de um objeto inclui o módulo Kernel, porque a classe Objeto incorpora (mixes in) Kernel, e todo objeto de uma classe possui Object como ancestral. Isso significa que você pode sempre chamar qualquer método de nível mais alto, onde quer que você esteja em seu programa.<br />
 Isso também significa que você nunca pode usar um recebedor explícito em um método de nível mais alto.</p>
-<p>Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e mprin, como essa aqui:</p>
+<p>Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e print, como essa aqui:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ola</span><span class="dl">'</span></span>
 </pre>
 </div>
-<p>puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode &#8211; de fato, deve &#8211; chamá-los sem um recebedor.</p>
+<p>puts e print são métodos de instância privados inclusos em Kernel. É por isso que você pode &#8211; de fato, deve &#8211; chamá-los sem um recebedor.</p>
 <p>Falaremos sobre self detalhadamente mais tarde.</p>
 <div class="pagination"><a href="excecoes.html">Exceções &gt;</a></div>
    </div>

@@ -34,7 +34,7 @@
 <p>O exemplo <b>040myhash.rb</b> abaixo cria um hash com literais (strings): uma lista de pares chave =&gt; valor entre</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p040myhash.rb</span>
-<span class="no">2</span> h = {<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">canino</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">gato</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">felino</span><span class="dl">'</span></span>, 
+<span class="no">2</span> h = {<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">canino</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">gato</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">felino</span><span class="dl">'</span></span>,
 <span class="no">3</span>     <span class="s"><span class="dl">'</span><span class="k">burro</span><span class="dl">'</span></span> =&gt; <span class="s"><span class="dl">'</span><span class="k">asinino</span><span class="dl">'</span></span>, <span class="i">12</span> =&gt; <span class="s"><span class="dl">'</span><span class="k">dodezino</span><span class="dl">'</span></span>}
 <span class="no">4</span> puts h.length  <span class="c"># 4</span>
 <span class="no">5</span> puts h[<span class="s"><span class="dl">'</span><span class="k">cachorro</span><span class="dl">'</span></span>]  <span class="c"># 'canino'</span>
@@ -47,15 +47,14 @@
 <pre><span class="no">1</span> &gt;ruby p040myhash.rb
 <span class="no">2</span> 4
 <span class="no">3</span> canino
-<span class="no">4</span> {&quot;cachorro&quot;=&gt;&quot;canino&quot;, &quot;gato&quot;=&gt;&quot;felino&quot;, 
+<span class="no">4</span> {&quot;cachorro&quot;=&gt;&quot;canino&quot;, &quot;gato&quot;=&gt;&quot;felino&quot;,
 <span class="no">5</span>  &quot;burro&quot;=&gt;&quot;asinino&quot;, 12=&gt;&quot;dodezino&quot;}
 <span class="no">6</span> dodezino
 <span class="no">7</span> &gt;Exit code: 0
 </pre>
 </div>
 <div class='box'>
-<p>Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenação do hash é diferente da<br />
-declarada</p>
+<p>Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenação do hash é diferente da declarada</p>
 </div>
 <p>Comparados com arrays, os hashes têm uma vantagem significativa: eles podem usar qualquer objeto como índice.</p>
 <p>Hashes têm um valor padrão. Tal valor é retornado após uma tentativa de acesso a uma chave não existente. Por padrão este valor é <b>nil</b>.</p>
@@ -86,7 +85,7 @@ declarada</p>
 <p>Outra maneira de fazer a mesma coisa é mostrada no programa <strong>p0412symbolhash.rb</strong>.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="c"># p0412symbolhash.rb</span>
-<span class="no">2</span> h = {<span class="sy">apelido:</span> <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, <span class="sy">idioma:</span> <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, <span class="sy">sobrenome:</span> <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
+<span class="no">2</span> h = {<span class="ke">apelido</span>: <span class="s"><span class="dl">'</span><span class="k">GuruIndiano</span><span class="dl">'</span></span>, <span class="ke">idioma</span>: <span class="s"><span class="dl">'</span><span class="k">Marata</span><span class="dl">'</span></span>, <span class="ke">sobrenome</span>: <span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>}
 <span class="no">3</span> puts h
 </pre>
 </div>

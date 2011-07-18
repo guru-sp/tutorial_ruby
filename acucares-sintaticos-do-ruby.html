@@ -30,7 +30,7 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">Açúcares sintáticos do Ruby</p>
-<p>Programadores utilizam o termo açucares sintático para se referir a regras, que permitem que você escreva seu código de uma maneira que não correspondem as regras normais, mais que seja mais fácil de lembrar como fazer e fica melhor.</p>
+<p>Programadores utilizam o termo açúcares sintáticos para se referir a regras especiais, que permitem que você escreva seu código de uma maneira que não correspondem as regras normais, mais que seja mais fácil de lembrar como fazer e fica melhor.</p>
 <p>Vamos dizer que queremos definir o nome de um cachorro. Como ponto de partida, o nome pode ser definido junto com tudo, mais em tempo de criação do objeto, como no exemplo abaixo.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
@@ -44,13 +44,13 @@
 <span class="no"> 9</span>   puts nd.name
 </pre>
 </div>
-<p>Vamos escrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:</p>
+<p>Vamos reescrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">NewDog</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
 <span class="no"> 3</span>       <span class="iv">@breed</span> = breed
 <span class="no"> 4</span>     <span class="r">end</span>
-<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># Apenas para leitur</span>
+<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span>   <span class="c"># Apenas para leitura</span>
 <span class="no"> 6</span>     <span class="c"># método setter</span>
 <span class="no"> 7</span>     <span class="r">def</span> <span class="fu">set_name</span>(nm)
 <span class="no"> 8</span>       <span class="iv">@name</span> = nm
@@ -79,7 +79,7 @@
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">initialize</span>(breed)
 <span class="no"> 3</span>       <span class="iv">@breed</span> = breed
 <span class="no"> 4</span>     <span class="r">end</span>
-<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span> <span class="c"># create reader only</span>
+<span class="no"> 5</span>     attr_reader <span class="sy">:breed</span>, <span class="sy">:name</span> <span class="c"># Apenas para leitura</span>
 <span class="no"> 6</span> 
 <span class="no"> 7</span>     <span class="c"># método setter</span>
 <span class="no"> 8</span>     <span class="r">def</span> <span class="fu">name=</span>(nm)
@@ -93,7 +93,7 @@
 <span class="no">16</span>   puts nd.name
 </pre>
 </div>
-<p>O sinal de igual da a algo que você conhece como &#8220;atribui um valor a algo&#8221;, assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.</p>
+<p>O sinal de igual lhe dá algo que você conhece como &#8220;atribui um valor a algo&#8221;, assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.</p>
 <p>Ruby lhe da um pouco de açucares sintático para chamar métodos setter.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   nd.name=(<span class="s"><span class="dl">'</span><span class="k">Benzy</span><span class="dl">'</span></span>)
@@ -108,7 +108,7 @@
 <div class='box'>
 <p>NO RAILS: Chamadas de métodos usando sinal de igual são comuns em aplicações Rails.</p>
 </div>
-<div class="pagination"><a href="objetos-mutaveis-e-imutaveis.html">Objetos mutáveis e imutáveis</a></div>
+<div class="pagination"><a href="objetos-mutaveis-e-imutaveis.html">Objetos mutáveis e imutáveis &gt;</a></div>
    </div>
 
    <div class="column span-5 append-1 last">

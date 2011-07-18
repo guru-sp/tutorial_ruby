@@ -19,24 +19,24 @@ Um símbolo é o objeto Ruby mais básico que você pode criar. Ele é apenas um
 Veja o exemplo **p039symbol.rb** abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p039symbol.rb  
+# p039symbol.rb
 # use o object_id da classe Object
 # ele retorna um inteiro identificador para um objeto
-puts "string".object_id  
-puts "string".object_id  
-puts :symbol.object_id  
+puts "string".object_id
+puts "string".object_id
+puts :symbol.object_id
 puts :symbol.object_id
 <% end %>
 
 A saída quando rodei o programa no meu PC foi:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
->ruby p039symbol.rb  
-21066960  
-21066930  
-132178  
-132178  
->Exit code: 0  
+>ruby p039symbol.rb
+21066960
+21066930
+132178
+132178
+>Exit code: 0
 <% end %>
 
 Então, quando usamos uma string e quando usamos um símbolo?
@@ -55,46 +55,46 @@ Um objeto do tipo símbolo é criado prefixando-se um operador, string, variáve
 Isso pode ser ilustrado por esse simples programa - **p039xsymbol.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p039xsymbol.rb  
-class Test  
-  puts :Test.object_id.to_s  
-  def test  
-    puts :test.object_id.to_s  
-    @test = 10  
-    puts :test.object_id.to_s  
-  end  
-end  
-t = Test.new  
-t.test  
+# p039xsymbol.rb
+class Test
+  puts :Test.object_id.to_s
+  def test
+    puts :test.object_id.to_s
+    @test = 10
+    puts :test.object_id.to_s
+  end
+end
+t = Test.new
+t.test
 <% end %>
 
 A saída que obtive quando rodei o programa no meu PC foi:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
->ruby p039xsymbol.rb  
-116458  
-79218  
-79218  
+>ruby p039xsymbol.rb
+116458
+79218
+79218
 >Exit code: 0
 <% end %>
 
 Aqui temos outro exemplo - p039xysymbol.rb:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p039xysymbol.rb  
-sabe_ruby = :sim  
-if sabe_ruby == :sim 
-  puts 'Voce eh um rubista'  
-else  
-  puts 'Aprenda Ruby'  
-end  
+# p039xysymbol.rb
+sabe_ruby = :sim
+if sabe_ruby == :sim
+  puts 'Voce eh um rubista'
+else
+  puts 'Aprenda Ruby'
+end
 <% end %>
 
 A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
->ruby p039xysymbol.rb  
-Voce eh um rubista 
+>ruby p039xysymbol.rb
+Voce eh um rubista
 >Exit code: 0
 <% end %>
 
@@ -102,13 +102,13 @@ No exemplo, **:sim** é um símbolo. Símbolos não contêm valores ou objetos c
 uma string como no exemplo **p039xyzsymbol.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p039xyzsymbol.rb  
-sabe_ruby = 'sim'  
-if sabe_ruby == 'sim' 
-  puts 'Voce eh um rubista'  
-else  
-  puts 'Aprenda Ruby'  
-end  
+# p039xyzsymbol.rb
+sabe_ruby = 'sim'
+if sabe_ruby == 'sim'
+  puts 'Voce eh um rubista'
+else
+  puts 'Aprenda Ruby'
+end
 <% end %>
 
 Isto tem o mesmo resultado, mas não é mais eficiente. Nesse exemplo, cada menção do 'sim' cria um novo objeto armazenado separadamente em memória, enquanto símbolos são valores com referência única inicializados apenas uma vez. No primeiro exemplo,
@@ -118,7 +118,7 @@ apenas **:sim** existe, enquanto no segundo exemplo você têm duas strings 'sim
 Podemos também transformar uma string em um símbolo e vice-versa:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-puts "string".to_sym.class # Symbol  
+puts "string".to_sym.class # Symbol
 puts :symbol.to_s.class    # String
 <% end %>
 
@@ -126,7 +126,8 @@ puts :symbol.to_s.class    # String
 Símbolos são particularmente úteis quando se cria hashes e você quer distinguir chaves e valores. Veja o tópico "usando símbolos como chaves hash":hashes-ruby.html para exemplos práticos.
 
 <div class='box'>
-Fabio Akita, um entusiasta Rails brasileiro, também conhecido na internet como "AkitaOnRails", escreve um "artigo exclusivo sobre símbolos em Ruby (em inglês)":http://rubylearning.com/blog/2007/11/26/akitaonrails-on-ruby-symbols/ para membros do rubylearning.com. Leia o artigo após ter passado por essa lição.
+Fabio Akita, um entusiasta Rails brasileiro, também conhecido na internet como "AkitaOnRails", escreve um artigo exclusivo sobre símbolos em Ruby ("em inglês":http://rubylearning.com/blog/2007/11/26/akitaonrails-on-ruby-symbols/ ou "em português":http://akitaonrails.com/2007/11/26/ruby-symbols) para membros do rubylearning.com. Leia o artigo após ter passado por essa lição.
 </div>
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

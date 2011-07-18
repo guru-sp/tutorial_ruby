@@ -31,8 +31,8 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Logging com Ruby</p>
 <p>A classe <b>Logger</b> da biblioteca padrão do Ruby ajuda a escrever mensagens de log para um arquivo ou para um stream de dados. Ela suporta rolagem dos arquivos de log por tempo ou baseada em tamanho. Às mensagens podem ser associados níveis de gravidade e apenas as mensagens em um determinado nivel ou acima do nível atual do logger serão armazenadas, isto é, &#8220;logadas&#8221;.</p>
-<p>Quando você escreve um código, você simplesmente assume que todoas as mensagens serão logadas. Em tempo de execução, você pode obter um log mais ou menos verboso mudando o nível do log. Uma aplicação em produção geralmente tem um nível de log Logger:INFO ou Logger:WARN. Do menos ao mais severo, os métodos são <b>Logger.debug</b>, <b>Logger.warn</b>, <b>Logger.error</b> e <b>Logger.fatal</b>.</p>
-<p>O nível de log DEBUG é útil para diagnosticar uma tarefa passo a passo. O nível ERROR é geralmente usado quando se lida com o tratamento de exceções: se o programa não consegue resolver um problema, ele loga a exceção ao invés de parar sua execução e esperar que um administrador cuide do problema. O nível FATAL deve apenas ser usado quando um programa não pode se recuperar de algum problema, e esta prestes a travar ou finalizar.</p>
+<p>Quando você escreve um código, você simplesmente assume que todas as mensagens serão logadas. Em tempo de execução, você pode obter um log mais ou menos verboso mudando o nível do log. Uma aplicação em produção geralmente tem um nível de log Logger:INFO ou Logger:WARN. Do menos ao mais severo, os métodos são <b>Logger.debug</b>, <b>Logger.info</b>, <b>Logger.warn</b>, <b>Logger.error</b> e <b>Logger.fatal</b>.</p>
+<p>O nível de log DEBUG é útil para diagnosticar uma tarefa passo a passo. O nível ERROR é geralmente usado quando se lida com o tratamento de exceções: se o programa não consegue resolver um problema, ele loga a exceção ao invés de parar sua execução e esperar que um administrador cuide do problema. O nível FATAL deve apenas ser usado quando um programa não pode se recuperar de algum problema, e está prestes a travar ou finalizar.</p>
 <p>Se seu log está sendo armazenado em um arquivo, você pode ter o <b>Logger</b> rotacionado ou substituído quando ele se torna muito grande, ou uma vez que uma certa quantidade de tempo passou:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   require <span class="s"><span class="dl">'</span><span class="k">logger</span><span class="dl">'</span></span>
@@ -81,7 +81,7 @@
 <span class="no">4</span>   <span class="co">E</span>, [<span class="i">2008</span>-<span class="i">03</span>-<span class="i">18</span><span class="co">T17</span>:<span class="i">13</span>:<span class="fl">50.044000</span> <span class="c">#2820] ERROR -- : Erro na divisião!: divided by 0</span>
 </pre>
 </div>
-<p>Para alterar o nível do logo, simplesmente associe a contenste apropriada a <b>level</b>:</p>
+<p>Para alterar o nível do log, simplesmente associe a constante apropriada a <b>level</b>:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="gv">$LOG</span>.level = <span class="co">Logger</span>::<span class="co">ERROR</span>
 </pre>

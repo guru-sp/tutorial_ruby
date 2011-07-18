@@ -9,11 +9,11 @@ p(title). <%= h(@page.title) %>
 
 Hashes (também conhecidos como arrays associativos, mapas ou dicionários) são similares aos arrays a medida que são coleções indexadas de referências a objetos. No entanto, enquanto o o array é indexado por inteiros (semelhante a um índice remissivo), o hash pode ser indexado com objetos de qualquer tipo: strings, expressões regulares e assim por diante. Quando você armazena um valor em um hash, você na verdade fornece dois objetos - o índice (normalmente chamado de chave) e o valor desse índice. É possível recuperar os valores utilizando o índice do hash. Os valores do hash, assim como os índices, podem ser objetos de qualquer tipo.
 
-O exemplo **040myhash.rb** abaixo cria um hash com literais (strings): uma lista de pares chave => valor entre 
+O exemplo **040myhash.rb** abaixo cria um hash com literais (strings): uma lista de pares chave => valor entre
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # p040myhash.rb
-h = {'cachorro' => 'canino', 'gato' => 'felino', 
+h = {'cachorro' => 'canino', 'gato' => 'felino',
     'burro' => 'asinino', 12 => 'dodezino'}
 puts h.length  # 4
 puts h['cachorro']  # 'canino'
@@ -27,15 +27,14 @@ A saída do código acima é:
 >ruby p040myhash.rb
 4
 canino
-{"cachorro"=>"canino", "gato"=>"felino", 
+{"cachorro"=>"canino", "gato"=>"felino",
  "burro"=>"asinino", 12=>"dodezino"}
 dodezino
 >Exit code: 0
 <% end %>
 
 <div class='box'>
-Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenação do hash é diferente da
-declarada
+Caso o programa apresentado no exemplo  seja executado no Ruby 1.8 a saída será um pouco diferente. Em todos exemplos estamos utilizando o Ruby 1.9, no qual o hash é apresentado de forma ordenada e igual a sua declaração. Já no Ruby 1.8 a ordenação do hash é diferente da declarada
 </div>
 
 Comparados com arrays, os hashes têm uma vantagem significativa: eles podem usar qualquer objeto como índice.
@@ -95,3 +94,4 @@ O último exemplo (**p0412symbolhash.rb**) não funcionará no Ruby 1.8. Ele uti
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

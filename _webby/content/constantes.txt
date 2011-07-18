@@ -15,19 +15,18 @@ Uma constante Ruby é como uma variável, exceto que seu valor supostamente deve
   A_CONST = 20
 <% end -%>
 
-
 Produz um aviso (warning):
 
 <% coderay(:lang => "bash", :line_numbers => "inline") do -%>
-  p054constwarn.rb:3: warning: already initialized constant A_CONST 
+  p054constwarn.rb:3: warning: already initialized constant A_CONST
   # aviso: a constante A_CONST já foi inicializada
 <% end -%>
 
-Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores (_) são usados para separar palavras, ASSIM_POR_EXEMPLO. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.
+Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores são usados para separar palavras, DESSA_FORMA. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.
 
 Perceba que constantes não existem até que um valor seja associado as mesmas.
 
-Embora constantes não devam ser alteradas, você pode modificar o estado interno dos objetos que as referenciam, como visto no exemplo **p055constalter.rb**:
+Embora constantes não devam ser alteradas, você pode modificar o estado interno dos objetos que elas referenciam, como visto no exemplo **p055constalter.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p055constalter.rb
@@ -47,7 +46,7 @@ Observe:
 * Fora da classe ou módulo, elas podem ser acessadas usando o operador de escopo :: , prefixado por uma expressão que retorna o módulo ou classe associado (Classe::CONSTANTE)
 * Constantes definidas fora de qualquer classe ou módulo podem ser acessadas normalmente ou usando o operador de escopo sem nenhum prefixo.
 * Constantes não podem ser definidas em métodos.
-* Constantes podem ser adicionadas para classes e módulos existentes externamente usando o nome da classe e do módulo e o operador de escopo antes do nome da variável.
+* Constantes podem ser externamente adicionadas a classes e módulos existentes utilizando o nome da classe ou do módulo e o operador de escopo antes do nome da constante.
 
 O programa **p056const.rb** mostra tudo isso:
 
@@ -64,10 +63,10 @@ O programa **p056const.rb** mostra tudo isso:
   puts Constante.new.pega_constante
   puts Constante::CONSTANTE
   puts ::CONSTANTE_EXTERNA
-  puts Const::NOVA_CONSTANTE = 123
+  puts Constante::NOVA_CONSTANTE = 123
 <% end -%>
 
-Outro exemplo elbaroda sobre métodos de uma classe é o **p057mymethods2.rb**. Nesse exemplo nós também vemos como escrever um método de classe.
+Outro exemplo elaborado sobre métodos de uma classe é o **p057mymethods2.rb**. Nesse exemplo nós também vemos como escrever um método de classe.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p057mymethods2.rb
@@ -112,3 +111,4 @@ Listei todos os "pontos importantes":sumario-ruby8.html que você precisa se lem
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

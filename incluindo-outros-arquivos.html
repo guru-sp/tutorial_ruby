@@ -31,8 +31,7 @@
    <div class="column span-17 prepend-1 first">
       <p class="title">Incluindo Outros Arquivos</p>
 <p>Ao escrever seus primeiros programas em Ruby, você costuma colocar todo seu código em um único arquivo. Mas, a medida que você cresce como programador Ruby, seus programas também crescerão e em um determinado ponto você perceberá que ter um único arquivo contendo todo o código<br />
-não será uma boa ideia. É mais fácil quebrar seu código em grupos lógicos e colocar cada grupo em um arquivo separado. Quando você começa<br />
-a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (requerer) e <b>load</b> (carregar) (ambos métodos são &#8220;funções&#8221; globais definidas no <b>Kernel</b>, mas são usadas como palavras-chave da linguagem) que o ajudam a inclui outros arquivos em seu programa.</p>
+não será uma boa ideia. É mais fácil quebrar seu código em grupos lógicos e colocar cada grupo em um arquivo separado. Quando você começa a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (requerer) e <b>load</b> (carregar) (ambos métodos são &#8220;funções&#8221; globais definidas no <b>Kernel</b>, mas são usadas como palavras-chave da linguagem) que o ajudam a incluir outros arquivos em seu programa.</p>
 <p>O método <b>load</b> inclui o arquivo fonte referenciado toda vez que o método é executado:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   load <span class="s"><span class="dl">'</span><span class="k">nome_do_arquivo.rb</span><span class="dl">'</span></span>
@@ -43,11 +42,11 @@ a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (r
 <pre><span class="no">1</span>   require <span class="s"><span class="dl">'</span><span class="k">nome_do_arquivo</span><span class="dl">'</span></span>
 </pre>
 </div>
-<p><b>require</b> lhe dá acesso a muitas extensões e bibliotecas de programação empacotadas com a linguagem de programção Ruby &#8211; além de um número ainda maior de extensões e bibliotecas escritas independentemente por outros programadores e disponibilizadas para uso com o Ruby.</p>
-<p>Note que quando você escreve <b>require</b>  &#8216;nome_do_arquivo&#8217; e não &#8216;nome_do_arquivo.rb&#8217;. Especificamente, extensões escritas em C são armazenadas em arquivos terminados por .so ou .dll. Para manter o processo transparante &#8211; isso é, para lhe proteger do problema que é saber se uma extensão que você quer usa um arquivo .rb ou ou outro tipo de arquivo &#8211; o método aceita uma palavra e então faz uma busca automática e tenta todos os nomes de arquivo possível até que encontro o arquivo correspondente a extensão que você requisitou.</p>
+<p><b>require</b> lhe dá acesso a muitas extensões e bibliotecas de programação empacotadas com a linguagem de programação Ruby &#8211; além de um número ainda maior de extensões e bibliotecas escritas independentemente por outros programadores e disponibilizadas para uso com o Ruby.</p>
+<p>Note que quando você escreve <b>require</b> &#8216;nome_do_arquivo&#8217; e não &#8216;nome_do_arquivo.rb&#8217;. Especificamente, extensões escritas em C são armazenadas em arquivos terminados por .so ou .dll. Para manter o processo transparante &#8211; isso é, para lhe poupar o trabalho de saber qual a extensão do arquivo que você quer usar (.rb e etc) &#8211; o método aceita uma palavra e então faz uma busca automática tentando todos os nomes de arquivo possíveis até que encontra o arquivo correspondente a extensão que você requisitou.</p>
 <div class='box'>
 <p>require(string) =&gt; true or false</p>
-<p>O Ruby tenta carregar a biblioteca chamada string, retornando true (verdadeiro) em caso de sucesso. Se o nome de arquivo não foir resolvido para um caminho absoluto, ele será procurado nos diretórios listados em <b>$:</b>. Se o arquivo tem a extensão  &#8220;.rb&#8221;, ele é carregado como um arquivo fonte; se a extensão for &#8220;.so&#8221;, &#8220;.o&#8221; ou &#8220;.dll&#8221;, ou qualque que seja a extensão de bibliotecas compartilhadas na plataforma em questão, o Ruby carregará a biblioteca compartilhada como uma extensão Ruby. Em caso contrário, o Ruby tenta adicionar &#8220;.rb&#8221;, &#8220;.so&#8221; e assim por diante ao nome do arquivo. O me ionalidade é adicionado ao array em <b>$:</b>.</p>
+<p>O Ruby tenta carregar a biblioteca chamada string, retornando true (verdadeiro) em caso de sucesso. Se o nome do arquivo não for resolvido para um caminho absoluto, ele será procurado nos diretórios listados em <b>$:</b>. Se o arquivo tem a extensão  &#8220;.rb&#8221;, ele é carregado como um arquivo fonte; se a extensão for &#8220;.so&#8221;, &#8220;.o&#8221; ou &#8220;.dll&#8221;, ou qualquer que seja a extensão de bibliotecas compartilhadas na plataforma em questão, o Ruby carregará a biblioteca compartilhada como uma extensão Ruby. Em caso contrário, o Ruby tenta adicionar &#8220;.rb&#8221;, &#8220;.so&#8221; e assim por diante ao nome do arquivo. O nome do novo recurso é adicionado ao array em <b>$:</b>.</p>
 </div>
 <div class='box'>
 <p>NO RAILS: O Rails usa <b>load</b> ao invés de <b>require</b>, por exemplo, no modo de desenvolvimento &#8211; o que significa que se você está testando sua aplicação em um navegador e fazendo mudanças no código ao mesmo tempo, suas mudanças serão recarregadas, sobrescrevendo qualquer comportamento de caching por parte do servidor Web. Múltiplas chamadas a <b>require</b> no mesmo lugar não tem o mesmo efeito se a aplicação já leu o arquivo por completo.</p>
@@ -79,6 +78,7 @@ a utilizar múltiplos arquivos, você precisa usar os métodos <b>require</b> (r
 <span class="no">4</span>   m.ligaMotor
 </pre>
 </div>
+<p>A partir da versão 1.9 do Ruby, é usado <b>require_relative</b> quando o local onde está o arquivo que desejamos carregar é relativo ao do arquivo que o está carregando (eles estão no mesmo diretório).</p>
 <div class="pagination"><a href="classes-abertas-em-ruby.html">Classes abertas em Ruby &gt;</a></div>
    </div>
 

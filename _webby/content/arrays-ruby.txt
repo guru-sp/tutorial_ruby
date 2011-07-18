@@ -7,77 +7,77 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Um **Array** (arranjo) é apenas uma lista de itens em ordem (como mangas, maçãs e laranjas). Cada posição na lista atua como uma variável: você pode ver para qual objeto uma determinada posição aponta para, e você pode fazer ela apontar para um objeto diferente. Você pode fazer um array usando colchetes. Em Ruby, o primeiro valor em um array tem o índice 0. Os métodos **size** e **length** retornam o número de elementos no array. O último elemento de um array está no índice **size-1**. Valores negativos de índice são contados a partir do final do array, de modo que o último elemento de um array pode ser acessado com um índice -1. Se você tentar ler um elemento além do final do array (com um índice >= **size**) ou antes do início do array (com índice < -size), o Ruby simplesmente retornará nil (nulo) e não lançará uma exceção. Os arrays em Ruby são mutáveis - arrays são redimensionados dinamicamente; você pode acrescentar elementos a eles e eles crescem o necessário. Vamos olhar para o seguinte exemplo **p018arrays.rb**. Por favor, siga pelo programa com atenção.
+Um **Array** (arranjo) é apenas uma lista de itens em ordem (como mangas, maçãs e laranjas). Cada posição na lista atua como uma variável: você pode ver para qual objeto uma determinada posição aponta, e você pode fazer ela apontar para um objeto diferente. Você pode fazer um array usando colchetes. Em Ruby, o primeiro valor em um array tem o índice 0. Os métodos **size** e **length** retornam o número de elementos no array. O último elemento de um array está no índice **size-1**. Valores negativos de índice são contados a partir do final do array, de modo que o último elemento de um array pode ser acessado com um índice -1. Se você tentar ler um elemento além do final do array (com um índice >= **size**) ou antes do início do array (com índice < -size), o Ruby simplesmente retornará nil (nulo) e não lançará uma exceção. Os arrays em Ruby são mutáveis - arrays são redimensionados dinamicamente; você pode acrescentar elementos a eles e eles crescem o necessário. Vamos olhar para o seguinte exemplo **p018arrays.rb**. Por favor, siga pelo programa com atenção.
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p018arrays.rb  
-# Arrays  
-  
-# array vazio  
-var1 = []  
-# Índice do array inicia em 0  
-puts var1[0]  
-  
-var2 = [5]  
-# um array armazenando apenas um número 
-puts var2[0]  
-   
-# um array armazenando duas strings 
-var3 = ['Olá', 'Tchau']  
-puts var3[0]  
-puts var3[1]  
-  
-sabor = 'manga'  
+# p018arrays.rb
+# Arrays
+
+# array vazio
+var1 = []
+# Índice do array inicia em 0
+puts var1[0]
+
+var2 = [5]
+# um array armazenando apenas um número
+puts var2[0]
+
+# um array armazenando duas strings
+var3 = ['Olá', 'Tchau']
+puts var3[0]
+puts var3[1]
+
+sabor = 'manga'
 # um array cujos elementos apontam para três
-# objetos - um float, uma string e um array  
-var4 = [80.5, sabor, [true, false]]  
-puts var4[2]  
-  
+# objetos - um float, uma string e um array
+var4 = [80.5, sabor, [true, false]]
+puts var4[2]
+
 # uma vírgula no final é ignorada
-name = ['Satish', 'Talim', 'Ruby', 'Java',]  
-puts name[0]  
-puts name[1]  
-puts name[2]  
-puts name[3]  
+name = ['Satish', 'Talim', 'Ruby', 'Java',]
+puts name[0]
+puts name[1]
+puts name[2]
+puts name[3]
 # o próximo tem como saída nil
-# nil é o jeito do Ruby dizer 'nada' 
-puts name[4]  
+# nil é o jeito do Ruby dizer 'nada'
+puts name[4]
 # podemos adicionar mais elementos também
-name[4] = 'Pune' 
-puts name[4] 
+name[4] = 'Pune'
+puts name[4]
 # podemos adicionar qualquer coisa!
-name[5] = 4.33 
-puts name[5] 
+name[5] = 4.33
+puts name[5]
 # podemos adicionar um array a um array
-name[6] = [1, 2, 3] 
-puts name[6] 
- 
+name[6] = [1, 2, 3]
+puts name[6]
+
 # alguns métodos da classe array
-newarr = [45, 23, 1, 90] 
-puts newarr.sort 
-puts newarr.length 
-puts newarr.first 
-puts newarr.last 
- 
+newarr = [45, 23, 1, 90]
+puts newarr.sort
+puts newarr.length
+puts newarr.first
+puts newarr.last
+
 # o método each (iterador - extrai cada elemento em lang
-# do end é um bloco de código 
+# do end é um bloco de código
 # falaremos sobre blocos mais tarde
 # a variável lang se refere a cada item no array a medida que ele é iterado no loop
-linguas = ['Pune', 'Mumbai', 'Bangalore'] 
- 
-linguas.each do |lang| 
-  puts 'Eu amo ' + lang + '!' 
-  puts 'voce nao?'  
-end  
+linguas = ['Pune', 'Mumbai', 'Bangalore']
 
-# apaga uma entrada no meio e desloca o restante da entradas   
+linguas.each do |lang|
+  puts 'Eu amo ' + lang + '!'
+  puts 'voce nao?'
+end
+
+# apaga uma entrada no meio e desloca o restante da entradas
 linguas.delete('Mumbai')
 
-linguas.each do |lang|  
-  puts 'Eu amo ' + lang + '!' 
-  puts 'voce nao?'   
-end  
+linguas.each do |lang|
+  puts 'Eu amo ' + lang + '!'
+  puts 'voce nao?'
+end
 <% end %>
 
 O método **each** (para qualquer objeto) permite-nos fazer algo (o que quisermos) para cada (each) objeto para o qual o array aponta. No exemplo, somos capazes de iterar sobre o array sem usar nenhum número. Aqui estão algumas coisas para se lembrar:
@@ -91,32 +91,32 @@ Aqui está um exemplo interessante de um método que retorna um array. Exemplo *
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p019mtdarry.rb  
-# se você dá ao return multiplos parâmetros.  
-# o método os retornará em um array 
-# o método times da classe Integer itera num vezes,  
-# passando para num os valores de 0 a num-1  
-  
-def mtdarry  
-  10.times do |num|  
-    quadrado = num * num  
-    return n, quadrado if n > 5  
-  end  
-end  
-  
+# p019mtdarry.rb
+# se você dá ao return multiplos parâmetros.
+# o método os retornará em um array
+# o método times da classe Integer itera num vezes,
+# passando para num os valores de 0 a num-1
+
+def mtdarry
+  10.times do |num|
+    quadrado = num * num
+    return num, quadrado if n > 5
+  end
+end
+
 # usando atribuição paralela para coletar o valor de retorno
-num, quadrado = mtdarry  
-puts num  
-puts quadrado  
+num, quadrado = mtdarry
+puts num
+puts quadrado
 <% end %>
 
 A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
->ruby p019mtdarry.rb  
-6  
-36  
->Exit code: 0  
+>ruby p019mtdarry.rb
+6
+36
+>Exit code: 0
 <% end %>
 
 O método **times** da classe **Integer** (inteiro) itera o bloco n vezes, passando os valores de zero a num-1. Como podemos ver, se você dá ao **return** múltiplos parâmetros, o método retorna estes em um array. Você pode usar a atribuição em paralelo para coletar esses valores de retorno.
@@ -125,20 +125,20 @@ O método **times** da classe **Integer** (inteiro) itera o bloco n vezes, passa
 h2. Atribuição paralela
 
 Para explicar isso, usaremos os termos lvalue (valor á esquerda) e rvalue (valor à direita).
-Um lvalue é algo que pode aparecer por si mesmo no lado esquerdo de uma atribuição (uma variável, constante ou método que seta algum atributo). Um rvalue é algo que pode aparecer por si só no lado direito. Ruby permite que você tenha uma lista de rvalues separados por vírgula. Uma vez que o Ruby vê mais que um rvalue em uma atribuição, as regras de atribuição paralela entram em cena. Em primeiro lugar, todos os rvalues são avaliados, da esquerda para a direita e então coletados em um array (ao menos que eles já sejam um array). Este array será o evento valor retornado pela atribuição como um todo. Em seguida, o lado a esquerda é inspecionado. Se ele contém um único elemento, o array é associado a esse elemento.
+Um lvalue é algo que pode aparecer por si mesmo no lado esquerdo de uma atribuição (uma variável, constante ou método que seta algum atributo). Um rvalue é algo que pode aparecer por si só no lado direito. Ruby permite que você tenha uma lista de rvalues separados por vírgula. Uma vez que o Ruby vê mais que um rvalue em uma atribuição, as regras de atribuição paralela entram em cena. Em primeiro lugar, todos os rvalues são avaliados, da esquerda para a direita e então coletados em um array (ao menos que eles já sejam um array). Este array será o valor retornado pela atribuição como um todo. Em seguida, o lado a esquerda é inspecionado. Se ele contém um único elemento, o array é associado a esse elemento.
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-a = 1, 2, 3, 4 # => a == [1, 2, 3, 4]  
-b = [1, 2, 3, 4] # => b == [1, 2, 3, 4]  
+a = 1, 2, 3, 4 # => a == [1, 2, 3, 4]
+b = [1, 2, 3, 4] # => b == [1, 2, 3, 4]
 <% end %>
 
 Se o lado  esquerdo contém uma vírgula, o Ruby casa os valores do lado direito com os sucessivos elementos do lado esquerdo. Os elementos que restam são descartados.
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-a, b = 1, 2, 3, 4 # => a == 1, b == 2  
-c, = 1, 2, 3, 4 # => c == 1  
+a, b = 1, 2, 3, 4 # => a == 1, b == 2
+c, = 1, 2, 3, 4 # => c == 1
 <% end %>
 
 
@@ -177,20 +177,20 @@ ou COMPSPEC|
 Um programa Ruby pode escrever no objeto ENV. Na maioria dos sistemas isso muda os valores das variáveis de ambiente correspondentes. Entretanto, essa mudança é local para o processo que a faz e para qualquer processo filho criado. Um subprocesso altera uma variável de ambiente e essa mudança é herdada por um processo que é iniciado pelo primeiro. Entretanto, a mudança não é visível para o pai original (isso apenas serve para provar que os pais realmente nunca sabem o que seus filhos estão fazendo).
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-ENV["course"] = "FORPC101"  
-puts "#{ENV['course']}"  
+ENV["course"] = "FORPC101"
+puts "#{ENV['course']}"
 <% end %>
 
 
-h2.Argumentos de linha de comando
+h2. Argumentos de linha de comando
 
 Se você está iniciando um programa da linha de comando, você pode adicionar parâmetros no final do comando e estes serão processados pelo programa.
 
 Você pode fazer o mesmo com sua aplicação Ruby. O Ruby automaticamente coloca qualquer parâmetro que são adicionados à linha de comando quando você executa seu programa Ruby em um array especial chamado ARGV. Se seu programa é:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-f = ARGV[0]  
-puts f  
+f = ARGV[0]
+puts f
 <% end %>
 
 Você pode executar esse programa da linha de comando assim:
@@ -202,7 +202,7 @@ ruby tmp.rb 23
 E o programa deve mostrar 23 como saída.
 
 
-h2.Biblioteca GetoptLong
+h2. Biblioteca GetoptLong
 
 A Classe **GetoptLong** suporta o parsing de opções de linha de comando. As opções podem ter um sinal de menos (-) seguido por um único caractere ou dois sinais de menos (--) seguidos por um nome (uma opção longa).
 
@@ -219,37 +219,37 @@ Aqui está o código de como fazê-lo:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-require 'getoptlong'  
-   
-# Chame usando "ruby tsftpc.rb -hftp.ibiblio.org -n21 -uanonymous -ps@s.com"  
-# Os parâmetros podem estar em qualquer ordem 
-unless ARGV.length == 4  
-  puts "Uso: ruby tsftpc.rb -hftp_site_url -nport_no -uuser_name -ppassword"  
-  exit  
-end  
-   
-host_name = port_no = user_name = password = ''  
-# specifica a opção que aceitamos e  
-# inicializa o parser de opções 
-opts = GetoptLong.new(  
-[ "--hostname", "-h", GetoptLong::REQUIRED_ARGUMENT ],  
-[ "--port", "-n", GetoptLong::REQUIRED_ARGUMENT ],  
-[ "--username", "-u", GetoptLong::REQUIRED_ARGUMENT ],  
-[ "--pass", "-p", GetoptLong::REQUIRED_ARGUMENT ]  
-)  
-# processa as opções parseadas  
-opts.each do |opt, arg|  
-  case opt  
-    when '--hostname'  
-      host_name = arg  
-    when '--port'  
-      port_no = arg  
-    when '--username'  
-      user_name = arg  
-    when '--pass'  
-      password = arg  
-  end  
-end  
+require 'getoptlong'
+
+# Chame usando "ruby tsftpc.rb -hftp.ibiblio.org -n21 -uanonymous -ps@s.com"
+# Os parâmetros podem estar em qualquer ordem
+unless ARGV.length == 4
+  puts "Uso: ruby tsftpc.rb -hftp_site_url -nport_no -uuser_name -ppassword"
+  exit
+end
+
+host_name = port_no = user_name = password = ''
+# specifica a opção que aceitamos e
+# inicializa o parser de opções
+opts = GetoptLong.new(
+[ "--hostname", "-h", GetoptLong::REQUIRED_ARGUMENT ],
+[ "--port", "-n", GetoptLong::REQUIRED_ARGUMENT ],
+[ "--username", "-u", GetoptLong::REQUIRED_ARGUMENT ],
+[ "--pass", "-p", GetoptLong::REQUIRED_ARGUMENT ]
+)
+# processa as opções parseadas
+opts.each do |opt, arg|
+  case opt
+    when '--hostname'
+      host_name = arg
+    when '--port'
+      port_no = arg
+    when '--username'
+      user_name = arg
+    when '--pass'
+      password = arg
+  end
+end
 <% end %>
 
 **require** te dá acesso as muitas extensões e bibliotecas de programação que vem com a linguagem Ruby - além de um número maior ainda de extensões e bibliotecas escritas independentemente por outros programadores e tornadas disponíveis para se usar com Ruby. Nós estudaremos o require em mais detalhas mais tarde. Além disso, mais tarde, deveremos estudar como acessar constantes usando ::
@@ -258,32 +258,33 @@ end
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-str = 'ola'  
-print Array(str).class # Array  
+str = 'ola'
+print Array(str).class # Array
 <% end %>
 
 Outro exemplo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-str = 'ola\nmundo'  
-print Array(str) # ["ola\nmundo"]  
+str = 'ola\nmundo'
+print Array(str) # ["ola\nmundo"]
 <% end %>
 
 
 **Quais são os ancestrais de Array?** Rode o segunte programa para descobrir:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-a = [1,2,3,4]  
-print a.class.ancestors  
+a = [1,2,3,4]
+print a.class.ancestors
 <% end %>
 
 Você verá:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
-[Array, Enumerable, Object, Kernel, BasicObject]  
+[Array, Enumerable, Object, Kernel, BasicObject]
 <% end %>
 
 Você pode ver os "detalhes da classe Array na documentação oficial do Ruby (em inglês)":http://www.ruby-doc.org/ruby-1.9/classes/Array.html.
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

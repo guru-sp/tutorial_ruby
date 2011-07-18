@@ -7,12 +7,11 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Se objetos (como strings, inteiros ou floats) são os substantivos na linguagem Ruby, então os métodos são os verbos. Cada método
-precisa de um objeto. Geralmente é comum dizer qual objeto está executando o método: é o que vem logo antes do ponto. Às vezes, porém, não é tão óbvio assim. Quando estamos usando *puts*, *gets* - onde estão os objetos deles? Em Ruby, o objeto implícito é
-qualquer objeto em que você está no momento. Mas nós nem sabemos ainda como estar em um objeto; Nós sempre estivemos dentro de um objeto especia (*main*). Ruby o criou para nós e ele representa todo o programa. Você pode sempre ver em que objeto está (objeto corrente) usando a variável especial *self*. 
+Se objetos (como strings, inteiros ou floats) são os substantivos na linguagem Ruby, então os métodos são os verbos. Cada método precisa de um objeto. Geralmente é comum dizer qual objeto está executando o método: é o que vem logo antes do ponto. Às vezes, porém, não é tão óbvio assim. Quando estamos usando *puts*, *gets* - onde estão os objetos deles? Em Ruby, o objeto implícito é qualquer objeto em que você está no momento. Mas nós nem sabemos ainda como estar em um objeto; Nós sempre estivemos dentro de um objeto especial (*main*). Ruby o criou para nós e ele representa todo o programa. Você pode sempre ver em que objeto está (objeto corrente) usando a variável especial *self*.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do %> puts self <% end %>
 
 "Para mais detalhes sobre *self*, veja aqui":self.html.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

@@ -33,23 +33,23 @@
 <ol>
 	<li>Ruby oferece três níveis de proteção:
 	<ul>
-		<li><strong>public</strong> &#8211; os métodos podem ser chamados por todos. Por padrão, os métodos instanciados da classe são públicos.</li>
+		<li><strong>public</strong> &#8211; os métodos podem ser chamados por todos. Por padrão, os métodos instanciados na classe são públicos.</li>
 		<li><strong>protected</strong> &#8211; os métodos podem ser chamados apenas pelos objetos da classe que os definem e suas subclasses.</li>
-		<li><strong>private</strong> &#8211; os métodos não podem ser chamado com um receptor explícito &#8211; o receptor é sempre o <strong>self</strong>. Isto significa que os métodos privados pode ser chamado somente no contexto do objeto atual (não podemos utilizar self.METODO). Uma observação a ser feita, é que o método initialize é sempre privado.</li>
+		<li><strong>private</strong> &#8211; os métodos não podem ser chamados com um receptor explícito &#8211; o receptor é sempre o <strong>self</strong>. Isto significa que os métodos privados podem ser chamados somente no contexto do objeto atual (não podemos utilizar self.metodo). Uma observação a ser feita, é que o método initialize é sempre privado.</li>
 	</ul></li>
 	<li>O controle de acesso é determinado dinamicamente, quando o programa roda, e não estaticamente. Você receberá uma violação de acesso apenas quando o código tentar executar o método restrito.</li>
 	<li>Os métodos de alto nível são métodos privados de instância do módulo <strong>Kernel</strong>.</li>
 	<li><em>attr_reader</em> é apenas leitor (getter), e o <em>attr_writer</em> apenas escritor (setter), já o <em>attr_accessor</em> é ambos, leitor e escritor.</li>
 	<li>Uma exceção é um tipo especial de objeto, uma instância da classe <strong>Exception</strong>  ou uma descendente dessa classe.</li>
 	<li>O método <strong>raise</strong> é do módulo <strong>Kernel</strong>.  Por padrão, o <strong>raise</strong> cria uma exceção da classe <strong>RuntimeError</strong>.  Para levantar uma exceção de uma classe específica, você pode passar o nome da classe como um parâmetro para o <strong>raise</strong>.</li>
-	<li>Para fazer o controle de exceção, colocamos o código que pode gerar uma exceção em um bloco <strong>begin-end</strong> e usamos uma ou mais cláusulas de um <strong>rescue</strong> para informar ao Ruby os tipos de exceções que queremos manipular.</li>
-	<li>É bom lembrar, que o corpo de uma definição do método é um bloco <strong>begin-end</strong>  implícito; o begin é omitido, e todo o corpo do método está sujeito ao controle de exceção, que termina com o end do método.</li>
-	<li>Se você escreve uma cláusula <strong>rescue</strong> sem passar parâmetros, os parâmetros serão ajustados para o padrão <strong>StandardError</strong>..</li>
-	<li>Se você precisar de alguma garantia de que o processamento é feito no final de um bloco de código, independentemente se uma exceção foi levantada ou não, então a cláusula <strong>ensure</strong> pode ser usada. O <strong>ensure</strong> vai após a última cláusula <strong>rescue</strong>  e contém o pedaço de código que será sempre executado quando o bloco termina. O bloco de <strong>ensure</strong> sempre será executado.</li>
-	<li>Por padrão, a mensagem, que pode ser enviada para qualquer objeto, formata o ID do objeto e as variáveis da instância. Retornando uma string contendo uma representação legível do objeto. Se não for sobrescrito, usa o método to_s para gerar uma string.</li>
+	<li>Para fazer o controle de exceção, colocamos o código que pode gerar uma exceção em um bloco <strong>begin-end</strong> e usamos uma ou mais cláusulas de <strong>rescue</strong> para informar ao Ruby os tipos de exceções que queremos manipular.</li>
+	<li>É bom lembrar que o corpo de uma definição do método é um bloco <strong>begin-end</strong>  implícito; o begin é omitido, e todo o corpo do método está sujeito ao controle de exceção, que termina com o end do método.</li>
+	<li>Se você escreve uma cláusula <strong>rescue</strong> sem passar parâmetros, os parâmetros serão ajustados para o padrão <strong>StandardError</strong>.</li>
+	<li>Se você precisar de alguma garantia de que algum processamento é feito no final de um bloco de código, independentemente se uma exceção foi levantada ou não, então a cláusula <strong>ensure</strong> pode ser usada. O <strong>ensure</strong> vai após a última cláusula <strong>rescue</strong>  e contém um pedaço de código que será sempre executado quando o bloco termina. O bloco de <strong>ensure</strong> sempre será executado.</li>
+	<li>Por padrão, a mensagem inspect, que pode ser enviada para qualquer objeto, formata o ID do objeto e as variáveis da instância. Retornando uma string contendo uma representação legível do objeto. Se não for sobrescrito, usa o método to_s para gerar a string.</li>
 	<li>A classe Tempo contém a interface do Ruby para o conjunto de bibliotecas de tempo escritas em C.</li>
 	<li>Hora zero para o Ruby é o primeiro segundo GMT de 01 de janeiro de 1970.</li>
-	<li>A classe <strong>DateTime</strong> do Ruby é superior a <strong>Time</strong> para aplicações para a área de Astronomia e História, mas você pode usar a <strong>Time</strong> para a maioria das aplicações diárias.</li>
+	<li>A classe <strong>DateTime</strong> do Ruby é superior a <strong>Time</strong> para aplicações da área de Astronomia e História, mas você pode usar a <strong>Time</strong> para a maioria das aplicações diárias.</li>
 </ol>
 <div class="pagination"><a href="duck-typing.html">Duck Typing &gt;</a></div>
    </div>

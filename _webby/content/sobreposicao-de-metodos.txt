@@ -12,20 +12,20 @@ p(title). <%= h(@page.title) %>
 Aqui esta um exemplo **p037xmtdoverride.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-class A  
-  def a  
-    puts 'Na classe A'  
-  end  
-end  
-  
-class B < A  
-  def a  
-    puts 'Na classe B'  
-  end  
-end  
-  
-b = B.new  
-b.a  
+class A
+  def a
+    puts 'Na classe A'
+  end
+end
+
+class B < A
+  def a
+    puts 'Na classe B'
+  end
+end
+
+b = B.new
+b.a
 <% end -%>
 
 O Método na classe B sobrepôs o método na classe A.
@@ -39,7 +39,7 @@ A forma de se lidar com argumentos **super**:
 * Chamando com argumentos específicos - **super(a, b, c)** - envia exatamente esses argumentos.
 
 
-Um exemplo (**p038bicycle.rb**) do livro __Ruby for Rails)) enfatiza isso:
+Um exemplo (**p038bicycle.rb**) do livro _Ruby for Rails_ enfatiza isso:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 class Bicicleta
@@ -93,14 +93,14 @@ h2. Redefinindo Métodos
 Nada impede que você defina um método duas vezes. Programa **p038or.rb**:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-class OR  
-  def mtd  
-    puts "Primeira definição do método mtd"  
-  end  
-  def mtd  
-    puts "Primeira definição do método mtd"  
-  end  
-end  
+class OR
+  def mtd
+    puts "Primeira definição do método mtd"
+  end
+  def mtd
+    puts "Primeira definição do método mtd"
+  end
+end
 OR.new.mtd
 <% end -%>
 
@@ -124,19 +124,20 @@ Em Ruby, podemos definir uma classe abstrata como a que invoca certos métodos �
 # Nenhuma sintaxe especial é necessária: qualquer classe que invoca métodos
 # que são destinados para uma subclasse é abstrata
 
-class AbstractKlass  
-	def bemvindo  
-	  puts "#{ola} #{nome}"  
-	end  
-end  
+class AbstractKlass
+  def bemvindo
+    puts "#{ola} #{nome}"
+  end
+end
 
-# uma classe concreta  
-class ConcreteKlass < AbstractKlass  
-  def ola; "Ola"; end  
-	def nome; "Estudantes de Ruby"; end  
+# uma classe concreta
+class ConcreteKlass < AbstractKlass
+  def ola; "Ola"; end
+  def nome; "Estudantes de Ruby"; end
 end
 
 ConcreteKlass.new.bemvindo # imprime "Ola Estudantes de Ruby"
 <% end -%>
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

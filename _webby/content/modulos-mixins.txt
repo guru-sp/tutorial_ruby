@@ -42,7 +42,7 @@ Módulos tem dois principais objetivos:
   Moral.sin(Moral::VERY_BAD)
 <% end -%>
 
-* Em segundo lugar, permitem que você compartilhe funcionalidade entre classes -se uma classe "mistura" (mixes in) um método (isto é, o inclui), todos os métodos de instância do método se tornam disponíveis como se tivesse sido definidos na classe.
+* Em segundo lugar, permitem que você compartilhe funcionalidade entre classes - se uma classe "mistura" (mixes in) um módulo (isto é, o inclui), todos os métodos de instância do módulo se tornam disponíveis como se tivessem sido definidos na classe.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # p061mixins.rb
@@ -88,7 +88,7 @@ Observe como usamos require ou load. require e load aceitam strings como argumen
 
 require 'motorcycle' ou load 'motorcycle.rb'
 
-include recebe o nme de um módulo, na forma de uma constante, como em include Coisa.
+include recebe o nome de um módulo, na forma de uma constante, como em include Coisa.
 
 O método include aceita qualquer número de módulos para serem inclusos:
 
@@ -152,3 +152,4 @@ NO RAILS: O Código fonte do Rails usa bastante módulos, em particular a técni
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

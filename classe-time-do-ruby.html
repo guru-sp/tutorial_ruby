@@ -34,17 +34,17 @@
 <p>A função strftime é modelada seguindo a função printf do C. O programa <b>p042time.rb</b> mostra algumas dessas funções.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   t = <span class="co">Time</span>.now
-<span class="no"> 2</span>   <span class="c"># para objter o dia, mês e ano com o século</span>
+<span class="no"> 2</span>   <span class="c"># para obter o dia, mês e ano com o século</span>
 <span class="no"> 3</span>   <span class="c"># também a hora, minuto e segundo</span>
 <span class="no"> 4</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%d/%m/%Y %H:%M:%S</span><span class="dl">&quot;</span></span>)
-<span class="no"> 5</span>   
+<span class="no"> 5</span> 
 <span class="no"> 6</span>   <span class="c"># Você pode usar A e B maiúsculos para obter</span>
-<span class="no"> 7</span>   <span class="c"># o nome completo da semana e mês, respectivamente</span>
+<span class="no"> 7</span>   <span class="c"># o nome completo do dia da semana e do mês, respectivamente</span>
 <span class="no"> 8</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%A</span><span class="dl">&quot;</span></span>)
 <span class="no"> 9</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%B</span><span class="dl">&quot;</span></span>)
-<span class="no"><strong>10</strong></span>   
+<span class="no"><strong>10</strong></span> 
 <span class="no">11</span>   <span class="c"># Você pode usar a e b minúsculos para obter</span>
-<span class="no">12</span>   <span class="c"># o nome abreviado do dia da semana e mês, respectivamente</span>
+<span class="no">12</span>   <span class="c"># o nome abreviado do dia da semana e do mês, respectivamente</span>
 <span class="no">13</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%a</span><span class="dl">&quot;</span></span>)
 <span class="no">14</span>   puts t.strftime(<span class="s"><span class="dl">&quot;</span><span class="k">%b</span><span class="dl">&quot;</span></span>)
 <span class="no">15</span> 

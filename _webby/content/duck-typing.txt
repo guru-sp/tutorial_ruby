@@ -10,7 +10,7 @@ p(title). <%= h(@page.title) %>
 Talvez você já tenha notado, que em Ruby não declaramos os tipos de variáveis ou métodos - tudo já é algum tipo de um objeto. Objetos em Ruby (ao contrário dos objetos em outras linguagens orientadas a objeto) podem ser individualmente modificados. Você sempre pode adicionar métodos em um objeto. Em Ruby, o comportamento ou a capacidade de um objeto, pode se diferenciar dos fornecidos pela sua classe.
 
 <div class='box'>
- Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas capacidades. Conseguente, Duck Typing (que por ser um termo técnico, não há uma tradução precisa), significa que um tipo de objeto é definido por aquilo que ele pode fazer, não pelo que ele é. Duck Typing refere-se a tendência de Ruby estar menos preocupado com a classe de um objeto e mais preocupado com quais os métodos que podem ser chamados e quais operações podem ser executadas sobre ele. Em Ruby, usaríamos respond_to? ou poderíamos, simplesmente passar um objeto para um método e saberíamos que uma exceção seria levantada, se formos utilizar de forma inadequada.
+ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas capacidades. Por isso, Duck Typing (que por ser um termo técnico, não há uma tradução precisa), significa que um tipo de objeto é definido por aquilo que ele pode fazer, não pelo que ele é. Duck Typing refere-se a tendência de Ruby estar menos preocupado com a classe de um objeto e mais preocupado com quais os métodos que podem ser chamados e quais operações podem ser executadas sobre ele. Em Ruby, usaríamos respond_to? ou poderíamos, simplesmente passar um objeto para um método e saberíamos que uma exceção seria levantada, se formos utilizar de forma inadequada.
 </div>
 
 Se um objeto anda como um pato e fala como um pato, então o interpretador Ruby está feliz em tratá-lo como se fosse um pato.
@@ -20,7 +20,7 @@ Considere o seguinte exemplo.
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   # Verificar se o objeto defini o método to_str
   puts ('Uma string'.respond_to? :to_str) # => true
-  puts (Exception.new.respond_to? :to_str) # => true
+  puts (Exception.new.respond_to? :to_str) # => false
   puts (4.respond_to? :to_str) # => false
 <% end -%>
 
@@ -45,6 +45,7 @@ h2. Código
     def grasnar
       'Grasnando!'
     end
+
     def nadar
       'Splash splash splash...'
     end
@@ -53,7 +54,7 @@ h2. Código
   class PatoDonald
     def quack
       play
-  end
+    end
 
     def play
       'Quack! Sou o Pato Donald!'
@@ -93,6 +94,8 @@ Um método que disse a um Pato para fazer quack funciona quando recebe um PatoDo
   puts faz_nadar(Ganso.new)
 <% end -%>
 
-Um método que diz para um Pato nadar quando recebe um Ganso, funciona.
+Quando um método que diz para um Pato nadar recebe um Ganso, ele funciona.
+
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

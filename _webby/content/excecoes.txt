@@ -13,7 +13,6 @@ Uma exceção é um tipo especial de objeto, uma instância da classe **Exceptio
 
 O Ruby tem algumas classes pré-definidas - Exceptions e  suas filhas - que lhe ajudam a lidar com erros que ocorrem em seu programa. A figura a seguir mostra a hierarquia das exceções em Ruby.
 
-
 !images/exception.jpg(Hierarquia das exceções no Ruby)!
 
 Referência: A figura acima é do livro _Programming Ruby_.
@@ -76,7 +75,7 @@ Definindo novas classes de exceção: Para ser ainda mais específicio sobre um 
 
 h2. Tratando uma Exceção
 
-Para fazer o tratamento da exceção, nós colocamos o código que pode lançar uma exceção dentro de um  bloco **begin-end** e usamos uma ou mais cláusulas **rescue** pra contar ao RUby os tipos de exceção que queremos tratar. É importante notar que o corpo de definição de um método é um bloco **begin-end** implícito; o **begin** é omitido, e todo o corpo do método está sujeito ao tratamento de exceção, terminando com o **end** do método.
+Para fazer o tratamento da exceção, nós colocamos o código que pode lançar uma exceção dentro de um  bloco **begin-end** e usamos uma ou mais cláusulas **rescue** para contar ao Ruby os tipos de exceção que queremos tratar. É importante notar que o corpo de definição de um método é um bloco **begin-end** implícito; o **begin** é omitido, e todo o corpo do método está sujeito ao tratamento de exceção, terminando com o **end** do método.
 
 O programa p**045handexcp.rb** ilustra isso:
 
@@ -108,7 +107,7 @@ A saída é:
 
 Observe que o o código interrompido pela exceção nunca é executado. Uma vez que a exceção é tratada, a execução continua imediatamente depois do bloco begin que a a gerou.
 
-Se você escreve uma cláusula **rescue** sem nenhum parâmetro, o parâmetro será ajustado por padrão para **StandardError**. cada cláusula **rescue** pode especificar múltiplas exceções para serem capturadas. No fim de cada comando **rescue** pode também ser expressões arbitrárias (incluindo chamadas a métodos) que retornam uma classe do tipo **Exception**. Se usarmos **raise** sem parâmetros, ele relançará a exceção.
+Se você escreve uma cláusula **rescue** sem nenhum parâmetro, o parâmetro será ajustado por padrão para **StandardError**. Cada cláusula **rescue** pode especificar múltiplas exceções para serem capturadas. No fim de cada cláusula **rescue** voce pode passar ao Ruby o nome de uma variável local para receber a exceção correspondente. Os parâmetros para a cláusula **rescue** podem também ser expressões arbitrárias (incluindo chamadas a métodos) que retornam uma classe do tipo **Exception**. Se usarmos **raise** sem parâmetros, ele relançará a exceção.
 
 Você pode empilhar cláusulas de **rescue** em um bloco begin/rescue. Exceções não tratadas por uma cláusula rescue serão passadas para a próxima:
 
@@ -120,11 +119,11 @@ Você pode empilhar cláusulas de **rescue** em um bloco begin/rescue. Exceçõe
   rescue OutroTipoDeExcecao
     # -
   else
-    # outras exceções
+    # -
   end
 <% end -%>
 
-Para cada cláusula **rescue** no bloco **begin**, o Ruby irá comparar a exceção levantada conta cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo do última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula **else** é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.
+Para cada cláusula **rescue** no bloco **begin**, o Ruby irá comparar a exceção levantada contra cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo da última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula **else** é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.
 
 
 Se você quer verificar uma exceção resgatada (em que se usou o rescue). você pode mapear o objeto **Exception** para uma variável com uma cláusula rescue, como mostrado no programa **p046excpvar.rb**
@@ -149,7 +148,7 @@ A saída é:
   >Exit code: 0
 <% end -%>
 
-A classe **Exception** define dois métodos que retornam detalhes a respeito da exceção. O método **message** retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é **backtrace**. Este método retorna um array de string que representam a pilha de chamada no ponto em que a exceção foi lançada.
+A classe **Exception** define dois métodos que retornam detalhes a respeito da exceção. O método **message** retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é **backtrace**. Este método retorna um array de strings que representam a pilha de chamada no ponto em que a exceção foi lançada.
 
 Se você precisa de garantia de que algum processamento foi feito no final de um bloco de código, não considerando se uma exceção foi lançada então a cláusula **ensure** (assegurar-se) deve ser usada após o último **rescue** e deve conter um pedaço de código que será executado a medida que o bloco  termina. O bloco **ensure** sempre será executado.
 
@@ -182,7 +181,7 @@ Um Exemplo: Vamos modificar o programa **p027readwrite.rb** para incluir o trata
 <% end -%>
 
 <div class='box'>
-Mensagens de erros impróprias podem prover informações críticas sobre uma aplicação que podem auxiliar ataques a mesma. O problema mais comum ocorre quando mensagens de erro internas como traços de pilha, dumps de bancos de dados e códigos de erro são mostrados ao usuário. Analistas de segurança veem logs e tratamentos de erro como possíveis áreas de risco. É recomendado que as aplicações em produção não usem, por exemplo, uma chamada a *puts e.backtrace.inspect** ao menos que ela esteja sendo enviada para um log que não é visível para o usuário final.
+Mensagens de erros impróprias podem prover informações críticas sobre uma aplicação que podem auxiliar ataques a mesma. O problema mais comum ocorre quando mensagens de erro internas como traços de pilha, dumps de bancos de dados e códigos de erro são mostrados ao usuário. Analistas de segurança veem logs e tratamentos de erro como possíveis áreas de risco. É recomendado que as aplicações em produção não usem, por exemplo, uma chamada a *puts e.backtrace.inspect* ao menos que ela esteja sendo enviada para um log que não é visível para o usuário final.
 </div>
 
 h2. Exemplo de validação
@@ -199,25 +198,26 @@ Aqui está um exemplo do livro _Ruby Cookbook_, mostrando como se pode fazer val
         raise ArgumentError.new('Todos precisam ter um primeiro nome.')
       end
       primeiro = primeiro.dup
-      primeiro[0] = primeiro[0].chr.capitalize #primeira letra deve estar no plural
+      primeiro[0] = primeiro[0].chr.capitalize
       @primeiro = primeiro
     end
 
     # Quando alguém tenta escrever um último nome, force regras sobre ele.
-    def sobrenome=(sobrenome)
+    def ultimo=(ultimo)
       if ultimo == nil or ultimo.size == 0
-        raise ArgumentError.new('Todos devem ter um sobrenome.')
+        raise ArgumentError.new('Todos devem ter um último nome.')
       end
-      @sobrenome = sobrenome
+      @ultimo = ultimo
     end
 
     def nome_completo
-      "#{@primeiro} #{@sobrenome}"
+      "#{@primeiro} #{@ultimo}"
     end
-    # Delega para o método setter ao invés de escreve na instância diretamente.
-    def initialize(primeiro, sobrenome)
+
+    # Delega para o método setter ao invés de escrever na instância diretamente.
+    def initialize(primeiro, ultimo)
       self.primeiro = primeiro
-      self.sobrenome = sobrenome
+      self.ultimo = ultimo
     end
   end
 
@@ -231,9 +231,11 @@ Aqui está um exemplo do livro _Ruby Cookbook_, mostrando como se pode fazer val
   john.primeiro = nil
   # ArgumentError: Todos precisam ter um primeiro nome.
   Name.new('Kero, estrela internacional do futebol e artista de performance', nil)
-  # ArgumentError: Todos precisam ter um sobrenome.
+  # ArgumentError: Todos precisam ter um último nome.
 <% end -%>
 
-A classe **Nome** armazenas o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um sobrenome, e o primeiro nome de todas as pessoas deve começar uma letra maiúscula. A classe **Nome** foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método **Nome#initialize** acima, chamamos os métodos **primeiro=** e **sobrenome=** ao invés de atribuir a @primeiro e @sobrenome. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe **Nome**. Não podemos apenas dizer **primeiro = primeiro**, porque *primeiro* é um nome de variável nesse método. Usamos então **self.primeiro* para executar o método **primeiro=**.
+A classe **Nome** armazena o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um último nome, e o primeiro nome de todas as pessoas deve começar com uma letra maiúscula. A classe **Nome** foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método **Nome#initialize** acima, chamamos os métodos **primeiro=** e **ultimo=** ao invés de atribuir a @primeiro e @ultimo. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe **Nome**. Não podemos apenas dizer **primeiro = primeiro**, porque *primeiro* é um nome de variável nesse método. Usamos então **self.primeiro* para executar o método **primeiro=**.
+
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

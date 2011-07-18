@@ -12,7 +12,7 @@ O único jeito fácil de se mudar o estado de um objeto em Ruby é chamando um d
 Ruby lhe dá três níveis de proteção:
 
 # **Métodos públicos (public)** podem ser chamados por todos - nenhum controle de acesso é forçado. Os métodos de instância de uma classe (estes não pertencem a apenas um objeto; ao invés disso cada instância da classe pode chamá-los) são públicos por padrão; qualquer um pode chamá-los. O método **initialize** é sempre privado.
-# **Métodos protegidos (protected)** podem ser chamados apenas por objetos da classe que os definem e suas subclasses. O aaceso é mantido na família. Entretanto, o uso de **protected** é limitado.
+# **Métodos protegidos (protected)** podem ser chamados apenas por objetos da classe mesma classe que os definem e suas subclasses. O acesso é mantido na família. Entretanto, o uso de **protected** é limitado.
 # **Métodos privados (private)** não podem ser chamados com um recebedor explícito - o recebedor é sempre **self**. Isso significa que podem ser chamados apenas no contexto do objeto atual; você não pode chamar o método private de outros objetos.
 
 O controle de acesso é determinado dinamicamente, a medida que o programa executa e não estaticamente. Você terá uma violação de acesso apenas quando o código tenta executar o método restrito. Observemos o programa **p047classaccess.rb** abaixo:
@@ -88,7 +88,7 @@ A saída é
   >Exit code: 0
 <% end -%>
 
-No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa pergunta ao outro objeto (marcos) para executar seu método idade. Portanto, age não pode ser privado.
+No exemplo anterior, comparamos uma instância de Pessoa com outra instância de pessoa. A comparação, entretanto, depende do resultado de uma chamada ao método idade. O objeto que faz a comparação (chris, no exemplo) precisa perguntar ao outro objeto (marcos) para executar seu método idade. Portanto, idade não pode ser privado.
 
 É aí que entra o nível de proteção protected. Com idade protegida ao invés de privada, chris pode perguntar a marcos para executar idade, porque chris e marcos são ambos instâncias da mesma classe. Mas se você tentar chamar o método idade de um objeto Pessoa quando **self** é qualquer outra coisa que não um objeto do tipo Pessoa, o método falhará.
 
@@ -97,7 +97,7 @@ Um método protegido é então como um método privado, mas com uma exceção pa
 Atente-se que, se você remover o comentário da última declaração do programa, isso é, quando você usa idade diretamente, o Ruby lança uma exceção.
 
 <div class='box'>
-No Ruby, **público**, **privado** e **protegido** se aplicam apenas a métodos. Instâncias e variáveis de classe são encapsuladas e efetivamente privadas e constantes são efetivamente públicas. Não há nenhum modo de fazer uma variável de instância acessível de fora de uma classe (exceto quando se usando um método acessor). E não há como definir uma constante que seja inacessível para uso externo.
+No Ruby, **público**, **privado** e **protegido** se aplicam apenas a métodos. Instâncias e variáveis de classe são encapsuladas e efetivamente privadas e constantes são efetivamente públicas. Não há nenhum modo de fazer uma variável de instância acessível de fora de uma classe (exceto quando se usa um método acessor). E não há como definir uma constante que seja inacessível para uso externo.
 </div>
 
 h2. Sobrepondo métodos privados
@@ -224,14 +224,14 @@ Por serem privados, métodos de alto nível não podem ser chamados com um receb
 Isso também significa que você nunca pode usar um recebedor explícito em um método de nível mais alto.
 
 
-Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e mprin, como essa aqui:
+Desde nossos primeiros exemplos até agora, temos feito chamadas simples a puts e print, como essa aqui:
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   puts 'Ola'
 <% end -%>
 
-puts e print são métodos de instância privados inclusos em Kernal. É por isso que você pode - de fato, deve - chamá-los sem um recebedor.
+puts e print são métodos de instância privados inclusos em Kernel. É por isso que você pode - de fato, deve - chamá-los sem um recebedor.
 
 
 Falaremos sobre self detalhadamente mais tarde.
@@ -239,3 +239,4 @@ Falaremos sobre self detalhadamente mais tarde.
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+
