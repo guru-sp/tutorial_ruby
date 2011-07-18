@@ -10,12 +10,13 @@ p(title). <%= h(@page.title) %>
 # No Ruby, nós dependemos menos do tipo (ou classe) de um objeto e mais em suas capacidades. Deste modo, __Duck Typing__ significa que o tipo de um objeto é definido por aquilo que ele pode fazer, não por aquilo que ele é.
 # _Duck Typing_ se refere a tendência do Ruby de se preocupar menos com a classe de um objeto e mais com quais métodos podem ser chamados nela e quais operações ela suporta.
 # No Ruby, podemos usar **respond_to?** ou podemos simplesmente passar um objeto para um método e então saber que uma exceção será lançada se for usado inapropriadamente.
-# Açúcares sintáticos (__Syntatic Sugars__) se referem as regras que permitem a você escrever seu código de modo que ele não corresponda as regras normais mas que é mais fácil de se lembrar de como se fazer e que tem melhor aparência.
-# Ruby permite que você defina métodos que terminam com um sinal de igual (=).
+# Açúcares sintáticos (__Syntatic Sugars__) se referem as regras que permitem a você escrever seu código de modo que ele não corresponda as regras normais mas que seja mais fácil de se lembrar de como fazer e que tenha melhor aparência.
+# Ruby permite que você defina métodos que terminem com um sinal de igual (=).
 # Objetos mutáveis são objetos cujo estado pode mudar. Objetos imutáveis são objetos cujo estado nunca se altera após sua criação.
-# Mutabilidade é uma propriedade de uma instância de um objeto e não de sua classe. Qualquer instância pode se tornar imutável chamando-se o método **freeze** (congelar).
-# O método **freeze** na classe Objeto previne que você altere um objeto, efetivamente transformando-o em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resultará num __TypeError__.
+# Mutabilidade é a propriedade de uma instância, não de uma classe inteira. Qualquer instância pode se tornar imutável chamando-se o método **freeze** (congelar).
+# O método **freeze** na classe **Object** previne que você altere um objeto, efetivamente transformando-o em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resultará em um __RuntimeError__.
 # **freeze** opera na referência de um objeto, não em uma variável. Isso significa que qualquer operações resultando em um novo objeto funcionará.
 # O método *frozen?* lhe diz se um objeto está ou não congelado (é ou não imutável).
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

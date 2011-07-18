@@ -12,27 +12,27 @@ Existem muitos métodos na classe *String* (você não precisa memorizar todos; 
 
 Os métodos *upcase*, *downcase*, *swapcase* e *capitalize* tem métodos correspondentes que alteram a string em questão ao invés de criar uma nova: *upcase!*, *downcase*!, *swapcase!* e *capitalize!*. Assumindo que você não precisa da string original, estes métodos irão economizar memória, especialmente se a string for grande.
 
-Sabemos que Strings literais são sequências de caracteres entre aspas simples ou duplas. A diferença entre as duas formas está na quantidade de processamento que o Ruby faz na string enquanto constrói a literal. No caso da aspas simples, o Ruby faz muito pouco. A barra invertida serve para escapar outra barra invertida, para que a segunda barra não seja interpretada como um caractere de escape. Em strings com aspas simples, uma barra invertida não é especial se o caractere que se segue é qualquer coisa que não uma barra invertida. Por exemplo, *'a\b'* e *a\\b* são iguais. No caso das aspas duplas, o Ruby tem mais trabalho. Primeiro, ele procura por substituições - sequências que começam com uma barra invertida - e as substitui com algum valor binário. A segunda coisa que o Ruby faz com strings com aspas duplas é a interpolação de expressões. Dentro da string, a sequência *#{expressao}* é substituída pelo valor de expressão (veja o exemplo p013expint.rb). Nesse programa, o valor retornado por um método Ruby é o valor da última expressão avaliada, então podemos nos livrar do valor da variável (resultado) e a declaração *return* juntos. 
+Sabemos que Strings literais são sequências de caracteres entre aspas simples ou duplas. A diferença entre as duas formas está na quantidade de processamento que o Ruby faz na string enquanto constrói a literal. No caso da aspas simples, o Ruby faz muito pouco. A barra invertida serve para escapar outra barra invertida, para que a segunda barra não seja interpretada como um caractere de escape. Em strings com aspas simples, uma barra invertida não é especial se o caractere que se segue é qualquer coisa que não uma barra invertida. Por exemplo, *'a\b'* e *a\\b* são iguais. No caso das aspas duplas, o Ruby tem mais trabalho. Primeiro, ele procura por substituições - sequências que começam com uma barra invertida - e as substitui com algum valor binário. A segunda coisa que o Ruby faz com strings com aspas duplas é a interpolação de expressões. Dentro da string, a sequência *#{expressao}* é substituída pelo valor de expressão (veja o exemplo p013expint.rb). Nesse programa, o valor retornado por um método Ruby é o valor da última expressão avaliada, então podemos nos livrar do valor da variável (resultado) e a declaração *return* juntos.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p013expint.rb  
-def diz_boanoite(nome)  
-  result = "Boa noite, #{nome}"  
-  return resultado  
-end  
-puts diz_boanoite('Satish')  
+# p013expint.rb
+def diz_boanoite(nome)
+  result = "Boa noite, #{nome}"
+  return resultado
+end
+puts diz_boanoite('Satish')
 
-# programa modificado  
-def diz_boanoite2(nome)  
-  "Boa noite, #{nome}"  
-end  
+# programa modificado
+def diz_boanoite2(nome)
+  "Boa noite, #{nome}"
+end
 
-puts diz_boanoite2('Talim')  
+puts diz_boanoite2('Talim')
 <% end -%>
 
-É importante notar que cada vez que uma literal string é usada em uma atribuição ou como um parâmetro, um novo objeto String.
+É importante notar que cada vez que uma literal string é usada em uma atribuição ou como um parâmetro, um novo objeto String é criado.
 
-Como a memória é gerenciada pada Strings no Ruby? Há um pool separado para elas? As Strings são objetos da classe String. Essa classe tem mais de 75 métodos padrões. Se você consultar o "Guia de Usuário Ruby", verá que ele diz que "não temos que nos preocupar com o espaço ocupado por uma string. Estamos livre de todo o gerenciamento de memória". 
+Como a memória é gerenciada pada Strings no Ruby? Há um pool separado para elas? As Strings são objetos da classe String. Essa classe tem mais de 75 métodos padrões. Se você consultar o "Guia de Usuário Ruby", verá que ele diz que "não temos que nos preocupar com o espaço ocupado por uma string. Estamos livre de todo o gerenciamento de memória".
 
 
 h2. Listando os métodos de uma classe ou objeto
@@ -47,11 +47,10 @@ Apresenta uma lista de métodos que o objeto String do tipo Class responde.
 String.instance_methods.sort
 <% end -%>
 
-Este método lhe apresenta todas os métodos de instância possuidos por String em ordem alfabética.
-
+Este método lhe apresenta todos os métodos de instância possuidos por String em ordem alfabética.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-String.instance_methods(false).sortt
+String.instance_methods(false).sort
 <% end -%>
 
 Com esse método, você pode ver os métodos de instância de uma classe sem os métodos das classes ancestrais.
@@ -63,32 +62,32 @@ As Strings têm diversos métodos para testar a igualdade. O mais comum é o == 
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p013strcmp.rb  
-# String#eql?, testa se duas strings tem conteúdo idêntico.  
-# Retorna o mesmo resultado que ==  
+# p013strcmp.rb
+# String#eql?, testa se duas strings tem conteúdo idêntico.
+# Retorna o mesmo resultado que ==
 # String#equal?, teste se duas strings são o mesmo objeto
-s1 = 'Jonathan'  
-s2 = 'Jonathan'  
-s3 = s1  
-if s1 == s2  
-  puts 'Ambas strings têm o mesmo conteúdo'  
-else  
-  puts 'Ambas strings não têm o mesmo conteúdo'  
-end  
-if s1.eql?(s2)  
-  puts 'Ambas strings têm o mesmo conteúdo'  
-else  
-  puts 'Ambas strings não têm o mesmo conteúdo'  
-end  
-if s1.equal?(s2)  
-  puts 'As duas strings são objetos idênticos'  
-else  
-  puts 'As duas strings não são objetos idênticos'
-end  
-if s1.equal?(s3)  
+s1 = 'Jonathan'
+s2 = 'Jonathan'
+s3 = s1
+if s1 == s2
+  puts 'Ambas strings têm o mesmo conteúdo'
+else
+  puts 'Ambas strings não têm o mesmo conteúdo'
+end
+if s1.eql?(s2)
+  puts 'Ambas strings têm o mesmo conteúdo'
+else
+  puts 'Ambas strings não têm o mesmo conteúdo'
+end
+if s1.equal?(s2)
   puts 'As duas strings são objetos idênticos'
-else  
-  puts 'As duas strings são objetos idênticos'  
+else
+  puts 'As duas strings não são objetos idênticos'
+end
+if s1.equal?(s3)
+  puts 'As duas strings são objetos idênticos'
+else
+  puts 'As duas strings são objetos idênticos'
 end
 <% end -%>
 
@@ -98,19 +97,20 @@ h2. Usando %w
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-nomes1 = [ 'marcelo', 'hugo', 'william', 'ricardo', 'rafael' ]  
+nomes1 = [ 'marcelo', 'hugo', 'william', 'ricardo', 'rafael' ]
 puts nomes1[0] # marcelo
 puts names1[3] # ricardo
-# isso é mesma coisa:  
+# isso é mesma coisa:
 nomes2 = %w{ marcelo hugo william ricardo rafael }
-puts nomes2[0] # marcelo 
+puts nomes2[0] # marcelo
 puts nomes2[3] # ricardo
-   
+
 # Um jeito rápido de converter para caixa alta
 # O símbolo :upcase representa uma chamada ao método upcase
-puts nomes2.map(&:upcase)  
+puts nomes2.map(&:upcase)
 <% end -%>
 
 Você pode ver todos os detalhes da classe String na "documentação oficial do Ruby (em inglês)":http://www.ruby-doc.org/ruby-1.9/classes/String.html.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

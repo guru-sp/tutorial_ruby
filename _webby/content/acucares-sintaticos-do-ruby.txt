@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Programadores utilizam o termo açucares sintático para se referir a regras, que permitem que você escreva seu código de uma maneira que não correspondem as regras normais, mais que seja mais fácil de lembrar como fazer e fica melhor.
+Programadores utilizam o termo açúcares sintáticos para se referir a regras especiais, que permitem que você escreva seu código de uma maneira que não correspondem as regras normais, mais que seja mais fácil de lembrar como fazer e fica melhor.
 
 Vamos dizer que queremos definir o nome de um cachorro. Como ponto de partida, o nome pode ser definido junto com tudo, mais em tempo de criação do objeto, como no exemplo abaixo.
 
@@ -23,14 +23,14 @@ Vamos dizer que queremos definir o nome de um cachorro. Como ponto de partida, o
   puts nd.name
 <% end -%>
 
-Vamos escrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:
+Vamos reescrever o método set_name, que nos permite definir ou redefinir o nome de um cachorro existente. Também vamos rescrever o método initialize para que ele não espere um nome:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   class NewDog
     def initialize(breed)
       @breed = breed
     end
-    attr_reader :breed, :name   # Apenas para leitur
+    attr_reader :breed, :name   # Apenas para leitura
     # método setter
     def set_name(nm)
       @name = nm
@@ -65,7 +65,7 @@ Exemplo - p050newdog.rb
     def initialize(breed)
       @breed = breed
     end
-    attr_reader :breed, :name # create reader only
+    attr_reader :breed, :name # Apenas para leitura
 
     # método setter
     def name=(nm)
@@ -80,7 +80,7 @@ Exemplo - p050newdog.rb
 <% end -%>
 
 
-O sinal de igual da a algo que você conhece como "atribui um valor a algo", assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.
+O sinal de igual lhe dá algo que você conhece como "atribui um valor a algo", assim você sabe que esta lidando com um método setter. Ele ainda parece estranho, mais Ruby cuida de tudo.
 
 Ruby lhe da um pouco de açucares sintático para chamar métodos setter.
 
@@ -100,5 +100,7 @@ Quando o interpretador vê a mensagem "name" seguido de "=", ele automaticamente
 <div class='box'>
 NO RAILS: Chamadas de métodos usando sinal de igual são comuns em aplicações Rails.
 </div>
+
 <%- page_title, page_url = next_page %>
-<div class="pagination"><%= link_to(page_title, page_url) %></div>
+<div class="pagination"><%= link_to(page_title + " >", page_url) %></div>
+

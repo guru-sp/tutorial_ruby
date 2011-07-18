@@ -168,30 +168,30 @@
 	<li>Os operadores checados na figura são um tipo de <em>syntactic sugar</em> (&#8220;açúcar sintático&#8221;, mais sobre isso depois) &#8211; onde algo parece com um operador mas na verdade é uma chamada a um método.<br />
 </div></li>
 </ol>
-<p>O operador módulo (%) do Ruby comportasse da seguinte forma:</p>
+<p>O operador módulo (%) do Ruby se comporta da seguinte forma:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> puts (<span class="i">5</span> % <span class="i">3</span>)     <span class="c"># imprime  2  </span>
-<span class="no">2</span> puts (<span class="i">-5</span> % <span class="i">3</span>)    <span class="c"># imprime  1  </span>
-<span class="no">3</span> puts (<span class="i">5</span> % <span class="i">-3</span>)    <span class="c"># imprime -1  </span>
-<span class="no">4</span> puts (<span class="i">-5</span> % <span class="i">-3</span>)   <span class="c"># imprime -2 </span>
+<pre><span class="no">1</span> puts (<span class="i">5</span> % <span class="i">3</span>)     <span class="c"># imprime  2</span>
+<span class="no">2</span> puts (<span class="i">-5</span> % <span class="i">3</span>)    <span class="c"># imprime  1</span>
+<span class="no">3</span> puts (<span class="i">5</span> % <span class="i">-3</span>)    <span class="c"># imprime -1</span>
+<span class="no">4</span> puts (<span class="i">-5</span> % <span class="i">-3</span>)   <span class="c"># imprime -2</span>
 </pre>
 </div>
-<p>A definição do operador módulo do Ruby é diferente do C e do Java, -7%3 é 2. Em C e Java, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal que o do segundo operando.</p>
+<p>A definição do operador módulo do Ruby é diferente do C e do Java. Em Ruby, a operação -7 % 3 retorna 2. Já em Java e C, o resultado é -1. Em Ruby, o sinal do resultado (para o operador %) é sempre o mesmo sinal do segundo operando.</p>
 <h2>Diferença entre os operadores or e ||</h2>
 <p>Ambos, <strong>or</strong> e <strong>||</strong>, retornam o primeiro argumento ao menos que este retorne <strong>false</strong>, neste caso avaliam e retornam o segundo argumento. Isto é demonstrado no exemplo seguinte:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> puts <span class="pc">nil</span> || <span class="i">2008</span>  
-<span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>  
+<pre><span class="no">1</span> puts <span class="pc">nil</span> || <span class="i">2008</span>
+<span class="no">2</span> puts <span class="pc">false</span> || <span class="i">2008</span>
 <span class="no">3</span> puts <span class="s"><span class="dl">&quot;</span><span class="k">ruby</span><span class="dl">&quot;</span></span> || <span class="i">2008</span>
 </pre>
 </div>
 <p>A saída é:</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> &gt;ruby test.rb  
-<span class="no">2</span> <span class="i">2008</span>  
-<span class="no">3</span> <span class="i">2008</span>  
-<span class="no">4</span> ruby  
-<span class="no">5</span> &gt;<span class="co">Exit</span> <span class="sy">code:</span> <span class="i">0</span>
+<pre><span class="no">1</span> &gt;ruby test.rb
+<span class="no">2</span> <span class="i">2008</span>
+<span class="no">3</span> <span class="i">2008</span>
+<span class="no">4</span> ruby
+<span class="no">5</span> &gt;<span class="co">Exit</span> <span class="ke">code</span>: <span class="i">0</span>
 </pre>
 </div>
 <p>A única diferença entre <strong>or</strong> e <strong>||</strong> é sua precedência. <strong>||</strong> tem uma precedência mais alta do que <strong>or</strong>.</p>

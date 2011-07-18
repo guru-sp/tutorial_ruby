@@ -32,14 +32,14 @@
       <p class="title">Duck Typing</p>
 <p>Talvez você já tenha notado, que em Ruby não declaramos os tipos de variáveis ou métodos &#8211; tudo já é algum tipo de um objeto. Objetos em Ruby (ao contrário dos objetos em outras linguagens orientadas a objeto) podem ser individualmente modificados. Você sempre pode adicionar métodos em um objeto. Em Ruby, o comportamento ou a capacidade de um objeto, pode se diferenciar dos fornecidos pela sua classe.</p>
 <div class='box'>
-Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas capacidades. Conseguente, Duck Typing (que por ser um termo técnico, não há uma tradução precisa), significa que um tipo de objeto é definido por aquilo que ele pode fazer, não pelo que ele é. Duck Typing refere-se a tendência de Ruby estar menos preocupado com a classe de um objeto e mais preocupado com quais os métodos que podem ser chamados e quais operações podem ser executadas sobre ele. Em Ruby, usaríamos respond_to? ou poderíamos, simplesmente passar um objeto para um método e saberíamos que uma exceção seria levantada, se formos utilizar de forma inadequada.
+Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas capacidades. Por isso, Duck Typing (que por ser um termo técnico, não há uma tradução precisa), significa que um tipo de objeto é definido por aquilo que ele pode fazer, não pelo que ele é. Duck Typing refere-se a tendência de Ruby estar menos preocupado com a classe de um objeto e mais preocupado com quais os métodos que podem ser chamados e quais operações podem ser executadas sobre ele. Em Ruby, usaríamos respond_to? ou poderíamos, simplesmente passar um objeto para um método e saberíamos que uma exceção seria levantada, se formos utilizar de forma inadequada.
 </div>
 <p>Se um objeto anda como um pato e fala como um pato, então o interpretador Ruby está feliz em tratá-lo como se fosse um pato.</p>
 <p>Considere o seguinte exemplo.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># Verificar se o objeto defini o método to_str</span>
 <span class="no">2</span>   puts (<span class="s"><span class="dl">'</span><span class="k">Uma string</span><span class="dl">'</span></span>.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; true</span>
-<span class="no">3</span>   puts (<span class="co">Exception</span>.new.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; true</span>
+<span class="no">3</span>   puts (<span class="co">Exception</span>.new.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; false</span>
 <span class="no">4</span>   puts (<span class="i">4</span>.respond_to? <span class="sy">:to_str</span>) <span class="c"># =&gt; false</span>
 </pre>
 </div>
@@ -61,32 +61,33 @@ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas c
 <span class="no">12</span>     <span class="r">def</span> <span class="fu">grasnar</span>
 <span class="no">13</span>       <span class="s"><span class="dl">'</span><span class="k">Grasnando!</span><span class="dl">'</span></span>
 <span class="no">14</span>     <span class="r">end</span>
-<span class="no">15</span>     <span class="r">def</span> <span class="fu">nadar</span>
-<span class="no">16</span>       <span class="s"><span class="dl">'</span><span class="k">Splash splash splash...</span><span class="dl">'</span></span>
-<span class="no">17</span>     <span class="r">end</span>
-<span class="no">18</span>   <span class="r">end</span>
-<span class="no">19</span> 
-<span class="no"><strong>20</strong></span>   <span class="r">class</span> <span class="cl">PatoDonald</span>
-<span class="no">21</span>     <span class="r">def</span> <span class="fu">quack</span>
-<span class="no">22</span>       play
-<span class="no">23</span>   <span class="r">end</span>
-<span class="no">24</span> 
-<span class="no">25</span>     <span class="r">def</span> <span class="fu">play</span>
-<span class="no">26</span>       <span class="s"><span class="dl">'</span><span class="k">Quack! Sou o Pato Donald!</span><span class="dl">'</span></span>
-<span class="no">27</span>     <span class="r">end</span>
-<span class="no">28</span>   <span class="r">end</span>
-<span class="no">29</span> 
-<span class="no"><strong>30</strong></span>   <span class="r">def</span> <span class="fu">faz_quack</span>(pato)
-<span class="no">31</span>     pato.quack
-<span class="no">32</span>   <span class="r">end</span>
-<span class="no">33</span>   puts faz_quack(<span class="co">Pato</span>.new)
-<span class="no">34</span>   puts faz_quack(<span class="co">PatoDonald</span>.new)
-<span class="no">35</span> 
-<span class="no">36</span>   <span class="r">def</span> <span class="fu">faz_nadar</span>(duck)
-<span class="no">37</span>     duck.nadar
-<span class="no">38</span>   <span class="r">end</span>
-<span class="no">39</span>   puts faz_nadar(<span class="co">Pato</span>.new)
-<span class="no"><strong>40</strong></span>   puts faz_nadar(<span class="co">Ganso</span>.new)
+<span class="no">15</span> 
+<span class="no">16</span>     <span class="r">def</span> <span class="fu">nadar</span>
+<span class="no">17</span>       <span class="s"><span class="dl">'</span><span class="k">Splash splash splash...</span><span class="dl">'</span></span>
+<span class="no">18</span>     <span class="r">end</span>
+<span class="no">19</span>   <span class="r">end</span>
+<span class="no"><strong>20</strong></span> 
+<span class="no">21</span>   <span class="r">class</span> <span class="cl">PatoDonald</span>
+<span class="no">22</span>     <span class="r">def</span> <span class="fu">quack</span>
+<span class="no">23</span>       play
+<span class="no">24</span>     <span class="r">end</span>
+<span class="no">25</span> 
+<span class="no">26</span>     <span class="r">def</span> <span class="fu">play</span>
+<span class="no">27</span>       <span class="s"><span class="dl">'</span><span class="k">Quack! Sou o Pato Donald!</span><span class="dl">'</span></span>
+<span class="no">28</span>     <span class="r">end</span>
+<span class="no">29</span>   <span class="r">end</span>
+<span class="no"><strong>30</strong></span> 
+<span class="no">31</span>   <span class="r">def</span> <span class="fu">faz_quack</span>(pato)
+<span class="no">32</span>     pato.quack
+<span class="no">33</span>   <span class="r">end</span>
+<span class="no">34</span>   puts faz_quack(<span class="co">Pato</span>.new)
+<span class="no">35</span>   puts faz_quack(<span class="co">PatoDonald</span>.new)
+<span class="no">36</span> 
+<span class="no">37</span>   <span class="r">def</span> <span class="fu">faz_nadar</span>(duck)
+<span class="no">38</span>     duck.nadar
+<span class="no">39</span>   <span class="r">end</span>
+<span class="no"><strong>40</strong></span>   puts faz_nadar(<span class="co">Pato</span>.new)
+<span class="no">41</span>   puts faz_nadar(<span class="co">Ganso</span>.new)
 </pre>
 </div>
 <p>Se você consultar o código abaixo:</p>
@@ -107,7 +108,7 @@ Em Ruby, nós confiamos menos no tipo (ou classe) de um objeto e mais nas suas c
 <span class="no">5</span>   puts faz_nadar(<span class="co">Ganso</span>.new)
 </pre>
 </div>
-<p>Um método que diz para um Pato nadar quando recebe um Ganso, funciona.</p>
+<p>Quando um método que diz para um Pato nadar recebe um Ganso, ele funciona.</p>
 <div class="pagination"><a href="acucares-sintaticos-do-ruby.html">Açúcares sintáticos do Ruby &gt;</a></div>
    </div>
 

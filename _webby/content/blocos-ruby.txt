@@ -7,7 +7,7 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Os blocos de código Ruby (chamados de *closures* ou fechamentos em outras linguagens) são definitivamente uma das funcionalidades mais legais do Ruby. São pedaços de código entre chaves ou entre *do end* que você pode associar com a invocação de métodos, quase como se fossem parâmetros. Um bloco Ruby é um modo de agrupar declarações, e pode aparecer apenas no código adjacente a uma chamada de método; o bloco é escrito iniciando-se na mesma linha do último parâmetro da chamada do método (ou o parênteses da lista de parâmetros). O código no bloco não é executado quando é encontrado. Ao invés disso, o Ruby se lembra do contexto em que o bloco aparece (as variáveis locais, o objeto atual e assim por diante) e então entra nó método.
+Os blocos de código Ruby (chamados de *closures* ou fechamentos em outras linguagens) são definitivamente uma das funcionalidades mais legais do Ruby. São pedaços de código entre chaves ou entre *do end* que você pode associar com a invocação de métodos, quase como se fossem parâmetros. Um bloco Ruby é um modo de agrupar declarações, e pode aparecer apenas no código adjacente a uma chamada de método; o bloco é escrito iniciando-se na mesma linha do último parâmetro da chamada do método (ou o parênteses da lista de parâmetros). O código no bloco não é executado quando é encontrado. Ao invés disso, o Ruby se lembra do contexto em que o bloco aparece (as variáveis locais, o objeto atual e assim por diante) e então entra no método.
 
 O padrão do Ruby é o de usar chaves para blocos de uma única linha e *do end* para blocos que ocupem múltiplas linhas. Lembre-se que a sintaxe de chaves possui maior precedência que a sintaxe *do end*.
 
@@ -18,13 +18,13 @@ Além disso, como você irá aprender em breve, blocos podem ter seus próprios 
 Uma vez que você criou um bloco, pode associá-lo com uma chamada a um método. Geralmente os blocos de código passados para os métodos são objetos anônimos, criados no momento. Por exemplo, no código seguinte, o bloco contendo *puts* "Olá" é associado com a chamada ao método *saudacao*.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  saudacao {puts 'Olá'}  
+  saudacao {puts 'Olá'}
 <% end %>
 
 Se o método tem parâmetros, eles aparecem antes do bloco:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  saudacao_verbosa("PuneRuby") {puts 'Olá'}  
+  saudacao_verbosa("PuneRuby") {puts 'Olá'}
 <% end %>
 
 Um método pode então invocar um bloco associado uma ou mais vezes usando a instrução Ruby *yield*. Deste modo qualquer método que queira ter um bloco como parâmetro pode usar a palavra-chave *yield* para executar o bloco a qualquer hora.
@@ -32,18 +32,18 @@ Um método pode então invocar um bloco associado uma ou mais vezes usando a ins
 O programa *p022codeblock.rb* ilustra o que acabamos de discutir.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-=begin  
-  Os blocos de código Ruby são pedaços de código entre chaves ou entre  
-  do end que você pode associar com invocações (chamadas) de método  
-=end  
+=begin
+  Os blocos de código Ruby são pedaços de código entre chaves ou entre
+  do end que você pode associar com invocações (chamadas) de método
+=end
 
-def chama_bloco  
-  puts 'Inicio do método'  
+def chama_bloco
+  puts 'Inicio do método'
   # você pode chamar o método com a palavra-chave yield
-  yield  
-  yield  
+  yield
+  yield
   puts 'Fim do metodo'
-end  
+end
 # Os blocos de código podem aparecer apenas no código adjacente a uma chamada de método
 chama_bloco {puts 'Dentro do bloco'}
 <% end %>
@@ -52,18 +52,18 @@ chama_bloco {puts 'Dentro do bloco'}
 A saída desse programa é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
-ruby p022codeblock.rb  
+ruby p022codeblock.rb
 Início do metodo
 Dentro do bloco
 Dentro do bloco
-Fim do metodo  
+Fim do metodo
 >Exit code: 0
 <% end %>
 
 Se você fornecer um bloco de código quando chamar um método, então dentro desse método, você pode ceder (yield) o controle para esse bloco de código - suspende a execução do método; executa o código no bloco; e retorna o controle para o corpo do método, logo após a chamada a *yield*. Se nenhum bloco de código foi passado, o Ruby lança uma exceção avisando que nenhum bloco foi dado:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-no block given (LocalJumpError)  
+no block given (LocalJumpError)
 <% end %>
 
 Você pode prover parâmetros para a chamada a *yield*: estes serão passados para o bloco. Dentro do bloco, você lista os nomes dos argumentos para receber os parâmetros entre barras verticas (|).
@@ -71,21 +71,21 @@ Você pode prover parâmetros para a chamada a *yield*: estes serão passados pa
 O programa p023codeblock2.rb ilustra isso.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# Você pode prover parâmetros a chamada a yield:  
+# Você pode prover parâmetros a chamada a yield:
 # estes serão passados ao bloco
-def chama_bloco  
-  yield('ola', 99)  
-end  
-chama_bloco {|str, num| puts str + ' ' + num.to_s}  
+def chama_bloco
+  yield('ola', 99)
+end
+chama_bloco {|str, num| puts str + ' ' + num.to_s}
 <% end %>
 
 
 A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
->ruby p023codeblock2.rb  
-ola 99  
->Exit code: 0  
+>ruby p023codeblock2.rb
+ola 99
+>Exit code: 0
 <% end %>
 
 Perceba que o código no bloco não é executado até que ele é encontrado pelo interpretador Ruby. Ao invés disso, o Ruby se lembra
@@ -97,72 +97,69 @@ O valor de returno de um bloco de código (assim como o de um método) é o valo
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-def tentar  
-  if block_given?  
-    yield  
-  else  
-    puts "nenhum bloco"  
-  end  
-end  
-tentar # => "nenhum bloco"  
-tentar { puts "ola" } # => "ola"  
-tentar do puts "hello" end # => "ola"  
+def tentar
+  if block_given?
+    yield
+  else
+    puts "nenhum bloco"
+  end
+end
+tentar # => "nenhum bloco"
+tentar { puts "ola" } # => "ola"
+tentar do puts "ola" end # => "ola"
 <% end %>
 
 
-h2.Variáveis de bloco
+h2. Variáveis de bloco
 
 Vamos ver o que acontece no exemplo seguinte em que uma variável externa a um bloco é x um um parâmetro do bloco também é x.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-x = 10  
-5.times do |x|  
-  puts "x dentro do bloco: #{x}"  
-end     
+x = 10
+5.times do |x|
+  puts "x dentro do bloco: #{x}"
+end
 
-puts "x fora do bloco: #{x}"  
+puts "x fora do bloco: #{x}"
 <% end %>
 
 A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
-x dentro do bloco: 0  
-x dentro do bloco: 1  
-x dentro do bloco: 2  
-x dentro do bloco: 3  
-x dentro do bloco: 4  
+x dentro do bloco: 0
+x dentro do bloco: 1
+x dentro do bloco: 2
+x dentro do bloco: 3
+x dentro do bloco: 4
 x fora do bloco: 10
 <% end %>
 
-Você observará que após a execução do bloco, o x fora do bloco é o x original (10). Portanto, o parâmetro do bloco x é
-local a bloco.
+Você observará que após a execução do bloco, o x fora do bloco é o x original (10). Portanto, o parâmetro x do bloco é local ao mesmo.
 
 Em seguida, observe o que acontece com x no seguinte exemplo:
 
-Next observe what happens to x in the following example:
-
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-x = 10  
+x = 10
 5.times do |y|
-  x = y  
-  puts "x dentro do bloco: #{x}"  
-end     
+  x = y
+  puts "x dentro do bloco: #{x}"
+end
 
-puts "x fora do bloco: #{x}"  
+puts "x fora do bloco: #{x}"
 <% end %>
 
 A saída é:
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
-x dentro do bloco: 0  
-x dentro do bloco: 1  
-x dentro do bloco: 2  
-x dentro do bloco: 3  
-x dentro do bloco: 4  
-x fora do bloco: 4 
+x dentro do bloco: 0
+x dentro do bloco: 1
+x dentro do bloco: 2
+x dentro do bloco: 3
+x dentro do bloco: 4
+x fora do bloco: 4
 <% end %>
 
-Como neste caso x não é um parâmetro do bloco, a variável x é a mesma dentro e fora do bloco.
+Como neste caso x não é um parâmetro do bloco, a variável x é o mesmo dentro e fora do bloco.
 
 
 h2. Resumo
@@ -171,3 +168,4 @@ Listei todos os "pontos importantes":sumario-ruby3.html que você precisa se lem
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

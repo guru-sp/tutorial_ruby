@@ -9,28 +9,18 @@ p(title). <%= h(@page.title) %>
 
 # Módulos Ruby são similares a classes em relação ao fato de que também armazenam uma coleção de métodos, constantes e outras definições de módulos e classes. Entretanto, diferente das classes, você não pode criar objetos baseados em módulos; ao invés disso, você especifica qual funcionalidade de um módulo específico você deseja adicionar a uma classe ou a um objeto específico.
 # Módulos tem dois propósitos principais: Primeiro agem como namespace, permitindo que você defina métodos cujos nomes não irão coincidir com outros já definidos. Em segundo lugar, eles permitem que você compartilhe funcionalidade entre classes - se uma classe inclui um módulo, os métodos de instância do módulo ficam disponíveis como se tivessem sido definidos na classe. Eles são 'misturados' (mixed in) a classe.
-# Observe como você pode usar **require** ou **load**. **require** ou **load** recebem strings como argumentos.
-
-      require 'motocicleta' ou load 'motocicleta.rb'
-
-      include pega o nome de um módulo, na forma de uma contante, com por exemplo em **include** 'Coisa'.
-
-      O método include aceita qualquer número de objetos do tipo **Module** para serem incluídos:
-      **include** Enumerable, Comparable
-
-      Embora cada classe seja um módulo, o método **include** não permite que uma classe seja incluída dentro de outra classe.
-
+# Observe como você pode usar **require** ou **load** para arquivos e **include** para os múdulos.
 # Lembre-se que você pode incluir mais de um módulo em uma classe. Entretanto, uma classe não pode herdar de mais de uma classe.
 # Nomes de classe tendem a ser substantivos, enquanto nomes de módulos são com frequência adjetivos.
-# Em cada lugar que seu programa roda, existe um e apenas um objeto **self** - o objeto atual ou objeto padrão que você tem acesso em seu programa.
-# Observe que as regras dadas para self na página relacionada a Self.
-# O Java possui a habilidade de serializar objetos, permitindo que vocês os armazene e reconstitua-os quando necessário.
-# Ruby chama esse tipo de serialização de marshaling (empacotamento).
+# Em cada lugar que seu programa roda, existe um e apenas um **self** - o objeto atual ou objeto padrão que você tem acesso em seu programa.
+# Observe que as regras dadas para self na página relacionada a "Self":self.html.
+# O Java possui a habilidade de serializar objetos, permitindo que você os armazene e reconstitua-os quando necessário. O Ruby chama esse tipo de serialização de marshaling (empacotamento).
 # **Marshal.dump** é usado para salvar uma versão serializada de um objeto.
-# **Marshal.load** é usado para ler de um arquivo serializado.
+# **Marshal.load** é usado para ler o objeto serializado de um arquivo.
 # Uma constante Ruby é uma referência para um objeto.
 # Embora constantes não devam ser alteradas, você pode modificar o estado interno de objetos referenciados pelas mesmas.
 # Lembre-se das regras para constantes.
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

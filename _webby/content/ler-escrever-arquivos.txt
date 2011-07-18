@@ -11,24 +11,24 @@ Vamos ver como podemos ler/escrever para um arquivo de texto com a ajuda de um s
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p027readwrite.rb  
+# p027readwrite.rb
 # Abrir e ler um arquivo de texto
 # Note que como é dado um bloco, o arquivo
-# é automaticamente fechado quando o bloco termina  
-File.open('p014constructs.rb', 'r') do |f1|  
-  while line = f1.gets  
-    puts line  
-  end  
-end  
+# é automaticamente fechado quando o bloco termina
+File.open('p014constructs.rb', 'r') do |f1|
+  while line = f1.gets
+    puts line
+  end
+end
 
-# Cria um novo arquivo e escreve nele  
-File.open('test.rb', 'w') do |f2|  
-  # use "\n" para duas linhas de texto 
-  f2.puts "Criado por Satish\nGracas a Deus!"  
+# Cria um novo arquivo e escreve nele
+File.open('test.rb', 'w') do |f2|
+  # use "\n" para duas linhas de texto
+  f2.puts "Criado por Satish\nGracas a Deus!"
 end
 <% end %>
 
-O método **File.open** pode abrir o arquivo em modos diferentes como o 'r' (somente-leitura), que inicia no começo do arquivo; 'r+' Leitura/Escrita, começa no início do arquivo; 'w' Somente-escrita, trunca o arquivo existente para tamanho zero ou cria um novo arquivo para escrita. Cheque a documentação do Ruby para uma lista completa dos modos disponíveis. **File.open** abre um novo arquivo (**File**) se não existe nenhum bloco associado. Se o bloco opcional é dado, ele será passado como argumento ao arquivo, e o arquivo será fechado automaticamente quando o bloco termina. Sempre feche um arquivo que você abriu. No caso de um arquivo aberto para escrita, isso é muito importante e pode até mesmo prevenir a perda de dados.
+O método **File.open** pode abrir o arquivo em modos diferentes como o 'r' (somente-leitura), que inicia no começo do arquivo; 'r+' Leitura/Escrita, começa no início do arquivo; 'w' Somente-escrita, trunca o arquivo existente para tamanho zero ou cria um novo arquivo para escrita. Cheque a documentação do Ruby para uma lista completa dos modos disponíveis. **File.open** abre um novo arquivo (**File**) se não existe nenhum bloco associado. Se o bloco opcional é dado, o arquivo será passado como argumento, e o arquivo será fechado automaticamente quando o bloco termina. Sempre feche um arquivo que você abriu. No caso de um arquivo aberto para escrita, isso é muito importante e pode até mesmo prevenir a perda de dados.
 
 **File** implementa um método **readlines** (lê linhas) que lê um arquivo inteiro dentro de um array, linha por linha.
 
@@ -41,14 +41,14 @@ h2. Varrendo Árvores de Diretórios
 O módulo **Find** pode percorrer de maneira top-down (de cima para baixo) um conjunto de caminhos de arquivo, dados como argumento para o método **find**. Se o argumento for um diretório, então seu nome e o nome de todos seus arquivos e subdiretórios serão passados (no exemplo abaixo, isso seria a partir do diretório que você roda o programa).
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-require 'find'  
-Find.find('./') do |f|  
-  type = case  
-         when File.file?(f) then "F"  
-         when File.directory?(f) then "D"  
-         else "?"  
-         end  
-  puts "#{type}: #{f}"  
+require 'find'
+Find.find('./') do |f|
+  type = case
+         when File.file?(f) then "F"
+         when File.directory?(f) then "D"
+         else "?"
+         end
+  puts "#{type}: #{f}"
 end
 <% end %>
 
@@ -56,26 +56,26 @@ Falaremos sobre **require** em breve.
 
 h2. Acesso Aleatório
 
-É bastante fácil acessar um arquivo aleatoriamente. Digamos que temos um arquivo texto (chamado olaeua.rb) cujo conteúdo é mostrado abaixo:
+É bastante fácil acessar um arquivo aleatoriamente. Digamos que temos um arquivo texto (chamado hellousa.rb) cujo conteúdo é mostrado abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 puts 'Ola EUA'
 <% end %>
 
 Agora precisamos mostrar o conteúdo do arquivo a partir da palavra EUA. Aqui está como - programa **p028xrandom.rb**:
-  
+
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p028xrandom.rb  
-# Precisamos mostrar o conteúdo do arquivo a partir da palavra EUA  
-f = File.new("hellousa.rb")  
-  
+# p028xrandom.rb
+# Precisamos mostrar o conteúdo do arquivo a partir da palavra EUA
+f = File.new("hellousa.rb")
+
 # SEEK_CUR - Busca a partir do primeiro parâmetro inteiro mais a posição atual
 # SEEK_END - Busca a partir do primeiro parâmetro inteiro mais a posição final do stream
 #  (você provavelmente quer um valor negativo para o primeiro parâmetro inteiro)
 # SEEK_SET - Busca a partir da posição absoluta dada pelo primeiro parâmetro inteiro
-# :: é o operador de escopo - será explicado mais tarde  
-f.seek(10, IO::SEEK_SET)  
-print f.readline  
+# :: é o operador de escopo - será explicado mais tarde
+f.seek(10, IO::SEEK_SET)
+print f.readline
 f.close
 <% end %>
 
@@ -84,14 +84,13 @@ A saída é:
 
 
 <% coderay(:lang => "text", :line_numbers => "inline") do -%>
->ruby p028xrandom.rb  
-EUA'  
+>ruby p028xrandom.rb
+EUA'
 >Exit code: 0
 <% end %>
 
 
-
-O Ruby suporta a ideia de um apontador para um arquivo. O apontador para um arquivo indica a posição atual no arquivo. O método **File.new** abri o arquivo 'hellousa.rb' no modo somente leitura (modo padrão), retorna um novo objeto **File** e o ponteiro para o arquivo é posicionado no início do mesmo. No programa acima, a próxima instrução é f.seek(10, IO:SEEK_SET). O método **seek** da classe "**IO**":http://www.ruby-doc.org/ruby-1.9/classes/IO.html, move o ponteiro do arquivo para uma distância dada por um número inteiro (o primeiro parâmetro do método *seek*) no stream de acordo com o valor do segundo parâmetro no método **seek**.
+O Ruby suporta a ideia de um apontador para um arquivo. O apontador indica a posição atual no arquivo. O método **File.new** abri o arquivo 'hellousa.rb' no modo somente leitura (modo padrão), retorna um novo objeto **File** e o ponteiro para o arquivo é posicionado no início do mesmo. No programa acima, a próxima instrução é f.seek(10, IO:SEEK_SET). O método **seek** da classe "**IO**":http://www.ruby-doc.org/ruby-1.9/classes/IO.html, move o ponteiro do arquivo para uma distância dada por um número inteiro (o primeiro parâmetro do método *seek*) no stream de acordo com o valor do segundo parâmetro no método **seek**.
 
 
 **IO::SEEK_CUR** - Busca a partir do primeiro parâmetro inteiro mais a posição atual;
@@ -110,3 +109,4 @@ h2. Sumário
 Listei todos os "pontos importantes":sumario-ruby4.html que você precisa saber após ter completado os seguintes tópicos: Arrays, Intervalos, Símbolos, Hashes (Dicionários), Números aleatórios, Lendo/Escrevendo em arquivos de texto.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

@@ -12,7 +12,7 @@ Objetos mutáveis são objetos cujo estado pode mudar. Objetos imutáveis são o
 Objetos imutáveis têm muitas propriedades desejáveis:
 
 * Objetos imutáveis são seguros em relação a threads (__thread-safe__). Threads não podem corromper aquilo que não podem alterar.
-* Objetos imutáveis tornam mais simples implementar encasulamento. Se parte do estado de um objeto é armazenado e um objeto imutável, então os métodos assessores podem retornar esse objeto para chamadores externos sem se preocupar se estes chamadores podem mudar o estado do objeto.
+* Objetos imutáveis tornam mais simples implementar encapsulamento. Se parte do estado de um objeto é armazenado em um objeto imutável, então os métodos assessores podem retornar esse objeto para chamadores externos sem se preocupar se estes chamadores podem mudar o estado do objeto.
 * Objetos imutáveis são bons para se usar como chaves hash, visto que seu código hash não pode ser alterado.
 
 
@@ -20,7 +20,7 @@ No Ruby, a mutabilidade é uma propriedade de uma instância, não de uma classe
 
 h2. Congelando Objetos
 
-O método **freeze** na classe **Objetct** previne você de alterar um objeto, efetivamente transformando um objeto em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resulta em um erro **TypeError**. O programa seguinte **p050xfreeze.rb** ilustra isso:
+O método **freeze** na classe **Objetct** previne você de alterar um objeto, efetivamente transformando um objeto em uma constante. Após congelarmos um objeto, uma tentativa de modificá-lo resulta em um erro **RuntimeError**. O programa seguinte **p050xfreeze.rb** ilustra isso:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   str = 'Uma string simples. '
@@ -44,8 +44,7 @@ Entretanto, **freeze** opera na referência de um objeto, não em uma variável.
   # A Saída é - String original - anexo
 <% end -%>
 
-A expressão str + 'anexo' é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objteo.
-
+A expressão str += 'anexo' é avaliada para um novo objeto, que é então associado a str. O objeto não é alterado, mas a variável str agora se refere a um novo objeto.
 
 h2. frozen? (congelado?)
 
@@ -71,7 +70,7 @@ O Ruby às vezes copia objetos e congela as cópias. Quando você usa uma string
 
 As operações internas de arquivos do Ruby trabalham com uma cópia congelada do nome do arquivo ao invés de usar o nome do arquivo diretamente. Se outra thread altera o nome original do arquivo no meio de uma operação que deveria ser atômica, não há problema: o Ruby não estava usando o nome do arquivo original. Você pode adotar esse padrão copia-e-congela em código com suporte multi-thread para prevenir que uma estrutura de dados com que você esteja trabalhando seja alterada por outra thread.
 
-Outro uso como no nível do programador dessa funcionalidade é congelar uma classe para prevenir modificações futuras a mesma.
+Outro uso comum no nível do programador dessa funcionalidade é congelar uma classe para prevenir modificações futuras a mesma.
 
 **Nota**: Sempre que um objeto no Ruby não tem referência a ele, então o objeto será marcado para remoção e o coletor de lixo irá remover esse objeto baseado em seu algoritmo. Não há como acessar um objeto sem referência.
 
@@ -82,3 +81,4 @@ Listei todos os "pontos importantes":sumario-ruby7.html para você se lembrar ap
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

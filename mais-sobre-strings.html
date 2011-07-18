@@ -35,22 +35,22 @@
 <p>Os métodos <strong>upcase</strong>, <strong>downcase</strong>, <strong>swapcase</strong> e <strong>capitalize</strong> tem métodos correspondentes que alteram a string em questão ao invés de criar uma nova: <strong>upcase!</strong>, <strong>downcase</strong>!, <strong>swapcase!</strong> e <strong>capitalize!</strong>. Assumindo que você não precisa da string original, estes métodos irão economizar memória, especialmente se a string for grande.</p>
 <p>Sabemos que Strings literais são sequências de caracteres entre aspas simples ou duplas. A diferença entre as duas formas está na quantidade de processamento que o Ruby faz na string enquanto constrói a literal. No caso da aspas simples, o Ruby faz muito pouco. A barra invertida serve para escapar outra barra invertida, para que a segunda barra não seja interpretada como um caractere de escape. Em strings com aspas simples, uma barra invertida não é especial se o caractere que se segue é qualquer coisa que não uma barra invertida. Por exemplo, <strong>&#8216;a\b&#8217;</strong> e <strong>a\\b</strong> são iguais. No caso das aspas duplas, o Ruby tem mais trabalho. Primeiro, ele procura por substituições &#8211; sequências que começam com uma barra invertida &#8211; e as substitui com algum valor binário. A segunda coisa que o Ruby faz com strings com aspas duplas é a interpolação de expressões. Dentro da string, a sequência <strong>#{expressao}</strong> é substituída pelo valor de expressão (veja o exemplo p013expint.rb). Nesse programa, o valor retornado por um método Ruby é o valor da última expressão avaliada, então podemos nos livrar do valor da variável (resultado) e a declaração <strong>return</strong> juntos.</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># p013expint.rb  </span>
-<span class="no"> 2</span> <span class="r">def</span> <span class="fu">diz_boanoite</span>(nome)  
-<span class="no"> 3</span>   result = <span class="s"><span class="dl">&quot;</span><span class="k">Boa noite, </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
-<span class="no"> 4</span>   <span class="r">return</span> resultado  
-<span class="no"> 5</span> <span class="r">end</span>  
-<span class="no"> 6</span> puts diz_boanoite(<span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>)  
+<pre><span class="no"> 1</span> <span class="c"># p013expint.rb</span>
+<span class="no"> 2</span> <span class="r">def</span> <span class="fu">diz_boanoite</span>(nome)
+<span class="no"> 3</span>   result = <span class="s"><span class="dl">&quot;</span><span class="k">Boa noite, </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no"> 4</span>   <span class="r">return</span> resultado
+<span class="no"> 5</span> <span class="r">end</span>
+<span class="no"> 6</span> puts diz_boanoite(<span class="s"><span class="dl">'</span><span class="k">Satish</span><span class="dl">'</span></span>)
 <span class="no"> 7</span> 
-<span class="no"> 8</span> <span class="c"># programa modificado  </span>
-<span class="no"> 9</span> <span class="r">def</span> <span class="fu">diz_boanoite2</span>(nome)  
-<span class="no"><strong>10</strong></span>   <span class="s"><span class="dl">&quot;</span><span class="k">Boa noite, </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>  
-<span class="no">11</span> <span class="r">end</span>  
+<span class="no"> 8</span> <span class="c"># programa modificado</span>
+<span class="no"> 9</span> <span class="r">def</span> <span class="fu">diz_boanoite2</span>(nome)
+<span class="no"><strong>10</strong></span>   <span class="s"><span class="dl">&quot;</span><span class="k">Boa noite, </span><span class="il"><span class="idl">#{</span>nome<span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no">11</span> <span class="r">end</span>
 <span class="no">12</span> 
-<span class="no">13</span> puts diz_boanoite2(<span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>)  
+<span class="no">13</span> puts diz_boanoite2(<span class="s"><span class="dl">'</span><span class="k">Talim</span><span class="dl">'</span></span>)
 </pre>
 </div>
-<p>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como um parâmetro, um novo objeto String.</p>
+<p>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como um parâmetro, um novo objeto String é criado.</p>
 <p>Como a memória é gerenciada pada Strings no Ruby? Há um pool separado para elas? As Strings são objetos da classe String. Essa classe tem mais de 75 métodos padrões. Se você consultar o &#8220;Guia de Usuário Ruby&#8221;, verá que ele diz que &#8220;não temos que nos preocupar com o espaço ocupado por uma string. Estamos livre de todo o gerenciamento de memória&#8221;.</p>
 <h2>Listando os métodos de uma classe ou objeto</h2>
 <div class="CodeRay">
@@ -62,58 +62,58 @@
 <pre><span class="no">1</span> <span class="co">String</span>.instance_methods.sort
 </pre>
 </div>
-<p>Este método lhe apresenta todas os métodos de instância possuidos por String em ordem alfabética.</p>
+<p>Este método lhe apresenta todos os métodos de instância possuidos por String em ordem alfabética.</p>
 <div class="CodeRay">
-<pre><span class="no">1</span> <span class="co">String</span>.instance_methods(<span class="pc">false</span>).sortt
+<pre><span class="no">1</span> <span class="co">String</span>.instance_methods(<span class="pc">false</span>).sort
 </pre>
 </div>
 <p>Com esse método, você pode ver os métodos de instância de uma classe sem os métodos das classes ancestrais.</p>
 <h2>Comparando duas strings para a igualdade</h2>
 <p>As Strings têm diversos métodos para testar a igualdade. O mais comum é o == (duplos sinais de igual). Outro método de instância para testar a igualdade, String.eql?, checa se duas strings tem o conteúdo idêntico. Ele retorna o mesmo resultado que o ==. Um terceiro método de instância, String.equal?, testa se duas strings são o mesmo objeto. O exemplo p013strcmp.rb ilustra isso:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span> <span class="c"># p013strcmp.rb  </span>
-<span class="no"> 2</span> <span class="c"># String#eql?, testa se duas strings tem conteúdo idêntico.  </span>
-<span class="no"> 3</span> <span class="c"># Retorna o mesmo resultado que ==  </span>
+<pre><span class="no"> 1</span> <span class="c"># p013strcmp.rb</span>
+<span class="no"> 2</span> <span class="c"># String#eql?, testa se duas strings tem conteúdo idêntico.</span>
+<span class="no"> 3</span> <span class="c"># Retorna o mesmo resultado que ==</span>
 <span class="no"> 4</span> <span class="c"># String#equal?, teste se duas strings são o mesmo objeto</span>
-<span class="no"> 5</span> s1 = <span class="s"><span class="dl">'</span><span class="k">Jonathan</span><span class="dl">'</span></span>  
-<span class="no"> 6</span> s2 = <span class="s"><span class="dl">'</span><span class="k">Jonathan</span><span class="dl">'</span></span>  
-<span class="no"> 7</span> s3 = s1  
-<span class="no"> 8</span> <span class="r">if</span> s1 == s2  
-<span class="no"> 9</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings têm o mesmo conteúdo</span><span class="dl">'</span></span>  
-<span class="no"><strong>10</strong></span> <span class="r">else</span>  
-<span class="no">11</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings não têm o mesmo conteúdo</span><span class="dl">'</span></span>  
-<span class="no">12</span> <span class="r">end</span>  
-<span class="no">13</span> <span class="r">if</span> s1.eql?(s2)  
-<span class="no">14</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings têm o mesmo conteúdo</span><span class="dl">'</span></span>  
-<span class="no">15</span> <span class="r">else</span>  
-<span class="no">16</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings não têm o mesmo conteúdo</span><span class="dl">'</span></span>  
-<span class="no">17</span> <span class="r">end</span>  
-<span class="no">18</span> <span class="r">if</span> s1.equal?(s2)  
-<span class="no">19</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings são objetos idênticos</span><span class="dl">'</span></span>  
-<span class="no"><strong>20</strong></span> <span class="r">else</span>  
+<span class="no"> 5</span> s1 = <span class="s"><span class="dl">'</span><span class="k">Jonathan</span><span class="dl">'</span></span>
+<span class="no"> 6</span> s2 = <span class="s"><span class="dl">'</span><span class="k">Jonathan</span><span class="dl">'</span></span>
+<span class="no"> 7</span> s3 = s1
+<span class="no"> 8</span> <span class="r">if</span> s1 == s2
+<span class="no"> 9</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings têm o mesmo conteúdo</span><span class="dl">'</span></span>
+<span class="no"><strong>10</strong></span> <span class="r">else</span>
+<span class="no">11</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings não têm o mesmo conteúdo</span><span class="dl">'</span></span>
+<span class="no">12</span> <span class="r">end</span>
+<span class="no">13</span> <span class="r">if</span> s1.eql?(s2)
+<span class="no">14</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings têm o mesmo conteúdo</span><span class="dl">'</span></span>
+<span class="no">15</span> <span class="r">else</span>
+<span class="no">16</span>   puts <span class="s"><span class="dl">'</span><span class="k">Ambas strings não têm o mesmo conteúdo</span><span class="dl">'</span></span>
+<span class="no">17</span> <span class="r">end</span>
+<span class="no">18</span> <span class="r">if</span> s1.equal?(s2)
+<span class="no">19</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings são objetos idênticos</span><span class="dl">'</span></span>
+<span class="no"><strong>20</strong></span> <span class="r">else</span>
 <span class="no">21</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings não são objetos idênticos</span><span class="dl">'</span></span>
-<span class="no">22</span> <span class="r">end</span>  
-<span class="no">23</span> <span class="r">if</span> s1.equal?(s3)  
+<span class="no">22</span> <span class="r">end</span>
+<span class="no">23</span> <span class="r">if</span> s1.equal?(s3)
 <span class="no">24</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings são objetos idênticos</span><span class="dl">'</span></span>
-<span class="no">25</span> <span class="r">else</span>  
-<span class="no">26</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings são objetos idênticos</span><span class="dl">'</span></span>  
+<span class="no">25</span> <span class="r">else</span>
+<span class="no">26</span>   puts <span class="s"><span class="dl">'</span><span class="k">As duas strings são objetos idênticos</span><span class="dl">'</span></span>
 <span class="no">27</span> <span class="r">end</span>
 </pre>
 </div>
 <h2>Usando %w</h2>
 <p>Às vezes, criar arrays (listas) de palavras pode ser algo doloroso, por todas as aspas e vírgulas. Felizmente, o Ruby tem um atalho: o <strong>%w</strong> faz o que queremos.</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span> nomes1 = [ <span class="s"><span class="dl">'</span><span class="k">marcelo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">hugo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">william</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">ricardo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">rafael</span><span class="dl">'</span></span> ]  
+<pre><span class="no"> 1</span> nomes1 = [ <span class="s"><span class="dl">'</span><span class="k">marcelo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">hugo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">william</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">ricardo</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">rafael</span><span class="dl">'</span></span> ]
 <span class="no"> 2</span> puts nomes1[<span class="i">0</span>] <span class="c"># marcelo</span>
 <span class="no"> 3</span> puts names1[<span class="i">3</span>] <span class="c"># ricardo</span>
-<span class="no"> 4</span> <span class="c"># isso é mesma coisa:  </span>
+<span class="no"> 4</span> <span class="c"># isso é mesma coisa:</span>
 <span class="no"> 5</span> nomes2 = <span class="s"><span class="dl">%w{</span><span class="k"> marcelo hugo william ricardo rafael </span><span class="dl">}</span></span>
-<span class="no"> 6</span> puts nomes2[<span class="i">0</span>] <span class="c"># marcelo </span>
+<span class="no"> 6</span> puts nomes2[<span class="i">0</span>] <span class="c"># marcelo</span>
 <span class="no"> 7</span> puts nomes2[<span class="i">3</span>] <span class="c"># ricardo</span>
-<span class="no"> 8</span>    
+<span class="no"> 8</span> 
 <span class="no"> 9</span> <span class="c"># Um jeito rápido de converter para caixa alta</span>
 <span class="no"><strong>10</strong></span> <span class="c"># O símbolo :upcase representa uma chamada ao método upcase</span>
-<span class="no">11</span> puts nomes2.map(&amp;<span class="sy">:upcase</span>)  
+<span class="no">11</span> puts nomes2.map(&amp;<span class="sy">:upcase</span>)
 </pre>
 </div>
 <p>Você pode ver todos os detalhes da classe String na <a href="http://www.ruby-doc.org/ruby-1.9/classes/String.html" title="em inglês">documentação oficial do Ruby</a>.</p>

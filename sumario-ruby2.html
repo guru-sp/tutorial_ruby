@@ -38,27 +38,27 @@
 	<li>Para formatar a saída com duas casas decimais, podemos utilizar o método <strong>format</strong> do módulo <strong>Kernel</strong>.</li>
 	<li>Os nomes em Ruby são utilizados para referenciar constantes, variáveis, métodos, classes e módulos. O primeiro caractere do nome auxilia o Ruby à distinguir o significado daquele nome.</li>
 	<li>Caracteres de caixa-baixa (minúsculas) são aqueles compreendidos entre &#8216;a&#8217; e &#8216;z&#8217;, incluindo o caractere &#8216;_&#8217; (&#8220;underscore&#8221;, sublinhado). Caracteres de caixa-alta (maiúsculas) são aqueles compreendidos entre &#8216;A&#8217; e &#8216;Z&#8217;, e os dígitos são aqueles entre &#8216;0&#8217; e &#8216;9&#8217;.</li>
-	<li>Um nome é uma letra de caixa-alta, caixa-baixa ou um caractere de sublinhado (&#8216;_&#8217;, underscore), seguido por caracteres de ne nomeação, isto é, qualquer combinação de caracteres Maiúsculas, Minúsculas, Dígitos ou o caractere de sublinhado (underscore).</li>
-	<li>Você pode utilizar variáveis em Ruby antes de qualquer declaração prévia. O nome das variáveis denotam seu escopo (local, global, de instância etc.).</li>
-	<li><strong>Lembre-se</strong> a forma com que os nomes das variáveis locais, de instância, de classe, globais, além dos métodos e constantes são declarados.</li>
+	<li>Um nome é uma letra de caixa-alta, caixa-baixa ou um caractere de sublinhado (&#8216;_&#8217;, underscore), seguido por caracteres de nomeação, isto é, qualquer combinação de caracteres Maiúsculos, Minúsculos, Dígitos ou o caractere de sublinhado (underscore).</li>
+	<li>Você pode utilizar variáveis em Ruby antes de qualquer declaração prévia. O nome das variáveis denotam seu escopo (local, global, de instância e de classe).</li>
+	<li><strong>Lembre-se</strong> a forma com que os nomes das variáveis locais, de instância, de classe, globais, além dos métodos, módulos e constantes são declarados.</li>
 	<li>&#8220;?&#8221;, &#8220;!&#8221; e &#8220;=&#8221; são os únicos caracteres &#8220;estranhos&#8221; permitidos como sufixo dos nomes de métodos.</li>
-	<li>Pela convenção do Ruby as palavras são separadas por &#8216;_&#8217; em nomes de métodos e variáveis quem possuam mais de uma palavra. Para nome de Classes, Métodos e Constantes é utilizado letras Maiúsculas para distinguir o nome das palavra. Exemplo: minha_variavel, MeuModulo, MinhaClasse, MinhaConstante.</li>
-	<li>Qualquer variável pode, em diferentes momentos, manter referencia para vários tipos de objeto.</li>
+	<li>Pela convenção do Ruby as palavras são separadas por &#8216;_&#8217; em nomes de métodos, variáveis e constantes que possuem mais de uma palavra. Para nome de Classes e Módulos é utilizado letras Maiúsculas para distinguir as palavras. Exemplo: minha_variavel, MeuModulo, MinhaClasse, MINHA_CONSTANTE.</li>
+	<li>Qualquer variável pode, em diferentes momentos, manter referência para vários tipos de objeto.</li>
 	<li>As variáveis em Ruby são referências para objetos que são automaticamente desalocados pelo coletor de lixo (Garbage Collector)</li>
-	<li>Para começar, lembre-se que o Ruby usa tipagem dinâmica, e tudo que você manipula é um objeto e os resultados das manipulações também são objeto.</li>
-	<li>Os tipos básicos em Ruby são Numeric (incluindo os subtipos Fixnum, Integer e Float), String, Array, Hash, Object, Symbol, Range e RegExp.</li>
+	<li>Para começar, lembre-se que o Ruby usa tipagem dinâmica, e tudo que você manipula é um objeto e os resultados das manipulações também são objetos.</li>
+	<li>Os tipos básicos em Ruby são Numeric (incluindo os subtipos Integer(Fixnum e Bignum) e Float), String, Array, Hash, Object, Symbol, Range e RegExp.</li>
 	<li>Por enquanto, lembre-se que você sempre pode verificar qual é o objeto atual utilizando a variável especial <em>self</em>.</li>
-	<li>Utilizamos <em>def</em> e <em>end</em> para declarar um método.  Os parâmetros são apenas uma lista de nomes variáveis locais entre parênteses.</li>
+	<li>Utilizamos <em>def</em> e <em>end</em> para declarar um método.  Os parâmetros são apenas uma lista de nomes de variáveis locais entre parênteses.</li>
 	<li>Não declaramos o tipo de retorno; um método retorna o valor da última expressão avaliada.</li>
 	<li>É recomendado deixar uma linha em branco entre cada definição de método.</li>
 	<li>O Ruby permite que os parenteses sejam omitidos na maioria das declarações e invocações dos métodos. Nos casos simples, isso resulta em códigos mais limpos e claros. Nos casos complexos, entretanto, resultam em ambiguidades sintáticas e confusão.</li>
-	<li>Métodos se comportam como perguntas, geralmente terminam com um caractere de interrogação (?).</li>
+	<li>Métodos que se comportam como perguntas, geralmente terminam com um caractere de interrogação (?).</li>
 	<li>Nomes de Métodos considerados &#8220;perigosos&#8221;, ou que modificam o receptor devem ser nomeados com um ponto de exclamação (!) no final. (Métodos Bang)</li>
 	<li>O Ruby permite que você especifique valores-padrão para os argumentos de métodos que não forem explicitamente definidos por quem chamou o método.</li>
 	<li>Lembre-se que existe um operador de interpolação de variáveis &#8220;#{&#8230;}&#8221;</li>
 	<li>O método <strong>alias</strong> cria um novo nome para um método existente. Quando um método recebe um <strong>alias</strong>, o novo nome aponta para um cópia do método original. Se o método antigo é redefinido, o <strong>alias</strong> continua apontando para a implementação original do método.</li>
-	<li>Em Ruby, podemos escrever métodos que recebam número de parâmetros variável.</li>
-	<li>Não há limites para o números de parâmetros que podem ser passados por um método.</li>
+	<li>Em Ruby, podemos escrever métodos que recebam um número de parâmetros variável.</li>
+	<li>Não há limites para os números de parâmetros que podem ser passados para um método.</li>
 	<li>A sequência em que os parâmetros são colocados na pilha é da esquerda para direita.</li>
 	<li>A forma que o Ruby passa os parâmetros, por valor ou por referencia, é discutível, isso não importa.</li>
 </ol>

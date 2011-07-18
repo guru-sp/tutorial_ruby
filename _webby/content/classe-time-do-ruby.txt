@@ -13,17 +13,17 @@ A função strftime é modelada seguindo a função printf do C. O programa **p0
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
   t = Time.now
-  # para objter o dia, mês e ano com o século
+  # para obter o dia, mês e ano com o século
   # também a hora, minuto e segundo
   puts t.strftime("%d/%m/%Y %H:%M:%S")
-  
+
   # Você pode usar A e B maiúsculos para obter
-  # o nome completo da semana e mês, respectivamente
+  # o nome completo do dia da semana e do mês, respectivamente
   puts t.strftime("%A")
   puts t.strftime("%B")
-  
+
   # Você pode usar a e b minúsculos para obter
-  # o nome abreviado do dia da semana e mês, respectivamente
+  # o nome abreviado do dia da semana e do mês, respectivamente
   puts t.strftime("%a")
   puts t.strftime("%b")
 
@@ -50,3 +50,4 @@ Listei "todos os pontos importantes":sumario-ruby6.html que você precisa se lem
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

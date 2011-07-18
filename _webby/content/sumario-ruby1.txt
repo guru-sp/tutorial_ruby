@@ -18,7 +18,7 @@ p(title). <%= h(@page.title) %>
 # Você pode estar acostumado a pensar que um valor falso pode ser representado como um zero, uma string nula, um caractere nulo, ou várias outras coisas. Mas em Ruby, todos esses são verdadeiros, tudo é verdadeiro exceto as palavras reservadas false e nil.
 # Nós estaremos nos referindo à "documentação (em inglês)":http://www.ruby-doc.org/core.
 # *puts* (a letra s em *puts* quer dizer string; *puts* significa coloque uma string) simplesmente escreve na tela seja lá o que vier depois dele, mas ele também vai automaticamente para a próxima linha.
-# Parênteses são geralmente opcionais em um chamada a um método. Todas essas chamadas são válidas:
+# Parênteses são geralmente opcionais em uma chamada a um método. Todas essas chamadas são válidas:
 foobar
 foobar()
 foobar(a, b, c)
@@ -38,7 +38,7 @@ foobar a, b, c
 # Se você tiver um erro de interpretação como - #&lt;TypeError: cannot convert Fixnum into String&gt; isto significa que você não pode adicionar um número a uma string, ou multiplicar uma string por outra string.
 # Constantes começam com letras maiúsculas. Exemplo PI, Comprimento.
 # Uma variável começa a existir assim que o interpretador vê uma atribuição para essa variável. É uma boa prática atribuir nil a uma variável inicialmente.
-# Use espaços em branco em torno do operador de atribuição¨
+# Use espaços em branco em torno do operador de atribuição:
 foo = 1<br />
 e não:<br />
 foo=1
@@ -47,9 +47,10 @@ nivel = 0
 tamanho = 0<br />
 é preferível do que:<br />
 nivel = tamanho = 0
-# x, y = y, x troca os valores de x e y. Atribuição paralela é qualquer expressão de atribuição que tem mais de um valores a esquerda, mais de um valores a direita, ou ambos. Múltiplos valores a esquerda e múltiplos valores a direita são separados por vírgula.
+# x, y = y, x troca os valores de x e y. Atribuição paralela é qualquer expressão de atribuição que tem mais de um valor a esquerda, mais de um valor a direita, ou ambos. Múltiplos valores a esquerda e múltiplos valores a direita são separados por vírgula.
 # Variáveis locais devem começar com letra minúscula ou underscores ( _ ), e devem consistir inteiramente de letras, números e underscores. Exemplos: india, ___usa, alguma_variavel
 # .to_i, .to_f, .to_s são usados para converter para um inteiro, float, string respectivamente.
 # O operador << é usado para adicionar a uma string.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

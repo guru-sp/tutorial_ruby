@@ -7,84 +7,82 @@ filter:
 ---
 p(title). <%= h(@page.title) %>
 
-Vamos explorar algumas construções simples disponíveis no Ruby. O exemplo abaixo *p014constructs.rb* ilustra as construções
-*if* e *else*. Por convenção, *if* e *while* não necessitam de parênteses.
+Vamos explorar algumas construções simples disponíveis no Ruby. O exemplo abaixo *p014constructs.rb* ilustra as construções *if* e *else*. Por convenção, *if* e *while* não necessitam de parênteses.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# No Ruby nil e false são interpretadas como false (falso),
+# No Ruby nil e false são interpretados como false (falso),
 # todo o restante (incluindo true e 0) siginificam true (verdadeiro)
-# nil é um objeto real  
-# if else end (if, caso contrário, fim)
-var = 5   
-if var > 4   
-  puts "A variável é maior que 4"   
-  puts "Posso ter múltiplas declarações aqui"   
-  if var == 5   
-    puts "É possível ter if else aninhados"   
-  else   
-    puts "Muito legal"   
-  end   
-else   
-  puts "A variável não é maior que 4"   
-  puts "Posso ter múltiplas declarações aqui"   
+# nil é um objeto real
+# if else end (se, caso contrário, fim)
+var = 5
+if var > 4
+  puts "A variável é maior que 4"
+  puts "Posso ter múltiplas declarações aqui"
+  if var == 5
+    puts "É possível ter if else aninhados"
+  else
+    puts "Muito legal"
+  end
+else
+  puts "A variável não é maior que 4"
+  puts "Posso ter múltiplas declarações aqui"
 end
 <% end %>
 
 Um exemplo do uso do elsif está no programa p015elsifex.rb como mostrado abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-# p015elsifex.rb   
-# exemplo elseif  
-  
-# Exemplo original  
+# p015elsifex.rb
+# exemplo elseif
+
+# Exemplo original
 puts "Olá, qual é o seu nome?"
-STDOUT.flush   
-nome = gets.chomp   
-puts 'Olá, ' + nome + '.'  
- 
-if nome == 'Satish'  
-    puts 'Que nome legal!!'  
-else  
-    if name == 'Sunil'  
+STDOUT.flush
+nome = gets.chomp
+puts 'Olá, ' + nome + '.'
+
+if nome == 'Satish'
+    puts 'Que nome legal!!'
+else
+    if name == 'Sunil'
         puts 'Outro nome legal!'
-    end  
-end  
- 
-# Exemplo modificado com elsif  
-puts "Olá, qual é o seu nome?"   
-STDOUT.flush   
-nome = gets.chomp   
-puts 'Hello, ' + nome + '.'   
-  
-if nome == 'Satish'   
-    puts 'Que nome legal!!'   
-elsif nome == 'Sunil'   
-        puts 'Outro nome legal!'   
-end   
-  
-# Outra modificação   
-puts "Olá, qual é o seu nome?"  
-STDOUT.flush   
-nome = gets.chomp   
-puts 'Olá, ' + nome + '.'  
- 
-# || é o operador lógico OU 
-if nome == 'Satish' || nome == 'Sunil'  
-    puts 'Que nome legal!!'   
+    end
+end
+
+# Exemplo modificado com elsif
+puts "Olá, qual é o seu nome?"
+STDOUT.flush
+nome = gets.chomp
+puts 'Hello, ' + nome + '.'
+
+if nome == 'Satish'
+    puts 'Que nome legal!!'
+elsif nome == 'Sunil'
+        puts 'Outro nome legal!'
+end
+
+# Outra modificação
+puts "Olá, qual é o seu nome?"
+STDOUT.flush
+nome = gets.chomp
+puts 'Olá, ' + nome + '.'
+
+# || é o operador lógico OU
+if nome == 'Satish' || nome == 'Sunil'
+    puts 'Que nome legal!!'
 end
 <% end %>
 
 Alguns operadores condicionais comuns são: ==, !=, >=, <=, >, <
 
-O *unless* (ao menos), como uma declaração ou modificador, é o oposto do *if*: ele executa o código somente se uma
-expressão associada é interpretada como nil ou falso. O construtor ruby *unless* começa com *unless* e termina com *end*.
+O *unless* (ao menos), como uma declaração ou modificador, é o oposto do *if*: ele executa o código somente se uma expressão associada é interpretada como nil ou falso. O construtor ruby *unless* começa com *unless* e termina com *end*.
 O corpo é o texto entre ambos.
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-unless ARGV.length == 2   
-  puts "Uso: programa.rb 23 45"   
-  exit   
+unless ARGV.length == 2
+  puts "Uso: programa.rb 23 45"
+  exit
 end
 <% end %>
 
@@ -96,43 +94,46 @@ Loops como o *while* também estão disponíveis. O exemplo abaixo ilustra o uso
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # Loops - imprime números de 0 a 9
-var = 0   
-while var < 10   
-  puts var.to_s   
-  var += 1   
-end   
+var = 0
+while var < 10
+  puts var.to_s
+  var += 1
+end
 <% end %>
 
 h3. O condicional ?: (ou operador ternário)
 
 Como uma alternativa concisa aos operadores if/else podemos usar o operador condicional ou ternário *?:*. É o único operador ternário (com três operandos) no Ruby. Ele tem a seguinte estrutura básica:
+
+<% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 (condição) ? (resultado se a condição é verdadeira) : (resultado se a condição é falsa)
+<% end %>
 
 O primeiro operando aparece antes do ponto de interrogação. O segundo operando aparece entre o interrogação e os dois pontos. E o terceiro operando aparece depois dos dois pontos. O ponto de interrogação deve aparecer na mesma linha que o primeiro e o segundo argumentos e os dois pontos devem aparecer na mesma linha que o segundo argumento. O operador *?:* sempre avalia seu primeiro operando (a condição). Se a condição é qualquer coisa diferente de false ou nil, o valor da expressão é o valor do segundo operando. Caso contrário, se o primeiro operando for false ou nil, então o valor da expressão é o valor do terceiro operando. O operador *?:* age como uma declaração if/then/else compacta.
 Vamos ver um exemplo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-idade = 15   
+idade = 15
 # Falaremos da classe Range (intervalo) mais tarde
-# terá como saída adolescente 
-puts (14...20).include?(idade) ? "adolescente" : "não é adolescente"   
+# terá como saída adolescente
+puts (14...20).include?(idade) ? "adolescente" : "não é adolescente"
 <% end %>
 
 O operador ternário pode ser útil também para atribuições condicionais:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-idade = 23   
-pessoa = (14...20).include?(idade) ? "adolescente" : "não é adolescente"    
-puts pessoa # => "não é adolescente"  
+idade = 23
+pessoa = (14...20).include?(idade) ? "adolescente" : "não é adolescente"
+puts pessoa # => "não é adolescente"
 <% end %>
 
 h3. Modificadores de instrução
 
 Os modificadores de instrução do Ruby representam um atalho útil no caso em que o corpo de uma instrução *if* ou *while* é uma única
-expressão. Apenas escreva a expressão, seguida por *if* ou *while* e então a condição. Aqui, por exemplo, temos uma simples instrução if. 
+expressão. Apenas escreva a expressão, seguida por *if* ou *while* e então a condição. Aqui, por exemplo, temos uma simples instrução if.
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-puts "Os registros pararao agora" if participantes > 2500   
+puts "Os registros pararao agora" if participantes > 2500
 <% end %>
 
 h3. Expressões case
@@ -142,14 +143,14 @@ Esta forma é bastante próxima a uma série de instruções *if*: ela permite q
 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-ano = 2000   
-bissexto = case   
-       when ano % 400 == 0 then true   
-       when ano % 100 == 0 then false   
-       else ano % 4   == 0   
-       end   
-puts bissexto  
-# a saida é: true   
+ano = 2000
+bissexto = case
+       when ano % 400 == 0 then true
+       when ano % 100 == 0 then false
+       else ano % 4   == 0
+       end
+puts bissexto
+# a saida é: true
 <% end -%>
 
 
@@ -167,11 +168,11 @@ Ambos têm valor falso mas são objetos diferentes e lembre-se que tudo em Ruby 
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
 # Podemos determinar a classe de nosso objeto ou seu ID único de objeto
-# NIL é um sinônimo para nil     
-puts NIL.class # NilClass   
-puts nil.class # NilClass   
-puts nil.object_id # 4   
-  
+# NIL é um sinônimo para nil
+puts NIL.class # NilClass
+puts nil.class # NilClass
+puts nil.object_id # 4
+
 # FALSE é um sinônimo para false
 puts FALSE.class # FalseClass
 puts false.class # FalseClass
@@ -181,3 +182,4 @@ puts false.object_id # 0
 &nbsp;
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

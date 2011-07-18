@@ -84,7 +84,7 @@
 </pre>
 </div>
 <h2>Tratando uma Exceção</h2>
-<p>Para fazer o tratamento da exceção, nós colocamos o código que pode lançar uma exceção dentro de um  bloco <b>begin-end</b> e usamos uma ou mais cláusulas <b>rescue</b> pra contar ao RUby os tipos de exceção que queremos tratar. É importante notar que o corpo de definição de um método é um bloco <b>begin-end</b> implícito; o <b>begin</b> é omitido, e todo o corpo do método está sujeito ao tratamento de exceção, terminando com o <b>end</b> do método.</p>
+<p>Para fazer o tratamento da exceção, nós colocamos o código que pode lançar uma exceção dentro de um  bloco <b>begin-end</b> e usamos uma ou mais cláusulas <b>rescue</b> para contar ao Ruby os tipos de exceção que queremos tratar. É importante notar que o corpo de definição de um método é um bloco <b>begin-end</b> implícito; o <b>begin</b> é omitido, e todo o corpo do método está sujeito ao tratamento de exceção, terminando com o <b>end</b> do método.</p>
 <p>O programa p**045handexcp.rb** ilustra isso:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p045handexcp.rb</span>
@@ -111,7 +111,7 @@
 </pre>
 </div>
 <p>Observe que o o código interrompido pela exceção nunca é executado. Uma vez que a exceção é tratada, a execução continua imediatamente depois do bloco begin que a a gerou.</p>
-<p>Se você escreve uma cláusula <b>rescue</b> sem nenhum parâmetro, o parâmetro será ajustado por padrão para <b>StandardError</b>. cada cláusula <b>rescue</b> pode especificar múltiplas exceções para serem capturadas. No fim de cada comando <b>rescue</b> pode também ser expressões arbitrárias (incluindo chamadas a métodos) que retornam uma classe do tipo <b>Exception</b>. Se usarmos <b>raise</b> sem parâmetros, ele relançará a exceção.</p>
+<p>Se você escreve uma cláusula <b>rescue</b> sem nenhum parâmetro, o parâmetro será ajustado por padrão para <b>StandardError</b>. Cada cláusula <b>rescue</b> pode especificar múltiplas exceções para serem capturadas. No fim de cada cláusula <b>rescue</b> voce pode passar ao Ruby o nome de uma variável local para receber a exceção correspondente. Os parâmetros para a cláusula <b>rescue</b> podem também ser expressões arbitrárias (incluindo chamadas a métodos) que retornam uma classe do tipo <b>Exception</b>. Se usarmos <b>raise</b> sem parâmetros, ele relançará a exceção.</p>
 <p>Você pode empilhar cláusulas de <b>rescue</b> em um bloco begin/rescue. Exceções não tratadas por uma cláusula rescue serão passadas para a próxima:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">begin</span>
@@ -121,11 +121,11 @@
 <span class="no"> 5</span>   <span class="r">rescue</span> <span class="co">OutroTipoDeExcecao</span>
 <span class="no"> 6</span>     <span class="c"># -</span>
 <span class="no"> 7</span>   <span class="r">else</span>
-<span class="no"> 8</span>     <span class="c"># outras exceções</span>
+<span class="no"> 8</span>     <span class="c"># -</span>
 <span class="no"> 9</span>   <span class="r">end</span>
 </pre>
 </div>
-<p>Para cada cláusula <b>rescue</b> no bloco <b>begin</b>, o Ruby irá comparar a exceção levantada conta cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo do última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula <b>else</b> é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.</p>
+<p>Para cada cláusula <b>rescue</b> no bloco <b>begin</b>, o Ruby irá comparar a exceção levantada contra cada um dos parâmetros em questão. O casamento irá acontecer se o nome da exceção na cláusula rescue for do mesmo tipo da última exceção lançada, ou é uma superclasse dessa exceção. O código em uma cláusula <b>else</b> é executado se o código no corpo da declaração begin executa até o final sem exceções. Se uma exceção ocorrer, então a cláusula else obviamente não será executada. O uso de uma cláusula else não é particularmente comum em Ruby.</p>
 <p>Se você quer verificar uma exceção resgatada (em que se usou o rescue). você pode mapear o objeto <b>Exception</b> para uma variável com uma cláusula rescue, como mostrado no programa <b>p046excpvar.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p046excpvar.rb</span>
@@ -145,7 +145,7 @@
 <span class="no">4</span>   &gt;Exit code: 0
 </pre>
 </div>
-<p>A classe <b>Exception</b> define dois métodos que retornam detalhes a respeito da exceção. O método <b>message</b> retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é <b>backtrace</b>. Este método retorna um array de string que representam a pilha de chamada no ponto em que a exceção foi lançada.</p>
+<p>A classe <b>Exception</b> define dois métodos que retornam detalhes a respeito da exceção. O método <b>message</b> retorna uma string que pode prover detalhes legíveis sobre o que aconteceu de errado. O outro método importante é <b>backtrace</b>. Este método retorna um array de strings que representam a pilha de chamada no ponto em que a exceção foi lançada.</p>
 <p>Se você precisa de garantia de que algum processamento foi feito no final de um bloco de código, não considerando se uma exceção foi lançada então a cláusula <b>ensure</b> (assegurar-se) deve ser usada após o último <b>rescue</b> e deve conter um pedaço de código que será executado a medida que o bloco  termina. O bloco <b>ensure</b> sempre será executado.</p>
 <p>Algumas exceções comuns são:</p>
 <p>RuntimeError (está é a exceção padrão lançada pelo método <b>raise</b>), NoMethodError, NameError, IOError, TypeError e ArgumentError.</p>
@@ -173,7 +173,7 @@
 </pre>
 </div>
 <div class='box'>
-<p>Mensagens de erros impróprias podem prover informações críticas sobre uma aplicação que podem auxiliar ataques a mesma. O problema mais comum ocorre quando mensagens de erro internas como traços de pilha, dumps de bancos de dados e códigos de erro são mostrados ao usuário. Analistas de segurança veem logs e tratamentos de erro como possíveis áreas de risco. É recomendado que as aplicações em produção não usem, por exemplo, uma chamada a <strong>puts e.backtrace.inspect</strong>* ao menos que ela esteja sendo enviada para um log que não é visível para o usuário final.</p>
+<p>Mensagens de erros impróprias podem prover informações críticas sobre uma aplicação que podem auxiliar ataques a mesma. O problema mais comum ocorre quando mensagens de erro internas como traços de pilha, dumps de bancos de dados e códigos de erro são mostrados ao usuário. Analistas de segurança veem logs e tratamentos de erro como possíveis áreas de risco. É recomendado que as aplicações em produção não usem, por exemplo, uma chamada a <strong>puts e.backtrace.inspect</strong> ao menos que ela esteja sendo enviada para um log que não é visível para o usuário final.</p>
 </div>
 <h2>Exemplo de validação</h2>
 <p>Aqui está um exemplo do livro <em>Ruby Cookbook</em>, mostrando como se pode fazer validação da entrada do usuário.</p>
@@ -187,42 +187,43 @@
 <span class="no"> 7</span>         raise <span class="co">ArgumentError</span>.new(<span class="s"><span class="dl">'</span><span class="k">Todos precisam ter um primeiro nome.</span><span class="dl">'</span></span>)
 <span class="no"> 8</span>       <span class="r">end</span>
 <span class="no"> 9</span>       primeiro = primeiro.dup
-<span class="no"><strong>10</strong></span>       primeiro[<span class="i">0</span>] = primeiro[<span class="i">0</span>].chr.capitalize <span class="c">#primeira letra deve estar no plural</span>
+<span class="no"><strong>10</strong></span>       primeiro[<span class="i">0</span>] = primeiro[<span class="i">0</span>].chr.capitalize
 <span class="no">11</span>       <span class="iv">@primeiro</span> = primeiro
 <span class="no">12</span>     <span class="r">end</span>
 <span class="no">13</span> 
 <span class="no">14</span>     <span class="c"># Quando alguém tenta escrever um último nome, force regras sobre ele.</span>
-<span class="no">15</span>     <span class="r">def</span> <span class="fu">sobrenome=</span>(sobrenome)
+<span class="no">15</span>     <span class="r">def</span> <span class="fu">ultimo=</span>(ultimo)
 <span class="no">16</span>       <span class="r">if</span> ultimo == <span class="pc">nil</span> <span class="r">or</span> ultimo.size == <span class="i">0</span>
-<span class="no">17</span>         raise <span class="co">ArgumentError</span>.new(<span class="s"><span class="dl">'</span><span class="k">Todos devem ter um sobrenome.</span><span class="dl">'</span></span>)
+<span class="no">17</span>         raise <span class="co">ArgumentError</span>.new(<span class="s"><span class="dl">'</span><span class="k">Todos devem ter um último nome.</span><span class="dl">'</span></span>)
 <span class="no">18</span>       <span class="r">end</span>
-<span class="no">19</span>       <span class="iv">@sobrenome</span> = sobrenome
+<span class="no">19</span>       <span class="iv">@ultimo</span> = ultimo
 <span class="no"><strong>20</strong></span>     <span class="r">end</span>
 <span class="no">21</span> 
 <span class="no">22</span>     <span class="r">def</span> <span class="fu">nome_completo</span>
-<span class="no">23</span>       <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span><span class="iv">@primeiro</span><span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span><span class="iv">@sobrenome</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
+<span class="no">23</span>       <span class="s"><span class="dl">&quot;</span><span class="il"><span class="idl">#{</span><span class="iv">@primeiro</span><span class="idl">}</span></span><span class="k"> </span><span class="il"><span class="idl">#{</span><span class="iv">@ultimo</span><span class="idl">}</span></span><span class="dl">&quot;</span></span>
 <span class="no">24</span>     <span class="r">end</span>
-<span class="no">25</span>     <span class="c"># Delega para o método setter ao invés de escreve na instância diretamente.</span>
-<span class="no">26</span>     <span class="r">def</span> <span class="fu">initialize</span>(primeiro, sobrenome)
-<span class="no">27</span>       <span class="pc">self</span>.primeiro = primeiro
-<span class="no">28</span>       <span class="pc">self</span>.sobrenome = sobrenome
-<span class="no">29</span>     <span class="r">end</span>
-<span class="no"><strong>30</strong></span>   <span class="r">end</span>
-<span class="no">31</span> 
-<span class="no">32</span>   jacob = <span class="co">Nome</span>.new(<span class="s"><span class="dl">'</span><span class="k">Jacob</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Berendes</span><span class="dl">'</span></span>)
-<span class="no">33</span>   jacob.primeiro = <span class="s"><span class="dl">'</span><span class="k">Mary Sue</span><span class="dl">'</span></span>
-<span class="no">34</span>   jacob.nome_completo <span class="c"># =&gt; &quot;Mary Sue Berendes&quot;</span>
-<span class="no">35</span>   john = <span class="co">Nome</span>.new(<span class="s"><span class="dl">'</span><span class="k">john</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">von Neumann</span><span class="dl">'</span></span>)
-<span class="no">36</span>   john.nome_completo <span class="c"># =&gt; &quot;John von Neumann&quot;</span>
-<span class="no">37</span>   john.primeiro = <span class="s"><span class="dl">'</span><span class="k">john</span><span class="dl">'</span></span>
-<span class="no">38</span>   john.primeiro <span class="c"># =&gt; &quot;John&quot;</span>
-<span class="no">39</span>   john.primeiro = <span class="pc">nil</span>
-<span class="no"><strong>40</strong></span>   <span class="c"># ArgumentError: Todos precisam ter um primeiro nome.</span>
-<span class="no">41</span>   <span class="co">Name</span>.new(<span class="s"><span class="dl">'</span><span class="k">Kero, estrela internacional do futebol e artista de performance</span><span class="dl">'</span></span>, <span class="pc">nil</span>)
-<span class="no">42</span>   <span class="c"># ArgumentError: Todos precisam ter um sobrenome.</span>
+<span class="no">25</span> 
+<span class="no">26</span>     <span class="c"># Delega para o método setter ao invés de escrever na instância diretamente.</span>
+<span class="no">27</span>     <span class="r">def</span> <span class="fu">initialize</span>(primeiro, ultimo)
+<span class="no">28</span>       <span class="pc">self</span>.primeiro = primeiro
+<span class="no">29</span>       <span class="pc">self</span>.ultimo = ultimo
+<span class="no"><strong>30</strong></span>     <span class="r">end</span>
+<span class="no">31</span>   <span class="r">end</span>
+<span class="no">32</span> 
+<span class="no">33</span>   jacob = <span class="co">Nome</span>.new(<span class="s"><span class="dl">'</span><span class="k">Jacob</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">Berendes</span><span class="dl">'</span></span>)
+<span class="no">34</span>   jacob.primeiro = <span class="s"><span class="dl">'</span><span class="k">Mary Sue</span><span class="dl">'</span></span>
+<span class="no">35</span>   jacob.nome_completo <span class="c"># =&gt; &quot;Mary Sue Berendes&quot;</span>
+<span class="no">36</span>   john = <span class="co">Nome</span>.new(<span class="s"><span class="dl">'</span><span class="k">john</span><span class="dl">'</span></span>, <span class="s"><span class="dl">'</span><span class="k">von Neumann</span><span class="dl">'</span></span>)
+<span class="no">37</span>   john.nome_completo <span class="c"># =&gt; &quot;John von Neumann&quot;</span>
+<span class="no">38</span>   john.primeiro = <span class="s"><span class="dl">'</span><span class="k">john</span><span class="dl">'</span></span>
+<span class="no">39</span>   john.primeiro <span class="c"># =&gt; &quot;John&quot;</span>
+<span class="no"><strong>40</strong></span>   john.primeiro = <span class="pc">nil</span>
+<span class="no">41</span>   <span class="c"># ArgumentError: Todos precisam ter um primeiro nome.</span>
+<span class="no">42</span>   <span class="co">Name</span>.new(<span class="s"><span class="dl">'</span><span class="k">Kero, estrela internacional do futebol e artista de performance</span><span class="dl">'</span></span>, <span class="pc">nil</span>)
+<span class="no">43</span>   <span class="c"># ArgumentError: Todos precisam ter um último nome.</span>
 </pre>
 </div>
-<p>A classe <b>Nome</b> armazenas o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um sobrenome, e o primeiro nome de todas as pessoas deve começar uma letra maiúscula. A classe <b>Nome</b> foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método <b>Nome#initialize</b> acima, chamamos os métodos <b>primeiro=</b> e <b>sobrenome=</b> ao invés de atribuir a @primeiro e @sobrenome. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe <b>Nome</b>. Não podemos apenas dizer <b>primeiro = primeiro</b>, porque <strong>primeiro</strong> é um nome de variável nesse método. Usamos então <strong>self.primeiro</strong> para executar o método <b>primeiro=</b>.</p>
+<p>A classe <b>Nome</b> armazena o primeiro e último nome das pessoas. Ele usa métodos setter para ter certeza de duas regras restritas: todos devem possuir tanto um primeiro quanto um último nome, e o primeiro nome de todas as pessoas deve começar com uma letra maiúscula. A classe <b>Nome</b> foi escrita de um modo que as regras são impostas  tanto no construtor quanto depois que o objeto foi criado. Em certas ocasiões você não confia dos dados vindos através dos métodos setter. Nestes casos você deve definir seus próprios métodos para evitar que dados ruins infectem seus objetos. Dentro de uma classe, você pode acessar diretamente as variáveis de instância. Você pode simplesmente associar a uma variável de instância e método setter não será disparado. Se você quer dispará-lo, você precisará chamá-lo explicitamente. Note como, no método <b>Nome#initialize</b> acima, chamamos os métodos <b>primeiro=</b> e <b>ultimo=</b> ao invés de atribuir a @primeiro e @ultimo. Com isso temos certeza de que o código de validação é executado para os valores iniciais de cada objeto da classe <b>Nome</b>. Não podemos apenas dizer <b>primeiro = primeiro</b>, porque <strong>primeiro</strong> é um nome de variável nesse método. Usamos então <strong>self.primeiro</strong> para executar o método <b>primeiro=</b>.</p>
 <div class="pagination"><a href="logging-com-ruby.html">Logging com Ruby &gt;</a></div>
    </div>
 

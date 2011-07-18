@@ -34,7 +34,7 @@
 uma classe pode apenas herdar de uma única outra classe. Outras linguagens suportam herança múltipla, uma funcionalidade que permite que classes herdem características de múltiplas classes, mas Ruby não suporta isso.</p>
 <p>Podemos expressar esse conceito no Ruby como mostrado no programa <b>p033mammal.rb</b> abaixo:</p>
 <div class="CodeRay">
-<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Mammifero</span>
+<pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">Mamifero</span>
 <span class="no"> 2</span>     <span class="r">def</span> <span class="fu">respira</span>
 <span class="no"> 3</span>       puts <span class="s"><span class="dl">&quot;</span><span class="k">inspira e expira</span><span class="dl">&quot;</span></span>
 <span class="no"> 4</span>     <span class="r">end</span>
@@ -76,7 +76,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 </div>
 <p>Ao invés de definir exaustivamente cada característica de cada nova classe, precisamos apenas adicionar ou redefinir as diferenças entre cada subclasse e de sua superclasse. Esse uso da herança é algumas vezes chamado de programação diferencial. É um dos benfícios da programação orientada a objetos.</p>
 <p>Os dois programas abaixo foram tirados do <a href="http://www.rubyist.net/%7Eslagell/ruby/inheritance.html" title="em inglês">Guia do Usuário Ruby</a></p>
-<p>Então, a <b>herança</b> permite que você cria uma classe que é uma versão refinada ou uma especialização de outra classe. A herança é indicada por &lt;.</p>
+<p>Então, a <b>herança</b> permite que você crie uma classe que é uma versão refinada ou uma especialização de outra classe. A herança é indicada por &lt;.</p>
 <p>Aqui está outro exemplo, <b>p035inherit.rb</b>:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="r">class</span> <span class="cl">GF</span>
@@ -107,7 +107,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <span class="no">26</span>       puts <span class="s"><span class="dl">'</span><span class="k">Na classe S</span><span class="dl">'</span></span>
 <span class="no">27</span>     <span class="r">end</span>
 <span class="no">28</span>   <span class="r">end</span>
-<span class="no">29</span>   
+<span class="no">29</span> 
 <span class="no"><strong>30</strong></span>   filho = <span class="co">S</span>.new
 <span class="no">31</span>   filho.gfmethod
 </pre>
@@ -144,14 +144,14 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 <span class="no">18</span>   puts <span class="co">Lab</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">Labrador</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">Benzy</span><span class="dl">&quot;</span></span>).to_s
 </pre>
 </div>
-<p>O método <b>to_s</b> na classe Lab referencia a variável @breed da superclasse <b>Cachorro</b>. Esse código funciona como você esperaria:</p>
+<p>O método <b>to_s</b> na classe Lab referencia a variável @raca da superclasse <b>Cachorro</b>. Esse código funciona como você esperaria:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>    puts <span class="co">Lab</span>.new(<span class="s"><span class="dl">&quot;</span><span class="k">Labrador</span><span class="dl">&quot;</span></span>, <span class="s"><span class="dl">&quot;</span><span class="k">Benzy</span><span class="dl">&quot;</span></span>).to_s ==&gt; (<span class="co">Labrador</span>, <span class="co">Benzy</span>)
 </pre>
 </div>
 <p>Visto que esse código se comporta como esperado, você pode ousar dizer que todas as variáveis foram herdadas. Mas não é assim que Ruby funciona.</p>
 <p>Todos objetos Ruby tem um conjunto de variáveis de instância. Essas não são definidas pelos objetos da classe &#8211; elas são simplesmente criadas quando um valor é associado as mesmas. Por variáveis de instância não serem definidas por uma classe, elas não tem relação com o mecanismo de herança.</p>
-<p>No código acima, <b>Lab</b> define um método <b>initialize</b> que encadeia ao método <b>initialize</b> de sua superclasse. Isto é, o método <b>super</b> passa o argumento <b>raca</b> para o método <b>initialize</b> da classe pai (<b>Cachorro</b>). O método encadeado atribui um valor para a variável <b>@raca</b>, o que faz essa passe a existir para uma instância particular de Lab.</p>
+<p>No código acima, <b>Lab</b> define um método <b>initialize</b> que encadeia o método <b>initialize</b> de sua superclasse. Isto é, o método <b>super</b> passa o argumento <b>raca</b> para o método <b>initialize</b> da classe pai (<b>Cachorro</b>). O método encadeado atribui um valor para a variável <b>@raca</b>, o que faz com que essa passe a existir para uma instância particular de Lab.</p>
 <p><b>super</b> é um método especial que invoca um método com mesmo nome do método atual na superclasse da classe em questão.</p>
 <p>A razão para que às vezes pareça que essas variáveis de instância são herdadas está no fato das variáveis de instância serem criadas pelos primeiros métodos que atribuem valores a elas, e estes métodos são geralmente herdados ou encadeados.</p>
 <p>Visto que as variáveis de instância não tem nada a ver com a herança, segue que uma variável de instância usada por uma subclasse não pode &#8220;ocultar&#8221; uma variável de instância na superclasse. Se uma subclasse usa uma variável de instância com o mesmo nome de uma variável usada em um de seus ancestrais, ela irá sobrescrever o valor da variável de seus ancestrais.</p>

@@ -9,21 +9,20 @@ p(title). <%= h(@page.title) %>
 
 
 
-# Um Array é uma lista de itens em ordem. Cada lacuna na lista atua como uma variável: você pode ver a qual objeto uma lacuna aponta para, e você pode fazer ela apontar para um objeto diferente. Você pode criar um array usando colchetes []
+# Um Array é uma lista de itens em ordem. Cada lacuna na lista atua como uma variável: você pode ver a qual objeto uma lacuna aponta, e você pode fazer ela apontar para um objeto diferente. Você pode criar um array usando colchetes []
 # Arrays são indexados por números inteiros e o índice inicia em 0.
-# Você pode acessar um Array além dos seus limites; ele retornará nulo.
+# Você pode acessar um Array além dos seus limites; ele retornará nil.
 # Uma vírgula sobrando na declaração de um array é ignorada (Ex: [1, 2, 3,])
 # Refira-se a "documentação da classe Array":http://ruby-doc.org/core/classes/Array.html para uma lista de métodos.
 # Podemos adicionar novos elementos a um Array existente.
-# O método each (para cada objeto) é um iterador que extrai cada elemento do array. O método each permite que façamos
-o que quisermos com cada um dos objetos que o array aponta para.
+# O método each (para cada objeto) é um iterador que extrai cada elemento do array. O método each permite que façamos o que quisermos com cada um dos objetos que o array aponta.
 # A variável entre as barras verticais, isto é, | | refere-se a cada item no array a medida que ele é iterado no loop. Você pode dar a essa variável o nome que desejar.
 # Sequências tem um ponto de início, de término e um modo de produzir valores sucessivos na sequência. No Ruby, essas sequências são criadas usando os operadores de intervalo *".."* e *"..."*.
 # A forma com os dois pontos cria um intervalo inclusivo, e a forma com três pontos cria um intervalo exclusivo, excluindo o valor mais alto do intervalo.
 # No Ruby, a sequência *1..100000* é armazenada como um objeto do tipo *Range* contendo referências a dois objetos *Fixnum*.
 # O método *.to_a* converte um Range em um *Array*.
 # Outro uso versátil do range é no teste de um intervalo: ver se um valor está dentro do intervalo representado pelo range. Fazemos isso usando *===*, o operador de igualdade de caso.
-# Ranges não estão limitados a inteiros ou números. O início e o fim de um de um intervalo pode ser qualquer objeto Ruby.
+# Ranges não estão limitados a inteiros ou números. O início e o fim de um intervalo pode ser qualquer objeto Ruby.
 # Um símbolo (symbol) parece com um nome de variável mas é prefixado com dois pontos.
 # Você pode pensar em *:id* como significando o nome da variável id, e *id* (sem os dois pontos) como o valor da variável.
 # Símbolos são úteis porque um nome de símbolo se refere ao mesmo objeto ao longo de um programa Ruby.
@@ -39,10 +38,10 @@ o que quisermos com cada um dos objetos que o array aponta para.
 # nil é retornado quando se tenta acessar uma chave que não existe no hash.
 # O método para obter um número escolhido aleatoriamente no Ruby é o rand.
 # Se você chamar rand você obterá um float maior ou igual a 0.0 e menor que 1.0. Se você der a ele um inteiro como parâmetro de entrada (chamando, por exemplo, *rand(5)*), você obterá um inteiro maior ou igual a 0 e menor que 5.
-# O método *File.open* pode abrir um arquivo em modos diferentes como *'r'* (somente leitura, iniciando no começo do arquivo (padrão)), *'r+'* (Escrita/leitura, inicia no começo do arquivo), *'w'* (somente escrita), troca o arquivo existente para o tamanho vazio ou cria um novo arquivo para escrita.
-# *File.open* abre um novo arquivo se não há nenhum bloco associado. Se o bloco é dado, ele passará o arquivo como um argumento,
-e o arquivo será automaticamente fechado quando o bloco terminar.
+# O método *File.open* pode abrir um arquivo em modos diferentes como *'r'* (somente leitura, iniciando no começo do arquivo (padrão)); *'r+'* (Escrita/leitura, inicia no começo do arquivo); *'w'* (somente escrita), troca o arquivo existente para o tamanho vazio ou cria um novo arquivo para escrita.
+# *File.open* abre um novo arquivo se não há nenhum bloco associado. Se o bloco é dado, ele passará o arquivo como um argumento, e o arquivo será automaticamente fechado quando o bloco terminar.
 # Sempre feche um arquivo que você abrir. No caso de um arquivo aberto para escrita, isso é muito importante e pode realmente prevenir uma perda de dados.
-# O método *seek* (procurar) da classe *IO*, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEE_CUR - busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END - busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET - Busca a posição absoluta dada pelo número inteiro do primeiro parâmetro.
+# O método *seek* (procurar) da classe *IO*, busca por um dado offset de um Inteiro (primeiro parâmetro ou método) no stream de acordo com o valor do segundo parâmetro no método. O segundo parâmetro pode ser IO::SEEK_CUR - busca o número inteiro do primeiro parâmetro mais o valor da posição atual; IO:SEEK_END - busca o número inteiro do primeiro parâmetro mais o valor do final do stream (você provavelmente quer um valor negativo para o número inteiro do primeiro parâmetro); IO:SEEK_SET - Busca a posição absoluta dada pelo número inteiro do primeiro parâmetro.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

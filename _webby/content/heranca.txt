@@ -13,7 +13,7 @@ uma classe pode apenas herdar de uma única outra classe. Outras linguagens supo
 Podemos expressar esse conceito no Ruby como mostrado no programa **p033mammal.rb** abaixo:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
-  class Mammifero
+  class Mamifero
     def respira
       puts "inspira e expira"
     end
@@ -60,7 +60,7 @@ Ao invés de definir exaustivamente cada característica de cada nova classe, pr
 
 Os dois programas abaixo foram tirados do "Guia do Usuário Ruby (em inglês)":http://www.rubyist.net/%7Eslagell/ruby/inheritance.html
 
-Então, a **herança** permite que você cria uma classe que é uma versão refinada ou uma especialização de outra classe. A herança é indicada por <.
+Então, a **herança** permite que você crie uma classe que é uma versão refinada ou uma especialização de outra classe. A herança é indicada por <.
 
 Aqui está outro exemplo, **p035inherit.rb**:
 
@@ -93,7 +93,7 @@ Aqui está outro exemplo, **p035inherit.rb**:
       puts 'Na classe S'
     end
   end
-  
+
   filho = S.new
   filho.gfmethod
 <% end -%>
@@ -138,7 +138,7 @@ Considere o código:
   puts Lab.new("Labrador", "Benzy").to_s
 <% end -%>
 
-O método **to_s** na classe Lab referencia a variável @breed da superclasse **Cachorro**. Esse código funciona como você esperaria:
+O método **to_s** na classe Lab referencia a variável @raca da superclasse **Cachorro**. Esse código funciona como você esperaria:
 
 <% coderay(:lang => "ruby", :line_numbers => "inline") do -%>
    puts Lab.new("Labrador", "Benzy").to_s ==> (Labrador, Benzy)
@@ -148,7 +148,7 @@ Visto que esse código se comporta como esperado, você pode ousar dizer que tod
 
 Todos objetos Ruby tem um conjunto de variáveis de instância. Essas não são definidas pelos objetos da classe - elas são simplesmente criadas quando um valor é associado as mesmas. Por variáveis de instância não serem definidas por uma classe, elas não tem relação com o mecanismo de herança.
 
-No código acima, **Lab** define um método **initialize** que encadeia ao método **initialize** de sua superclasse. Isto é, o método **super** passa o argumento **raca** para o método **initialize** da classe pai (**Cachorro**). O método encadeado atribui um valor para a variável **@raca**, o que faz essa passe a existir para uma instância particular de Lab.
+No código acima, **Lab** define um método **initialize** que encadeia o método **initialize** de sua superclasse. Isto é, o método **super** passa o argumento **raca** para o método **initialize** da classe pai (**Cachorro**). O método encadeado atribui um valor para a variável **@raca**, o que faz com que essa passe a existir para uma instância particular de Lab.
 
 **super** é um método especial que invoca um método com mesmo nome do método atual na superclasse da classe em questão.
 
@@ -161,3 +161,4 @@ Visto que as variáveis de instância não tem nada a ver com a herança, segue 
 
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
+

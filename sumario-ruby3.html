@@ -32,19 +32,18 @@
       <p class="title">Resumo 3</p>
 <ol>
 	<li>Refira-se a <a href="http://ruby-doc.org/core/classes/String.html">documentação da classe String</a> para usar os vários métodos disponíveis.</li>
-	<li>Para strings literais com aspas duplas, o Ruby procura por substituições &#8211; sequências que começam com uma barra invertida &#8211; e as substitui com algum valor binário ou faz a interpolação da expressa, por exemplo, dentro da string, a sequência <strong>#{expressao}</strong> é substituída pelo valor da expressão.</li>
-	<li>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como parâmetro, um novo objete String é criado.<br />
-$ Observe como se pode listar todos os métodos de uma classe ou objeto.</li>
+	<li>Para strings literais com aspas duplas, o Ruby procura por substituições &#8211; sequências que começam com uma barra invertida &#8211; e as substitui com algum valor binário ou faz a interpolação da expressão, por exemplo, dentro da string, a sequência <strong>#{expressao}</strong> é substituída pelo valor da expressão.</li>
+	<li>É importante notar que cada vez que uma literal string é usada em uma atribuição ou como parâmetro, um novo objeto String é criado.</li>
+	<li>Observe como se pode listar todos os métodos de uma classe ou objeto.</li>
 	<li>Comparar duas strings para igualdade pode ser feito com <strong>==</strong> ou <strong>.eql?</strong> (para conteúdo idêntico) e <strong>.equal?</strong> (para objetos iguais).</li>
 	<li><strong>%w</strong> é comumente usada com strings.</li>
 	<li>Observe o uso dos construtores: <strong>if else end</strong>, <strong>while</strong>, <strong>if elsif end</strong>.</li>
-	<li>O Ruby também tem uma versão negado do construtor if, o <strong>unless end</strong>.</li>
-	<li>Expressões <strong>case</strong>: Esta forma é bastante próxima a uma série de instruções <strong>if</strong>: ela permite que você liste uma série de condições e<br />
-e executa uma instrução correspondente a primeira condição que foi verdadeira. <strong>case</strong> retorna o valor da última expressão executada. Uso: <strong>case when else end</strong>.</li>
+	<li>O Ruby também tem uma versão negada do construtor if, o <strong>unless end</strong>.</li>
+	<li>Expressões <strong>case</strong>: Esta forma é bastante próxima a uma série de instruções <strong>if</strong>: ela permite que você liste uma série de condições e executa uma instrução correspondente a primeira condição que foi verdadeira. <strong>case</strong> retorna o valor da última expressão executada. Uso: <strong>case when else end</strong>.</li>
 	<li><strong>IMPORTANTE</strong>: Os blocos de código Ruby são pedaços de código entre chaves ou entre <strong>do end</strong> que você pode associar com chamadas a métodos.</li>
-	<li>Blocos de código podem aparecer apenas no código adjacente a uma chamada de método; o bloco é escrito começando-se na mesma linha do último parâmetro da chamada de método (ou o parênteses de fechamento da lista de parâmetros). O código no bloco não é executado quando é encontrado. Ao invés disso, o Ruby se lembra do contexto em que o bloco aparece (as variáveis locais, o objeto atual e assim por diante) e então entra no método.</li>
-	<li>O padrão do Ruby é usar chaves para blocos de uma única linha e <strong>do end</strong> para blocos de múltipla linha. Lembre-se que a sintaxe com chaves tem precedência maior que a sintaxe <strong>do end</strong>.</li>
-	<li>Dentro de u mmétodo, você pode chamar um bloco de código Ruby usando a palavra <strong>yield</strong> com um valor.</li>
+	<li>Blocos de código podem aparecer apenas no código adjacente a uma chamada de método; o bloco é escrito começando na mesma linha do último parâmetro da chamada do método (ou o parênteses de fechamento da lista de parâmetros). O código no bloco não é executado quando é encontrado. Ao invés disso, o Ruby se lembra do contexto no qual o bloco aparece (as variáveis locais, o objeto atual e assim por diante) e então entra no método.</li>
+	<li>O padrão do Ruby é usar chaves para blocos de uma única linha e <strong>do end</strong> para blocos de múltiplas linhas. Lembre-se que a sintaxe com chaves tem precedência maior que a sintaxe <strong>do end</strong>.</li>
+	<li>Dentro de um método, você pode chamar um bloco de código Ruby usando a palavra <strong>yield</strong> com um valor.</li>
 	<li>Você pode fornecer parâmetros para a chamada ao <strong>yield</strong>: estes serão passados ao bloco. Dentro do bloco, você lista os argumentos para receber os parâmetros entre barras verticais (|).</li>
 </ol>
 <div class="pagination"><a href="arrays-ruby.html">Arrays Ruby &gt;</a></div>

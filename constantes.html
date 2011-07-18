@@ -39,13 +39,13 @@
 </div>
 <p>Produz um aviso (warning):</p>
 <div class="CodeRay">
-<pre><span class="no">1</span>   p054constwarn.rb:3: warning: already initialized constant A_CONST 
+<pre><span class="no">1</span>   p054constwarn.rb:3: warning: already initialized constant A_CONST
 <span class="no">2</span>   # aviso: a constante A_CONST já foi inicializada
 </pre>
 </div>
-<p>Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores (<em>) são usados para separar palavras, ASSIM_POR</em>EXEMPLO. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.</p>
+<p>Do ponto de vista léxico, o nome de constantes se parece com o de variáveis locais, exceto pelo fato de começarem uma letra em maiúsculo. Por convenção, a maioria das constantes são escritas com todas as letras em maiúsculas e underscores são usados para separar palavras, DESSA_FORMA. Os nomes de módulo e de classes Ruby são também constantes, mas são convencionalmente escritos usando letras maiúsculas no início de cada palavra (o chamado camel case), AssimPorExemplo.</p>
 <p>Perceba que constantes não existem até que um valor seja associado as mesmas.</p>
-<p>Embora constantes não devam ser alteradas, você pode modificar o estado interno dos objetos que as referenciam, como visto no exemplo <b>p055constalter.rb</b>:</p>
+<p>Embora constantes não devam ser alteradas, você pode modificar o estado interno dos objetos que elas referenciam, como visto no exemplo <b>p055constalter.rb</b>:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span>   <span class="c"># p055constalter.rb</span>
 <span class="no">2</span>   <span class="co">A_CONST</span> = <span class="s"><span class="dl">&quot;</span><span class="k">Doshi</span><span class="dl">&quot;</span></span>
@@ -64,7 +64,7 @@
 	<li>Fora da classe ou módulo, elas podem ser acessadas usando o operador de escopo :: , prefixado por uma expressão que retorna o módulo ou classe associado (Classe::CONSTANTE)</li>
 	<li>Constantes definidas fora de qualquer classe ou módulo podem ser acessadas normalmente ou usando o operador de escopo sem nenhum prefixo.</li>
 	<li>Constantes não podem ser definidas em métodos.</li>
-	<li>Constantes podem ser adicionadas para classes e módulos existentes externamente usando o nome da classe e do módulo e o operador de escopo antes do nome da variável.</li>
+	<li>Constantes podem ser externamente adicionadas a classes e módulos existentes utilizando o nome da classe ou do módulo e o operador de escopo antes do nome da constante.</li>
 </ul>
 <p>O programa <b>p056const.rb</b> mostra tudo isso:</p>
 <div class="CodeRay">
@@ -80,10 +80,10 @@
 <span class="no"><strong>10</strong></span>   puts <span class="co">Constante</span>.new.pega_constante
 <span class="no">11</span>   puts <span class="co">Constante</span>::<span class="co">CONSTANTE</span>
 <span class="no">12</span>   puts ::<span class="co">CONSTANTE_EXTERNA</span>
-<span class="no">13</span>   puts <span class="co">Const</span>::<span class="co">NOVA_CONSTANTE</span> = <span class="i">123</span>
+<span class="no">13</span>   puts <span class="co">Constante</span>::<span class="co">NOVA_CONSTANTE</span> = <span class="i">123</span>
 </pre>
 </div>
-<p>Outro exemplo elbaroda sobre métodos de uma classe é o <b>p057mymethods2.rb</b>. Nesse exemplo nós também vemos como escrever um método de classe.</p>
+<p>Outro exemplo elaborado sobre métodos de uma classe é o <b>p057mymethods2.rb</b>. Nesse exemplo nós também vemos como escrever um método de classe.</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span>   <span class="c"># p057mymethods2.rb</span>
 <span class="no"> 2</span>   <span class="c"># variávais e métodos começam com letra minúscula</span>

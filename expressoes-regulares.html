@@ -30,7 +30,7 @@
 
    <div class="column span-17 prepend-1 first">
       <p class="title">Expressões Regulares</p>
-<p>Expressões regulares, embora crípticas, são uma poderosa ferramenta para trabalhar com texto. O Ruby possui esta funcionalidade incluída em seu núcleo. Elas são usadas para o casamento de padrões e processamento de texto.</p>
+<p>Expressões regulares, embora críticas, são uma poderosa ferramenta para trabalhar com texto. O Ruby possui esta funcionalidade incluída em seu núcleo. Elas são usadas para o casamento de padrões e processamento de texto.</p>
 <p>Muitas pessoas acham que expressões regulares são difíceis de usar, difíceis de ler, de manter e, consequentemente, improdutivas. Você pode acabar usando apenas um pequeno número de expressões regulares em suas aplicações em Ruby e Rails. Não é pré-requisito, para programar em Rails, tornar-se um especialista em Expressões Regulares. Entretanto, é recomendado o aprendizado, ao menos o básico de como as expressões regulares funcionam.</p>
 <p><b>Uma expressão regular é uma forma simples de especificar um padrão de caracteres que será casado com uma string</b>. Em Ruby, você normalmente cria uma expressão regular escrevendo um padrão entre caracteres de barra &#8216;/&#8217; (/padrão/). Em Ruby, expressões regulares são objetos (do tipo <b>Regexp</b>) e podem ser manipulados como tais. <b>//</b> é uma expressão regular e uma instância da classe Regexp, como demonstrado abaixo:</p>
 <div class="CodeRay">
@@ -53,7 +53,7 @@
 </div>
 <p>Os possíveis componentes de uma expressão regular incluem os seguintes:</p>
 <h2>Caracteres literais</h2>
-<p>Qualquer caractere literal que for adicionado em uma expressão regular casa consigo mesmo na expressão regular.</p>
+<p>Qualquer caractere literal que for adicionado em uma expressão regular casa consigo mesmo na string.</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="rx"><span class="dl">/</span><span class="k">a</span><span class="dl">/</span></span>
 </pre>
@@ -72,7 +72,7 @@
 <pre><span class="no">1</span> <span class="rx"><span class="dl">/</span><span class="k">.ejected</span><span class="dl">/</span></span>
 </pre>
 </div>
-<p>casa, ao mesmo tempo, com &#8220;dejected&#8221; e &#8220;rejected&#8221;. Também casa com &#8220;%ejected&#8221; e &#8220;8jected&#8221;. O caractere coringa ponto é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condições no casamento de padrões enquanto permite o casamento de múltiplas cadeias de caracteres, usando classes de caracteres.</p>
+<p>casa, ao mesmo tempo, com &#8220;dejected&#8221; e &#8220;rejected&#8221;. Também casa com &#8220;%ejected&#8221; e &#8220;8jected&#8221;. O caractere coringa é muito útil, mas algumas vezes ele casa com mais padrões do que o desejado. Entretanto, você pode impor condições no casamento de padrões enquanto permite o casamento de múltiplas cadeias de caracteres, usando classes de caracteres.</p>
 <h2>Classes de Caracteres</h2>
 <p>Uma classe de caractere é uma lista explicita de caracteres, colocada entre colchetes em uma expressão regular:</p>
 <div class="CodeRay">
@@ -91,7 +91,7 @@
 </pre>
 </div>
 <p>Esta classe casa com qualquer caractere de a à f (maiúsculo ou minúsculo) ou qualquer dígito.</p>
-<p>Algumas vezes você precisa casar qualquer caratere exceto aqueles que estão em uma lista expecial. Você pode, por exemplo, verificar o primeiro caractere em uma string não é um dígito hexadecimal válido.</p>
+<p>Algumas vezes você precisa casar qualquer caratere exceto aqueles que estão em uma lista especial. Você pode, por exemplo, verificar se o primeiro caractere em uma string não é um dígito hexadecimal válido.</p>
 <p>Você cria esse tipo de &#8220;busca negativa&#8221; negando uma classe de caracteres. Para fazer isso, você coloca um caractere de acento circunflexo (^) no comeco da classe. Aqui está a classe que casa com qualquer caractere exceto aqueles que são digitos hexadecimais válidos:</p>
 <div class="CodeRay">
 <pre><span class="no">1</span> <span class="rx"><span class="dl">/</span><span class="k">[^A-Fa-f0-9]</span><span class="dl">/</span></span>
@@ -125,7 +125,7 @@
 </pre>
 </div>
 <p>Este <b>nil</b> funciona como falso ou &#8220;sem resposta&#8221; quando um casamento de padrão é tratado como um teste verdadeiro/falso.</p>
-<p>Diferentemente de <b>nil</b>, um objeto <b>MatchData</b> retornado por um casamento bem sucedido é tratado como um valor Booleano verdadeiro, que torna simples os teste de casamento/não casamento. Além disso, o objeto <b>MatchData</b> retornado armazena os dados do casamento, possibilitando que você possa verificar-los com os métodos apropriados: onde o casamento iniciou (em qual caractere na string), quanto do padrão casou na string, o que foi capturado nos agrupamentos entre parênteses, e outras coisas mais.</p>
+<p>Diferentemente de <b>nil</b>, um objeto <b>MatchData</b> retornado por um casamento bem sucedido é tratado como um valor Booleano verdadeiro, que torna simples os teste de casamento/não casamento. Além disso, o objeto <b>MatchData</b> retornado armazena os dados do casamento, possibilitando que você possa verificá-los com os métodos apropriados: onde o casamento iniciou (em qual caractere na string), quanto do padrão casou na string, o que foi capturado nos agrupamentos entre parênteses, e outras coisas mais.</p>
 <p>Para utilizar o objeto <b>MatchData</b>, você precisa, primeiramente, armazená-lo. Considere um exemplo em que gostaríamos de extrair um número de telefone de uma string e armazenar suas diferentes partes (código de área, operadora, número) em partes. Exemplo <b>p064regexp.rb</b></p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> <span class="c"># p064regexp.rb</span>
@@ -149,7 +149,7 @@
 <span class="no">19</span> puts m[<span class="i">1</span>]
 </pre>
 </div>
-<p>Neste código, nós usamos o método <b>string</b> do objeto <b>MatchData</b> (<b>puts m.string</b>) para obter toda string em que a operação <b>match</b> foi executada. Para obter as partes da string que casaram com nosso padrão, nós adicionamos os índices do objeto <b>MatchData</b> a entre colchetes, com o valor 0 no índice (<b>puts m<sup class="footnote" id="fnr0"><a href="#fn0">0</a></sup></b>). Também usamos o método times (<b>3.times do |index|</b>) para iterar exatamente 3 vezes com o bloco de código e imprimir os subcasamentos (as capturas entre parenteses) sucessivamente. Dentro do bloco de código o método chamado <b>captures</b> extrai as substrins que casam com a parte do padrão que está entre parênteses. Finalizando, nós exibimos novamente a primeira captura, mas dessa vez utilizamos uma técnica diferente: indexamos o objeto <b>MatchData</b> diretamente com colchetes e inteiros positivos, cada inteiro correspondendo a uma captura.</p>
+<p>Neste código, nós usamos o método <b>string</b> do objeto <b>MatchData</b> (<b>puts m.string</b>) para obter toda string em que a operação <b>match</b> foi executada. Para obter as partes da string que casaram com nosso padrão, nós adicionamos os índices do objeto <b>MatchData</b> entre colchetes, com o valor 0 no índice. Também usamos o método times (<b>3.times do |index|</b>) para iterar exatamente 3 vezes com o bloco de código e imprimir os subcasamentos (as capturas entre parenteses) sucessivamente. Dentro do bloco de código o método chamado <b>captures</b> extrai as substrings que casam com a parte do padrão que está entre parênteses. Finalizando, nós exibimos novamente a primeira captura, mas dessa vez utilizamos uma técnica diferente: indexamos o objeto <b>MatchData</b> diretamente com colchetes e inteiros positivos, cada inteiro correspondendo a uma captura.</p>
 <p>Aqui está a saída:</p>
 <div class="CodeRay">
 <pre><span class="no"> 1</span> &gt;ruby p064regexp.rb
