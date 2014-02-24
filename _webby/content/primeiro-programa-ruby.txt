@@ -37,10 +37,10 @@ Tecnicamente falando, esses métodos são fornecidos pelo módulo *Kernel* do Ru
 
 h2. Observe
 
-# Programadores Java e C - não é necessário escrever um método/função main
-# Literais string são sequências de caracteres entre aspas simples ou dupla. Eu estou usando aspas simples em volta de Olá. ' é mais eficiente que " (mais sobre isso depois)
-# Ruby é uma linguagem interpretada, então você não precisa recompilar para executar um programa escrito em Ruby
-# Lançamentos do Ruby mesmo com números de sub-versões - 1.6, 1.8, e outros - são estáveis, versões públicas. Entretanto, em 2007 Matz quebrou a convenção e criou a versão 1.9 como uma pública e estável versão do Ruby
-# A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb
+# Programadores Java e C - não é necessário escrever um método/função main.
+# Literais string são sequências de caracteres entre aspas simples ou dupla. Eu estou usando aspas simples em volta de Olá. ' é mais eficiente que " (mais sobre isso depois).
+# Ruby é uma linguagem interpretada, então você não precisa recompilar para executar um programa escrito em Ruby.
+# Lançamentos do Ruby mesmo com números de sub-versões - 1.6, 1.8, e outros - são estáveis, versões públicas. Entretanto, em 2007 Matz quebrou a convenção e criou a versão 1.9 como uma  versão pública e estável do Ruby.
+# A convenção de codificação Ruby diz que nomes de arquivos/diretórios são escritos em letra minúscula e com extensão .rb. Por exemplo, a classe Foo tem o nome foo.rb.
 <%- page_title, page_url = next_page %>
 <div class="pagination"><%= link_to(page_title + " >" , page_url) %></div>
